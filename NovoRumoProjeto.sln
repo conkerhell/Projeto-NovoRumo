@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26228.16
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NovoRumoProjeto", "NovoRumoProjeto\NovoRumoProjeto.csproj", "{949D78FC-E1A0-47E8-92E8-3FD0F031F677}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NovoRumoProjeto.Tests", "NovoRumoProjeto.Tests\NovoRumoProjeto.Tests.csproj", "{2FA9AF75-89C4-4F93-B217-803DAF9601C6}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{949D78FC-E1A0-47E8-92E8-3FD0F031F677}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{949D78FC-E1A0-47E8-92E8-3FD0F031F677}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{949D78FC-E1A0-47E8-92E8-3FD0F031F677}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{949D78FC-E1A0-47E8-92E8-3FD0F031F677}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2FA9AF75-89C4-4F93-B217-803DAF9601C6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2FA9AF75-89C4-4F93-B217-803DAF9601C6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2FA9AF75-89C4-4F93-B217-803DAF9601C6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2FA9AF75-89C4-4F93-B217-803DAF9601C6}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
