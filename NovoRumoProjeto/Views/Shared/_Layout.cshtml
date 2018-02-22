@@ -10,13 +10,16 @@
     <link href="https://fonts.googleapis.com/css?family=Raleway:400,900" rel="stylesheet" async>
 </head>
 <body>
-
     <div>
+        @Html.Partial("_Cabecalho")
+        @Html.Partial("_QuemSomos")
         <main>
-            @RenderBody()
+            @RenderBody()            
         </main>
-
+        @Html.Partial("_Contato")
+        
     </div>
+    @Html.Partial("_Rodape")
     @RenderSection("Scripts", false)
 </body>
 </html>
