@@ -2,28 +2,52 @@
 <script src="~/Scripts/skrollr.min.js"></script>
 <script src="~/Scripts/skrollr.stylesheets.min.js"></script>
 <script src="~/Scripts/foundation.min.js"></script>
-
+<script src="~/Scripts/app.js"></script>
 <script>
-        $(document).foundation();
+    $(document).foundation();
 
-        $(window).on('load', function () {
+    $(window).on('load', function () {
+        if (Foundation.MediaQuery.atLeast('medium')) {
+            initSkroll();
+        }
+    });
+    $(window).on('changed.zf.mediaquery', function (event, newSize, oldSize) {
+        if (newSize !== "small") {
+            initSkroll();
+        } else {
+            destroySkroll();
+        }
+    });
 
+    var prev = 0;
+    var $window = $(window);
+    var nav = $('.scrollhide-nav');
+    $window.on('scroll', function () {
+        var scrollTop = $window.scrollTop();
+        nav.toggleClass('hidden', scrollTop > prev);
+        prev = scrollTop;
+    });
+
+    function initSkroll() {
+        skrollr.init({
+            forceHeight: false,
+            smoothScrolling: false
         });
+    }
 
-        $(window).on('changed.zf.mediaquery', function (event, newSize, oldSize) {
-            if (newSize === "large" || newSize === "medium") {
-                skrollr.init({
-                    forceHeight: false,
-                    smoothScrolling: false
-                });
-            }
-        });
+    function destroySkroll() {
+        skrollr.init().destroy();
+    }
 
-        (function (d, s, id) {
-            var js, fjs = d.getElementsByTagName(s)[0];
-            if (d.getElementById(id)) return;
-            js = d.createElement(s); js.id = id;
-            js.src = 'https://connect.facebook.net/pt_BR/sdk.js#xfbml=1&version=v2.12&appId=269841363195323&autoLogAppEvents=1';
-            fjs.parentNode.insertBefore(js, fjs);
-        }(document, 'script', 'facebook-jssdk'));
+    $(".accordion-menu li a").on("click", function () {
+        $("#responsive-menu").css({ "display": "none" });
+    });
+
+    (function (d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = 'https://connect.facebook.net/pt_BR/sdk.js#xfbml=1&version=v2.12&appId=269841363195323&autoLogAppEvents=1';
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
 </script>

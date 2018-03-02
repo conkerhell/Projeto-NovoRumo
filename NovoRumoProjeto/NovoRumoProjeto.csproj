@@ -159,7 +159,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\app.css" />
     <Content Include="Content\app.min.css" />
+    <Content Include="Content\foundation.css" />
+    <Content Include="Content\foundation.min.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="ApplicationInsights.config">
@@ -173,6 +176,7 @@
     <Content Include="Imagens\doacao.jpg" />
     <Content Include="Imagens\event-icon.png" />
     <Content Include="Imagens\fb.png" />
+    <Content Include="Imagens\happineswall.jpg" />
     <Content Include="Imagens\idea-icon.png" />
     <Content Include="Imagens\logo.jpg" />
     <Content Include="Imagens\mail.png" />
@@ -184,6 +188,7 @@
     <Content Include="Imagens\produto.JPG" />
     <Content Include="Imagens\sparkles-white.png" />
     <Content Include="Imagens\sparkles.gif" />
+    <Content Include="Scripts\app.js" />
     <Content Include="Scripts\foundation.min.js" />
     <Content Include="Scripts\jquery.min.js" />
     <Content Include="Scripts\skrollr.min.js" />
