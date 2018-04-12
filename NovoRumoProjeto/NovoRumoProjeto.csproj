@@ -25,6 +25,7 @@
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <Use64BitIISExpress />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -161,33 +162,31 @@
   <ItemGroup>
     <Content Include="Content\app.css" />
     <Content Include="Content\app.min.css" />
-    <Content Include="Content\foundation.css" />
-    <Content Include="Content\foundation.min.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Imagens\artesanal.jpg" />
-    <Content Include="Imagens\artesanal2.jpg" />
-    <Content Include="Imagens\artesanal3.JPG" />
-    <Content Include="Imagens\bg-top.png" />
-    <Content Include="Imagens\bolo.jpg" />
-    <Content Include="Imagens\doacao.jpg" />
-    <Content Include="Imagens\event-icon.png" />
-    <Content Include="Imagens\fb.png" />
-    <Content Include="Imagens\happineswall.jpg" />
-    <Content Include="Imagens\idea-icon.png" />
-    <Content Include="Imagens\logo.jpg" />
-    <Content Include="Imagens\mail.png" />
-    <Content Include="Imagens\mapa-maior.png" />
-    <Content Include="Imagens\mapa.JPG" />
-    <Content Include="Imagens\noticia.JPG" />
-    <Content Include="Imagens\noticia2.JPG" />
-    <Content Include="Imagens\noticia3.JPG" />
-    <Content Include="Imagens\produto.JPG" />
-    <Content Include="Imagens\sparkles-white.png" />
-    <Content Include="Imagens\sparkles.gif" />
+    <Content Include="Images\Banner_v1.png" />
+    <Content Include="Images\Banner_v2.png" />
+    <Content Include="Images\bg-top-v2.png" />
+    <Content Include="Images\bg-top.png" />
+    <Content Include="Images\dia-a-dia\artesanato-em-mesa.jpg" />
+    <Content Include="Images\dia-a-dia\bazar.JPG" />
+    <Content Include="Images\dia-a-dia\exercicio-ao-ar-livre.jpg" />
+    <Content Include="Images\dia-a-dia\musica-em-roda.JPG" />
+    <Content Include="Images\dia-a-dia\mães-filhos-e-filhas.jpg" />
+    <Content Include="Images\dia-a-dia\porta-porteira-portão.JPG" />
+    <Content Include="Images\dia-a-dia\roda.jpg" />
+    <Content Include="Images\dia-a-dia\selfie-roda.jpg" />
+    <Content Include="Images\event-icon.png" />
+    <Content Include="Images\fb.png" />
+    <Content Include="Images\idea-icon.png" />
+    <Content Include="Images\mail.png" />
+    <Content Include="Images\mapa.png" />
+    <Content Include="Images\sparkles-white.png" />
+    <Content Include="Images\sparkles.gif" />
+    <Content Include="Images\whatsapp.png" />
     <Content Include="Scripts\app.js" />
     <Content Include="Scripts\foundation.min.js" />
     <Content Include="Scripts\jquery.min.js" />
@@ -215,19 +214,10 @@
     <Content Include="Views\Home\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Shared\Scripts.cshtml" />
+    <Content Include="Views\Shared\_footer.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Shared\_Rodape.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Views\Shared\_Contato.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Views\Shared\_Cabecalho.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Views\Shared\_QuemSomos.cshtml" />
+    <Content Include="Views\Shared\_header.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -1,26 +1,89 @@
 ﻿<!DOCTYPE html>
-
 <html>
-
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Associação Novo Rumo Atibaia</title>
     <link href="~/Content/app.min.css" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css?family=Raleway:400,900" rel="stylesheet" async>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/motion-ui/1.1.1/motion-ui.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/motion-ui/1.1.1/motion-ui.min.css" async />
 </head>
 <body>
-    <div>
-        @Html.Partial("_Cabecalho")
-        @Html.Partial("_QuemSomos")
-        <main>
-            @RenderBody()            
-        </main>
-        @Html.Partial("_Contato")
-        
-    </div>
-    @Html.Partial("_Rodape")
-    @RenderSection("Scripts", false)
+    @Html.Partial("_header")
+    @RenderBody()
+    @Html.Partial("_footer")
+
+    <script type="text/javascript" src="/Scripts/jquery.min.js"></script>
+    <script type="text/javascript" src="/Scripts/foundation.min.js"></script>
+    <script type="text/javascript" src="/Scripts/skrollr.min.js" async></script>
+    <script type="text/javascript" src="/Scripts/skrollr.stylesheets.min.js" async></script>
+    <script>
+        $(document).foundation();
+
+        $(window).on('load', function () {
+            if (Foundation.MediaQuery.atLeast('medium')) {
+                initSkroll();
+            }
+        });
+        $(window).on('changed.zf.mediaquery', function (event, newSize, oldSize) {
+            if (newSize !== "small") {
+                initSkroll();
+            } else {
+                destroySkroll();
+            }
+        });
+
+        var prev = 0;
+        var $window = $(window);
+        var nav = $('.scrollhide-nav');
+        $window.on('scroll', function () {
+            var scrollTop = $window.scrollTop();
+            nav.toggleClass('hidden', scrollTop > prev);
+            prev = scrollTop;
+        });
+
+        function initSkroll() {
+            skrollr.init({
+                forceHeight: false,
+                smoothScrolling: false
+            });
+        }
+
+        function destroySkroll() {
+            skrollr.init().destroy();
+        }
+
+        $(".accordion-menu li a").on("click", function () {
+            $("#responsive-menu").css({ "display": "none" });
+        });
+
+        (function (d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s); js.id = id;
+            js.src = 'https://connect.facebook.net/pt_BR/sdk.js#xfbml=1&version=v2.12&appId=269841363195323&autoLogAppEvents=1';
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+
+        $(document).ready(function () {
+            $(function () {
+                $('a[href*=\\#]:not([href=\\#])').click(function () {
+                    if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') &&
+                        location.hostname == this.hostname) {
+
+                        var target = $(this.hash);
+                        target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+                        if (target.length) {
+                            $('html,body').animate({
+                                scrollTop: target.offset().top
+                            }, 1000);
+                            return false;
+                        }
+                    }
+                });
+            });
+
+        });
+    </script>
 </body>
 </html>
