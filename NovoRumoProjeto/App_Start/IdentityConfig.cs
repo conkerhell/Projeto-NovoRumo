@@ -43,7 +43,7 @@ namespace NovoRumoProjeto
                 RequireLowercase = false,
                 RequireUppercase = false,
             };
-            
+             
             manager.UserLockoutEnabledByDefault = true;
             manager.DefaultAccountLockoutTimeSpan = TimeSpan.FromMinutes(5);
             manager.MaxFailedAccessAttemptsBeforeLockout = 5;
