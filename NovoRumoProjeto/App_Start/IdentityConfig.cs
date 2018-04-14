@@ -154,15 +154,14 @@ namespace NovoRumoProjeto
         }
     }
     
-    public class ApplicationDbInitializer : DropCreateDatabaseAlways<ApplicationDbContext>
+    public class ApplicationDbInitializer : CreateDatabaseIfNotExists<ApplicationDbContext>
     {
         protected override void Seed(ApplicationDbContext context)
         {
             InitializeIdentityForEF(context);
             base.Seed(context);
         }
-
-        //Create User=Admin@Admin.com with password=Admin@123456 in the Admin role        
+    
         public static void InitializeIdentityForEF(ApplicationDbContext db)
         {
             var userManager = HttpContext.Current.GetOwinContext().GetUserManager<ApplicationUserManager>();
@@ -171,8 +170,7 @@ namespace NovoRumoProjeto
             const string name = "admin@example.com";
             const string password = "Admin@123456";
             const string roleName = "Admin";
-
-            //Create Role Admin if it does not exist
+            
             var role = roleManager.FindByName(roleName);
             if (role == null)
             {
@@ -187,8 +185,7 @@ namespace NovoRumoProjeto
                 var result = userManager.Create(user, password);
                 result = userManager.SetLockoutEnabled(user.Id, false);
             }
-
-            // Add user admin to Role Admin if not already added
+            
             var rolesForUser = userManager.GetRoles(user.Id);
             if (!rolesForUser.Contains(role.Name))
             {

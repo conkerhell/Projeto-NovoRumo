@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using System;
+using System.Data.Entity.Migrations.History;
 
 namespace NovoRumoProjeto.Models
 {
@@ -40,20 +41,19 @@ namespace NovoRumoProjeto.Models
             return userIdentity;
         }
     }
-
-
+    
     public class ApplicationDbContext
         : IdentityDbContext<ApplicationUser, ApplicationRole, int,
         ApplicationUserLogin, ApplicationUserRole, ApplicationUserClaim>
     {
         public ApplicationDbContext()
-            : base("novorumo_db_connection")
+            : base("NovoRumoConnection")
         {
         }
 
         static ApplicationDbContext()
         {
-            Database.SetInitializer<ApplicationDbContext>(new ApplicationDbInitializer());
+            Database.SetInitializer(new ApplicationDbInitializer());
         }
 
         public static ApplicationDbContext Create()
@@ -61,7 +61,6 @@ namespace NovoRumoProjeto.Models
             return new ApplicationDbContext();
         }
     }
-
 
     public class ApplicationUserStore :
     UserStore<ApplicationUser, ApplicationRole, int,
