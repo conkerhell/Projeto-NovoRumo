@@ -282,6 +282,12 @@
   <ItemGroup>
     <Compile Include="App_Start\Startup.Auth.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\NovoRumoProjeto.Utilities\NovoRumoProjeto.Utilities.csproj">
+      <Project>{bd633a0f-ecb5-4e74-9fe8-5293edf9a1f4}</Project>
+      <Name>NovoRumoProjeto.Utilities</Name>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

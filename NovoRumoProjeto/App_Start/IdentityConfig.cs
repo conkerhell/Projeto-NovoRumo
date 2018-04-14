@@ -12,6 +12,7 @@ using Microsoft.Owin;
 using Microsoft.Owin.Security;
 using NovoRumoProjeto.Models;
 using System.Configuration;
+using NovoRumoProjeto.Utilities;
 
 namespace NovoRumoProjeto
 {
@@ -71,12 +72,12 @@ namespace NovoRumoProjeto
                         dataProtectionProvider.Create("ASP.NET Identity"));
             }
 
-            var name = ConfigurationManager.AppSettings["AdminEmail"];
+            var name = ConfigurationManager.AppSettings[Consts.ADMIN_EMAIL];
             var user = manager.FindByName(name);
             if (user == null)
             {
-                var password = ConfigurationManager.AppSettings["AdminPassword"];
-                var role = ConfigurationManager.AppSettings["RoleName"];
+                var password = ConfigurationManager.AppSettings[Consts.ADMIN_PASSWORD];
+                var role = ConfigurationManager.AppSettings[Consts.ROLE_NAME];
 
                 user = new ApplicationUser { UserName = name, Email = name };
                 var result = manager.Create(user, password);
