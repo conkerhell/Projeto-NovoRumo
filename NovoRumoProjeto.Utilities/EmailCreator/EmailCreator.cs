@@ -1,52 +1,71 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Configuration;
 using System.Net.Mail;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace NovoRumoProjeto.Utilities.EmailCreator
 {
     public class EmailCreator : IEmailCreator
     {
+        private static string SMTPPassword = ConfigurationManager.AppSettings["SMTPPassword"];
+        private static string SMTPMail = ConfigurationManager.AppSettings["SMTPMail"];
         private MailMessage mailMessage = new MailMessage();
 
         public IEmailCreator BCC(params string[] bccAddresses)
         {
-            throw new NotImplementedException();
+            foreach (string bccAddress in bccAddresses)
+            {
+                mailMessage.Bcc.Add(new MailAddress(bccAddress));
+            }
+
+            return this;
         }
 
         public IEmailCreator CC(params string[] ccAddresses)
         {
-            throw new NotImplementedException();
+            foreach (string ccAddress in ccAddresses)
+            {
+                mailMessage.CC.Add(new MailAddress(ccAddress));
+            }
+
+            return this;
         }
 
         public IEmailCreator From(string fromAddress)
         {
-            throw new NotImplementedException();
+            return this;
         }
 
         public void Send()
         {
-            SmtpClient smtpClient = new SmtpClient();
-            //smtpClient.Credentials = cre
-            smtpClient.Timeout = 100;
-            smtpClient.Send(mailMessage);
+            SmtpClient client = new SmtpClient();
+            client.Credentials = new System.Net.NetworkCredential(SMTPMail, SMTPPassword);
+            client.Port = 587;
+            client.Host = "smtp.umbler.com";
+            client.EnableSsl = true;
+            client.Send(mailMessage);
         }
 
         public IEmailCreator To(params string[] toAddresses)
         {
-            throw new NotImplementedException();
+            foreach (string toAddress in toAddresses)
+            {
+                mailMessage.To.Add(new MailAddress(toAddress));
+            }
+
+            return this;
         }
 
         public IEmailCreator WithBody(string body)
         {
-            throw new NotImplementedException();
+            mailMessage.Body = body;
+
+            return this;
         }
 
         public IEmailCreator WithSubject(string subject)
         {
-            throw new NotImplementedException();
+            mailMessage.Subject = subject;
+
+            return this;
         }
     }
 }
