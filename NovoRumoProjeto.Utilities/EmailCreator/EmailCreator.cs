@@ -9,6 +9,16 @@ namespace NovoRumoProjeto.Utilities.EmailCreator
         private static string SMTPMail = ConfigurationManager.AppSettings["SMTPMail"];
         private MailMessage mailMessage = new MailMessage();
 
+        private EmailCreator(string fromAddress)
+        {
+            mailMessage.Sender = new MailAddress(fromAddress);
+        }
+
+        public static IEmailCreator CreateEmailFrom(string fromAddress)
+        {
+            return new EmailCreator(fromAddress);
+        }
+
         public IEmailCreator BCC(params string[] bccAddresses)
         {
             foreach (string bccAddress in bccAddresses)

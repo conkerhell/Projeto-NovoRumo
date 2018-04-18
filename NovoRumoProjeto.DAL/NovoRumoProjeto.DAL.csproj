@@ -49,6 +49,12 @@
     <Folder Include="Order\" />
     <Folder Include="Product\" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DataAccessLayers\DataAccessLayers.csproj">
+      <Project>{df895b86-1446-4a05-a73c-919204c79a59}</Project>
+      <Name>DataAccessLayers</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
