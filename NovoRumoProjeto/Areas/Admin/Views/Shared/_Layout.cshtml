@@ -1,0 +1,35 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pagina Administrativa</title>
+    <link href="~/Content/foundation.min.css" rel="stylesheet" />
+    <link href="~/Content/admin.css" rel="stylesheet" />
+</head>
+<body>
+    @if (User.IsInRole("Admin"))
+    {
+        <div class="title-bar show-for-small-only">
+            <div class="title-bar-left">
+                <button class="menu-icon" type="button" data-open="menu"></button>
+                <span class="title-bar-title">MENU</span>
+            </div>
+        </div>
+        <div class="off-canvas position-left" id="menu" data-off-canvas>
+
+        </div>
+    }
+
+    <div class="off-canvas-content" data-off-canvas-content>
+        @RenderBody()
+    </div>
+
+    <script type="text/javascript" src="/Scripts/jquery.min.js"></script>
+    <script type="text/javascript" src="/Scripts/foundation.min.js"></script>
+    <script>
+        $(document).foundation();
+    </script>
+
+</body>
+</html>

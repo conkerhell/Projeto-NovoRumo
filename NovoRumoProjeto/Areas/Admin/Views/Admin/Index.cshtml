@@ -1,0 +1,26 @@
+﻿@model NovoRumoProjeto.Areas.Admin.Models.LoginViewModel
+
+@if (!User.Identity.IsAuthenticated || !User.IsInRole("Admin"))
+{
+    <div class="grid-x align-center">
+        <div class="cell medium-6 large-4">
+            @using (Html.BeginForm("Login", "Admin", FormMethod.Post, new { @class = "log-in-form" }))
+            {
+                @Html.AntiForgeryToken()
+
+                <h4 class="text-center">Painel Administrativo</h4>
+
+                @Html.LabelFor(model => model.Email)
+                @Html.TextBoxFor(m => m.Email, null, new { type = "email" })
+                @Html.LabelFor(model => model.Password)
+                @Html.PasswordFor(m => m.Password)
+                <input type="submit" class="button expanded" value="Entrar" />
+
+                <p class="text-center">
+                    @Html.ActionLink("Esqueceu sua senha?", "EsqueceuSenha", "Conta")
+                </p>
+            }
+        </div>
+
+    </div>
+}
