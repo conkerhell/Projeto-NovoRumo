@@ -13,6 +13,7 @@ using Microsoft.Owin.Security;
 using NovoRumoProjeto.Models;
 using System.Configuration;
 using NovoRumoProjeto.Utilities;
+using NovoRumoProjeto.Utilities.EmailCreator;
 
 namespace NovoRumoProjeto
 {

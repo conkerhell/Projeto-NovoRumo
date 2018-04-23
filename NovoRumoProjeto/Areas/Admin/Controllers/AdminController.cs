@@ -80,5 +80,41 @@ namespace NovoRumoProjeto.Areas.Admin.Controllers
             }
             return RedirectToAction("Index", "Admin");
         }
+
+        [AllowAnonymous]
+        public ActionResult EsqueceuSenha()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        [AllowAnonymous]
+        [ValidateAntiForgeryToken]
+        public async Task<ActionResult> EsqueceuSenha(ForgotPasswordViewModel model)
+        {
+            //if (ModelState.IsValid)
+            //{
+            //    var user = await UserManager.FindByNameAsync(model.Email);
+            //    if (user == null) //|| !(await UserManager.IsEmailConfirmedAsync(user.Id)))
+            //    {
+            //        return View("EsqueceuSenhaConfirmacao");
+            //    }
+
+            //    var code = await UserManager.GeneratePasswordResetTokenAsync(user.Id);
+            //    var callbackUrl = Url.Action("AlterarSenha", "Conta", new { UserId = user.Id, code = code }, protocol: Request.Url.Scheme);
+
+            //    var mail = new MailObject();
+            //    mail.Email = user.Email;
+            //    mail.Subject = "Recuperação de Senha";
+            //    mail.HtmlTemplate = Domain.dicionarioTemplateNames[Enums.TemplateName.resetPassword.ToString()];
+
+            //    Dictionary<string, string> list = new Dictionary<string, string>();
+            //    list.Add(Domain.dicionarioTags[Enums.TemplateTag.code.ToString()], callbackUrl);
+
+            //    Mailer.SendTemplateEmail(mail, list);
+            //    return View("EsqueceuSenhaConfirmacao");
+            //}
+            return View(model);
+        }
     }
 }

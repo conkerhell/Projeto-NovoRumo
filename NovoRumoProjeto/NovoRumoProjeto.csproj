@@ -196,6 +196,7 @@
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\AdminController.cs" />
     <Compile Include="Areas\Admin\Controllers\ContactController.cs" />
+    <Compile Include="Areas\Admin\Models\ForgotPasswordViewModel.cs" />
     <Compile Include="Areas\Admin\Models\LoginViewModel.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\UserController.cs" />
