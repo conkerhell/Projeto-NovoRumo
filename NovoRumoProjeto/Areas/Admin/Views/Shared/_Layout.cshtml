@@ -10,14 +10,34 @@
 <body>
     @if (User.IsInRole("Admin"))
     {
-        <div class="title-bar show-for-small-only">
+        <div class="title-bar hide-for-large">
             <div class="title-bar-left">
                 <button class="menu-icon" type="button" data-open="menu"></button>
                 <span class="title-bar-title">MENU</span>
             </div>
         </div>
-        <div class="off-canvas position-left" id="menu" data-off-canvas>
-
+        <div class="off-canvas position-left reveal-for-large" id="menu" data-off-canvas>
+            <ul class="vertical menu accordion-menu" data-accordion-menu>
+                <li>@Html.ActionLink("Dashboard", "Dashboard")</li>
+                <li>
+                    <a href="#">Cadastros</a>
+                    <ul class="menu vertical nested">
+                        <li>@Html.ActionLink("Produtos", "Products")</li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">Páginas</a>
+                    <ul class="menu vertical nested">
+                        <li>@Html.ActionLink("Sobre", "About")</li>
+                        <li>@Html.ActionLink("Contato", "Contact")</li>
+                        <li>@Html.ActionLink("Eventos", "Events")</li>
+                        <li>@Html.ActionLink("Dia-a-dia", "Daily-activities")</li>
+                    </ul>
+                </li>
+                <li>
+                    @Html.ActionLink("Sair", "Index", new { area = "", controller = "Home" })
+                </li>
+            </ul>
         </div>
     }
 
