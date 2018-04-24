@@ -3,6 +3,8 @@ using System.Web;
 using System.Web.Mvc;
 using Microsoft.AspNet.Identity.Owin;
 using NovoRumoProjeto.Areas.Admin.Models;
+using Microsoft.Owin.Security;
+using Microsoft.AspNet.Identity;
 
 namespace NovoRumoProjeto.Areas.Admin.Controllers
 {
@@ -42,6 +44,14 @@ namespace NovoRumoProjeto.Areas.Admin.Controllers
             private set
             {
                 _userManager = value;
+            }
+        }
+
+        private IAuthenticationManager AuthenticationManager
+        {
+            get
+            {
+                return HttpContext.GetOwinContext().Authentication;
             }
         }
 
@@ -115,6 +125,14 @@ namespace NovoRumoProjeto.Areas.Admin.Controllers
             //    return View("EsqueceuSenhaConfirmacao");
             //}
             return View(model);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult LogOff()
+        {
+            AuthenticationManager.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
+            return RedirectToAction("index");
         }
     }
 }

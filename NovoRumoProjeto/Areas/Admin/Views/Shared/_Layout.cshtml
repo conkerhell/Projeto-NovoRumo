@@ -35,7 +35,13 @@
                     </ul>
                 </li>
                 <li>
-                    @Html.ActionLink("Sair", "Index", new { area = "", controller = "Home" })
+                    @using (Html.BeginForm("LogOff", "Admin", FormMethod.Post, new { @id = "logoutForm" }))
+                    {
+                        @Html.AntiForgeryToken()
+                        <small>
+                            <a href="#" data-logout>Sair</a>
+                        </small>
+                    }
                 </li>
             </ul>
         </div>
@@ -49,6 +55,12 @@
     <script type="text/javascript" src="/Scripts/foundation.min.js"></script>
     <script>
         $(document).foundation();
+
+        $(document).ready(function () {
+            $("[data-logout]").on("click", function () {
+                $("#logoutForm").submit();
+            });
+        });
     </script>
 
 </body>
