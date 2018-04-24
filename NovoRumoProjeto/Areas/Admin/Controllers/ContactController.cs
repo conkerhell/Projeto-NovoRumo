@@ -1,14 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using NovoRumoProjeto.Utilities;
 using System.Web.Mvc;
 
 namespace NovoRumoProjeto.Areas.Admin.Controllers
 {
+    [Authorize(Roles = Consts.ADMIN_ROLE)]
     public class ContactController : Controller
     {
-        // GET: Admin/Contact
+        [HttpGet]
         public ActionResult Index()
         {
             return View();
