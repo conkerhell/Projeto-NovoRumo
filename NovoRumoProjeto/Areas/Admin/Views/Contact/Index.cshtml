@@ -1,6 +1,18 @@
-﻿
-<div class="cell">
-    <h2>Contato</h2>
+﻿@model NovoRumoProjeto.Areas.Admin.Models.ContactViewModel
 
-    <input type="text" />
+
+<div class="cell small-3">
+    <h2>Contato</h2>
+</div>
+<div class="cell small-9">
+    @Html.ActionLink("editar", "Edit", "Contact", new { @class = "button secondary" })
+</div>
+
+<div class="cell">
+    <p><span>@Html.DisplayNameFor(model => model.Email): </span><span>@Html.DisplayFor(model => model.Email)</span></p>
+    <p><span>@Html.DisplayNameFor(model => model.Telephone): </span><span>@Html.DisplayFor(model => model.Telephone)</span></p>
+    <p><span>@Html.DisplayNameFor(model => model.Mobile): </span><span>@Html.DisplayFor(model => model.Mobile)</span></p>
+    <p><span>@Html.DisplayNameFor(model => model.SecondaryMobile): </span><span>@Html.DisplayFor(model => model.SecondaryMobile)</span></p>
+    <p><span>@Html.DisplayNameFor(model => model.Endereço): </span><span>@Html.DisplayFor(model => model.Endereço)</span></p>
+    <p><span>@Html.DisplayNameFor(model => model.CEP): </span><span>@Html.DisplayFor(model => model.CEP)</span></p>
 </div>

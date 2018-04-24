@@ -10,12 +10,6 @@
 <body>
     @if (User.IsInRole("Admin"))
     {
-        <div class="title-bar hide-for-large">
-            <div class="title-bar-left">
-                <button class="menu-icon" type="button" data-open="menu"></button>
-                <span class="title-bar-title">MENU</span>
-            </div>
-        </div>
         <div class="off-canvas position-left reveal-for-large" id="menu" data-off-canvas>
             <ul class="vertical menu accordion-menu" data-accordion-menu>
                 <li>@Html.ActionLink("Dashboard", "Dashboard")</li>
@@ -28,10 +22,10 @@
                 <li>
                     <a href="#">Páginas</a>
                     <ul class="menu vertical nested">
-                        <li>@Html.ActionLink("Sobre", "About")</li>
-                        <li>@Html.ActionLink("Contato", "Contact")</li>
-                        <li>@Html.ActionLink("Eventos", "Events")</li>
-                        <li>@Html.ActionLink("Dia-a-dia", "Daily-activities")</li>
+                        <li>@Html.ActionLink("Sobre", "Index", "About")</li>
+                        <li>@Html.ActionLink("Contato", "Index", "Contact")</li>
+                        <li>@Html.ActionLink("Eventos", "Index", "Events")</li>
+                        <li>@Html.ActionLink("Dia-a-dia", "Index", "Activity")</li>
                     </ul>
                 </li>
                 <li>
@@ -48,6 +42,13 @@
     }
 
     <div class="off-canvas-content" data-off-canvas-content>
+        <div class="title-bar hide-for-large">
+            <div class="title-bar-left">
+                <button class="menu-icon" type="button" data-open="menu"></button>
+                <span class="title-bar-title">MENU</span>
+            </div>
+        </div>
+
         <div class="grid-x grid-padding-x align-center">
             @RenderBody()
         </div>

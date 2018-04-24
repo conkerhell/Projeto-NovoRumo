@@ -1,4 +1,5 @@
-﻿using NovoRumoProjeto.Utilities;
+﻿using NovoRumoProjeto.Areas.Admin.Models;
+using NovoRumoProjeto.Utilities;
 using System.Web.Mvc;
 
 namespace NovoRumoProjeto.Areas.Admin.Controllers
@@ -9,7 +10,14 @@ namespace NovoRumoProjeto.Areas.Admin.Controllers
         [HttpGet]
         public ActionResult Index()
         {
-            return View();
+            return View(new ContactViewModel()
+            {
+                Email = "contato@novorumoatibaia.com.br",
+                Mobile = "(11) 1234-5667",
+                Telephone = "(11) 1234-5673",
+                Endereço = "Rua Papa Paulo VI, 182 <br> Vila Thais - Atibaia, SP",
+                CEP = "12345-789"
+            });
         }
     }
 }
