@@ -10,5 +10,8 @@ namespace NovoRumoProjeto.Utilities
 
         //Roles
         public const string ADMIN_ROLE = "Admin";
+
+        //SQL
+        public const string CONNECTION_STRING = "NovoRumoConnection";
     }
 }

@@ -31,6 +31,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -40,12 +41,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Contact\ContactDAL.cs" />
+    <Compile Include="DAL.cs" />
     <Compile Include="IDAL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="About\" />
-    <Folder Include="Contact\" />
     <Folder Include="Event\" />
     <Folder Include="Order\" />
     <Folder Include="Product\" />
@@ -54,6 +56,14 @@
     <ProjectReference Include="..\DataAccessLayers\DataAccessLayers.csproj">
       <Project>{df895b86-1446-4a05-a73c-919204c79a59}</Project>
       <Name>DataAccessLayers</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\NovoRumoProjeto.Entity\NovoRumoProjeto.Entity.csproj">
+      <Project>{7DB57D1F-28DF-4CA7-B52D-EEBF418A38D7}</Project>
+      <Name>NovoRumoProjeto.Entity</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\NovoRumoProjeto.Utilities\NovoRumoProjeto.Utilities.csproj">
+      <Project>{BD633A0F-ECB5-4E74-9FE8-5293EDF9A1F4}</Project>
+      <Name>NovoRumoProjeto.Utilities</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

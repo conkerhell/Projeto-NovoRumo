@@ -2,7 +2,7 @@
 
 @if (!User.Identity.IsAuthenticated || !User.IsInRole("Admin"))
 {
-    <div class="cell medium-6 large-4">
+    <div class="cell small-12 medium-6 large-4">
         @using (Html.BeginForm("Login", "Admin", FormMethod.Post, new { @class = "log-in-form" }))
         {
             @Html.AntiForgeryToken()
@@ -16,7 +16,7 @@
                 <input type="submit" class="button expanded" value="Entrar" />
 
                 <p class="text-center">
-                    @Html.ActionLink("Esqueceu sua senha?", "EsqueceuSenha", "Conta")
+                    @Html.ActionLink("Esqueceu sua senha?", "EsqueceuSenha", "Admin")
                 </p>
         }
     </div>

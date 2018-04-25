@@ -1,12 +1,14 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Resources;
+using System.ComponentModel.DataAnnotations;
 
 namespace NovoRumoProjeto.Areas.Admin.Models
 {
     public class ForgotPasswordViewModel
     {
-        [Required(ErrorMessage = "campo obrigatório")]
+        [Required(ErrorMessageResourceType = typeof(LocalizedMessages),
+            ErrorMessageResourceName = "PropertyValueRequired")]
         [EmailAddress(ErrorMessage = "email inválido")]
-        [Display(Name = "e-mail*")]
+        [Display(Name = "Email")]
         [DataType(DataType.EmailAddress)]
         public string Email { get; set; }
     }

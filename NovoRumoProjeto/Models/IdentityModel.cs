@@ -5,6 +5,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using System;
 using System.Data.Entity.Migrations.History;
+using NovoRumoProjeto.Utilities;
 
 namespace NovoRumoProjeto.Models
 {
@@ -47,7 +48,7 @@ namespace NovoRumoProjeto.Models
         ApplicationUserLogin, ApplicationUserRole, ApplicationUserClaim>
     {
         public ApplicationDbContext()
-            : base("NovoRumoConnection")
+            : base(Consts.CONNECTION_STRING)
         {
         }
 

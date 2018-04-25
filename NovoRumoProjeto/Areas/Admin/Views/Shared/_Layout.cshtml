@@ -42,12 +42,15 @@
     }
 
     <div class="off-canvas-content" data-off-canvas-content>
-        <div class="title-bar hide-for-large">
-            <div class="title-bar-left">
-                <button class="menu-icon" type="button" data-open="menu"></button>
-                <span class="title-bar-title">MENU</span>
+        @if (User.IsInRole("Admin"))
+        {
+            <div class="title-bar hide-for-large">
+                <div class="title-bar-left">
+                    <button class="menu-icon" type="button" data-open="menu"></button>
+                    <span class="title-bar-title">MENU</span>
+                </div>
             </div>
-        </div>
+        }
 
         <div class="grid-x grid-padding-x align-center">
             @RenderBody()
