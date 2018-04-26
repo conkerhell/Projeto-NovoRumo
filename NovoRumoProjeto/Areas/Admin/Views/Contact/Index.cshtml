@@ -1,18 +1,54 @@
 ﻿@model NovoRumoProjeto.Areas.Admin.Models.ContactViewModel
 
 <div class="cell">
-    <h1>Contato</h1>    
+    <h1>Contato</h1>
     <a href="@Url.Action("edit", "contact")" class="button secondary">
         <i class="fi-pencil" aria-hidden="true"></i>
         alterar
     </a>
 </div>
 
-<div class="cell">
-    <p><span>@Html.DisplayNameFor(model => model.Email): </span><span>@Html.DisplayFor(model => model.Email)</span></p>
-    <p><span>@Html.DisplayNameFor(model => model.Telephone): </span><span>@Html.DisplayFor(model => model.Telephone)</span></p>
-    <p><span>@Html.DisplayNameFor(model => model.Mobile): </span><span>@Html.DisplayFor(model => model.Mobile)</span></p>
-    <p><span>@Html.DisplayNameFor(model => model.SecondaryMobile): </span><span>@Html.DisplayFor(model => model.SecondaryMobile)</span></p>
-    <p><span>@Html.DisplayNameFor(model => model.Endereço): </span><span>@Html.DisplayFor(model => model.Endereço)</span></p>
-    <p><span>@Html.DisplayNameFor(model => model.CEP): </span><span>@Html.DisplayFor(model => model.CEP)</span></p>
+<div class="grid-x cell">
+    <div class="cell small-2">
+        @Html.DisplayNameFor(model => model.Email):
+    </div>
+    <div class="cell small-10">
+        @Html.DisplayFor(model => model.Email)
+    </div>
+
+    <div class="cell small-2">
+        @Html.DisplayNameFor(model => model.Telephone):
+    </div>
+    <div class="cell small-10">
+        @Html.DisplayFor(model => model.Telephone)
+    </div>
+
+    <div class="cell small-2">
+        @Html.DisplayNameFor(model => model.Mobile):
+    </div>
+    <div class="cell small-10">
+        @Html.DisplayFor(model => model.Mobile)
+    </div>
+
+    <div class="cell small-2">
+        @Html.DisplayNameFor(model => model.SecondaryMobile):
+    </div>
+    <div class="cell small-10">
+        @Html.DisplayFor(model => model.SecondaryMobile)
+    </div>
+
+    <div class="cell small-2">
+        @Html.DisplayNameFor(model => model.Endereço):
+    </div>
+    <div class="cell small-10">
+        @Html.DisplayFor(model => model.Endereço)
+    </div>
+
+    <div class="cell small-2">
+        @Html.DisplayNameFor(model => model.CEP):
+    </div>
+    <div class="cell small-10">
+        @Html.DisplayFor(model => model.CEP)
+    </div>
 </div>
+

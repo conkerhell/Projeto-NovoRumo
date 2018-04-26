@@ -30,7 +30,12 @@ namespace NovoRumoProjeto.Areas.Admin.Controllers
         [HttpPost]
         public ActionResult Edit(ContactViewModel model)
         {
-            return View(model);
+            if (!ModelState.IsValid)
+            {
+                return View(model);
+            }
+
+            return RedirectToAction("index");
         }
     }
 }

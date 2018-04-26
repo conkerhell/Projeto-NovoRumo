@@ -31,9 +31,6 @@
         @Html.TextAreaFor(model => model.Endereço)
         @Html.ValidationMessageFor(model => model.Endereço)
 
-        <button type="submit" class="primary button">
-            <i class="fi-save" aria-hidden="true"></i>
-            salvar
-        </button>
+        @Html.SaveButton("salvar")
     }
 </div>
