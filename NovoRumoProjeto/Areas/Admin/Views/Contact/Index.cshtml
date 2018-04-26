@@ -1,11 +1,11 @@
 ﻿@model NovoRumoProjeto.Areas.Admin.Models.ContactViewModel
 
-
-<div class="cell small-3">
-    <h2>Contato</h2>
-</div>
-<div class="cell small-9">
-    @Html.ActionLink("editar", "Edit", "Contact", new { @class = "button secondary" })
+<div class="cell">
+    <h1>Contato</h1>    
+    <a href="@Url.Action("edit", "contact")" class="button secondary">
+        <i class="fi-pencil" aria-hidden="true"></i>
+        alterar
+    </a>
 </div>
 
 <div class="cell">

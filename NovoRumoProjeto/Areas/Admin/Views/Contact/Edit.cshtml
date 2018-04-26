@@ -1,0 +1,39 @@
+﻿@model NovoRumoProjeto.Areas.Admin.Models.ContactViewModel
+
+<div class="cell">
+    <h1>Alterar contato</h1>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        @Html.LabelFor(model => model.Telephone)
+        @Html.TextBoxFor(model => model.Telephone)
+        @Html.ValidationMessageFor(model => model.Telephone)
+
+        @Html.LabelFor(model => model.Mobile)
+        @Html.TextBoxFor(model => model.Mobile)
+        @Html.ValidationMessageFor(model => model.Mobile)
+
+        @Html.LabelFor(model => model.SecondaryMobile)
+        @Html.TextBoxFor(model => model.SecondaryMobile)
+        @Html.ValidationMessageFor(model => model.SecondaryMobile)
+
+        @Html.LabelFor(model => model.CEP)
+        @Html.TextBoxFor(model => model.CEP)
+        @Html.ValidationMessageFor(model => model.CEP)
+
+        @Html.LabelFor(model => model.Email)
+        @Html.TextBoxFor(model => model.Email)
+        @Html.ValidationMessageFor(model => model.Email)
+
+        @Html.LabelFor(model => model.Endereço)
+        @Html.TextAreaFor(model => model.Endereço)
+        @Html.ValidationMessageFor(model => model.Endereço)
+
+        <button type="submit" class="primary button">
+            <i class="fi-save" aria-hidden="true"></i>
+            salvar
+        </button>
+    }
+</div>

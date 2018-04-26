@@ -19,5 +19,18 @@ namespace NovoRumoProjeto.Areas.Admin.Controllers
                 CEP = "12345-789"
             });
         }
+
+        [HttpGet]
+        public ActionResult Edit()
+        {
+            var model = new ContactViewModel();
+            return View(model);
+        }
+
+        [HttpPost]
+        public ActionResult Edit(ContactViewModel model)
+        {
+            return View(model);
+        }
     }
 }
