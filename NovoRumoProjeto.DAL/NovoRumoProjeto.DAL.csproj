@@ -42,6 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Contact\ContactDAL.cs" />
+    <Compile Include="Contact\IContactDAL.cs" />
     <Compile Include="DAL.cs" />
     <Compile Include="IDAL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

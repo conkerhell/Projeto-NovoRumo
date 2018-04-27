@@ -32,7 +32,7 @@ namespace NovoRumoProjeto.Areas.Admin.Models
         [Required(ErrorMessageResourceType = typeof(LocalizedMessages),
             ErrorMessageResourceName = "PropertyValueRequired")]
         [Display(Name = "Endereço")] 
-        public string Endereço { get; set; }
+        public string Address { get; set; }
 
         [Required(ErrorMessageResourceType = typeof(LocalizedMessages),
             ErrorMessageResourceName = "PropertyValueRequired")]

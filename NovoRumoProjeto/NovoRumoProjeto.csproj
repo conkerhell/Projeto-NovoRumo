@@ -583,6 +583,14 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\NovoRumoProjeto.DAL\NovoRumoProjeto.DAL.csproj">
+      <Project>{16E21FE7-7C85-4DFC-B8F7-D9210E748D97}</Project>
+      <Name>NovoRumoProjeto.DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\NovoRumoProjeto.Entity\NovoRumoProjeto.Entity.csproj">
+      <Project>{7DB57D1F-28DF-4CA7-B52D-EEBF418A38D7}</Project>
+      <Name>NovoRumoProjeto.Entity</Name>
+    </ProjectReference>
     <ProjectReference Include="..\NovoRumoProjeto.Utilities\NovoRumoProjeto.Utilities.csproj">
       <Project>{bd633a0f-ecb5-4e74-9fe8-5293edf9a1f4}</Project>
       <Name>NovoRumoProjeto.Utilities</Name>

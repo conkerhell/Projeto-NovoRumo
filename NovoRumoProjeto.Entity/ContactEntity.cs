@@ -8,5 +8,6 @@ namespace NovoRumoProjeto.Entity
         public string SecondaryMobile { get; set; }
         public string Address { get; set; }
         public string CEP { get; set; }
+        public string Email { get; set; }
     }
 }

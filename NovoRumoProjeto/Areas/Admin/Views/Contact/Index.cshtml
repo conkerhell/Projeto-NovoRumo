@@ -10,45 +10,34 @@
 
 <div class="grid-x cell">
     <div class="cell small-2">
-        @Html.DisplayNameFor(model => model.Email):
-    </div>
-    <div class="cell small-10">
-        @Html.DisplayFor(model => model.Email)
-    </div>
-
-    <div class="cell small-2">
-        @Html.DisplayNameFor(model => model.Telephone):
-    </div>
-    <div class="cell small-10">
-        @Html.DisplayFor(model => model.Telephone)
+        @Html.LabelFor(model => model.Email)
+        @Html.LabelFor(model => model.Telephone)
+        @Html.LabelFor(model => model.Mobile)
+        @Html.LabelFor(model => model.SecondaryMobile)
+        @Html.LabelFor(model => model.Address)
+        @Html.LabelFor(model => model.CEP)
     </div>
 
-    <div class="cell small-2">
-        @Html.DisplayNameFor(model => model.Mobile):
-    </div>
-    <div class="cell small-10">
-        @Html.DisplayFor(model => model.Mobile)
+    <div class="small-10">
+        <div class="small-12">
+            @Html.DisplayFor(model => model.Email)
+        </div>
+        <div class="small-12">
+            @Html.DisplayFor(model => model.Telephone)
+        </div>
+        <div class="small-12">
+            @Html.DisplayFor(model => model.Mobile)
+        </div>
+        <div class="small-12">
+            @Html.DisplayFor(model => model.SecondaryMobile)
+        </div>
+        <div class="small-12">
+            @Html.DisplayFor(model => model.Address)
+        </div>
+        <div class="small-12">
+            @Html.DisplayFor(model => model.CEP)
+        </div>
     </div>
 
-    <div class="cell small-2">
-        @Html.DisplayNameFor(model => model.SecondaryMobile):
-    </div>
-    <div class="cell small-10">
-        @Html.DisplayFor(model => model.SecondaryMobile)
-    </div>
-
-    <div class="cell small-2">
-        @Html.DisplayNameFor(model => model.Endereço):
-    </div>
-    <div class="cell small-10">
-        @Html.DisplayFor(model => model.Endereço)
-    </div>
-
-    <div class="cell small-2">
-        @Html.DisplayNameFor(model => model.CEP):
-    </div>
-    <div class="cell small-10">
-        @Html.DisplayFor(model => model.CEP)
-    </div>
 </div>
 
