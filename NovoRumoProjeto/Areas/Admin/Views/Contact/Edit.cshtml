@@ -7,30 +7,41 @@
     {
         @Html.AntiForgeryToken()
 
-        @Html.LabelFor(model => model.Telephone)
-        @Html.TextBoxFor(model => model.Telephone)
-        @Html.ValidationMessageFor(model => model.Telephone)
+        <div class="field">
+            @Html.LabelFor(model => model.Telephone)
+            @Html.TextBoxFor(model => model.Telephone)
+            @Html.ValidationMessageFor(model => model.Telephone)
+        </div>
 
-        @Html.LabelFor(model => model.Mobile)
-        @Html.TextBoxFor(model => model.Mobile)
-        @Html.ValidationMessageFor(model => model.Mobile)
+        <div class="field">
+            @Html.LabelFor(model => model.Mobile)
+            @Html.TextBoxFor(model => model.Mobile)
+            @Html.ValidationMessageFor(model => model.Mobile)
+        </div>
 
-        @Html.LabelFor(model => model.SecondaryMobile)
-        @Html.TextBoxFor(model => model.SecondaryMobile)
-        @Html.ValidationMessageFor(model => model.SecondaryMobile)
+        <div class="field">
+            @Html.LabelFor(model => model.SecondaryMobile)
+            @Html.TextBoxFor(model => model.SecondaryMobile)
+            @Html.ValidationMessageFor(model => model.SecondaryMobile)
+        </div>
 
-        @Html.LabelFor(model => model.CEP)
-        @Html.TextBoxFor(model => model.CEP)
-        @Html.ValidationMessageFor(model => model.CEP)
+        <div class="field">
+            @Html.LabelFor(model => model.CEP)
+            @Html.TextBoxFor(model => model.CEP)
+            @Html.ValidationMessageFor(model => model.CEP)
+        </div>
 
-        @Html.LabelFor(model => model.Email)
-        @Html.TextBoxFor(model => model.Email)
-        @Html.ValidationMessageFor(model => model.Email)
+        <div class="field">
+            @Html.LabelFor(model => model.Email)
+            @Html.TextBoxFor(model => model.Email)
+            @Html.ValidationMessageFor(model => model.Email)
+        </div>
 
-        @Html.LabelFor(model => model.Address)
-        @Html.TextAreaFor(model => model.Address)
-        @Html.ValidationMessageFor(model => model.Address)
-
+        <div class="field">
+            @Html.LabelFor(model => model.Address)
+            @Html.TextAreaFor(model => model.Address)
+            @Html.ValidationMessageFor(model => model.Address)
+        </div>
         @Html.SaveButton("salvar")
     }
 </div>

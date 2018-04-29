@@ -5,5 +5,29 @@
 }
 
 .fi {
-    padding-right:5px;
+    padding-right: 5px;
+}
+
+.field {
+    margin: 0 0 1.5rem;
+}
+
+    .field input {
+        margin: 0;
+    }
+
+    .field textarea {
+        margin: 0;
+    }
+
+.field-validation-error {
+    position: absolute;
+    color: #cc4b37;
+    font-size: 0.75rem;
+    font-weight: bold;
+}
+
+.input-validation-error {
+    border-color: #cc4b37;
+    background-color: #f9ecea;
 }

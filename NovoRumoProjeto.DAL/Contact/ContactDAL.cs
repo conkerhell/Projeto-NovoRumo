@@ -45,7 +45,25 @@ namespace NovoRumoProjeto.DAL.Contact
 
         public ContactEntity GetContact()
         {
-            throw new NotImplementedException();
+            using (var result = dataAccess.ExecuteReader(GET_CONTACT_PROC))
+            {
+                ContactEntity contact = new ContactEntity();
+
+                if (result.HasRows)
+                {
+                    if (result.Read())
+                    {
+                        contact.Address = result[ADDRESS_COLUMN].ToString();
+                        contact.CEP = result[CEP_COLUMN].ToString();
+                        contact.Email = result[EMAIL_COLUMN].ToString();
+                        contact.Mobile = result[MOBILE_COLUMN].ToString();
+                        contact.SecondaryMobile = result[SECONDARY_MOBILE_COLUMN].ToString();
+                        contact.Telephone = result[TELEPHONE_COLUMN].ToString();
+                    }
+                }
+
+                return contact;
+            }
         }
     }
 }
