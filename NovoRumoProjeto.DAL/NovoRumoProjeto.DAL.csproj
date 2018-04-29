@@ -49,6 +49,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="About\" />
+    <Folder Include="Day\" />
     <Folder Include="Event\" />
     <Folder Include="Order\" />
     <Folder Include="Product\" />

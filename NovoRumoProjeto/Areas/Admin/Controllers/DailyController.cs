@@ -3,7 +3,7 @@ using NovoRumoProjeto.Utilities;
 using System.Web.Mvc;
 namespace NovoRumoProjeto.Areas.Admin.Controllers
 {
-    public class DiaController: Controller
+    public class DailyController: Controller
     {
         [HttpGet]
         public ActionResult Index()
@@ -15,12 +15,12 @@ namespace NovoRumoProjeto.Areas.Admin.Controllers
         [HttpGet]
         public ActionResult Edit()
         {
-            var model = new DiaViewModel();
+            var model = new DailyViewModel();
             return View(model);
         }
 
         [HttpPost]
-        public ActionResult Edit(DiaViewModel model)
+        public ActionResult Edit(DailyViewModel model)
         {
             return View(model);
         }

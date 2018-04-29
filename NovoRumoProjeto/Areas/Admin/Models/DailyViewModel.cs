@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace NovoRumoProjeto.Areas.Admin.Models
 {
-    public class DiaViewModel
+    public class DailyViewModel
     {
 
         [Required(ErrorMessageResourceType = typeof(LocalizedMessages),
