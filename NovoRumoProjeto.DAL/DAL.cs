@@ -7,7 +7,7 @@ using System.Configuration;
 
 namespace NovoRumoProjeto.DAL
 {
-    public abstract class DAL<t> : IDAL<t>
+    public abstract class DAL
     {
         private string connectionString = ConfigurationManager.ConnectionStrings[Consts.CONNECTION_STRING].ConnectionString;
         public DataAccess dataAccess;
@@ -16,13 +16,5 @@ namespace NovoRumoProjeto.DAL
         {
             dataAccess = new DataAccess(connectionString);
         }
-
-        abstract public List<t> Get();
-
-        abstract public t GetById(int id);
-
-        abstract public bool Insert(t entity);
-
-        abstract public bool Update(t entity);
     }
 }

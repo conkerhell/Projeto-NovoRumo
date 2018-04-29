@@ -27,13 +27,10 @@
         @Html.TextBoxFor(model => model.Email)
         @Html.ValidationMessageFor(model => model.Email)
 
-        @Html.LabelFor(model => model.Endereço)
-        @Html.TextAreaFor(model => model.Endereço)
-        @Html.ValidationMessageFor(model => model.Endereço)
+        @Html.LabelFor(model => model.Address)
+        @Html.TextAreaFor(model => model.Address)
+        @Html.ValidationMessageFor(model => model.Address)
 
-        <button type="submit" class="primary button">
-            <i class="fi-save" aria-hidden="true"></i>
-            salvar
-        </button>
+        @Html.SaveButton("salvar")
     }
 </div>

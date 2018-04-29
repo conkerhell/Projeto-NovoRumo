@@ -1,4 +1,6 @@
 ﻿using NovoRumoProjeto.Areas.Admin.Models;
+using NovoRumoProjeto.DAL.Contact;
+using NovoRumoProjeto.Entity;
 using NovoRumoProjeto.Utilities;
 using System.Web.Mvc;
 
@@ -15,7 +17,8 @@ namespace NovoRumoProjeto.Areas.Admin.Controllers
                 Email = "contato@novorumoatibaia.com.br",
                 Mobile = "(11) 1234-5667",
                 Telephone = "(11) 1234-5673",
-                Endereço = "Rua Papa Paulo VI, 182 <br> Vila Thais - Atibaia, SP",
+                SecondaryMobile = "(11) 1234-5667",
+                Address = "Rua Papa Paulo VI, 182 <br> Vila Thais - Atibaia, SP",
                 CEP = "12345-789"
             });
         }
@@ -30,7 +33,23 @@ namespace NovoRumoProjeto.Areas.Admin.Controllers
         [HttpPost]
         public ActionResult Edit(ContactViewModel model)
         {
-            return View(model);
+            if (!ModelState.IsValid)
+            {
+                return View(model);
+            }
+
+            IContactDAL contactDAL = new ContactDAL();
+            contactDAL.Update(new ContactEntity()
+            {
+                Telephone = model.Telephone,
+                Mobile = model.Mobile,
+                SecondaryMobile = model.SecondaryMobile,
+                Email = model.Email,
+                CEP = model.CEP,
+                Address = model.Address
+            });
+
+            return RedirectToAction("index");
         }
     }
 }
