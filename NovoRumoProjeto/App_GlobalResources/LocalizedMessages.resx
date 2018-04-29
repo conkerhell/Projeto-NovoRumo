@@ -118,9 +118,9 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="PropertyValueInvalid" xml:space="preserve">
-    <value>campo não é válido</value>
+    <value>Campo não é válido</value>
   </data>
   <data name="PropertyValueRequired" xml:space="preserve">
-    <value>campo obrigatório</value>
+    <value>Campo obrigatório</value>
   </data>
 </root>
