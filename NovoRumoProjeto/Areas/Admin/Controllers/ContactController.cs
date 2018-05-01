@@ -12,14 +12,16 @@ namespace NovoRumoProjeto.Areas.Admin.Controllers
         [HttpGet]
         public ActionResult Index()
         {
+            IContactDAL contactDAL = new ContactDAL();
+            var entity = contactDAL.GetContact();
             return View(new ContactViewModel()
             {
-                Email = "contato@novorumoatibaia.com.br",
-                Mobile = "(11) 1234-5667",
-                Telephone = "(11) 1234-5673",
-                SecondaryMobile = "(11) 1234-5667",
-                Address = "Rua Papa Paulo VI, 182 <br> Vila Thais - Atibaia, SP",
-                CEP = "12345-789"
+                Email = entity.Email,
+                Mobile = entity.Mobile,
+                Telephone = entity.Telephone,
+                SecondaryMobile = entity.SecondaryMobile,
+                Address = entity.Address,
+                CEP = entity.CEP
             });
         }
 
