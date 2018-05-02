@@ -62,5 +62,5 @@ GO
 CREATE PROCEDURE spGetContact
 AS
 BEGIN
-SELECT Address, CEP, Email, Mobile, SecondaryMobile, Telephone FROM [dbo].[Contact] WITH (NOLOCK)
+SELECT TOP 1 Address, CEP, Email, Mobile, SecondaryMobile, Telephone FROM [dbo].[Contact] WITH (NOLOCK)
 END

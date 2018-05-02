@@ -10,6 +10,7 @@ namespace NovoRumoProjeto.Areas.Admin.Models
         [Required(ErrorMessageResourceType = typeof(LocalizedMessages),
             ErrorMessageResourceName = "PropertyValueRequired")]
         [Display(Name = "Nome")]
-        public string Nome { get; set; }
+        public string NomeArquivo { get; set; }
+        public int ID { get; set; }
     }
 }

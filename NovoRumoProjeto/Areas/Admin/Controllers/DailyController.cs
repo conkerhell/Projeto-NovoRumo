@@ -1,5 +1,6 @@
 ﻿using NovoRumoProjeto.Areas.Admin.Models;
 using NovoRumoProjeto.Utilities;
+using System.Collections.Generic;
 using System.Web.Mvc;
 namespace NovoRumoProjeto.Areas.Admin.Controllers
 {
@@ -8,8 +9,8 @@ namespace NovoRumoProjeto.Areas.Admin.Controllers
         [HttpGet]
         public ActionResult Index()
         {
-           
-            return View();
+            var model = new List<DailyViewModel>();
+            return View(model);
         }
 
         [HttpGet]
