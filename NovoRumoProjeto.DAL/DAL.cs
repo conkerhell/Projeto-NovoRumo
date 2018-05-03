@@ -1,8 +1,6 @@
 ﻿
 using DataAccessLayer.Core;
 using NovoRumoProjeto.Utilities;
-using System;
-using System.Collections.Generic;
 using System.Configuration;
 
 namespace NovoRumoProjeto.DAL

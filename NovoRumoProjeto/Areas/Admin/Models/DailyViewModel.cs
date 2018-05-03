@@ -9,31 +9,41 @@ namespace NovoRumoProjeto.Areas.Admin.Models
 {
     public class DailyViewModel
     {
-
         [Required(ErrorMessageResourceType = typeof(LocalizedMessages),
             ErrorMessageResourceName = "PropertyValueRequired")]
         [Display(Name = "Nome")]
         public string displayFileName { get; set; }
+
+        [Required(ErrorMessageResourceType = typeof(LocalizedMessages),
+            ErrorMessageResourceName = "FileRequired")]
+        [RegularExpression(@"([a-zA-Z0-9\s_\\.\-:])+(.png|.jpg|.gif|jpeg)$",
+            ErrorMessageResourceType = typeof(LocalizedMessages), ErrorMessageResourceName = "FileFormatInvalid")]
         public HttpPostedFileBase file { get; set; }
+
+        [Display(Name = "ID")]
         public int ID { get; set; }
 
-        /// <summary>
-        /// Valida se o arquivo existe e se o conteudo esta valido
-        /// </summary>
-        /// <param name="path"></param>
-        /// <param name="filename"></param>
-        /// <returns></returns>
-        public string ValidateUpload(string path, string filename = "")
+        public bool IsFileValid
         {
-            if (file != null && file.ContentLength > 0)
+            get
             {
-                filename = string.IsNullOrWhiteSpace(filename) ? Path.GetFileName(file.FileName) : filename;
-                return Path.Combine(HttpContext.Current.Server.MapPath(ConfigurationManager.AppSettings[path]), filename);
+                return file != null && file.ContentLength > 0;
             }
-            else
+        }
+
+        public bool SaveFile()
+        {
+            var status = false;
+            var fileName = Path.GetFileName(file.FileName);
+            var filePath = Path.Combine(HttpContext.Current.Server.MapPath(ConfigurationManager.AppSettings["ImagePath"]), fileName);
+
+            if (!string.IsNullOrWhiteSpace(filePath))
             {
-                return string.Empty;
+                file.SaveAs(filePath);
+                displayFileName = file.FileName;
+                status = true;
             }
+            return status;
         }
     }
 }
