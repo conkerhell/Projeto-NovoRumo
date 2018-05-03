@@ -40,4 +40,9 @@
     background-color: #f9ecea;
 }
 
+.input-group-button label {
+    padding-top: 13px;
+    padding-bottom: 13px;
+}
+
 /* END FIELDS */

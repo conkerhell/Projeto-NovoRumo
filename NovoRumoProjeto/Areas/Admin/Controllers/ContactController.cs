@@ -28,8 +28,17 @@ namespace NovoRumoProjeto.Areas.Admin.Controllers
         [HttpGet]
         public ActionResult Edit()
         {
-            var model = new ContactViewModel();
-            return View(model);
+            IContactDAL contactDAL = new ContactDAL();
+            var entity = contactDAL.GetContact();
+            return View(new ContactViewModel()
+            {
+                Email = entity.Email,
+                Mobile = entity.Mobile,
+                Telephone = entity.Telephone,
+                SecondaryMobile = entity.SecondaryMobile,
+                Address = entity.Address,
+                CEP = entity.CEP
+            });
         }
 
         [HttpPost]

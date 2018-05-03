@@ -1,6 +1,7 @@
 ﻿
 using Resources;
 using System.ComponentModel.DataAnnotations;
+using System.Web;
 
 namespace NovoRumoProjeto.Areas.Admin.Models
 {
@@ -10,7 +11,8 @@ namespace NovoRumoProjeto.Areas.Admin.Models
         [Required(ErrorMessageResourceType = typeof(LocalizedMessages),
             ErrorMessageResourceName = "PropertyValueRequired")]
         [Display(Name = "Nome")]
-        public string NomeArquivo { get; set; }
+        public string displayFileName { get; set; }
+        public HttpPostedFileBase file { get; set; }
         public int ID { get; set; }
     }
 }
