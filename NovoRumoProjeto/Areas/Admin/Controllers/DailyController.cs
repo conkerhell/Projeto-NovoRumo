@@ -31,6 +31,19 @@ namespace NovoRumoProjeto.Areas.Admin.Controllers
         [HttpPost]
         public ActionResult Edit(DailyViewModel model)
         {
+            if (!ModelState.IsValid)
+            {
+                return View(model);
+            }
+
+            string displayImageFilePath = model.ValidateUpload("productImagePath"); //WIP: Work in progress
+
+            if (!string.IsNullOrWhiteSpace(displayImageFilePath))
+            {
+                model.file.SaveAs(displayImageFilePath);
+                model.displayFileName = model.file.FileName;
+            }
+
             return View(model);
         }
     }
