@@ -1,4 +1,5 @@
 ﻿
+using NovoRumoProjeto.Utilities.Validation;
 using Resources;
 using System.ComponentModel.DataAnnotations;
 using System.Configuration;
@@ -16,8 +17,10 @@ namespace NovoRumoProjeto.Areas.Admin.Models
 
         [Required(ErrorMessageResourceType = typeof(LocalizedMessages),
             ErrorMessageResourceName = "FileRequired")]
-        [RegularExpression(@"([a-zA-Z0-9\s_\\.\-:])+(.png|.jpg|.gif|jpeg)$",
-            ErrorMessageResourceType = typeof(LocalizedMessages), ErrorMessageResourceName = "FileFormatInvalid")]
+        //[FileSize(10240, ErrorMessageResourceType = typeof(LocalizedMessages),
+        //    ErrorMessageResourceName = "FileSizedExceeded")]
+        [FileTypes("jpg", "jpeg", "png", ErrorMessageResourceType = typeof(LocalizedMessages),
+            ErrorMessageResourceName = "FileFormatInvalid")]
         public HttpPostedFileBase file { get; set; }
 
         [Display(Name = "ID")]

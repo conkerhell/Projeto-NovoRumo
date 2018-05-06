@@ -118,15 +118,18 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="FileFormatInvalid" xml:space="preserve">
-    <value>Selecione uma imagem</value>
+    <value>Formato do arquivo invalido. Apenas os formatos {0} sao suportados.</value>
   </data>
   <data name="FileRequired" xml:space="preserve">
-    <value>Por favor, selecione um arquivo</value>
+    <value>Por favor, selecione um arquivo.</value>
+  </data>
+  <data name="FileSizedExceeded" xml:space="preserve">
+    <value>O tamanho do arquivo nao deve exceder {0}.</value>
   </data>
   <data name="PropertyValueInvalid" xml:space="preserve">
-    <value>Campo não é válido</value>
+    <value>Campo não é válido.</value>
   </data>
   <data name="PropertyValueRequired" xml:space="preserve">
-    <value>Campo obrigatório</value>
+    <value>Campo obrigatório.</value>
   </data>
 </root>
