@@ -16,7 +16,10 @@ namespace NovoRumoProjeto.Areas.Admin.Models
         [Display(Name = "Descrição")]
         public string Description { get; set; }
 
-        
+        public int ID { get; set; }
+
+
+
 
     }
 }

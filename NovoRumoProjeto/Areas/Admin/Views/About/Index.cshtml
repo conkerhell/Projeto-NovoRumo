@@ -1,4 +1,4 @@
-﻿@model NovoRumoProjeto.Areas.Admin.Models.AboutViewModel
+﻿@model  IEnumerable<NovoRumoProjeto.Areas.Admin.Models.AboutViewModel>
 
 
 
@@ -6,4 +6,41 @@
     <h1>Sobre</h1>
     @Html.EditButton("About")
     @Html.AddButton("About")
+</div>
+
+<div class="grid-x cell">
+    <table class="unstriped">
+        <thead>
+            <tr>
+                <th>Titulo</th>
+                <th>Descrição</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        <h4>@Html.ActionLink(item.t, "EditaPost", new { Id = item.Id })</h4>
+                        <p>@item.Resumo</p>
+                    </td>
+                    <td>@item.Categoria</td>
+                    <td>
+                        @if (@item.Publicado)
+                        {
+                            @Html.Encode(item.DataPublicacao)
+                        }
+                        else
+                        {
+                            @Html.Raw("Não	Publicado")
+                        }
+                    </td>
+                    <td>
+                        @Html.ActionLink("Excluir", "RemovePost", new { Id = item.Id })
+                        @Html.ActionLink("Publicar", "PublicaPost", new { Id = item.Id })
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
 </div>
