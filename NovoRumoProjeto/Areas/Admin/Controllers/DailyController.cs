@@ -1,5 +1,6 @@
 ﻿using NovoRumoProjeto.Areas.Admin.Models;
 using NovoRumoProjeto.Utilities;
+using NovoRumoProjeto.Utilities.Extensions;
 using System.Collections.Generic;
 using System.Web.Mvc;
 namespace NovoRumoProjeto.Areas.Admin.Controllers
@@ -10,6 +11,13 @@ namespace NovoRumoProjeto.Areas.Admin.Controllers
         public ActionResult Index()
         {
             var model = new List<DailyViewModel>();
+
+            model.Add(new DailyViewModel()
+            {
+                ID = 1,
+                displayFileName = "teste.jpg".GetImagePath()
+            });
+
             return View(model);
         }
 
@@ -23,6 +31,13 @@ namespace NovoRumoProjeto.Areas.Admin.Controllers
         [HttpPost]
         public ActionResult Edit(DailyViewModel model)
         {
+            if (!ModelState.IsValid || !model.IsFileValid)
+            {
+                return View(model);
+            }
+
+            var status = model.SaveFile();
+
             return View(model);
         }
     }

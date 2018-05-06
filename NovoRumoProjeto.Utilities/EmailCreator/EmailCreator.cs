@@ -1,4 +1,5 @@
-﻿using System.Configuration;
+﻿using System;
+using System.Configuration;
 using System.Net.Mail;
 
 namespace NovoRumoProjeto.Utilities.EmailCreator
@@ -67,6 +68,13 @@ namespace NovoRumoProjeto.Utilities.EmailCreator
         public IEmailCreator WithBody(string body)
         {
             mailMessage.Body = body;
+
+            return this;
+        }
+
+        public IEmailCreator SetHTML()
+        {
+            mailMessage.IsBodyHtml = true;
 
             return this;
         }

@@ -9,6 +9,7 @@ namespace NovoRumoProjeto.Utilities.EmailCreator
         IEmailCreator BCC(params string[] bccAddresses);
         IEmailCreator WithSubject(string subject);
         IEmailCreator WithBody(string body);
+        IEmailCreator SetHTML();
         void Send();
     }
 }

@@ -18,6 +18,8 @@
         <thead>
             <tr>
                 <th>
+                </th>
+                <th>
                     @Html.DisplayNameFor(model => model.NomeArquivo)
                 </th>
                 <th></th>
@@ -28,11 +30,14 @@
         {
             <tr>
                 <td>
+                    <img src="@Url.Content(Model.displayFileName)" width="100" height="100"/>
+                </td>
+                <td>
                     @Html.DisplayFor(modelItem => item.NomeArquivo)
                 </td>
                 <td>
                     @Html.ActionLink("Editar", "EditDelivery", new { id = item.ID }) |
-                    @Html.ActionLink("Deletar", "DeleteDelivery", new { id = item.ID})
+                    @Html.ActionLink("Deletar", "DeleteDelivery", new { id = item.ID })
                 </td>
             </tr>
         }

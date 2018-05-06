@@ -554,7 +554,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Content\imagens\" />
+    <Folder Include="Content\images\" />
     <Folder Include="Views\User\" />
   </ItemGroup>
   <ItemGroup>

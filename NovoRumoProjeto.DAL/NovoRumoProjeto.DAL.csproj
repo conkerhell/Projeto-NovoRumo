@@ -43,13 +43,14 @@
   <ItemGroup>
     <Compile Include="Contact\ContactDAL.cs" />
     <Compile Include="Contact\IContactDAL.cs" />
+    <Compile Include="Daily\DailyDAL.cs" />
+    <Compile Include="Daily\IDailyDAL.cs" />
     <Compile Include="DAL.cs" />
     <Compile Include="IDAL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="About\" />
-    <Folder Include="Day\" />
     <Folder Include="Event\" />
     <Folder Include="Order\" />
     <Folder Include="Product\" />
