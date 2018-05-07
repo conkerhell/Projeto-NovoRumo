@@ -23,8 +23,22 @@ CREATE TABLE [dbo].[Contact](
 ) ON [PRIMARY]
 GO
 
-INSERT INTO Contact(Address, CEP, Email, Mobile, SecondaryMobile, Telephone) 
- VALUES ('Rua Papa Paulo VI, 182 <br> Vila Thais - Atibaia, SP', 'contato@novorumoatibaia.com.br', '12345-789', '(11) 1234-5667', '(11) 1234-5667', '(11) 1234-5667')
+INSERT INTO Contact(
+	ContactID,
+	Address, 
+	CEP,
+	Email,
+	Mobile, 
+	SecondaryMobile, 
+	Telephone) 
+ VALUES (
+	1,
+	'Rua Papa Paulo VI, 182 <br> Vila Thais - Atibaia, SP',
+	'12345-789',
+	'contato@novorumoatibaia.com.br',  
+	'(11) 1234-5667', 
+	'(11) 1234-5667', 
+	'(11) 1234-5667')
 
 SET ANSI_NULLS ON
 GO

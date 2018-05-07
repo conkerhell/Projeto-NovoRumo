@@ -3,7 +3,7 @@
 @if (!User.Identity.IsAuthenticated || !User.IsInRole("Admin"))
 {
     <div class="cell small-12 medium-6 large-4">
-        @using (Html.BeginForm("Login", "Admin", FormMethod.Post, new { @class = "log-in-form" }))
+        @using (Html.BeginForm(null, null, FormMethod.Post, new { @class = "log-in-form" }))
         {
             @Html.AntiForgeryToken()
 
