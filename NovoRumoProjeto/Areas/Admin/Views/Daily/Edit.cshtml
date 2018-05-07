@@ -6,13 +6,46 @@
             <h1>Dia-a-dia</h1>
         </div>
     </div>
-    <div class="input-group">
-        @Html.TextBoxFor(model => model.displayFileName, new { @readonly = true, id = "displayFileName", @class = "input-group-field" })
-        <div class="input-group-button">
-            <label for="fileUpload" class="button">Adicionar capa</label>
-            @Html.TextBoxFor(model => model.file, new { type = "file", id = "fileUpload", @class = "show-for-sr" })
+
+    @using (Html.BeginForm(null, null, FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        <div class="input-group">
+            @Html.TextBoxFor(model => model.displayFileName, new { @readonly = true, id = "displayFileName", @class = "input-group-field" })
+            <div class="input-group-button">
+                <label for="fileUpload" class="button secondary">Adicionar capa</label>
+                @Html.TextBoxFor(model => model.file, new { type = "file", id = "fileUpload", @class = "show-for-sr" })
+                <input type="submit" value="salvar" class="button primary" />
+            </div>
         </div>
-    </div>
+        <img id="previewImage" src="#" alt="previewed image" />
+    }
 </div>
+
+@section Scripts {
+    <script>
+        function previewFile(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+
+                reader.onload = function (e) {
+                    $("#previewImage").attr("src", e.target.result);
+                }
+
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+
+        $('#fileUpload').on('change', function () {
+            var fileName = this.value.substring(12, 100);
+
+            if (fileName.match(/.jpg/) > -1 ||
+                fileName.match(/.png/) > -1 ||
+                fileName.match(/.jpeg/) > -1) {
+                $("#displayFileName").val(fileName);
+                previewFile(this);
+            }
+        });
+    </script>
+}
 
 

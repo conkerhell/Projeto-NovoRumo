@@ -19,7 +19,7 @@ namespace Resources {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option or rebuild the Visual Studio project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Web.Application.StronglyTypedResourceProxyBuilder", "14.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Web.Application.StronglyTypedResourceProxyBuilder", "15.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     internal class LocalizedMessages {
@@ -61,7 +61,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Selecione uma imagem.
+        ///   Looks up a localized string similar to Formato do arquivo invalido. Apenas os formatos {0} sao suportados..
         /// </summary>
         internal static string FileFormatInvalid {
             get {
@@ -70,7 +70,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Por favor, selecione um arquivo.
+        ///   Looks up a localized string similar to Por favor, selecione um arquivo..
         /// </summary>
         internal static string FileRequired {
             get {
@@ -79,7 +79,16 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Campo não é válido.
+        ///   Looks up a localized string similar to O tamanho do arquivo nao deve exceder {0}..
+        /// </summary>
+        internal static string FileSizedExceeded {
+            get {
+                return ResourceManager.GetString("FileSizedExceeded", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Campo não é válido..
         /// </summary>
         internal static string PropertyValueInvalid {
             get {
@@ -88,7 +97,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Campo obrigatório.
+        ///   Looks up a localized string similar to Campo obrigatório..
         /// </summary>
         internal static string PropertyValueRequired {
             get {
