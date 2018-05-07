@@ -40,6 +40,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AboutEntity.cs" />
     <Compile Include="ContactEntity.cs" />
     <Compile Include="DailyEntity.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

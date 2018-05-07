@@ -1,5 +1,30 @@
 ﻿@model NovoRumoProjeto.Areas.Admin.Models.AboutViewModel
 
 
-<h2>Edit</h2>
+<div class="grid-y">
+    <div class="title-bar-admin">
+        <h1>Alterar Sobre</h1>
+    </div>
 
+
+    <div class="cell small-6 medium-4 large-10">
+        @using (Html.BeginForm())
+        { @Html.AntiForgeryToken()
+            <div class="field">
+                @Html.LabelFor(model => model.Title)
+                @Html.TextBoxFor(model => model.Title)
+                @Html.ValidationMessageFor(model => model.Title)
+            </div>
+            <div class="field">
+                @Html.LabelFor(model => model.Description)
+                @Html.TextAreaFor(model => model.Description)
+                @Html.ValidationMessageFor(model => model.Description)
+            </div>
+
+        }
+        <div class="grid-x">
+            @Html.SaveButton("Salvar")
+            @Html.DeleteButton("Excluir")
+        </div>
+    </div>
+</div>

@@ -22,6 +22,11 @@ namespace NovoRumoProjeto.DAL.Daily
             throw new NotImplementedException();
         }
 
+        public AboutEntity GetContact()
+        {
+            throw new NotImplementedException();
+        }
+
         public bool Insert(DailyEntity entity)
         {
             throw new NotImplementedException();

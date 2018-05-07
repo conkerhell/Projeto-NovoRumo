@@ -1,5 +1,9 @@
 ﻿using NovoRumoProjeto.Areas.Admin.Models;
+using NovoRumoProjeto.DAL.About;
+using NovoRumoProjeto.Entity;
+using NovoRumoProjeto.Utilities;
 using System.Web.Mvc;
+
 
 namespace NovoRumoProjeto.Areas.Admin.Controllers
 {
@@ -20,7 +24,18 @@ namespace NovoRumoProjeto.Areas.Admin.Controllers
         [HttpPost]
         public ActionResult Edit(AboutViewModel model)
         {
-            return View(model);
+            if (!ModelState.IsValid)
+            {
+                return View(model);
+            }
+            IAboutDAL aboutDAL = new AboutDAL();
+            var entity = aboutDAL.GetContact();
+            return View(new AboutViewModel()
+            {
+                Title = entity.Titulo,
+                Description = entity.Description
+            }
+                );
         }
 
 

@@ -41,6 +41,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="About\AboutDAL.cs" />
+    <Compile Include="About\IAboutDAL.cs" />
     <Compile Include="Contact\ContactDAL.cs" />
     <Compile Include="Contact\IContactDAL.cs" />
     <Compile Include="Daily\DailyDAL.cs" />
@@ -50,7 +52,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="About\" />
     <Folder Include="Event\" />
     <Folder Include="Order\" />
     <Folder Include="Product\" />
