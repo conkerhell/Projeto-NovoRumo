@@ -25,10 +25,27 @@ namespace NovoRumoProjeto.Areas.Admin.Controllers
         }
 
         [HttpGet]
-        public ActionResult Edit(int id)
+        public ActionResult Add()
         {
+            return View(new DailyViewModel());
+        }
+
+        [HttpPost]
+        public ActionResult Add(DailyViewModel model)
+        {
+            return View(model);
+        }
+
+        [HttpGet]
+        public ActionResult Edit(int? id)
+        {
+            if (!id.HasValue)
+            {
+                return RedirectToAction("Index");
+            }
+
             IDailyDAL dailyDAL = new DailyDAL();
-            var entity = dailyDAL.GetById(id);
+            var entity = dailyDAL.GetById(id.Value);
 
             var model = new DailyViewModel();
             model.ID = entity.DailyID;

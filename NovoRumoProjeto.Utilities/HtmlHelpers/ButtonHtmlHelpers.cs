@@ -18,11 +18,11 @@ namespace NovoRumoProjeto.Utilities.HtmlHelpers
             return new HtmlString(sb.ToString());
         }
 
-        public static IHtmlString EditButton(this HtmlHelper html, string controller)
+        public static IHtmlString EditButton(this HtmlHelper html, string controller, int id)
         {
             StringBuilder sb = new StringBuilder();
 
-            var href = string.Format("{0}/edit", controller);
+            var href = string.Format("{0}/edit/{1}", controller, id);
 
             sb.AppendFormat("<a href='{0}' class='button secondary'>", href);
             sb.Append("<i class='fi fi-pencil' aria-hidden='true'></i>");
@@ -35,7 +35,7 @@ namespace NovoRumoProjeto.Utilities.HtmlHelpers
         {
             StringBuilder sb = new StringBuilder();
 
-            var href = string.Format("{0}/edit", controller);
+            var href = string.Format("{0}/add", controller);
 
             sb.AppendFormat("<a href='{0}' class='button secondary'>", href);
             sb.Append("<i class='fi fi-plus' aria-hidden='true'></i>");

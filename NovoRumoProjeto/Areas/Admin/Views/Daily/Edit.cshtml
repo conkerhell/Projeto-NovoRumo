@@ -14,7 +14,7 @@
             <div class="input-group-button">
                 <label for="fileUpload" class="button secondary">Adicionar capa</label>
                 @Html.TextBoxFor(model => model.file, new { type = "file", id = "fileUpload", @class = "show-for-sr" })
-                <input type="submit" value="salvar" class="button primary" />
+                @Html.AddButton("Salvar")
             </div>
         </div>
         <img id="previewImage" src="#" alt="previewed image" />

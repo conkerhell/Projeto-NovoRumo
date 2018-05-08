@@ -536,6 +536,7 @@
     <Content Include="Scripts\app.js" />
     <Content Include="Scripts\foundation.min.js" />
     <Content Include="Scripts\jquery.min.js" />
+    <Content Include="Areas\Admin\Views\Daily\Add.cshtml" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
