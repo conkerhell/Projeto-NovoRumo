@@ -26,14 +26,6 @@ namespace NovoRumoProjeto.Areas.Admin.Models
         [Display(Name = "ID")]
         public int ID { get; set; }
 
-        public bool IsFileValid
-        {
-            get
-            {
-                return file != null && file.ContentLength > 0;
-            }
-        }
-
         public bool SaveFile()
         {
             var status = false;

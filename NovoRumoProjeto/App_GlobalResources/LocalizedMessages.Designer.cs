@@ -104,5 +104,14 @@ namespace Resources {
                 return ResourceManager.GetString("PropertyValueRequired", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Erro inesperado, tente novamente..
+        /// </summary>
+        internal static string UnexpectedError {
+            get {
+                return ResourceManager.GetString("UnexpectedError", resourceCulture);
+            }
+        }
     }
 }

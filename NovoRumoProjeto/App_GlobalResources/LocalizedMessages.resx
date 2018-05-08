@@ -132,4 +132,7 @@
   <data name="PropertyValueRequired" xml:space="preserve">
     <value>Campo obrigatório.</value>
   </data>
+  <data name="UnexpectedError" xml:space="preserve">
+    <value>Erro inesperado, tente novamente.</value>
+  </data>
 </root>
