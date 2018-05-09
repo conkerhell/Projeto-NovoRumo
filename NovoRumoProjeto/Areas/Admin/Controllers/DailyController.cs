@@ -8,7 +8,8 @@ using System.Collections.Generic;
 using System.Web.Mvc;
 namespace NovoRumoProjeto.Areas.Admin.Controllers
 {
-    public class DailyController: Controller
+    [Authorize(Roles = Consts.ADMIN_ROLE)]
+    public class DailyController : Controller
     {
         [HttpGet]
         public ActionResult Index()
@@ -33,7 +34,23 @@ namespace NovoRumoProjeto.Areas.Admin.Controllers
         [HttpPost]
         public ActionResult Add(DailyViewModel model)
         {
-            return View(model);
+            if (!ModelState.IsValid)
+            {
+                return View(model);
+            }
+
+            IDailyDAL dailyDAL = new DailyDAL();
+            var status = dailyDAL.Insert(new DailyEntity()
+            {
+                fileName = model.displayFileName
+            });
+
+            if (!status)
+            {
+                ModelState.AddModelError(string.Empty, LocalizedMessages.UnexpectedError);
+                return View(model);
+            }
+            return RedirectToAction("Index");
         }
 
         [HttpGet]
@@ -64,19 +81,19 @@ namespace NovoRumoProjeto.Areas.Admin.Controllers
 
             IDailyDAL dailyDAL = new DailyDAL();
 
-            var status = model.SaveFile();
-            status = status && dailyDAL.Update(new DailyEntity()
-            {
-                DailyID = model.ID,
-                fileName = model.displayFileName
-            });
+            var status = model.SaveFile() &&
+                dailyDAL.Update(new DailyEntity()
+                {
+                    DailyID = model.ID,
+                    fileName = model.displayFileName
+                });
 
             if (!status)
             {
                 ModelState.AddModelError(string.Empty, LocalizedMessages.UnexpectedError);
+                return View(model);
             }
-
-            return View(model);
+            return RedirectToAction("Index");
         }
     }
 }

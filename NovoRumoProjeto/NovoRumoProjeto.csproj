@@ -534,6 +534,7 @@
     <Content Include="Images\sparkles.gif" />
     <Content Include="Images\whatsapp.png" />
     <Content Include="Scripts\app.js" />
+    <Content Include="Scripts\daily\daily.js" />
     <Content Include="Scripts\foundation.min.js" />
     <Content Include="Scripts\jquery.min.js" />
     <Content Include="Areas\Admin\Views\Daily\Add.cshtml" />

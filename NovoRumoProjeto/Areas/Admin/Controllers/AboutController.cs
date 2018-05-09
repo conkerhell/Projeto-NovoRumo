@@ -4,12 +4,11 @@ using NovoRumoProjeto.Entity;
 using NovoRumoProjeto.Utilities;
 using System.Web.Mvc;
 
-
 namespace NovoRumoProjeto.Areas.Admin.Controllers
 {
+    [Authorize(Roles = Consts.ADMIN_ROLE)]
     public class AboutController : Controller
     {
-        // GET: Admin/About
         public ActionResult Index()
         {
             return View();
@@ -34,8 +33,7 @@ namespace NovoRumoProjeto.Areas.Admin.Controllers
             {
                 Title = entity.Titulo,
                 Description = entity.Description
-            }
-                );
+            });
         }
 
 

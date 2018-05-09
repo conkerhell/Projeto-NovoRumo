@@ -1,6 +1,5 @@
 ﻿@model NovoRumoProjeto.Areas.Admin.Models.DailyViewModel
 
-
 <div class="cell">
     <div class="grid-x title-bar-admin">
         <div class="small-6">
@@ -8,5 +7,20 @@
         </div>
     </div>
 
+    @using (Html.BeginForm(null, null, FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        <div class="input-group">
+            @Html.TextBoxFor(model => model.displayFileName, new { @readonly = true, id = "displayFileName", @class = "input-group-field" })
+            <div class="input-group-button">
+                <label for="fileUpload" class="button secondary">Adicionar capa</label>
+                @Html.TextBoxFor(model => model.file, new { type = "file", id = "fileUpload", @class = "show-for-sr" })
+                @Html.SaveButton("Salvar")
+            </div>
+        </div>
+    }
+    <img id="previewImage" src="#" alt="previewed image" />
 </div>
 
+@section Scripts {
+    <script type="text/javascript" src="~/Scripts/daily/daily.js"></script>
+}

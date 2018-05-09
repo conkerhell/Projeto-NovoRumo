@@ -13,7 +13,7 @@ namespace NovoRumoProjeto.Utilities.HtmlHelpers
             sb.Append("<button type='submit' class='primary button'>");
             sb.Append("<i class='fi fi-save' aria-hidden='true'></i>");
             sb.Append(text);
-            sb.Append("</div>");
+            sb.Append("</button>");
 
             return new HtmlString(sb.ToString());
         }
@@ -28,6 +28,7 @@ namespace NovoRumoProjeto.Utilities.HtmlHelpers
             sb.Append("<i class='fi fi-pencil' aria-hidden='true'></i>");
             sb.Append("Alterar");
             sb.Append("</a>");
+
             return new HtmlString(sb.ToString());
         }
 
@@ -41,6 +42,7 @@ namespace NovoRumoProjeto.Utilities.HtmlHelpers
             sb.Append("<i class='fi fi-plus' aria-hidden='true'></i>");
             sb.Append("Cadastrar");
             sb.Append("</a>");
+
             return new HtmlString(sb.ToString());
         }
 
@@ -51,6 +53,7 @@ namespace NovoRumoProjeto.Utilities.HtmlHelpers
             sb.AppendFormat("<button type='submit' class='primary button'>");
             sb.AppendFormat("<i class='fi fi-trash' aria-hidden='true'></i>");
             sb.AppendFormat("Excluir");
+
             return new HtmlString(sb.ToString());
         }
 
