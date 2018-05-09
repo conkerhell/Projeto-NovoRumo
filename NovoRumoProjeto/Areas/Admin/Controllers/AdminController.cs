@@ -5,6 +5,7 @@ using Microsoft.AspNet.Identity.Owin;
 using NovoRumoProjeto.Areas.Admin.Models;
 using Microsoft.Owin.Security;
 using Microsoft.AspNet.Identity;
+using NovoRumoProjeto.Utilities.EmailCreator;
 
 namespace NovoRumoProjeto.Areas.Admin.Controllers
 {
@@ -102,28 +103,27 @@ namespace NovoRumoProjeto.Areas.Admin.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> EsqueceuSenha(ForgotPasswordViewModel model)
         {
-            //if (ModelState.IsValid)
-            //{
-            //    var user = await UserManager.FindByNameAsync(model.Email);
-            //    if (user == null) //|| !(await UserManager.IsEmailConfirmedAsync(user.Id)))
-            //    {
-            //        return View("EsqueceuSenhaConfirmacao");
-            //    }
+            if (!ModelState.IsValid)
+            {
+                return View(model);
+            }
 
-            //    var code = await UserManager.GeneratePasswordResetTokenAsync(user.Id);
-            //    var callbackUrl = Url.Action("AlterarSenha", "Conta", new { UserId = user.Id, code = code }, protocol: Request.Url.Scheme);
+            var user = await UserManager.FindByNameAsync(model.Email);
+            if (user == null) //|| !(await UserManager.IsEmailConfirmedAsync(user.Id)))
+            {
+                return View(); //TODO: Mostrar tela de erro
+            }
 
-            //    var mail = new MailObject();
-            //    mail.Email = user.Email;
-            //    mail.Subject = "Recuperação de Senha";
-            //    mail.HtmlTemplate = Domain.dicionarioTemplateNames[Enums.TemplateName.resetPassword.ToString()];
+            var code = await UserManager.GeneratePasswordResetTokenAsync(user.Id);
+            var callbackUrl = Url.Action("AlterarSenha", "Conta", new { UserId = user.Id, code }, protocol: Request.Url.Scheme);
 
-            //    Dictionary<string, string> list = new Dictionary<string, string>();
-            //    list.Add(Domain.dicionarioTags[Enums.TemplateTag.code.ToString()], callbackUrl);
+            var destiny = "fontiana@gmail.com";
+            EmailCreator.CreateEmailFrom(model.Email)
+                .To(destiny)
+                .WithBody("Link para reiniciar a senha " + callbackUrl)
+                .WithSubject("Esqueceu a senha")
+                .Send();
 
-            //    Mailer.SendTemplateEmail(mail, list);
-            //    return View("EsqueceuSenhaConfirmacao");
-            //}
             return View(model);
         }
 

@@ -42,6 +42,7 @@
   <ItemGroup>
     <Compile Include="Core\DataAccess.cs" />
     <Compile Include="Core\TransactionControl.cs" />
+    <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="Interfaces\ICommands.cs" />
     <Compile Include="Interfaces\IConnection.cs" />
     <Compile Include="Interfaces\IDataAccess.cs" />

@@ -213,6 +213,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="Models\IdentityModel.cs" />
     <Compile Include="Models\NovoRumoModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
