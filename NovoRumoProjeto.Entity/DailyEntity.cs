@@ -5,5 +5,6 @@ namespace NovoRumoProjeto.Entity
     {
         public int DailyID { get; set; }
         public string fileName { get; set; }
+        public byte Status { get; set; }
     }
 }
