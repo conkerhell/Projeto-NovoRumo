@@ -6,7 +6,7 @@ namespace NovoRumoProjeto.Utilities.HtmlHelpers
 {
     public static class ButtonHtmlHelpers
     {
-        public static IHtmlString SaveButton(this HtmlHelper html, string text)
+        public static IHtmlString SaveButton(this HtmlHelper html, string text = "Salvar")
         {
             StringBuilder sb = new StringBuilder();
 

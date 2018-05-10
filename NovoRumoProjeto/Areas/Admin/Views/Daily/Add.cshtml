@@ -17,6 +17,7 @@
                 @Html.SaveButton("Salvar")
             </div>
         </div>
+        @Html.ValidationMessageFor(model => model.displayFileName)
     }
     <img id="previewImage" src="#" alt="previewed image" />
 </div>

@@ -9,7 +9,7 @@
 
     @using (Html.BeginForm(null, null, FormMethod.Post, new { enctype = "multipart/form-data" }))
     {
-        <div class="input-group">
+        <div class="field input-group">
             @Html.TextBoxFor(model => model.displayFileName, new { @readonly = true, id = "displayFileName", @class = "input-group-field" })
             <div class="input-group-button">
                 <label for="fileUpload" class="button secondary">Adicionar capa</label>
@@ -17,6 +17,7 @@
                 @Html.SaveButton("Salvar")
             </div>
         </div>
+        @Html.ValidationMessageFor(model => model.displayFileName)
     }
     <img id="previewImage" src="#" alt="previewed image" />
 </div>

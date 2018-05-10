@@ -25,18 +25,29 @@ namespace NovoRumoProjeto.Areas.Admin.Controllers
         [HttpGet]
         public ActionResult Add()
         {
-            return View();
+            var model = new EventViewModel();
+            return View(model);
         }
 
         [HttpPost]
         public ActionResult Add(EventViewModel model)
         {
+            if (!ModelState.IsValid)
+            {
+                return View(model);
+            }
+
             return View(model);
         }
 
         [HttpGet]
-        public ActionResult Edit()
+        public ActionResult Edit(int? id)
         {
+            if (!id.HasValue)
+            {
+                return RedirectToAction("Index");
+            }
+
             var model = new EventViewModel();
             return View(model);
         }
@@ -44,6 +55,11 @@ namespace NovoRumoProjeto.Areas.Admin.Controllers
         [HttpPost]
         public ActionResult Edit(EventViewModel model)
         {
+            if (!ModelState.IsValid)
+            {
+                return View(model);
+            }
+
             return View(model);
         }
     }
