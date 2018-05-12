@@ -43,6 +43,7 @@
     <Compile Include="AboutEntity.cs" />
     <Compile Include="ContactEntity.cs" />
     <Compile Include="DailyEntity.cs" />
+    <Compile Include="EventEntity.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />
