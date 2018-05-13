@@ -85,4 +85,34 @@ GO
 SET QUOTED_IDENTIFIER ON
 GO
 
+CREATE PROCEDURE spUpdateEvent(
+	@EventID AS INT,
+	@Title AS VARCHAR(200),
+	@Description AS VARCHAR(1000),
+	@Data AS DATETIME,
+	@Endereco AS VARCHAR(200)
+)
+AS
+BEGIN
+UPDATE Event
+   SET Title = @Title,
+       Description = @Description,
+       Data = @Data,
+       Endereco = @Endereco
+ WHERE EventID = @EventID
+END
 
+
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE PROCEDURE spDeleteEventById(
+	@EventID AS INT	
+)
+AS
+BEGIN
+DELETE FROM Event WHERE EventID = @EventID
+END
