@@ -48,11 +48,12 @@
     <Compile Include="Daily\DailyDAL.cs" />
     <Compile Include="Daily\IDailyDAL.cs" />
     <Compile Include="DAL.cs" />
+    <Compile Include="Event\EventDAL.cs" />
+    <Compile Include="Event\IEventDAL.cs" />
     <Compile Include="IDAL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Event\" />
     <Folder Include="Order\" />
     <Folder Include="Product\" />
   </ItemGroup>
