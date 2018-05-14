@@ -24,7 +24,7 @@ namespace NovoRumoProjeto.Areas.Admin.Controllers
                 model.Add(new DailyViewModel()
                 {
                     ID = item.DailyID,
-                    displayFileName = item.fileName
+                    displayFileName = item.fileName.GetImagePath()
                 });
             }
 
@@ -49,7 +49,7 @@ namespace NovoRumoProjeto.Areas.Admin.Controllers
             var status = dailyDAL.Insert(new DailyEntity()
             {
                 Status = 1,
-                fileName = model.displayFileName
+                fileName = model.displayFileName.GetImagePath()
             });
 
             if (!status)
@@ -73,7 +73,7 @@ namespace NovoRumoProjeto.Areas.Admin.Controllers
 
             var model = new DailyViewModel();
             model.ID = entity.DailyID;
-            model.displayFileName = entity.fileName;
+            model.displayFileName = entity.fileName.GetImagePath();
 
             return View(model);
         }

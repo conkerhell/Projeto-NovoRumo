@@ -19,7 +19,7 @@
         </div>
         @Html.ValidationMessageFor(model => model.displayFileName)
     }
-    <img id="previewImage" src="#" alt="previewed image" />
+    <img id="previewImage" src="@Url.Content(Model.displayFileName)" alt="previewed image" />
 </div>
 
 @section Scripts {
