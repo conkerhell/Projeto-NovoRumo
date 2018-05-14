@@ -15,12 +15,19 @@ namespace NovoRumoProjeto.Areas.Admin.Controllers
         public ActionResult Index()
         {
             var model = new List<AboutViewModel>();
-            model.Add(new AboutViewModel()
+            IAboutDAL aboutDAL = new AboutDAL();
+            var entity = aboutDAL.Get();
+
+            foreach (var item in entity)
             {
-                ID = 1,
-                displayFileName = "teste.jpg".GetImagePath()
-            });
-            return View();
+
+                model.Add(new AboutViewModel()
+                {
+                    ID = item.AboutID,
+                    displayFileName = "teste.jpg".GetImagePath()
+                });
+            }
+            return View(model);
         }
         [HttpGet]
         public ActionResult Edit(int? id)
