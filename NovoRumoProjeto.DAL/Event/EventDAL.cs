@@ -52,7 +52,7 @@ namespace NovoRumoProjeto.DAL.Event
 
         public EventEntity GetById(int id)
         {
-            using (var result = dataAccess.ExecuteReader(GET_EVENTS_PROC,
+            using (var result = dataAccess.ExecuteReader(GET_EVENT_BY_ID_PROC,
                 dataAccess.ParameterFactory.Create(EVENT_ID_COLUMN, DbType.Int32, id, ParameterDirection.Input)))
             {
                 EventEntity item = new EventEntity();
@@ -78,18 +78,18 @@ namespace NovoRumoProjeto.DAL.Event
             return dataAccess.ExecuteNonQuery(INSERT_EVENT_PROC,
                 dataAccess.ParameterFactory.Create(TITLE_COLUMN, DbType.String, entity.Title, ParameterDirection.Input),
                 dataAccess.ParameterFactory.Create(DESCRIPTION_COLUMN, DbType.String, entity.Description, ParameterDirection.Input),
-                dataAccess.ParameterFactory.Create(DATA_COLUMN, DbType.Date, entity.Data, ParameterDirection.Input),
-                dataAccess.ParameterFactory.Create(DESCRIPTION_COLUMN, DbType.String, entity.Address, ParameterDirection.Input)) == 1;
+                dataAccess.ParameterFactory.Create(DATA_COLUMN, DbType.DateTime, entity.Data, ParameterDirection.Input),
+                dataAccess.ParameterFactory.Create(ADDRESS_COLUMN, DbType.String, entity.Address, ParameterDirection.Input)) == 1;
         }
 
         public bool Update(EventEntity entity)
         {
-            return dataAccess.ExecuteNonQuery(INSERT_EVENT_PROC,
+            return dataAccess.ExecuteNonQuery(UPDATE_EVENT_BY_ID_PROC,
                 dataAccess.ParameterFactory.Create(EVENT_ID_COLUMN, DbType.Int32, entity.EventID, ParameterDirection.Input),
                 dataAccess.ParameterFactory.Create(TITLE_COLUMN, DbType.String, entity.Title, ParameterDirection.Input),
                 dataAccess.ParameterFactory.Create(DESCRIPTION_COLUMN, DbType.String, entity.Description, ParameterDirection.Input),
-                dataAccess.ParameterFactory.Create(DATA_COLUMN, DbType.Date, entity.Data, ParameterDirection.Input),
-                dataAccess.ParameterFactory.Create(DESCRIPTION_COLUMN, DbType.String, entity.Address, ParameterDirection.Input)) == 1;
+                dataAccess.ParameterFactory.Create(DATA_COLUMN, DbType.DateTime, entity.Data, ParameterDirection.Input),
+                dataAccess.ParameterFactory.Create(ADDRESS_COLUMN, DbType.String, entity.Address, ParameterDirection.Input)) == 1;
         }
     }
 }

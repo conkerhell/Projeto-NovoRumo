@@ -55,4 +55,9 @@ table .button {
     padding-bottom: 13px;
 }
 
+
+.input-group {
+    margin-bottom: 0; 
+}
+
 /* END FIELDS */

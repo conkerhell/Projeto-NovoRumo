@@ -22,16 +22,20 @@
         </div>
 
         <div class="field">
-            @Html.LabelFor(model => model.Endereco)
-            @Html.TextBoxFor(model => model.Endereco)
-            @Html.ValidationMessageFor(model => model.Endereco)
+            @Html.LabelFor(model => model.Address)
+            @Html.TextBoxFor(model => model.Address)
+            @Html.ValidationMessageFor(model => model.Address)
         </div>
 
         <div class="field">
             @Html.LabelFor(model => model.Data)
-            @Html.TextBoxFor(model => model.Data)
+            <div class="input-group">
+                <span class="input-group-label"><i class='fi fi-calendar' aria-hidden='true'></i></span>
+                @Html.TextBoxFor(model => model.Data, null, new { @class = "input-group-field" })
+            </div>
             @Html.ValidationMessageFor(model => model.Data)
         </div>
+
         @Html.SaveButton()
     }
 </div>

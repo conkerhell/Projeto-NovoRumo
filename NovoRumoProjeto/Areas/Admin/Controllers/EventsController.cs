@@ -1,4 +1,6 @@
 ﻿using NovoRumoProjeto.Areas.Admin.Models;
+using NovoRumoProjeto.DAL.Event;
+using NovoRumoProjeto.Entity;
 using NovoRumoProjeto.Utilities;
 using System.Collections.Generic;
 using System.Web.Mvc;
@@ -13,11 +15,20 @@ namespace NovoRumoProjeto.Areas.Admin.Controllers
         {
             var model = new List<EventViewModel>();
 
-            model.Add(new EventViewModel()
+            IEventDAL eventDAL = new EventDAL();
+            var entity = eventDAL.Get();
+
+            foreach (var item in entity)
             {
-                Title = "Bazar beneficiente",
-                Description = "Lorem ipsum dolores"
-            });
+                model.Add(new EventViewModel()
+                {
+                    ID = item.EventID,
+                    Title = item.Title,
+                    Description = item.Description,
+                    Data = item.Data,
+                    Address = item.Address
+                });
+            }
 
             return View(model);
         }
@@ -37,6 +48,21 @@ namespace NovoRumoProjeto.Areas.Admin.Controllers
                 return View(model);
             }
 
+            IEventDAL eventDAL = new EventDAL();
+
+            var status = eventDAL.Insert(new EventEntity()
+            {
+                Title = model.Title,
+                Description = model.Description,
+                Data = model.Data,
+                Address = model.Address
+            });
+
+            if (status)
+            {
+                return RedirectToAction("Index");
+            }
+
             return View(model);
         }
 
@@ -48,7 +74,16 @@ namespace NovoRumoProjeto.Areas.Admin.Controllers
                 return RedirectToAction("Index");
             }
 
+            IEventDAL eventDAL = new EventDAL();
+
+            var entity = eventDAL.GetById(id.Value);
             var model = new EventViewModel();
+
+            model.ID = entity.EventID;
+            model.Title = entity.Title;
+            model.Description = entity.Description;
+            model.Address = entity.Address;
+            model.Data = entity.Data;           
             return View(model);
         }
 
@@ -58,6 +93,21 @@ namespace NovoRumoProjeto.Areas.Admin.Controllers
             if (!ModelState.IsValid)
             {
                 return View(model);
+            }
+
+            IEventDAL eventDAL = new EventDAL();
+            var status = eventDAL.Update(new EventEntity()
+            {
+                EventID = model.ID,
+                Title = model.Title,
+                Description = model.Description,
+                Address = model.Address,
+                Data = model.Data
+            });
+
+            if (status)
+            {
+                return RedirectToAction("Index");
             }
 
             return View(model);
