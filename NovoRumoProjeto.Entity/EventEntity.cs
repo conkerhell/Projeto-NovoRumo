@@ -1,12 +1,14 @@
 ﻿
+using System;
+
 namespace NovoRumoProjeto.Entity
 {
     public class EventEntity
     {
-        public int ID { get; set; }
+        public int EventID { get; set; }
         public string Title { get; set; }
         public string Description { get; set; }
-        public string Data { get; set; }
-        public string Endereco { get; set; }
+        public DateTime Data { get; set; }
+        public string Address { get; set; }
     }
 }
