@@ -2,6 +2,9 @@
 using NovoRumoProjeto.DAL.About;
 using NovoRumoProjeto.Entity;
 using NovoRumoProjeto.Utilities;
+using NovoRumoProjeto.Utilities.Extensions;
+using Resources;
+using System.Collections.Generic;
 using System.Web.Mvc;
 
 namespace NovoRumoProjeto.Areas.Admin.Controllers
@@ -11,12 +14,27 @@ namespace NovoRumoProjeto.Areas.Admin.Controllers
     {
         public ActionResult Index()
         {
+            var model = new List<AboutViewModel>();
+            model.Add(new AboutViewModel()
+            {
+                ID = 1,
+                displayFileName = "teste.jpg".GetImagePath()
+            });
             return View();
         }
         [HttpGet]
-        public ActionResult Edit()
+        public ActionResult Edit(int? id)
         {
+            if (!id.HasValue)
+            {
+                return RedirectToAction("Index");
+            }
+            IAboutDAL aboutDAL = new AboutDAL();
+            var entity = aboutDAL.GetById(id.Value);
+
             var model = new AboutViewModel();
+            model.ID = entity.AboutID;
+            model.displayFileName = entity.fileName;
             return View(model);
         }
 
@@ -27,13 +45,23 @@ namespace NovoRumoProjeto.Areas.Admin.Controllers
             {
                 return View(model);
             }
+
             IAboutDAL aboutDAL = new AboutDAL();
-            var entity = aboutDAL.GetContact();
-            return View(new AboutViewModel()
+
+            var status = model.SaveFile() &&
+                aboutDAL.Update(new AboutEntity()
+                {
+                    AboutID = model.ID,
+                    fileName = model.displayFileName
+                });
+            return View(new AboutViewModel());
+
+            if (!status)
             {
-                Title = entity.Titulo,
-                Description = entity.Description
-            });
+                ModelState.AddModelError(string.Empty, LocalizedMessages.UnexpectedError);
+                return View(model);
+            }
+            return RedirectToAction("Index");
         }
 
 
@@ -43,18 +71,25 @@ namespace NovoRumoProjeto.Areas.Admin.Controllers
             return View();
         }
 
-        //[HttpPost]
-        //public ActionResult Add(AboutViewModel model)
-        //{
-        //    if (ModelState.IsValid)
-        //    {
-        //        DAL.AddAbout(new);
-        //        return RedirectToAction("Index");
-        //    }
-        //    else
-        //    {
-        //        return View(model);
-        //    }
-        //}
+        [HttpPost]
+        public ActionResult Add(AboutViewModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                return View(model);
+            }
+            IAboutDAL aboutDAL = new AboutDAL();
+            var status = aboutDAL.Insert(new AboutEntity()
+            {
+                fileName = model.displayFileName
+            });
+
+            if (!status)
+            {
+                ModelState.AddModelError(string.Empty, LocalizedMessages.UnexpectedError);
+                return View(model);
+            }
+            return RedirectToAction("Index");
+        }
     }
 }
