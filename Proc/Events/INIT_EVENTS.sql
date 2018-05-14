@@ -13,7 +13,7 @@ CREATE TABLE [dbo].[Event](
 	[Title] [varchar](200) NOT NULL,
 	[Description] [varchar](1000) NOT NULL,
 	[Data] [datetime] NOT NULL,
-	[Endereco] [varchar](200) NOT NULL,
+	[Address] [varchar](200) NOT NULL,
  CONSTRAINT [PK_Event] PRIMARY KEY CLUSTERED 
 (
 	[EventID] ASC
@@ -30,7 +30,7 @@ GO
 CREATE PROCEDURE spGetEvents
 AS
 BEGIN
-SELECT EventID, Title, Description, Data, Endereco FROM Event WITH (NOLOCK)
+SELECT EventID, Title, Description, Data, Address FROM Event WITH (NOLOCK)
 END
 
 
@@ -45,7 +45,7 @@ CREATE PROCEDURE spGetEventById (
 )
 AS
 BEGIN
-SELECT EventID, Title, Description, Data, Endereco 
+SELECT EventID, Title, Description, Data, Address 
   FROM Event WITH (NOLOCK)
  WHERE EventID = @EventID
 END
@@ -61,7 +61,7 @@ CREATE PROCEDURE spInsertEvent(
 	@Title AS VARCHAR(200),
 	@Description AS VARCHAR(1000),
 	@Data AS DATETIME,
-	@Endereco AS VARCHAR(200)
+	@Address AS VARCHAR(200)
 )
 AS
 BEGIN
@@ -69,12 +69,12 @@ INSERT INTO Event (
 		Title,
 		Description,
 		Data,
-		Endereco
+		Address
 	) VALUES (
 		@Title,
 		@Description,
 		@Data,
-		@Endereco
+		@Address
 	)
 END
 
@@ -90,7 +90,7 @@ CREATE PROCEDURE spUpdateEvent(
 	@Title AS VARCHAR(200),
 	@Description AS VARCHAR(1000),
 	@Data AS DATETIME,
-	@Endereco AS VARCHAR(200)
+	@Address AS VARCHAR(200)
 )
 AS
 BEGIN
@@ -98,7 +98,7 @@ UPDATE Event
    SET Title = @Title,
        Description = @Description,
        Data = @Data,
-       Endereco = @Endereco
+       Address = @Address
  WHERE EventID = @EventID
 END
 
