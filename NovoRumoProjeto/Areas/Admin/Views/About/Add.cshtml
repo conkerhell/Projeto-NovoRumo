@@ -1,6 +1,6 @@
 ﻿@model NovoRumoProjeto.Areas.Admin.Models.AboutViewModel
 
-<div class="grid-y">
+<div class="cell">
     <div class="title-bar-admin">
         <h1>Adicionar Sobre</h1>
     </div>
@@ -20,10 +20,16 @@
                 @Html.ValidationMessageFor(model => model.Description)
             </div>
 
+            <div class="input-group">
+                @Html.TextBoxFor(model => model.displayFileName, new { @readonly = true, id = "displaFileName", @class = "input-group-field"})
+                <div class="input-group-button">
+                    <label for="fileUpload" class="button secondary">Adicionar capa</label>
+                    @Html.TextBoxFor(model => model.file, new { type = "file", id = "fileUpload", @class = "show-for-sr"})
+                    @Html.SaveButton("Salvar")
+                </div>
+            </div>
+            
         }
-        <div class="grid-x">
-            @Html.SaveButton("Salvar")
-            @Html.ResetButton("Reset")
-        </div>
+
     </div>
 </div>

@@ -1,7 +1,7 @@
 ﻿@model NovoRumoProjeto.Areas.Admin.Models.AboutViewModel
 
 
-<div class="grid-y">
+<div class="cell">
     <div class="title-bar-admin">
         <h1>Alterar Sobre</h1>
     </div>
@@ -21,10 +21,16 @@
                 @Html.ValidationMessageFor(model => model.Description)
             </div>
 
+            <div>
+                @Html.SaveButton("Salvar")
+            </div>
+
+            <div>
+                @Html.DeleteButton("Excluir")
+            </div>
+
+
         }
-        <div class="grid-x">
-            @Html.SaveButton("Salvar")
-            @Html.DeleteButton("Excluir")
-        </div>
+
     </div>
 </div>
