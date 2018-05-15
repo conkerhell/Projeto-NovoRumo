@@ -59,6 +59,8 @@
 
     <script type="text/javascript" src="/Scripts/jquery.min.js"></script>
     <script type="text/javascript" src="/Scripts/foundation.min.js"></script>
+    <script type="text/javascript" src="/Scripts/foundation-datepicker.min.js"></script>
+    <link href="~/Content/foundation-datepicker.min.css" rel="stylesheet" async>
     <link href="~/Content/foundation-icons/foundation-icons.css" rel="stylesheet" async>
     <script>
         $(document).foundation();
@@ -67,6 +69,14 @@
             $("[data-logout]").on("click", function () {
                 $("#logoutForm").submit();
             });
+        });
+
+        $('#date-field').fdatepicker({
+            leftArrow: '<',
+            rightArrow: '>',
+            format: 'dd/mm/yyyy',
+            disableDblClickSelection: true,
+            startDate: new Date(),
         });
     </script>
     @Scripts.Render("~/bundles/jqueryval")

@@ -21,7 +21,7 @@ namespace NovoRumoProjeto.Areas.Admin.Models
         [Required(ErrorMessageResourceType = typeof(LocalizedMessages),
            ErrorMessageResourceName = "PropertyValueRequired")]
         [Display(Name = "Data do evento")]
-        public DateTime Data { get; set; }
+        public DateTime? Data { get; set; }
 
         [Required(ErrorMessageResourceType = typeof(LocalizedMessages),
            ErrorMessageResourceName = "PropertyValueRequired")]
