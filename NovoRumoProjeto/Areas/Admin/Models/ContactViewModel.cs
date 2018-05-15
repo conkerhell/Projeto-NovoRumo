@@ -1,5 +1,6 @@
 ﻿using Resources;
 using System.ComponentModel.DataAnnotations;
+using System.Web.Mvc;
 
 namespace NovoRumoProjeto.Areas.Admin.Models
 {
@@ -29,6 +30,7 @@ namespace NovoRumoProjeto.Areas.Admin.Models
         [DataType(DataType.EmailAddress)]
         public string Email { get; set; }
 
+        [AllowHtml]
         [Required(ErrorMessageResourceType = typeof(LocalizedMessages),
             ErrorMessageResourceName = "PropertyValueRequired")]
         [Display(Name = "Endereço")] 

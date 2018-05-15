@@ -1,6 +1,7 @@
 ﻿using Resources;
 using System;
 using System.ComponentModel.DataAnnotations;
+using System.Web.Mvc;
 
 namespace NovoRumoProjeto.Areas.Admin.Models
 {
@@ -13,6 +14,7 @@ namespace NovoRumoProjeto.Areas.Admin.Models
         [Display(Name = "Título")]
         public string Title { get; set; }
 
+        [AllowHtml]
         [Required(ErrorMessageResourceType = typeof(LocalizedMessages),
            ErrorMessageResourceName = "PropertyValueRequired")]
         [Display(Name = "Descrição")]

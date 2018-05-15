@@ -19,8 +19,8 @@
         @Html.LabelFor(model => model.Telephone)
         @Html.LabelFor(model => model.Mobile)
         @Html.LabelFor(model => model.SecondaryMobile)
-        @Html.LabelFor(model => model.Address)
         @Html.LabelFor(model => model.CEP)
+        @Html.LabelFor(model => model.Address)
     </div>
 
     <div class="small-10">
@@ -37,10 +37,10 @@
             @Html.DisplayFor(model => model.SecondaryMobile)
         </div>
         <div class="small-12">
-            @Html.DisplayFor(model => model.Address)
+            @Html.DisplayFor(model => model.CEP)
         </div>
         <div class="small-12">
-            @Html.DisplayFor(model => model.CEP)
+            @Html.Raw(Model.Address)
         </div>
     </div>
 

@@ -49,7 +49,7 @@ namespace NovoRumoProjeto.Areas.Admin.Controllers
             var status = dailyDAL.Insert(new DailyEntity()
             {
                 Status = 1,
-                fileName = model.displayFileName.GetImagePath()
+                fileName = model.displayFileName
             });
 
             if (!status)
