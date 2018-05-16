@@ -1,5 +1,4 @@
-﻿
-using System.Web;
+﻿using System.Web;
 
 namespace NovoRumoProjeto.Utilities.FlashMessage
 {
@@ -13,11 +12,12 @@ namespace NovoRumoProjeto.Utilities.FlashMessage
             KeyName = "_FlashMessage";
         }
 
-        public void Add(FlashMessageModel messages)
+        public void Add(FlashMessageModel message)
         {
-            // Set the data without doing any further securing or transformations.
+            var data = FlashMessage.Serialize(message);
+
             var context = new HttpContextWrapper(HttpContext.Current);
-            //context.Session[KeyName] = data;
+            context.Session[KeyName] = data;
         }
     }
 }
