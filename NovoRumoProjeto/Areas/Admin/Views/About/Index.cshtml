@@ -1,4 +1,4 @@
-﻿@model  NovoRumoProjeto.Areas.Admin.Models.AboutViewModel
+﻿@model  IEnumerable<NovoRumoProjeto.Areas.Admin.Models.AboutViewModel>
 
 
 
@@ -9,10 +9,32 @@
 </div>
 
 <div class="grid-x cell">
-    <div class="cell small-2">
-        @Html.LabelFor(model => model.Title)
-        @Html.LabelFor(model => model.Description)
-    </div>
+    <table class="unstriped">
+        <thead>
+            <tr>
+                <th>
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.displayFileName)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    <img src="@Url.Content(item.displayFileName)" width="100" height="100" />
+                </td>
+                <td>
+                    @Html.EditButton("About", item.ID) |
+                    @Html.ActionLink("Deletar", "Delete", new { id = item.ID })
+                </td>
+            </tr>
+        }
+    </table>
+    
 
 
 </div>

@@ -12,6 +12,7 @@ namespace NovoRumoProjeto.Areas.Admin.Controllers
     [Authorize(Roles = Consts.ADMIN_ROLE)]
     public class AboutController : Controller
     {
+        [HttpGet]
         public ActionResult Index()
         {
             var model = new List<AboutViewModel>();
@@ -24,7 +25,7 @@ namespace NovoRumoProjeto.Areas.Admin.Controllers
                 model.Add(new AboutViewModel()
                 {
                     ID = item.AboutID,
-                    displayFileName = "teste.jpg".GetImagePath()
+                    displayFileName = item.fileName.GetImagePath()
                 });
             }
             return View(model);
