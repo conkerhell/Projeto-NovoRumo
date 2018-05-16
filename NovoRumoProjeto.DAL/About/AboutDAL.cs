@@ -14,10 +14,10 @@ namespace NovoRumoProjeto.DAL.About
         private const string DELETE_ABOUT_PROC = "spDeleteAbout";
         private const string UPDATE_ABOUT_PROC = "spUpdateAbout";
 
-        private const string ABOUT_ID_COLUMN = "DailyID";
+        private const string ABOUT_ID_COLUMN = "AboutID";
         private const string FILENAME_COLUMN = "Filename";
-        private const string TITULO_COLUMN = "Titulo";
-        private const string DESCRICAO_COLUMN = "Descricao";
+        private const string TITULE_COLUMN = "Titulo";
+        private const string DESCRIPTION_COLUMN = "Description";
 
         public List<AboutEntity> Get()
         {
@@ -31,30 +31,61 @@ namespace NovoRumoProjeto.DAL.About
                     while (result.Read())
                     {
                         about = new AboutEntity();
-                        about.AboutID = Convert.ToInt32(result[ABOUT])
+                        about.AboutID = Convert.ToInt32(result[ABOUT_ID_COLUMN]);
+                        about.Titule = Convert.ToString(result[TITULE_COLUMN]);
+                        about.Description = Convert.ToString(result[DESCRIPTION_COLUMN]);
+                        about.fileName = Convert.ToString(result[FILENAME_COLUMN]);
                     }
                 }
+                return abouts;
             }
         }
 
         public AboutEntity GetById(int id)
         {
-            throw new NotImplementedException();
+            using (var result = dataAccess.ExecuteReader(GET_ABOUT_BY_ID_PROC,
+                dataAccess.ParameterFactory.Create(ABOUT_ID_COLUMN, DbType.Int32, id, ParameterDirection.Input)))
+            {
+
+                var abouts = new AboutEntity();
+
+                if (result.HasRows)
+                {
+                    if (result.Read())
+                    {
+                        abouts.AboutID = Convert.ToInt32(result[ABOUT_ID_COLUMN]);
+                        abouts.Titule = Convert.ToString(result[TITULE_COLUMN]);
+                        abouts.Description = Convert.ToString(result[DESCRIPTION_COLUMN]);
+                        abouts.fileName = Convert.ToString(result[FILENAME_COLUMN]);
+                    }
+                }
+
+                return abouts;
+            }
         }
 
-        public AboutEntity GetContact()
-        {
-            throw new NotImplementedException();
-        }
 
         public bool Insert(AboutEntity entity)
         {
-            throw new NotImplementedException();
+            return dataAccess.ExecuteNonQuery(INSERT_ABOUT_PROC,
+                dataAccess.ParameterFactory.Create(TITULE_COLUMN, DbType.String, entity.Titule, ParameterDirection.Input),
+                dataAccess.ParameterFactory.Create(DESCRIPTION_COLUMN, DbType.String, entity.Description, ParameterDirection.Input),
+                dataAccess.ParameterFactory.Create(FILENAME_COLUMN, DbType.String, entity.fileName, ParameterDirection.Input)) == 1;
         }
 
         public bool Update(AboutEntity entity)
         {
-            throw new NotImplementedException();
+            return dataAccess.ExecuteNonQuery(UPDATE_ABOUT_PROC,
+          dataAccess.ParameterFactory.Create(ABOUT_ID_COLUMN, DbType.Int32, entity.AboutID, ParameterDirection.Input),
+          dataAccess.ParameterFactory.Create(FILENAME_COLUMN, DbType.String, entity.fileName, ParameterDirection.Input),
+          dataAccess.ParameterFactory.Create(TITULE_COLUMN, DbType.String, entity.Titule, ParameterDirection.Input),
+          dataAccess.ParameterFactory.Create(DESCRIPTION_COLUMN, DbType.String, entity.Description, ParameterDirection.Input)) == 1;
+        }
+
+        public bool Delete(int id)
+        {
+            return dataAccess.ExecuteNonQuery(DELETE_ABOUT_PROC,
+                dataAccess.ParameterFactory.Create(ABOUT_ID_COLUMN, DbType.Int32, id, ParameterDirection.Input)) == 1;
         }
     }
 }
