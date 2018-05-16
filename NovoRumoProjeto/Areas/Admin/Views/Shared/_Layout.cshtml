@@ -12,11 +12,11 @@
     {
         <div class="off-canvas position-left reveal-for-large" id="menu" data-off-canvas>
             <ul class="vertical menu accordion-menu" data-accordion-menu>
-                <li>@Html.ActionLink("Dashboard", "Dashboard")</li>
+                <li>@Html.ActionLink("Dashboard", "Index", "Dashboard")</li>
                 <li>
                     <a href="#">Cadastros</a>
                     <ul class="menu vertical nested">
-                        <li>@Html.ActionLink("Produtos", "Products")</li>
+                        <li>@Html.ActionLink("Produtos", "Index", "Products")</li>
                     </ul>
                 </li>
                 <li>
@@ -59,6 +59,8 @@
 
     <script type="text/javascript" src="/Scripts/jquery.min.js"></script>
     <script type="text/javascript" src="/Scripts/foundation.min.js"></script>
+    <script type="text/javascript" src="/Scripts/foundation-datepicker.min.js"></script>
+    <link href="~/Content/foundation-datepicker.min.css" rel="stylesheet" async>
     <link href="~/Content/foundation-icons/foundation-icons.css" rel="stylesheet" async>
     <script>
         $(document).foundation();
@@ -67,6 +69,14 @@
             $("[data-logout]").on("click", function () {
                 $("#logoutForm").submit();
             });
+        });
+
+        $('#date-field').fdatepicker({
+            leftArrow: '<',
+            rightArrow: '>',
+            format: 'dd/mm/yyyy',
+            disableDblClickSelection: true,
+            startDate: new Date(),
         });
     </script>
     @Scripts.Render("~/bundles/jqueryval")

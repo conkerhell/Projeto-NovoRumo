@@ -10,7 +10,7 @@ namespace NovoRumoProjeto.DAL.Event
         private const string GET_EVENTS_PROC = "spGetEvents";
         private const string GET_EVENT_BY_ID_PROC = "spGetEventById";
         private const string INSERT_EVENT_PROC = "spInsertEvent";
-        private const string UPDATE_EVENT_BY_ID_PROC = "spUpdateEventById";
+        private const string UPDATE_EVENT_BY_ID_PROC = "spUpdateEvent";
         private const string DELETE_EVENT_PROC = "spDeleteEvent";
 
         private const string EVENT_ID_COLUMN = "EventID";

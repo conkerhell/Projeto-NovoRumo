@@ -54,7 +54,7 @@ namespace NovoRumoProjeto.Areas.Admin.Controllers
             {
                 Title = model.Title,
                 Description = model.Description,
-                Data = model.Data,
+                Data = model.Data.Value,
                 Address = model.Address
             });
 
@@ -102,7 +102,7 @@ namespace NovoRumoProjeto.Areas.Admin.Controllers
                 Title = model.Title,
                 Description = model.Description,
                 Address = model.Address,
-                Data = model.Data
+                Data = model.Data.Value
             });
 
             if (status)

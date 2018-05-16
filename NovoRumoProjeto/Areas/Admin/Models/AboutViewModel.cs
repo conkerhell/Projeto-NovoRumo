@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Configuration;
 using System.IO;
 using System.Web;
+using System.Web.Mvc;
 
 namespace NovoRumoProjeto.Areas.Admin.Models
 {
@@ -15,6 +16,7 @@ namespace NovoRumoProjeto.Areas.Admin.Models
         [Display(Name = "Titulo")]
         public string Title { get; set; }
 
+        [AllowHtml]
         [Required(ErrorMessageResourceType = typeof(LocalizedMessages),
             ErrorMessageResourceName = "PropertyValueRequired")]
         [Display(Name = "Descrição")]
@@ -34,7 +36,10 @@ namespace NovoRumoProjeto.Areas.Admin.Models
         [Display(Name = "ID")]
         public int ID { get; set; }
 
-
+        /// <summary>
+        /// Responsável por salvar o arquivo no servidor
+        /// </summary>
+        /// <returns>Status do salvamento do arquivo</returns>
         public bool SaveFile()
         {
             var status = false;
