@@ -4,6 +4,6 @@ namespace NovoRumoProjeto.DAL.About
 {
     public interface IAboutDAL : IDAL<AboutEntity>
     {
-        AboutEntity GetContact();
+        bool Delete(int id);
     }
 }

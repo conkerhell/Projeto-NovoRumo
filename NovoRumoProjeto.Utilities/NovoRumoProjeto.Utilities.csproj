@@ -53,6 +53,7 @@
     <Compile Include="Extensions\Extensions.cs" />
     <Compile Include="FlashMessage\FlashMessage.cs" />
     <Compile Include="FlashMessage\FlashMessageModel.cs" />
+    <Compile Include="FlashMessage\FlashMessageTransport.cs" />
     <Compile Include="HtmlHelpers\ButtonHtmlHelpers.cs" />
     <Compile Include="HtmlHelpers\FlashMessageHtmlHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
