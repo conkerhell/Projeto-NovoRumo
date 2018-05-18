@@ -3,6 +3,7 @@ using NovoRumoProjeto.DAL.About;
 using NovoRumoProjeto.Entity;
 using NovoRumoProjeto.Utilities;
 using NovoRumoProjeto.Utilities.Extensions;
+using NovoRumoProjeto.Utilities.FlashMessage;
 using Resources;
 using System.Collections.Generic;
 using System.Web.Mvc;
@@ -60,15 +61,18 @@ namespace NovoRumoProjeto.Areas.Admin.Controllers
                 aboutDAL.Update(new AboutEntity()
                 {
                     AboutID = model.ID,
+                    Title = model.Title,
+                    Description = model.Description,
                     fileName = model.displayFileName
                 });
-            return View(new AboutViewModel());
+
 
             if (!status)
             {
                 ModelState.AddModelError(string.Empty, LocalizedMessages.UnexpectedError);
                 return View(model);
             }
+
             return RedirectToAction("Index");
         }
 
@@ -97,6 +101,7 @@ namespace NovoRumoProjeto.Areas.Admin.Controllers
                 ModelState.AddModelError(string.Empty, LocalizedMessages.UnexpectedError);
                 return View(model);
             }
+            FlashMessage.Success("sucesso!");
             return RedirectToAction("Index");
         }
     }

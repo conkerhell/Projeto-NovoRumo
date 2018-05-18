@@ -16,7 +16,7 @@ namespace NovoRumoProjeto.DAL.About
 
         private const string ABOUT_ID_COLUMN = "AboutID";
         private const string FILENAME_COLUMN = "Filename";
-        private const string TITULE_COLUMN = "Titulo";
+        private const string TITLE_COLUMN = "Title";
         private const string DESCRIPTION_COLUMN = "Description";
 
         public List<AboutEntity> Get()
@@ -32,7 +32,7 @@ namespace NovoRumoProjeto.DAL.About
                     {
                         about = new AboutEntity();
                         about.AboutID = Convert.ToInt32(result[ABOUT_ID_COLUMN]);
-                        about.Titule = Convert.ToString(result[TITULE_COLUMN]);
+                        about.Title = Convert.ToString(result[TITLE_COLUMN]);
                         about.Description = Convert.ToString(result[DESCRIPTION_COLUMN]);
                         about.fileName = Convert.ToString(result[FILENAME_COLUMN]);
                     }
@@ -54,7 +54,7 @@ namespace NovoRumoProjeto.DAL.About
                     if (result.Read())
                     {
                         abouts.AboutID = Convert.ToInt32(result[ABOUT_ID_COLUMN]);
-                        abouts.Titule = Convert.ToString(result[TITULE_COLUMN]);
+                        abouts.Title = Convert.ToString(result[TITLE_COLUMN]);
                         abouts.Description = Convert.ToString(result[DESCRIPTION_COLUMN]);
                         abouts.fileName = Convert.ToString(result[FILENAME_COLUMN]);
                     }
@@ -68,7 +68,7 @@ namespace NovoRumoProjeto.DAL.About
         public bool Insert(AboutEntity entity)
         {
             return dataAccess.ExecuteNonQuery(INSERT_ABOUT_PROC,
-                dataAccess.ParameterFactory.Create(TITULE_COLUMN, DbType.String, entity.Titule, ParameterDirection.Input),
+                dataAccess.ParameterFactory.Create(TITLE_COLUMN, DbType.String, entity.Title, ParameterDirection.Input),
                 dataAccess.ParameterFactory.Create(DESCRIPTION_COLUMN, DbType.String, entity.Description, ParameterDirection.Input),
                 dataAccess.ParameterFactory.Create(FILENAME_COLUMN, DbType.String, entity.fileName, ParameterDirection.Input)) == 1;
         }
@@ -78,7 +78,7 @@ namespace NovoRumoProjeto.DAL.About
             return dataAccess.ExecuteNonQuery(UPDATE_ABOUT_PROC,
           dataAccess.ParameterFactory.Create(ABOUT_ID_COLUMN, DbType.Int32, entity.AboutID, ParameterDirection.Input),
           dataAccess.ParameterFactory.Create(FILENAME_COLUMN, DbType.String, entity.fileName, ParameterDirection.Input),
-          dataAccess.ParameterFactory.Create(TITULE_COLUMN, DbType.String, entity.Titule, ParameterDirection.Input),
+          dataAccess.ParameterFactory.Create(TITLE_COLUMN, DbType.String, entity.Title, ParameterDirection.Input),
           dataAccess.ParameterFactory.Create(DESCRIPTION_COLUMN, DbType.String, entity.Description, ParameterDirection.Input)) == 1;
         }
 
