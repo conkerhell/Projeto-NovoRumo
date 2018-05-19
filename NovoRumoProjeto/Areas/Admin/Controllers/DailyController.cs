@@ -3,10 +3,11 @@ using NovoRumoProjeto.DAL.Daily;
 using NovoRumoProjeto.Entity;
 using NovoRumoProjeto.Utilities;
 using NovoRumoProjeto.Utilities.Extensions;
-using NovoRumoProjeto.Utilities.FlashMessage;
 using Resources;
 using System.Collections.Generic;
 using System.Web.Mvc;
+using Vereyon.Web;
+
 namespace NovoRumoProjeto.Areas.Admin.Controllers
 {
     [Authorize(Roles = Consts.ADMIN_ROLE)]
@@ -59,7 +60,7 @@ namespace NovoRumoProjeto.Areas.Admin.Controllers
                 return View(model);
             }
 
-            FlashMessage.Success("sucesso!");
+            FlashMessage.Confirmation("sucesso!");
             return RedirectToAction("Index");
         }
 

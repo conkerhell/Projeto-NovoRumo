@@ -30,7 +30,7 @@
         {
             <tr>
                 <td>
-                    <img src="@Url.Content(item.displayFileName)" width="100" height="100"/>
+                    <img src="@Url.Content(item.displayFileName)" width="100" height="100" />
                 </td>
                 <td>
                     @Html.EditButton("Daily", item.ID) |
@@ -39,5 +39,6 @@
             </tr>
         }
     </table>
-
 </div>
+
+@Html.RenderFlashMessages()
