@@ -61,6 +61,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Falha.
+        /// </summary>
+        internal static string FailedTitle {
+            get {
+                return ResourceManager.GetString("FailedTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Formato do arquivo invalido. Apenas os formatos {0} sao suportados..
         /// </summary>
         internal static string FileFormatInvalid {
@@ -88,6 +97,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Operacao concluida com sucesso.
+        /// </summary>
+        internal static string operationSucced {
+            get {
+                return ResourceManager.GetString("operationSucced", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Campo não é válido..
         /// </summary>
         internal static string PropertyValueInvalid {
@@ -102,6 +120,15 @@ namespace Resources {
         internal static string PropertyValueRequired {
             get {
                 return ResourceManager.GetString("PropertyValueRequired", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Sucesso.
+        /// </summary>
+        internal static string SuccessTitle {
+            get {
+                return ResourceManager.GetString("SuccessTitle", resourceCulture);
             }
         }
         

@@ -56,11 +56,11 @@ namespace NovoRumoProjeto.Areas.Admin.Controllers
 
             if (!status)
             {
-                ModelState.AddModelError(string.Empty, LocalizedMessages.UnexpectedError);
+                FlashMessage.Danger(LocalizedMessages.FailedTitle, LocalizedMessages.UnexpectedError);
                 return View(model);
             }
 
-            FlashMessage.Confirmation("sucesso!");
+            FlashMessage.Confirmation(LocalizedMessages.SuccessTitle, LocalizedMessages.operationSucced);
             return RedirectToAction("Index");
         }
 
@@ -101,9 +101,11 @@ namespace NovoRumoProjeto.Areas.Admin.Controllers
 
             if (!status)
             {
-                ModelState.AddModelError(string.Empty, LocalizedMessages.UnexpectedError);
+                FlashMessage.Danger(LocalizedMessages.FailedTitle, LocalizedMessages.UnexpectedError);
                 return View(model);
             }
+
+            FlashMessage.Confirmation(LocalizedMessages.SuccessTitle, LocalizedMessages.operationSucced);
             return RedirectToAction("Index");
         }
     }

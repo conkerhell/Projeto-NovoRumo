@@ -126,6 +126,9 @@
   <data name="FileSizedExceeded" xml:space="preserve">
     <value>O tamanho do arquivo nao deve exceder {0}.</value>
   </data>
+  <data name="operationSucced" xml:space="preserve">
+    <value>Operacao concluida com sucesso</value>
+  </data>
   <data name="PropertyValueInvalid" xml:space="preserve">
     <value>Campo não é válido.</value>
   </data>
@@ -134,5 +137,11 @@
   </data>
   <data name="UnexpectedError" xml:space="preserve">
     <value>Erro inesperado, tente novamente.</value>
+  </data>
+  <data name="FailedTitle" xml:space="preserve">
+    <value>Falha</value>
+  </data>
+  <data name="SuccessTitle" xml:space="preserve">
+    <value>Sucesso</value>
   </data>
 </root>
