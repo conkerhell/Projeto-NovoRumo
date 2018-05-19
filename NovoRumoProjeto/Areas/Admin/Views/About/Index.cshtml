@@ -1,11 +1,16 @@
 ﻿@model  IEnumerable<NovoRumoProjeto.Areas.Admin.Models.AboutViewModel>
 
-
-
 <div class="cell">
-    <h1>Sobre</h1>
-    @Html.EditButton("About", 0)
-    @Html.AddButton("About")
+    <div class="grid-x title-bar-admin">
+        <div class="small-6">
+            <h1>Sobre</h1>
+        </div>
+        <div class="small-6">
+            <div class="float-right">
+                @Html.AddButton("About")
+            </div>
+        </div>
+    </div>
 </div>
 
 <div class="grid-x cell">
@@ -34,7 +39,5 @@
             </tr>
         }
     </table>
-    
-
-
+    @Html.RenderFlashMessages()
 </div>
