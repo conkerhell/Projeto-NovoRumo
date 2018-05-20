@@ -12,6 +12,7 @@ namespace NovoRumoProjeto.Areas.Admin.Models
         [Required(ErrorMessageResourceType = typeof(LocalizedMessages),
            ErrorMessageResourceName = "PropertyValueRequired")]
         [Display(Name = "Título")]
+        [AllowHtml]
         public string Title { get; set; }
 
         [AllowHtml]

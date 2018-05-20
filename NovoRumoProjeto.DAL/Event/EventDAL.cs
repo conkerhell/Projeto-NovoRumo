@@ -9,6 +9,7 @@ namespace NovoRumoProjeto.DAL.Event
     {
         private const string GET_EVENTS_PROC = "spGetEvents";
         private const string GET_EVENT_BY_ID_PROC = "spGetEventById";
+        private const string GET_NEXT_EVENT = "spGetNextEvent";
         private const string INSERT_EVENT_PROC = "spInsertEvent";
         private const string UPDATE_EVENT_BY_ID_PROC = "spUpdateEvent";
         private const string DELETE_EVENT_PROC = "spDeleteEvent";
@@ -54,6 +55,28 @@ namespace NovoRumoProjeto.DAL.Event
         {
             using (var result = dataAccess.ExecuteReader(GET_EVENT_BY_ID_PROC,
                 dataAccess.ParameterFactory.Create(EVENT_ID_COLUMN, DbType.Int32, id, ParameterDirection.Input)))
+            {
+                EventEntity item = new EventEntity();
+                if (result.HasRows)
+                {
+                    if (result.Read())
+                    {
+                        item = new EventEntity();
+                        item.EventID = Convert.ToInt32(result[EVENT_ID_COLUMN]);
+                        item.Title = result[TITLE_COLUMN].ToString();
+                        item.Description = result[DESCRIPTION_COLUMN].ToString();
+                        item.Data = Convert.ToDateTime(result[DATA_COLUMN]);
+                        item.Address = result[ADDRESS_COLUMN].ToString();
+                    }
+                }
+
+                return item;
+            }
+        }
+
+        public EventEntity GetNextEvent()
+        {
+            using (var result = dataAccess.ExecuteReader(GET_NEXT_EVENT))
             {
                 EventEntity item = new EventEntity();
                 if (result.HasRows)

@@ -1,7 +1,7 @@
 ﻿<div id="content">
     @Html.Partial("Sobre")
     @Html.Partial("Doe")
-    @Html.Partial("Eventos")
+    @{ Html.RenderAction("Evento"); }
     @Html.Partial("Dia")
     @Html.Partial("Contato")
 </div>

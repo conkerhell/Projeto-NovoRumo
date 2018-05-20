@@ -1,0 +1,23 @@
+﻿@model NovoRumoProjeto.Models.EventViewModel
+
+<div class="pink-content" id="eventos">
+    <div class="grid-container grid-x">
+        <div class="small-12 medium-6 cell text-center">
+            <img src="/images/event-icon.png" />
+            <h3>Eventos</h3>
+            <h4>
+                @Html.Raw(Model.Title)
+            </h4>
+        </div>
+        <div class="small-12 medium-6 cell">
+            <h6 class="title text-center">Localização</h6>
+            <p>
+                @Model.Address
+            </p>
+            <h6 class="title text-center">Descrição</h6>
+            <p>
+                @Model.Description
+            </p>
+        </div>
+    </div>
+</div>

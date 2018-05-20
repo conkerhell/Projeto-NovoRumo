@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NovoRumoProjeto.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,23 +9,36 @@ namespace NovoRumoProjeto.Controllers
 {
     public class HomeController : Controller
     {
+        [HttpGet]
         public ActionResult Index()
         {
             return View();
         }
 
-        public ActionResult About()
+        [HttpGet]
+        public PartialViewResult About()
         {
-            ViewBag.Message = "Your application description page.";
-
-            return View();
+            return PartialView();
         }
 
-        public ActionResult Contact()
+        [HttpGet]
+        public PartialViewResult Daily()
         {
-            ViewBag.Message = "Your contact page.";
+            return PartialView();
+        }
 
-            return View();
+        [HttpGet]
+        public PartialViewResult Evento()
+        {
+            var model = new EventViewModel();
+            model.GetNextEvent();
+            return PartialView(model);
+        }
+
+        [HttpGet]
+        public PartialViewResult Contact()
+        {
+            return PartialView();
         }
     }
 }

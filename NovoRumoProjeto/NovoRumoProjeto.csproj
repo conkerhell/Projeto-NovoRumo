@@ -220,6 +220,8 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\DailyViewModel.cs" />
+    <Compile Include="Models\EventViewModel.cs" />
     <Compile Include="Models\IdentityModel.cs" />
     <Compile Include="Models\NovoRumoModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -610,7 +612,7 @@
     <Content Include="Views\Home\Doe.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Home\Eventos.cshtml" />
+    <Content Include="Views\Home\Evento.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Home\Dia.cshtml" />
