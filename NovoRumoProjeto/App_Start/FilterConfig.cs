@@ -1,4 +1,4 @@
-﻿using System.Web;
+﻿using NovoRumoProjeto.Utilities.Filters;
 using System.Web.Mvc;
 
 namespace NovoRumoProjeto
@@ -7,7 +7,7 @@ namespace NovoRumoProjeto
     {
         public static void RegisterGlobalFilters(GlobalFilterCollection filters)
         {
-            filters.Add(new HandleErrorAttribute());
+            filters.Add(new HandleAndLogErrorAtribute());
         }
     }
 }

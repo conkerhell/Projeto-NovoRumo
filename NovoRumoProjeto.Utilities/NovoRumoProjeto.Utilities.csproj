@@ -72,6 +72,7 @@
     <Compile Include="EmailCreator\EmailCreator.cs" />
     <Compile Include="EmailCreator\IEmailCreator.cs" />
     <Compile Include="Extensions\Extensions.cs" />
+    <Compile Include="Filters\HandleAndLogErrorAttribute.cs" />
     <Compile Include="HtmlHelpers\ButtonHtmlHelpers.cs" />
     <Compile Include="HtmlHelpers\FlashMessageHtmlHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
