@@ -1,4 +1,6 @@
-﻿<div class="white-content" id="seja-um-doador">
+﻿@model NovoRumoProjeto.Models.UserViewModel
+
+<div class="white-content" id="seja-um-doador">
     <div class="grid-container">
         <div class="grid-x">
             <div class="small-12 medium-12 large-6 cell text-center">
@@ -29,11 +31,14 @@
         <div class="grid-x">
             <div class="small-12 medium-9 cell">
                 <h4>Seja um doador</h4>
-                <p>
-                    O nosso maior ganho e foco esta na melhora de qualidade de vida de cada aluno que recebos, tendo como objetivo a inserção
-                    desses jovens e adultos dentro da sociedade, promovendo a inclusão social. Para chegarmos
-                    neste objetivo com sucesso, tarbalhamos com nossos alunos todos os dias em atividades específicas.
-                </p>
+                @using (Html.BeginForm())
+                {
+                    @Html.AntiForgeryToken()
+                    @Html.LabelFor(model => model.Name)
+                    @Html.TextBoxFor(model => model.Name)
+                    @Html.ValidationMessageFor(model => model.Name)
+                    <input type="submit" value="salvar"/>
+                }
             </div>
         </div>
         <button class="close-button" data-close aria-label="Close reveal" type="button">
