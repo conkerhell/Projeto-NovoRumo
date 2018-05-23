@@ -13,6 +13,7 @@ namespace NovoRumoProjeto.DAL.About
         private const string GET_ABOUT_BY_ID_PROC = "spGetAboutByID";
         private const string DELETE_ABOUT_PROC = "spDeleteAbout";
         private const string UPDATE_ABOUT_PROC = "spUpdateAbout";
+        private const string GET_NEXT_ABOUT = "spGetNextAbout";
 
         private const string ABOUT_ID_COLUMN = "AboutID";
         private const string FILENAME_COLUMN = "Filename";
@@ -86,6 +87,28 @@ namespace NovoRumoProjeto.DAL.About
         {
             return dataAccess.ExecuteNonQuery(DELETE_ABOUT_PROC,
                 dataAccess.ParameterFactory.Create(ABOUT_ID_COLUMN, DbType.Int32, id, ParameterDirection.Input)) == 1;
+        }
+
+        public AboutEntity GetNextAbout()
+        {
+            using (var result = dataAccess.ExecuteReader(GET_NEXT_ABOUT))
+            {
+                AboutEntity item = new AboutEntity();
+
+                if (result.HasRows)
+                {
+                    if (result.Read())
+                    {
+                        item = new AboutEntity();
+                        item.AboutID = Convert.ToInt32(result[ABOUT_ID_COLUMN]);
+                        item.Title = Convert.ToString(result[TITLE_COLUMN]);
+                        item.Description = Convert.ToString(result[DESCRIPTION_COLUMN]);
+                        item.fileName = Convert.ToString(result[FILENAME_COLUMN]);
+                    }
+                }
+                return item;
+            }
+
         }
     }
 }

@@ -123,6 +123,29 @@ BEGIN
 END
 GO
 
+USE [NovoRumo]
+GO
+
+/****** Object:  StoredProcedure [dbo].[spGetNextAbout]    Script Date: 23/05/2018 08:32:48 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+
+CREATE PROCEDURE [dbo].[spGetNextAbout]
+
+AS
+BEGIN
+	SELECT TOP 1 AboutID, Title, Description, Filename 
+    FROM About WITH (NOLOCK)
+ORDER BY Title 
+END
+GO
+
+
+
 
 
 
