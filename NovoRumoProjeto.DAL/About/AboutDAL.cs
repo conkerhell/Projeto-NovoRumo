@@ -89,7 +89,7 @@ namespace NovoRumoProjeto.DAL.About
                 dataAccess.ParameterFactory.Create(ABOUT_ID_COLUMN, DbType.Int32, id, ParameterDirection.Input)) == 1;
         }
 
-        public AboutEntity GetNextAbout()
+        public AboutEntity GetNewestAbout()
         {
             using (var result = dataAccess.ExecuteReader(GET_NEXT_ABOUT))
             {

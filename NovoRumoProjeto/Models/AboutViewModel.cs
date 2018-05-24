@@ -16,13 +16,16 @@ namespace NovoRumoProjeto.Models
 
         public string displayFilename { get; set; }
 
-        public void GetNextAbout()
+        public DateTime? Data { get; set; }
+
+        public void GetNewestAbout()
         {
             IAboutDAL aboutDAL = new AboutDAL();
-            var entity = aboutDAL.GetNextAbout();
+            var entity = aboutDAL.GetNewestAbout();
             Title = entity.Title;
             Description = entity.Description;
             displayFilename = entity.fileName;
+            Data = entity.Data;
 
         }
     }
