@@ -61,29 +61,39 @@ ORDER BY Data
 END
 
 
+
 CREATE PROCEDURE [dbo].[spInsertAbout]
 	@Titulo as varchar(20),
-	@Descricao as varchar(100),
+	@Description as varchar(100),
 	@Filename as varchar(100),
 	@Data as datetime
 
 	AS
 BEGIN
-	INSERT About (Title,Description,Filename,Data) values(@Titulo,@Descricao,@Filename,@Data)
+	INSERT About (Title,Description,Filename,Data) values(@Titulo,@Description,@Filename,@Data)
 END
 
 
 
-CREATE PROCEDURE [dbo].[spInsertAbout]
-	@Titulo as varchar(20),
-	@Descricao as varchar(100),
+CREATE PROCEDURE [dbo].[spUpdateAbout]
+	@AboutID as int,
+	@Title as varchar(20),
+	@Description as varchar(100),
 	@Filename as varchar(100),
 	@Data as datetime
-
-	AS
+AS
 BEGIN
-	INSERT About (Title,Description,Filename,Data) values(@Titulo,@Descricao,@Filename,@Data)
+	
+	UPDATE About 
+   SET Title = @Title,
+	   Description = @Description,
+	   Filename = @Filename,
+	   Data = @Data
+ WHERE AboutID = @AboutID
+	
 END
+
+
 
 
 

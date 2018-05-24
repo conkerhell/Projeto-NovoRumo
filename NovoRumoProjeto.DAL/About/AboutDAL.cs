@@ -13,12 +13,13 @@ namespace NovoRumoProjeto.DAL.About
         private const string GET_ABOUT_BY_ID_PROC = "spGetAboutByID";
         private const string DELETE_ABOUT_PROC = "spDeleteAbout";
         private const string UPDATE_ABOUT_PROC = "spUpdateAbout";
-        private const string GET_NEXT_ABOUT = "spGetNextAbout";
+        private const string GET_NEWEST_ABOUT_PROC = "spGetNewestAbout";
 
         private const string ABOUT_ID_COLUMN = "AboutID";
         private const string FILENAME_COLUMN = "Filename";
         private const string TITLE_COLUMN = "Title";
         private const string DESCRIPTION_COLUMN = "Description";
+        private const string DATA_COLUMN = "Data";
 
         public List<AboutEntity> Get()
         {
@@ -36,6 +37,7 @@ namespace NovoRumoProjeto.DAL.About
                         about.Title = Convert.ToString(result[TITLE_COLUMN]);
                         about.Description = Convert.ToString(result[DESCRIPTION_COLUMN]);
                         about.fileName = Convert.ToString(result[FILENAME_COLUMN]);
+                        about.Data = Convert.ToDateTime(result[DATA_COLUMN]);
                     }
                 }
                 return abouts;
@@ -58,6 +60,7 @@ namespace NovoRumoProjeto.DAL.About
                         abouts.Title = Convert.ToString(result[TITLE_COLUMN]);
                         abouts.Description = Convert.ToString(result[DESCRIPTION_COLUMN]);
                         abouts.fileName = Convert.ToString(result[FILENAME_COLUMN]);
+                        abouts.Data = Convert.ToDateTime(result[DATA_COLUMN]);
                     }
                 }
 
@@ -71,16 +74,18 @@ namespace NovoRumoProjeto.DAL.About
             return dataAccess.ExecuteNonQuery(INSERT_ABOUT_PROC,
                 dataAccess.ParameterFactory.Create(TITLE_COLUMN, DbType.String, entity.Title, ParameterDirection.Input),
                 dataAccess.ParameterFactory.Create(DESCRIPTION_COLUMN, DbType.String, entity.Description, ParameterDirection.Input),
-                dataAccess.ParameterFactory.Create(FILENAME_COLUMN, DbType.String, entity.fileName, ParameterDirection.Input)) == 1;
+                dataAccess.ParameterFactory.Create(FILENAME_COLUMN, DbType.String, entity.fileName, ParameterDirection.Input),
+                dataAccess.ParameterFactory.Create(DATA_COLUMN, DbType.DateTime, entity.Data, ParameterDirection.Input)) == 1;
         }
 
         public bool Update(AboutEntity entity)
         {
             return dataAccess.ExecuteNonQuery(UPDATE_ABOUT_PROC,
           dataAccess.ParameterFactory.Create(ABOUT_ID_COLUMN, DbType.Int32, entity.AboutID, ParameterDirection.Input),
-          dataAccess.ParameterFactory.Create(FILENAME_COLUMN, DbType.String, entity.fileName, ParameterDirection.Input),
           dataAccess.ParameterFactory.Create(TITLE_COLUMN, DbType.String, entity.Title, ParameterDirection.Input),
-          dataAccess.ParameterFactory.Create(DESCRIPTION_COLUMN, DbType.String, entity.Description, ParameterDirection.Input)) == 1;
+          dataAccess.ParameterFactory.Create(DESCRIPTION_COLUMN, DbType.String, entity.Description, ParameterDirection.Input),
+          dataAccess.ParameterFactory.Create(FILENAME_COLUMN, DbType.String, entity.fileName, ParameterDirection.Input),
+          dataAccess.ParameterFactory.Create(DATA_COLUMN, DbType.DateTime, entity.Data, ParameterDirection.Input)) == 1;
         }
 
         public bool Delete(int id)
@@ -91,7 +96,7 @@ namespace NovoRumoProjeto.DAL.About
 
         public AboutEntity GetNewestAbout()
         {
-            using (var result = dataAccess.ExecuteReader(GET_NEXT_ABOUT))
+            using (var result = dataAccess.ExecuteReader(GET_NEWEST_ABOUT_PROC))
             {
                 AboutEntity item = new AboutEntity();
 
@@ -104,6 +109,7 @@ namespace NovoRumoProjeto.DAL.About
                         item.Title = Convert.ToString(result[TITLE_COLUMN]);
                         item.Description = Convert.ToString(result[DESCRIPTION_COLUMN]);
                         item.fileName = Convert.ToString(result[FILENAME_COLUMN]);
+                        item.Data = Convert.ToDateTime(result[DATA_COLUMN]);
                     }
                 }
                 return item;
