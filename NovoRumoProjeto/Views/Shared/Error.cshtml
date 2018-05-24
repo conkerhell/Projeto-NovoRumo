@@ -4,20 +4,20 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Opa! Algo saiu fora do esperado</h2>
+<p>Opa! Algo saiu fora do esperado</p>
 @{
     if (Request.IsLocal)
     {
         if (@Model != null && @Model.Exception != null)
         {
-            <h3>Mensagem de erro</h3>
-            <h3>@Model.Exception.Message</h3>
-            <h4>StackTrace: </h4>
-            <h4>@Model.Exception.StackTrace</h4>
+            <p>Mensagem de erro</p>
+            <p>@Model.Exception.Message</p>
+            <p>StackTrace: </p>
+            <p>@Model.Exception.StackTrace</p>
         }
         else
         {
-            <h3>Exceção nula</h3>
+            <p>Exceção nula</p>
         }
     }
     else
