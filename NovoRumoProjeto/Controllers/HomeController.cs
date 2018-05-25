@@ -25,6 +25,13 @@ namespace NovoRumoProjeto.Controllers
         }
 
         [HttpGet]
+        public PartialViewResult Doe()
+        {
+            var model = new UserViewModel();
+            return PartialView(model);
+        }
+
+        [HttpGet]
         public PartialViewResult Daily()
         {
             return PartialView();
