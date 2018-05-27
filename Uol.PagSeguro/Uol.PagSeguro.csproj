@@ -7,8 +7,8 @@
     <ProjectGuid>{AFC0A945-DA54-4668-BCD0-010BC720B3E7}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Pagseguro</RootNamespace>
-    <AssemblyName>Pagseguro</AssemblyName>
+    <RootNamespace>Uol.PagSeguro</RootNamespace>
+    <AssemblyName>Uol.PagSeguro</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>

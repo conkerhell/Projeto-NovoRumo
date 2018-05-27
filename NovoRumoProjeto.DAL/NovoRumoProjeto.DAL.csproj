@@ -54,6 +54,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Customer\" />
+    <Folder Include="Donation\" />
     <Folder Include="Order\" />
     <Folder Include="Product\" />
   </ItemGroup>

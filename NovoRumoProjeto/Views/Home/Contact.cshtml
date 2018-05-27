@@ -1,4 +1,6 @@
-﻿<div class="white-content" id="contato">
+﻿@model NovoRumoProjeto.Models.ContactViewModel
+
+<div class="white-content" id="contato">
     <div class="grid-container grid-x">
 
         <div class="small-12 medium-6 cell">
@@ -10,8 +12,7 @@
                             <span lang="en">endereço</span>
                         </td>
                         <td itemprop="address">
-                            Rua Papa Paulo VI, 182
-                            <br> Vila Thais - Atibaia, SP
+                            @Html.Raw(Model.Address)
                         </td>
                     </tr>
                     <tr>
@@ -19,7 +20,7 @@
                             <span lang="en">cep</span>
                         </td>
                         <td>
-                            <a class="link" href="#">12345-678</a>
+                            <a class="link" href="#">@Model.CEP</a>
                         </td>
                     </tr>
                     <tr>
@@ -27,9 +28,9 @@
                             <span lang="en">telefone</span>
                         </td>
                         <td itemprop="telephone">
-                            <a class="link" href="tel:+55 (11) 3402-1623">+55 (11) 3402-1623</a><br />
-                            <a class="link" href="tel:+55 (11) 94777-5762">+55 (11) 94777-5762</a><br />
-                            <a class="link" href="tel:+55 (11) 97100-5077">+55 (11) 97100-5077</a>
+                            <a class="link" href="tel:+55 (11) 3402-1623">@Model.Telephone</a><br />
+                            <a class="link" href="tel:+55 (11) 94777-5762">@Model.Mobile</a><br />
+                            <a class="link" href="tel:+55 (11) 97100-5077">@Model.SecondaryMobile</a>
                         </td>
                     </tr>
                     <tr>
@@ -37,7 +38,7 @@
                             <span lang="en">email</span>
                         </td>
                         <td itemprop="telephone">
-                            <a href="mailto:contato@novorumoatibaia.com.br">contato@novorumoatibaia.com.br</a>
+                            <a href="mailto:@Model.Email">@Model.Email</a>
                             <img src="/images/mail.png" />
                         </td>
                     </tr>

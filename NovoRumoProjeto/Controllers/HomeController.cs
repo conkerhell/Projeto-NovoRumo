@@ -25,7 +25,7 @@ namespace NovoRumoProjeto.Controllers
         }
 
         [HttpGet]
-        public PartialViewResult Doe()
+        public PartialViewResult Donate()
         {
             var model = new UserViewModel();
             return PartialView(model);
@@ -38,7 +38,7 @@ namespace NovoRumoProjeto.Controllers
         }
 
         [HttpGet]
-        public PartialViewResult Evento()
+        public PartialViewResult Event()
         {
             var model = new EventViewModel();
             model.GetNextEvent();
@@ -48,7 +48,9 @@ namespace NovoRumoProjeto.Controllers
         [HttpGet]
         public PartialViewResult Contact()
         {
-            return PartialView();
+            var model = new ContactViewModel();
+            model.Get();
+            return PartialView(model);
         }
     }
 }

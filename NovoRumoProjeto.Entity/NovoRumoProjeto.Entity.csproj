@@ -42,8 +42,11 @@
   <ItemGroup>
     <Compile Include="AboutEntity.cs" />
     <Compile Include="ContactEntity.cs" />
+    <Compile Include="CustomerEntity.cs" />
     <Compile Include="DailyEntity.cs" />
+    <Compile Include="DonationEntity.cs" />
     <Compile Include="EventEntity.cs" />
+    <Compile Include="OrderEntity.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />

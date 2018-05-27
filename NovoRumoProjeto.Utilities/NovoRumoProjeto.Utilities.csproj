@@ -75,12 +75,21 @@
     <Compile Include="Filters\HandleAndLogErrorAttribute.cs" />
     <Compile Include="HtmlHelpers\ButtonHtmlHelpers.cs" />
     <Compile Include="HtmlHelpers\FlashMessageHtmlHelper.cs" />
+    <Compile Include="Payment\IPaymentCreator.cs" />
+    <Compile Include="Payment\Model\PaymentStatusIndicator.cs" />
+    <Compile Include="Payment\PaymentCreator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Validation\FileSizeAttribute.cs" />
     <Compile Include="Validation\FileTypesAttribute.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Uol.PagSeguro\Uol.PagSeguro.csproj">
+      <Project>{afc0a945-da54-4668-bcd0-010bc720b3e7}</Project>
+      <Name>Uol.PagSeguro</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
