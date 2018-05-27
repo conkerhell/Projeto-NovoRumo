@@ -30,14 +30,14 @@
     <div class="reveal large" id="docao-modal" data-reveal data-close-on-click="true" data-animation-in="fade-in" data-animation-out="fade-out">
         <div class="grid-x">
             <div class="small-12 medium-9 cell">
-                <h4>Seja um doador</h4>
+                <h4>Doação mensal</h4>
                 @using (Html.BeginForm("Cadastrar", "User", FormMethod.Post))
                 {
                     @Html.AntiForgeryToken()
                     @Html.LabelFor(model => model.Name)
                     @Html.TextBoxFor(model => model.Name)
                     @Html.ValidationMessageFor(model => model.Name)
-                    <input type="submit" class="button primary" value="salvar"/>
+                    <input type="submit" class="button primary" value="Enviar"/>
                 }
             </div>
         </div>
@@ -46,8 +46,4 @@
         </button>
     </div>
 </div>
-
-@section scripts {
-    @Scripts.Render("~/bundles/jqueryval")
-}
 

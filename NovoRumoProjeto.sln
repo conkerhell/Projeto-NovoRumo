@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio 15
+VisualStudioVersion = 15.0.27130.2010
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NovoRumoProjeto", "NovoRumoProjeto\NovoRumoProjeto.csproj", "{949D78FC-E1A0-47E8-92E8-3FD0F031F677}"
 EndProject
@@ -16,6 +16,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NovoRumoProjeto.DAL", "NovoRumoProjeto.DAL\NovoRumoProjeto.DAL.csproj", "{16E21FE7-7C85-4DFC-B8F7-D9210E748D97}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NovoRumoProjeto.Entity", "NovoRumoProjeto.Entity\NovoRumoProjeto.Entity.csproj", "{7DB57D1F-28DF-4CA7-B52D-EEBF418A38D7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Uol.PagSeguro", "Uol.PagSeguro\Uol.PagSeguro.csproj", "{AFC0A945-DA54-4668-BCD0-010BC720B3E7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -47,12 +49,17 @@ Global
 		{7DB57D1F-28DF-4CA7-B52D-EEBF418A38D7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7DB57D1F-28DF-4CA7-B52D-EEBF418A38D7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7DB57D1F-28DF-4CA7-B52D-EEBF418A38D7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AFC0A945-DA54-4668-BCD0-010BC720B3E7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AFC0A945-DA54-4668-BCD0-010BC720B3E7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AFC0A945-DA54-4668-BCD0-010BC720B3E7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AFC0A945-DA54-4668-BCD0-010BC720B3E7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{DF895B86-1446-4A05-A73C-919204C79A59} = {56E1204C-722C-420D-ACCB-DF3C744C95BE}
+		{AFC0A945-DA54-4668-BCD0-010BC720B3E7} = {56E1204C-722C-420D-ACCB-DF3C744C95BE}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {6798C1D5-79EB-4A98-9E01-B02D059E9993}
