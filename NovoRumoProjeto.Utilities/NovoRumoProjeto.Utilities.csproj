@@ -86,6 +86,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\NovoRumoProjeto.Entity\NovoRumoProjeto.Entity.csproj">
+      <Project>{7db57d1f-28df-4ca7-b52d-eebf418a38d7}</Project>
+      <Name>NovoRumoProjeto.Entity</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Uol.PagSeguro\Uol.PagSeguro.csproj">
       <Project>{afc0a945-da54-4668-bcd0-010bc720b3e7}</Project>
       <Name>Uol.PagSeguro</Name>
