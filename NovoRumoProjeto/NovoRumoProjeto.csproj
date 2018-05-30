@@ -231,6 +231,7 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Configuration\PagSeguroConfig.xml" />
     <Content Include="Content\admin.css" />
     <Content Include="Content\app.css" />
     <Content Include="Content\app.min.css" />
