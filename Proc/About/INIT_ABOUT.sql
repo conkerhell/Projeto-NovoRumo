@@ -10,7 +10,7 @@ GO
 CREATE TABLE [dbo].[About](
 	[AboutID] [int] IDENTITY(1,1) NOT NULL,
 	[Title] [varchar](20) NOT NULL,
-	[Description] [varchar](100) NOT NULL,
+	[Description] [varchar](2000) NOT NULL,
 	[Filename] [varchar](100) NOT NULL,
 	[Data] [datetime] NOT NULL,
  CONSTRAINT [PK_About] PRIMARY KEY CLUSTERED 
@@ -64,7 +64,7 @@ END
 
 CREATE PROCEDURE [dbo].[spInsertAbout]
 	@Titulo as varchar(20),
-	@Description as varchar(100),
+	@Description as varchar(2000),
 	@Filename as varchar(100),
 	@Data as datetime
 
@@ -78,7 +78,7 @@ END
 CREATE PROCEDURE [dbo].[spUpdateAbout]
 	@AboutID as int,
 	@Title as varchar(20),
-	@Description as varchar(100),
+	@Description as varchar(2000),
 	@Filename as varchar(100),
 	@Data as datetime
 AS
