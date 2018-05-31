@@ -112,9 +112,6 @@
     <Compile Include="Domain\TransactionSummary.cs" />
     <Compile Include="Exception\PagSeguroServiceException.cs" />
     <Compile Include="Log\PagSeguroTrace.cs" />
-    <Compile Include="obj\Debug\TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs" />
-    <Compile Include="obj\Debug\TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs" />
-    <Compile Include="obj\Debug\TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs" />
     <Compile Include="Parse\AuthorizationParse.cs" />
     <Compile Include="Parse\PaymentParse.cs" />
     <Compile Include="Parse\PreApprovalParse.cs" />
@@ -173,30 +170,6 @@
     <Compile Include="XmlParse\TransactionSummarySerializer.cs" />
     <Compile Include="XmlParse\XMLParserUtils.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Content Include="bin\Debug\Uol.PagSeguro.dll" />
-    <Content Include="bin\Debug\Uol.PagSeguro.pdb" />
-    <Content Include="bin\Debug\Uol.PagSeguro.XML" />
-    <Content Include="bin\Release\Uol.PagSeguro.dll" />
-    <Content Include="bin\Release\Uol.PagSeguro.pdb" />
-    <Content Include="obj\Debug\Uol.PagSeguro.csproj.FileListAbsolute.txt" />
-    <Content Include="obj\Debug\Uol.PagSeguro.dll" />
-    <Content Include="obj\Debug\Uol.PagSeguro.pdb" />
-    <Content Include="obj\Release\Uol.PagSeguro.csproj.FileListAbsolute.txt" />
-    <Content Include="obj\Release\Uol.PagSeguro.dll" />
-    <Content Include="obj\Release\Uol.PagSeguro.pdb" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
-    <None Include="obj\Debug\Pagseguro.csproj.CoreCompileInputs.cache" />
-    <None Include="obj\Debug\Uol.Pagseguro.csproj.CoreCompileInputs.cache" />
-    <None Include="obj\Debug\Uol.PagSeguro.csprojResolveAssemblyReference.cache" />
-    <None Include="obj\Release\Uol.PagSeguro.csproj.CoreCompileInputs.cache" />
-    <None Include="obj\Release\Uol.PagSeguro.csprojResolveAssemblyReference.cache" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="obj\Debug\TempPE\" />
-    <Folder Include="obj\Release\TempPE\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
