@@ -1,11 +1,11 @@
 ﻿<div id="content">
-    @Html.Partial("About")
     @{
+        Html.RenderAction("About");
         Html.RenderAction("Donate");
         Html.RenderAction("Event");
     }
     @Html.Partial("Daily")
     @{
-      Html.RenderAction("Contact");
+        Html.RenderAction("Contact");
     }
 </div>

@@ -20,7 +20,6 @@ namespace NovoRumoProjeto.Controllers
         {
             var model = new AboutViewModel();
             model.GetNewestAbout();
-
             return PartialView(model);
         }
 

@@ -20,6 +20,12 @@ CREATE TABLE [dbo].[About](
 ) ON [PRIMARY]
 GO
 
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
 
 CREATE PROCEDURE [dbo].[spDeleteAbout]
 
@@ -30,6 +36,11 @@ BEGIN
 DELETE FROM About WHERE AboutID = @AbouID
 END
 
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
 
 CREATE PROCEDURE [dbo].[spGetAbout] 
 
@@ -39,6 +50,11 @@ BEGIN
   FROM About WITH (NOLOCK)
 END
 
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
 
 CREATE PROCEDURE [dbo].[spGetAboutById] 
 	@AboutID as int
@@ -49,6 +65,11 @@ BEGIN
  WHERE AboutID = AboutID
 END
 
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
 
 CREATE PROCEDURE [dbo].[spGetNewestAbout] 
 
@@ -60,7 +81,11 @@ BEGIN
 ORDER BY Data 
 END
 
+SET ANSI_NULLS ON
+GO
 
+SET QUOTED_IDENTIFIER ON
+GO
 
 CREATE PROCEDURE [dbo].[spInsertAbout]
 	@Titulo as varchar(20),
@@ -73,7 +98,11 @@ BEGIN
 	INSERT About (Title,Description,Filename,Data) values(@Titulo,@Description,@Filename,@Data)
 END
 
+SET ANSI_NULLS ON
+GO
 
+SET QUOTED_IDENTIFIER ON
+GO
 
 CREATE PROCEDURE [dbo].[spUpdateAbout]
 	@AboutID as int,
