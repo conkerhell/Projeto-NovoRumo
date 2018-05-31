@@ -3,8 +3,6 @@ using System.Configuration;
 using System.Web.Routing;
 using NovoRumoProjeto.Entity;
 using NovoRumoProjeto.Utilities.Payment.Model;
-using Uol.PagSeguro.Domain;
-using Uol.PagSeguro.Resources;
 
 namespace NovoRumoProjeto.Utilities.Payment
 {
