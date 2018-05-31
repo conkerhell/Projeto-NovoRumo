@@ -29,16 +29,20 @@
 
     <div class="reveal large" id="docao-modal" data-reveal data-close-on-click="true" data-animation-in="fade-in" data-animation-out="fade-out">
         <div class="grid-x">
-            <div class="small-12 medium-9 cell">
+            <div class="small-12 cell">
                 <h4>Doação mensal</h4>
                 SIM! QUERO SER UM DOADOR DO NOVO RUMO, CONTRIBUINDO MENSALMENTE COM:
-                <div class="callout cell">
-                    <div class="small-4">
-                        <p>R$ 30,00</p>
-                        <p>(R$ 1,00 POR DIA)</p>
-                    </div>
-                    <div class="small-8">
-                        <p>Teste</p>
+                <div class="grid-x">
+                    <div class="callout grid-x">
+                        <div class="small-2">
+                            R$ 30,00
+                            (R$ 1,00 POR DIA)
+                        </div>
+                        <div class="small-1"> = </div>
+                        <div class="small-8">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum diam mauris, eleifend
+                            egestas sollicitudin eget, tempus vitae mi. Nam lectus.
+                        </div>
                     </div>
                 </div>
 
@@ -48,7 +52,7 @@
                     @Html.LabelFor(model => model.Name)
                     @Html.TextBoxFor(model => model.Name)
                     @Html.ValidationMessageFor(model => model.Name)
-                    <input type="submit" class="button primary" value="Enviar"/>
+                    <input type="submit" class="button primary" value="Enviar" />
                 }
             </div>
         </div>
