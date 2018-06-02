@@ -38,6 +38,7 @@ namespace NovoRumoProjeto.DAL.About
                         about.Description = Convert.ToString(result[DESCRIPTION_COLUMN]);
                         about.fileName = Convert.ToString(result[FILENAME_COLUMN]);
                         about.Data = Convert.ToDateTime(result[DATA_COLUMN]);
+                        abouts.Add(about);
                     }
                 }
                 return abouts;

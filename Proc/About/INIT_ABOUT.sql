@@ -88,14 +88,14 @@ SET QUOTED_IDENTIFIER ON
 GO
 
 CREATE PROCEDURE [dbo].[spInsertAbout]
-	@Titulo as varchar(20),
+	@Title as varchar(20),
 	@Description as varchar(2000),
 	@Filename as varchar(100),
 	@Data as datetime
 
 	AS
 BEGIN
-	INSERT About (Title,Description,Filename,Data) values(@Titulo,@Description,@Filename,@Data)
+	INSERT About (Title,Description,Filename,Data) values(@Title,@Description,@Filename,@Data)
 END
 
 SET ANSI_NULLS ON
