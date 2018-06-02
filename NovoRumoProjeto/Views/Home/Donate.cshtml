@@ -44,14 +44,39 @@
                             egestas sollicitudin eget, tempus vitae mi. Nam lectus.
                         </div>
                     </div>
+                    <div class="callout grid-x">
+                        <div class="small-2">
+                            R$ 45,00
+                            (R$ 2,00 POR DIA)
+                        </div>
+                        <div class="small-1"> = </div>
+                        <div class="small-8">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum diam mauris, eleifend
+                            egestas sollicitudin eget, tempus vitae mi. Nam lectus.
+                        </div>
+                    </div>
                 </div>
 
+                <h4>Dados cadastrais</h4>
                 @using (Html.BeginForm("Cadastrar", "User", FormMethod.Post))
                 {
                     @Html.AntiForgeryToken()
+
                     @Html.LabelFor(model => model.Name)
                     @Html.TextBoxFor(model => model.Name)
                     @Html.ValidationMessageFor(model => model.Name)
+
+                    @Html.LabelFor(model => model.Birthdate)
+                    @Html.TextBoxFor(model => model.Birthdate)
+                    @Html.ValidationMessageFor(model => model.Birthdate)
+
+                    <fieldset class="fieldset">
+                        <legend>@Html.DisplayNameFor(model  => model.Sex)</legend>
+                        @Html.RadioButtonFor(model => model.Sex, "M", new { id = "masculino" })<label for="masculino">Masculino</label>
+                        @Html.RadioButtonFor(model => model.Sex, "F", new { id = "feminino" })<label for="feminino">Feminino</label>
+                        @Html.ValidationMessageFor(model => model.Sex)
+                    </fieldset>
+
                     <input type="submit" class="button primary" value="Enviar" />
                 }
             </div>
