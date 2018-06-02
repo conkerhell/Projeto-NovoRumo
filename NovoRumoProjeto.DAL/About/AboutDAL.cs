@@ -20,6 +20,7 @@ namespace NovoRumoProjeto.DAL.About
         private const string TITLE_COLUMN = "Title";
         private const string DESCRIPTION_COLUMN = "Description";
         private const string DATA_COLUMN = "Data";
+        private List<AboutEntity> abouts;
 
         public List<AboutEntity> Get()
         {
@@ -95,27 +96,33 @@ namespace NovoRumoProjeto.DAL.About
                 dataAccess.ParameterFactory.Create(ABOUT_ID_COLUMN, DbType.Int32, id, ParameterDirection.Input)) == 1;
         }
 
-        public AboutEntity GetNewestAbout()
+        public List<AboutEntity> GetNewestAbout()
         {
             using (var result = dataAccess.ExecuteReader(GET_NEWEST_ABOUT_PROC))
             {
-                AboutEntity item = new AboutEntity();
+                var abouts = new List<AboutEntity>();
 
                 if (result.HasRows)
                 {
-                    if (result.Read())
+                    AboutEntity about;
+                    while (result.Read())
                     {
-                        item = new AboutEntity();
-                        item.AboutID = Convert.ToInt32(result[ABOUT_ID_COLUMN]);
-                        item.Title = Convert.ToString(result[TITLE_COLUMN]);
-                        item.Description = Convert.ToString(result[DESCRIPTION_COLUMN]);
-                        item.fileName = Convert.ToString(result[FILENAME_COLUMN]);
-                        item.Data = Convert.ToDateTime(result[DATA_COLUMN]);
+                        about = new AboutEntity();
+                        about.AboutID = Convert.ToInt32(result[ABOUT_ID_COLUMN]);
+                        about.Title = Convert.ToString(result[TITLE_COLUMN]);
+                        about.Description = Convert.ToString(result[DESCRIPTION_COLUMN]);
+                        about.fileName = Convert.ToString(result[FILENAME_COLUMN]);
+                        about.Data = Convert.ToDateTime(result[DATA_COLUMN]);
+                        abouts.Add(about);
                     }
-                }
-                return item;
-            }
 
+                }
+
+            }
+            return abouts;
         }
+
     }
 }
+
+
