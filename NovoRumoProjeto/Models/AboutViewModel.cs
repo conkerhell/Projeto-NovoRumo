@@ -18,12 +18,17 @@ namespace NovoRumoProjeto.Models
 
         public void GetNewestAbout()
         {
+
             IAboutDAL aboutDAL = new AboutDAL();
             var entity = aboutDAL.GetNewestAbout();
-            Title = entity.Title;
-            Description = entity.Description;
-            displayFilename = entity.fileName;
-            Data = entity.Data;
+            foreach (var item in entity)
+            {
+                Title = item.Title;
+                Description = item.Description;
+                displayFilename = item.fileName;
+                Data = item.Data;
+            }
+           
 
         }
     }
