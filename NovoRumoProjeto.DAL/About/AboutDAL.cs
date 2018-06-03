@@ -20,7 +20,6 @@ namespace NovoRumoProjeto.DAL.About
         private const string TITLE_COLUMN = "Title";
         private const string DESCRIPTION_COLUMN = "Description";
         private const string DATA_COLUMN = "Data";
-        private List<AboutEntity> abouts;
 
         public List<AboutEntity> Get()
         {
@@ -113,13 +112,13 @@ namespace NovoRumoProjeto.DAL.About
                         about.Description = Convert.ToString(result[DESCRIPTION_COLUMN]);
                         about.fileName = Convert.ToString(result[FILENAME_COLUMN]);
                         about.Data = Convert.ToDateTime(result[DATA_COLUMN]);
+
                         abouts.Add(about);
                     }
 
                 }
-
+                return abouts;
             }
-            return abouts;
         }
 
     }
