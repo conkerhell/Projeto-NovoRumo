@@ -31,7 +31,7 @@
         <div class="grid-x">
             <div class="small-12 cell">
                 <h4>Doação mensal</h4>
-                <p>sim! Quero ser um doador do Novo Rumo, contribuindo mensalmente com:</p>
+                <p>Sim! Quero ser um doador do Novo Rumo, contribuindo mensalmente com:</p>
                 <div class="grid-x">
                     <div class="callout grid-x">
                         <div class="small-2">
@@ -57,7 +57,7 @@
                     </div>
                 </div>
 
-                <h4>Dados cadastrais</h4>
+                <h4>Dados Pessoais</h4>
                 @using (Html.BeginForm("Cadastrar", "User", FormMethod.Post))
                 {
                     @Html.AntiForgeryToken()
@@ -71,10 +71,20 @@
                     @Html.ValidationMessageFor(model => model.Birthdate)
 
                     <fieldset class="fieldset">
-                        <legend>@Html.DisplayNameFor(model  => model.Sex)</legend>
-                        @Html.RadioButtonFor(model => model.Sex, "M", new { id = "masculino" })<label for="masculino">Masculino</label>
-                        @Html.RadioButtonFor(model => model.Sex, "F", new { id = "feminino" })<label for="feminino">Feminino</label>
+                        <legend>@Html.DisplayNameFor(model => model.Sex)</legend>
+                        @Html.RadioButtonFor(model => model.Sex, "M", new { id = "male" })<label for="male">Masculino</label>
+                        @Html.RadioButtonFor(model => model.Sex, "F", new { id = "female" })<label for="female">Feminino</label>
                         @Html.ValidationMessageFor(model => model.Sex)
+                    </fieldset>
+
+                    <h4>Formas de pagamento</h4>
+                    <a href="">Pagseguro</a>
+
+
+                    <fieldset class="fieldset">
+                        <legend>Termos de uso e privacidade</legend>
+                        @Html.CheckBoxFor(model => model.Terms) 
+                        @Html.LabelFor(model => model.Terms)
                     </fieldset>
 
                     <input type="submit" class="button primary" value="Enviar" />

@@ -21,5 +21,7 @@ namespace NovoRumoProjeto.Models
         [Display(Name = "Sexo")]
         public string Sex { get; set; }
 
+        [Required]       
+        public bool Terms { get; set; }
     }
 }
