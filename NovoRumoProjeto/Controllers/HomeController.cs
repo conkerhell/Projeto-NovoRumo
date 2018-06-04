@@ -19,8 +19,8 @@ namespace NovoRumoProjeto.Controllers
         public PartialViewResult About()
         {
             var model = new AboutViewModel();
-            model.GetNewestAbout();
-            return PartialView(model);
+            var list = model.GetNewestAbout();
+            return PartialView(list);
         }
 
         [HttpGet]

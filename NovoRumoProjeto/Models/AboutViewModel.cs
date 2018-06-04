@@ -1,5 +1,5 @@
 ﻿using System;
-
+using System.Collections.Generic;
 using NovoRumoProjeto.DAL.About;
 
 namespace NovoRumoProjeto.Models
@@ -16,20 +16,27 @@ namespace NovoRumoProjeto.Models
 
         public DateTime? Data { get; set; }
 
-        public void GetNewestAbout()
+        public List<AboutViewModel> GetNewestAbout()
         {
 
-            IAboutDAL aboutDAL = new AboutDAL();
-            var entity = aboutDAL.GetNewestAbout();
+            IAboutDAL aboutDAL = new  AboutDAL();
+            var model = new List<AboutViewModel>();
+            var entity =  aboutDAL.GetNewestAbout();
             foreach (var item in entity)
             {
-                Title = item.Title;
-                Description = item.Description;
-                displayFilename = item.fileName;
-                Data = item.Data;
-            }
-           
 
+                var About = new AboutViewModel();
+              
+                About.Title = item.Title;
+                About.Description = item.Description;
+                About.displayFilename = item.fileName;
+                About.Data = item.Data;
+
+                model.Add(About);
+            }
+
+            return (model);
+           
         }
     }
 }
