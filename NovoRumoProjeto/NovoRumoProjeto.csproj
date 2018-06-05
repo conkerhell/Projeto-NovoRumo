@@ -686,10 +686,10 @@
     <Content Include="Areas\Admin\Views\About\Add.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Home\TermosDeUso.cshtml" />
+    <Content Include="Views\Home\termos-de-uso.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Home\PoliticaDePrivacidade.cshtml" />
+    <Content Include="Views\Home\politica-de-privacidade.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
