@@ -1,0 +1,75 @@
+﻿@model NovoRumoProjeto.Models.UserViewModel
+
+@{
+    ViewBag.Title = "Doar";
+    Layout = "~/Views/Shared/_SubLayout.cshtml";
+}
+
+<div class="grid-x">
+    <div class="small-12 cell">
+        <h4>Doação mensal</h4>
+        <p>Sim! Quero ser um doador do Novo Rumo, contribuindo mensalmente com:</p>
+        <div class="grid-x">
+            <div class="callout grid-x">
+                <div class="small-2">
+                    R$ 30,00
+                    (R$ 1,00 POR DIA)
+                </div>
+                <div class="small-1"> = </div>
+                <div class="small-8">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum diam mauris, eleifend
+                    egestas sollicitudin eget, tempus vitae mi. Nam lectus.
+                </div>
+            </div>
+            <div class="callout grid-x">
+                <div class="small-2">
+                    R$ 45,00
+                    (R$ 2,00 POR DIA)
+                </div>
+                <div class="small-1"> = </div>
+                <div class="small-8">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum diam mauris, eleifend
+                    egestas sollicitudin eget, tempus vitae mi. Nam lectus.
+                </div>
+            </div>
+        </div>
+
+        @using (Html.BeginForm("Cadastrar", "User", FormMethod.Post))
+        {
+            @Html.AntiForgeryToken()
+
+            <fieldset>
+                <legend><h4>Dados Pessoais</h4></legend>
+                @Html.LabelFor(model => model.Name)
+                @Html.TextBoxFor(model => model.Name)
+                @Html.ValidationMessageFor(model => model.Name)
+
+                @Html.LabelFor(model => model.Birthdate)
+                @Html.TextBoxFor(model => model.Birthdate)
+                @Html.ValidationMessageFor(model => model.Birthdate)
+
+                <fieldset class="fieldset">
+                    <legend>@Html.DisplayNameFor(model => model.Sex)</legend>
+                    @Html.RadioButtonFor(model => model.Sex, "M", new { id = "male" })<label for="male">Masculino</label>
+                    @Html.RadioButtonFor(model => model.Sex, "F", new { id = "female" })<label for="female">Feminino</label>
+                    @Html.ValidationMessageFor(model => model.Sex)
+                </fieldset>
+            </fieldset>
+
+            <fieldset>
+                <legend><h4>Forma de pagamento</h4></legend>
+                <a href="">Pagseguro</a>
+            </fieldset>
+
+            <fieldset>
+                <legend><h4>Confirmacao</h4></legend>
+                @Html.CheckBoxFor(model => model.Terms, htmlAttributes: new { })
+                <label for="Terms">
+                    Li e estou de acordo com a @Html.ActionLink("Política de Privacidade", "politica-de-privacidade") e @Html.ActionLink("Termos de Uso", "termos-de-uso").
+                </label>
+            </fieldset>
+
+            <input type="submit" class="button large primary" value="Enviar" />
+        }
+    </div>
+</div>

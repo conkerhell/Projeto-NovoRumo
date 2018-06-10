@@ -53,6 +53,12 @@ namespace NovoRumoProjeto.Controllers
         }
 
         [HttpGet]
+        public ActionResult Doar()
+        {
+            return View();
+        }
+
+        [HttpGet]
         [ActionName("politica-de-privacidade")]
         public ActionResult PoliticaDePrivacidade()
         {
