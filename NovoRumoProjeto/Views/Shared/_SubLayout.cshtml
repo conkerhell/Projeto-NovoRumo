@@ -9,28 +9,10 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/motion-ui/1.1.1/motion-ui.min.css" async />
 </head>
 <body>
-    @Html.Partial("_header")
     @RenderBody()
-    @Html.Partial("_footer")
 
     <script type="text/javascript" src="/Scripts/jquery.min.js"></script>
     <script type="text/javascript" src="/Scripts/foundation.min.js"></script>
-    <script>
-        $(document).foundation();
-
-        var prev = 0;
-        var $window = $(window);
-        var nav = $('.scrollhide-nav');
-        $window.on('scroll', function () {
-            var scrollTop = $window.scrollTop();
-            nav.toggleClass('hidden', scrollTop > prev);
-            prev = scrollTop;
-        });
-        
-        $(".accordion-menu li a").on("click", function () {
-            $("#responsive-menu").css({ "display": "none" });
-        });
-    </script>
     @Scripts.Render("~/bundles/jqueryval")
     @RenderSection("scripts", required: false)
 </body>
