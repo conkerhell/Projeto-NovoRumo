@@ -1,5 +1,5 @@
 ﻿<!DOCTYPE html>
-<html>
+<html lang="pt">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -7,9 +7,34 @@
     <link href="~/Content/app.min.css" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css?family=Raleway:400,900" rel="stylesheet" async>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/motion-ui/1.1.1/motion-ui.min.css" async />
+    <style>
+        header {
+            background-color: #ffd98f;
+        }
+        h2 {
+            font-size: 2em;
+        }
+    </style>
 </head>
 <body>
-    @RenderBody()
+    <header data-role="navigation">
+        <div class="grid-container">
+            <div class="small-3">
+                <h1>
+                    <a href="/">
+                        <img src="http://via.placeholder.com/200x100" alt="Logo Novo Rumo">
+                    </a>
+                </h1>
+            </div>
+            <div class="small-9">
+                
+            </div>
+        </div>
+    </header>
+
+    <main class="small-12 medium-7 grid-x grid-container" role="main">
+        @RenderBody()
+    </main>
 
     <script type="text/javascript" src="/Scripts/jquery.min.js"></script>
     <script type="text/javascript" src="/Scripts/foundation.min.js"></script>

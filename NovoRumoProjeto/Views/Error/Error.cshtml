@@ -1,0 +1,30 @@
+﻿@model System.Web.Mvc.HandleErrorInfo
+
+@{
+    Layout = "~/Views/Shared/_SubLayout.cshtml";
+}
+
+<div class="grid-container">
+    <p>Opa! Algo saiu fora do esperado</p>
+    @{
+        if (Request.IsLocal)
+        {
+            if (@Model != null && @Model.Exception != null)
+            {
+                <p>Mensagem de erro</p>
+                <p>@Model.Exception.Message</p>
+                <p>StackTrace: </p>
+                <p>@Model.Exception.StackTrace</p>
+            }
+            else
+            {
+                <p>Exceção nula</p>
+            }
+        }
+        else
+        {
+            <p>Nosso analista foi reportado sobre erro.</p>
+        }
+    }
+</div>
+
