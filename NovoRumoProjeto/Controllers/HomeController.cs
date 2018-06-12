@@ -51,25 +51,5 @@ namespace NovoRumoProjeto.Controllers
             model.Get();
             return PartialView(model);
         }
-
-        [HttpGet]
-        public ActionResult Doar()
-        {
-            return View();
-        }
-
-        [HttpGet]
-        [ActionName("politica-de-privacidade")]
-        public ActionResult PoliticaDePrivacidade()
-        {
-            return View();
-        }
-
-        [HttpGet]
-        [ActionName("termos-de-uso")]
-        public ActionResult TermosDeUso()
-        {
-            return View();
-        }
     }
 }

@@ -215,9 +215,9 @@
     <Compile Include="Areas\Admin\Models\EventViewModel.cs" />
     <Compile Include="Areas\Admin\Models\ForgotPasswordViewModel.cs" />
     <Compile Include="Areas\Admin\Models\LoginViewModel.cs" />
+    <Compile Include="Controllers\DonationController.cs" />
     <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -686,16 +686,16 @@
     <Content Include="Areas\Admin\Views\About\Add.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Home\termos-de-uso.cshtml" />
+    <Content Include="Views\Donation\termos-de-uso.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Home\politica-de-privacidade.cshtml" />
+    <Content Include="Views\Donation\politica-de-privacidade.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Shared\_SubLayout.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Home\Doar.cshtml" />
+    <Content Include="Views\Donation\Index.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
