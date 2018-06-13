@@ -12,29 +12,18 @@
     @using (Html.BeginForm(FormMethod.Post))
     {
         @Html.AntiForgeryToken()
-        <div class="callout grid-x">
-            <div class="small-2">
-                R$ 30,00
-                (R$ 1,00 POR DIA)
+        <div class="grid-x grid-padding-x">
+            <div class="cell small-3">
+                <div class="callout">
+                    R$ 30,00
+                </div>
             </div>
-            <div class="small-1"> = </div>
-            <div class="small-8">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum diam mauris, eleifend
-                egestas sollicitudin eget, tempus vitae mi. Nam lectus.
-            </div>
-        </div>
-        <div class="callout grid-x">
-            <div class="small-2">
-                R$ 45,00
-                (R$ 2,00 POR DIA)
-            </div>
-            <div class="small-1"> = </div>
-            <div class="small-8">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum diam mauris, eleifend
-                egestas sollicitudin eget, tempus vitae mi. Nam lectus.
+            <div class="cell small-3">
+                <div class="callout">
+                    R$ 45,00
+                </div>
             </div>
         </div>
-
 
         @Html.CheckBoxFor(model => model.Terms, htmlAttributes: new { })
         <label for="Terms">
