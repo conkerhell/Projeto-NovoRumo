@@ -1,4 +1,5 @@
-﻿using System.Web.Mvc;
+﻿using NovoRumoProjeto.Models;
+using System.Web.Mvc;
 
 namespace NovoRumoProjeto.Controllers
 {
@@ -10,14 +11,38 @@ namespace NovoRumoProjeto.Controllers
             return View();
         }
 
+        [HttpPost]
+        public ActionResult Index(LoginViewModel model)
+        {
+            return RedirectToAction("Checkout");
+        }
+
         [HttpGet]
         public ActionResult Register()
         {
             return View();
         }
 
+        [HttpPost]
+        public ActionResult Register(RegisterViewModel model)
+        {
+            return RedirectToAction("Checkout");
+        }
+
         [HttpGet]
         public ActionResult Checkout()
+        {
+            return View();
+        }
+
+        //[HttpPost]
+        //public ActionResult Checkout()
+        //{
+        //    return View();
+        //}
+
+        [HttpGet]
+        public ActionResult Success()
         {
             return View();
         }
