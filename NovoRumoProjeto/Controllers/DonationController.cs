@@ -11,6 +11,18 @@ namespace NovoRumoProjeto.Controllers
         }
 
         [HttpGet]
+        public ActionResult Register()
+        {
+            return View();
+        }
+
+        [HttpGet]
+        public ActionResult Checkout()
+        {
+            return View();
+        }
+
+        [HttpGet]
         [ActionName("politica-de-privacidade")]
         public ActionResult PoliticaDePrivacidade()
         {

@@ -5,15 +5,64 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Associação Novo Rumo Atibaia</title>
     <link href="~/Content/app.min.css" rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css?family=Raleway:400,900" rel="stylesheet" async>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/motion-ui/1.1.1/motion-ui.min.css" async />
+    <link href="https://fonts.googleapis.com/css?family=Raleway:400,900" rel="stylesheet" async />
     <style>
         header {
             background-color: #ffd98f;
         }
+
+        main.grid-container {
+            margin: 2rem auto 0;
+        }
+
         h2 {
             font-size: 2em;
         }
+
+        p {
+        }
+
+        .divisor {
+            margin: 2rem 0;
+            text-align: center;
+            background-image: -webkit-linear-gradient(top,transparent 10px,#e3e3e3 0,#e3e3e3 12px,transparent 0);
+            background-image: -o-linear-gradient(top,transparent 10px,#e3e3e3 10px,#e3e3e3 12px,transparent 12px);
+            background-image: linear-gradient(180deg,transparent 10px,#e3e3e3 0,#e3e3e3 12px,transparent 0);
+        }
+
+            .divisor > span {
+                display: inline-block;
+                background-color: #fff;
+                padding: 0 10px;
+                text-transform: none;
+            }
+
+        .field {
+            margin: 0 0 1.7rem;
+        }
+
+            .field input {
+                margin: 0;
+            }
+
+            .field textarea {
+                margin: 0;
+            }
+
+        .field-validation-error {
+            position: absolute;
+            color: #cc4b37;
+            font-size: 0.75rem;
+        }
+
+        .input-validation-error {
+            background-color: #f9ecea;
+        }
+
+            .input-validation-error:focus {
+                background-color: #f9ecea;
+                box-shadow: none;
+            }
     </style>
 </head>
 <body>
@@ -21,18 +70,18 @@
         <div class="grid-container">
             <div class="small-3">
                 <h1>
-                    <a href="/">
+                    <a href="/" aria-label="Home">
                         <img src="http://via.placeholder.com/200x100" alt="Logo Novo Rumo">
                     </a>
                 </h1>
             </div>
             <div class="small-9">
-                
+
             </div>
         </div>
     </header>
 
-    <main class="small-12 medium-7 grid-x grid-container" role="main">
+    <main class="small-12 medium-6 grid-x grid-container" role="main">
         @RenderBody()
     </main>
 

@@ -224,9 +224,11 @@
     <Compile Include="Models\AboutViewModel.cs" />
     <Compile Include="Models\ContactViewModel.cs" />
     <Compile Include="Models\DailyViewModel.cs" />
+    <Compile Include="Models\DonationViewModel.cs" />
     <Compile Include="Models\EventViewModel.cs" />
     <Compile Include="Models\IdentityModel.cs" />
-    <Compile Include="Models\UserViewModel.cs" />
+    <Compile Include="Models\RegisterViewModel.cs" />
+    <Compile Include="Models\LoginViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -696,6 +698,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Donation\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Donation\Checkout.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Donation\Register.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

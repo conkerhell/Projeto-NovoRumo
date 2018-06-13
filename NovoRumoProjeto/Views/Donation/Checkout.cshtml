@@ -1,0 +1,49 @@
+﻿@model NovoRumoProjeto.Models.DonationViewModel
+
+@{
+    Layout = "~/Views/Shared/_SubLayout.cshtml";
+}
+
+<div class="grid-container">
+    <h2>Doação mensal</h2>
+</div>
+<p>Sim! Quero ser um doador do Novo Rumo, contribuindo mensalmente com:</p>
+<div class="grid-x">
+    <div class="callout grid-x">
+        <div class="small-2">
+            R$ 30,00
+            (R$ 1,00 POR DIA)
+        </div>
+        <div class="small-1"> = </div>
+        <div class="small-8">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum diam mauris, eleifend
+            egestas sollicitudin eget, tempus vitae mi. Nam lectus.
+        </div>
+    </div>
+    <div class="callout grid-x">
+        <div class="small-2">
+            R$ 45,00
+            (R$ 2,00 POR DIA)
+        </div>
+        <div class="small-1"> = </div>
+        <div class="small-8">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum diam mauris, eleifend
+            egestas sollicitudin eget, tempus vitae mi. Nam lectus.
+        </div>
+    </div>
+</div>
+
+<fieldset>
+    <legend><h4>Forma de pagamento</h4></legend>
+    <a href="">Pagseguro</a>
+</fieldset>
+
+<fieldset>
+    <legend><h4>Confirmacao</h4></legend>
+    @Html.CheckBoxFor(model => model.Terms, htmlAttributes: new { })
+    <label for="Terms">
+        Li e estou de acordo com a @Html.ActionLink("Política de Privacidade", "politica-de-privacidade") e @Html.ActionLink("Termos de Uso", "termos-de-uso").
+    </label>
+</fieldset>
+
+<input type="submit" class="button large primary" value="Enviar" />

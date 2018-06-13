@@ -26,7 +26,7 @@ namespace NovoRumoProjeto.Controllers
         [HttpGet]
         public PartialViewResult Donate()
         {
-            var model = new UserViewModel();
+            var model = new LoginViewModel();
             return PartialView(model);
         }
 
