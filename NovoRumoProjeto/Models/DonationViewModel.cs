@@ -8,5 +8,7 @@ namespace NovoRumoProjeto.Models
         [Required(ErrorMessageResourceType = typeof(LocalizedMessages),
             ErrorMessageResourceName = "PropertyValueRequired")]
         public bool Terms { get; set; }
+        public decimal Value { get; set; }
+        public bool isMonthlyDonator { get; set; }
     }
 }

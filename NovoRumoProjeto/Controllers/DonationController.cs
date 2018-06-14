@@ -35,11 +35,11 @@ namespace NovoRumoProjeto.Controllers
             return View();
         }
 
-        //[HttpPost]
-        //public ActionResult Checkout()
-        //{
-        //    return View();
-        //}
+        [HttpPost]
+        public ActionResult Checkout(DonationViewModel model)
+        {
+            return View(model);
+        }
 
         [HttpGet]
         public ActionResult Success()
