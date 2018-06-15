@@ -14,6 +14,11 @@ namespace NovoRumoProjeto.Controllers
         [HttpPost]
         public ActionResult Index(LoginViewModel model)
         {
+            if (!ModelState.IsValid)
+            {
+                return View(model);
+            }
+
             return RedirectToAction("Checkout");
         }
 
@@ -26,6 +31,11 @@ namespace NovoRumoProjeto.Controllers
         [HttpPost]
         public ActionResult Register(RegisterViewModel model)
         {
+            if (!ModelState.IsValid)
+            {
+                return View(model);
+            }
+
             return RedirectToAction("Checkout");
         }
 
@@ -38,6 +48,11 @@ namespace NovoRumoProjeto.Controllers
         [HttpPost]
         public ActionResult Checkout(DonationViewModel model)
         {
+            if (!ModelState.IsValid)
+            {
+                return View(model);
+            }
+
             return View(model);
         }
 
