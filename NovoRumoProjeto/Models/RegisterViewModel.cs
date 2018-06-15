@@ -18,7 +18,7 @@ namespace NovoRumoProjeto.Models
 
         [Required(ErrorMessageResourceType = typeof(LocalizedMessages),
             ErrorMessageResourceName = "PropertyValueRequired")]
-        [Display(Name = "seu nome")]
+        [Display(Name = "Nome")]
         public string Name { get; set; }
     }
 }

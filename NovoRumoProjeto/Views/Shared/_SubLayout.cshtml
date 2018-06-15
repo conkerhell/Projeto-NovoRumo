@@ -11,15 +11,12 @@
             background-color: #ffd98f;
         }
 
-        main.grid-container {
-            margin: 2rem auto 0;
-        }
-
         h2 {
             font-size: 2em;
         }
 
-        p {
+        #main {
+            margin: 2rem auto 0;
         }
 
         .divisor {
@@ -66,7 +63,7 @@
     </style>
 </head>
 <body>
-    <header data-role="navigation">
+    <header role="navigation">
         <div class="grid-container">
             <div class="small-3">
                 <h1>
@@ -81,8 +78,10 @@
         </div>
     </header>
 
-    <main class="small-12 medium-6 grid-x grid-container" role="main">
-        @RenderBody()
+    <main class="small-12 medium-6 grid-container fluid" role="main" id="main">
+        <div class="grid-margin-x">
+            @RenderBody()
+        </div>
     </main>
 
     <script type="text/javascript" src="/Scripts/jquery.min.js"></script>

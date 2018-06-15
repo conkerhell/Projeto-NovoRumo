@@ -4,10 +4,10 @@
     Layout = "~/Views/Shared/_SubLayout.cshtml";
 }
 
-<div class="grid-container">
+<div class="text-center">
     <h2>Novo doador</h2>
 </div>
-<div class="small-12">
+<div class="small-12 grid-container">
     @using (Html.BeginForm(FormMethod.Post))
     {
         @Html.AntiForgeryToken()
@@ -33,6 +33,6 @@
         <input type="submit" class="button expanded primary" value="Criar seu cadastro" />
     }
 </div>
-<div class="grid-container">
+<div class="text-center">
     <p>Já tem um cadastro? @Html.ActionLink("Entrar", "Index")</p>
 </div>

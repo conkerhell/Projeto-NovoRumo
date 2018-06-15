@@ -4,11 +4,11 @@
     Layout = "~/Views/Shared/_SubLayout.cshtml";
 }
 
-<div class="grid-container">
+<div class="text-center">
     <h2>Identificação</h2>
 </div>
 
-<div class="small-12">
+<div class="small-12 grid-container">
     @using (Html.BeginForm(FormMethod.Post))
     {
         @Html.AntiForgeryToken()
@@ -31,6 +31,6 @@
         <span>ou</span>
     </p>
 </div>
-<div class="grid-container">
+<div class="text-center">
     <p>Novo doador? @Html.ActionLink("Doar sem cadastro", "Register")</p>
 </div>
