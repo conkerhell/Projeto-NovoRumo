@@ -7,46 +7,44 @@
 <div class="text-center">
     <h2>Doação</h2>
 </div>
-<div>
-    @using (Html.BeginForm(FormMethod.Post))
-    {
-        @Html.AntiForgeryToken()
-        <div class="grid-x small-up-1 large-up-4">
-            <div class="column">
-                <div class="callout">
-                    R$ 15,00
-                </div>
-            </div>
-            <div class="column">
-                <div class="callout">
-                    R$ 30,00
-                </div>
-            </div>
-            <div class="column">
-                <div class="callout">
-                    R$ 45,00
-                </div>
-            </div>
-            <div class="column">
-                <div class="callout">
-                    R$ 60,00
-                </div>
+@using (Html.BeginForm(FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    <div class="grid-x small-up-1 large-up-4">
+        <div class="column">
+            <div class="callout">
+                R$ 15,00
             </div>
         </div>
+        <div class="column">
+            <div class="callout">
+                R$ 30,00
+            </div>
+        </div>
+        <div class="column">
+            <div class="callout">
+                R$ 45,00
+            </div>
+        </div>
+        <div class="column">
+            <div class="callout">
+                R$ 60,00
+            </div>
+        </div>
+    </div>
 
-        <div class="grid-container">
-            <fieldset>
-                <legend>Aceita de termos e privacidade</legend>
-                @Html.CheckBoxFor(model => model.Terms)
-                <label for="Terms">
-                    Li e estou de acordo com a @Html.ActionLink("Política de Privacidade", "politica-de-privacidade") e @Html.ActionLink("Termos de Uso", "termos-de-uso").
-                </label>
-                @Html.ValidationMessageFor(model => model.Terms)
-            </fieldset>
-        </div>
+    <div class="grid-container">
+        <fieldset>
+            <legend>Aceita de termos e privacidade</legend>
+            @Html.CheckBoxFor(model => model.Terms)
+            <label for="Terms">
+                Li e estou de acordo com a @Html.ActionLink("Política de Privacidade", "politica-de-privacidade") e @Html.ActionLink("Termos de Uso", "termos-de-uso").
+            </label>
+            @Html.ValidationMessageFor(model => model.Terms)
+        </fieldset>
+    </div>
 
-        <div class="grid-container small-4">
-            <input type="submit" class="button expanded primary" value="Doar" />
-        </div>
-    }
-</div>
+    <div class="grid-container small-4">
+        <input type="submit" class="button expanded primary" value="Doar" />
+    </div>
+}
