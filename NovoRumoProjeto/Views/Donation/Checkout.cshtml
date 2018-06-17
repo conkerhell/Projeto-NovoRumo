@@ -23,7 +23,7 @@
         <div class="column">
             <div class="callout">
                 @Html.RadioButtonFor(model => model.Value, 15, new { @id = "value-15" })
-                <label for="value-15">R$ 30,00</label>
+                <label for="value-15">R$ 15,00</label>
             </div>
         </div>
         <div class="column">
@@ -45,17 +45,18 @@
             </div>
         </div>
         <div class="column">
-            <div class="callout">
-                @Html.RadioButtonFor(model => model.Value, "", new { @id = "random-value" })
-                <div class="grid-x small-5">
-                    <div class="input-group">
-                        <span class="input-group-label">R$</span>
-                        @Html.TextBoxFor(model => model.Value, htmlAttributes: new { @class = "input-group-field" })
+            <div class="callout" data-last-item>
+                @Html.RadioButtonFor(model => model.Value, 0, new { @id = "specific-value" })
+                <div class="grid-x callout-text-field">
+                    <div class="grid-x">
+                        <div class="auto text-middle">
+                            <span>R$</span>
+                        </div>
+                        <div class="small-4">
+                            @Html.TextBoxFor(model => model.SpecificValue, htmlAttributes: new { @class = "input-group-field value-field" })
+                        </div>
                     </div>
                 </div>
-                @*<div class="grid-x small-6">
-                    <span>VALORES SUPERIORES A R$ 10,00</span>
-                </div>*@
             </div>
         </div>
     </div>
@@ -74,4 +75,12 @@
     <div class="grid-container small-4">
         <input type="submit" class="button expanded primary" value="Doar" />
     </div>
+}
+
+@section Scripts {
+    <script>
+        $('[data-last-item]').on('click', function () {
+            $('#specific-value').prop("checked", true);
+        });
+    </script>
 }
