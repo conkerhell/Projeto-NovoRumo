@@ -5,43 +5,70 @@
 }
 
 <div class="text-center">
-    <h2>Doação</h2>
+    <h2>Doação Mensal</h2>
 </div>
+
+@*<div class="grid-x small-up-1 show-for-large-only">
+        <div class="column">
+            @Html.RadioButtonFor(model => model.isMonthlyDonator, true)
+            <label>Sim! Quero ser um doador do Novo Rumo, contribuindo mensalmente com:</label>
+        </div>
+    </div>*@
+
 @using (Html.BeginForm(FormMethod.Post))
 {
     @Html.AntiForgeryToken()
-    <div class="grid-x small-up-1 large-up-4">
+
+    <div class="grid-x small-up-1">
         <div class="column">
             <div class="callout">
-                R$ 15,00
+                @Html.RadioButtonFor(model => model.Value, 15, new { @id = "value-15" })
+                <label for="value-15">R$ 30,00</label>
             </div>
         </div>
         <div class="column">
             <div class="callout">
-                R$ 30,00
+                @Html.RadioButtonFor(model => model.Value, 30, new { @id = "value-30" })
+                <label for="value-30">R$ 30,00</label>
             </div>
         </div>
         <div class="column">
             <div class="callout">
-                R$ 45,00
+                @Html.RadioButtonFor(model => model.Value, 45, new { @id = "value-45" })
+                <label for="value-45">R$ 45,00</label>
             </div>
         </div>
         <div class="column">
             <div class="callout">
-                R$ 60,00
+                @Html.RadioButtonFor(model => model.Value, 60, new { @id = "value-60" })
+                <label for="value-60">R$ 60,00</label>
+            </div>
+        </div>
+        <div class="column">
+            <div class="callout">
+                @Html.RadioButtonFor(model => model.Value, "", new { @id = "random-value" })
+                <div class="grid-x small-5">
+                    <div class="input-group">
+                        <span class="input-group-label">R$</span>
+                        @Html.TextBoxFor(model => model.Value, htmlAttributes: new { @class = "input-group-field" })
+                    </div>
+                </div>
+                @*<div class="grid-x small-6">
+                    <span>VALORES SUPERIORES A R$ 10,00</span>
+                </div>*@
             </div>
         </div>
     </div>
 
-    <div class="grid-container">
+    <div class="column">
         <fieldset>
-            <legend>Aceita de termos e privacidade</legend>
-            @Html.CheckBoxFor(model => model.Terms)
+            <legend>Termos de uso e políticas de privacidade</legend>
+            @Html.RadioButtonFor(model => model.Terms, false)
             <label for="Terms">
                 Li e estou de acordo com a @Html.ActionLink("Política de Privacidade", "politica-de-privacidade") e @Html.ActionLink("Termos de Uso", "termos-de-uso").
             </label>
-            @Html.ValidationMessageFor(model => model.Terms)
         </fieldset>
+        @Html.ValidationMessageFor(model => model.Terms)
     </div>
 
     <div class="grid-container small-4">
