@@ -4,11 +4,9 @@ namespace NovoRumoProjeto.Utilities.Extensions
 {
     public static class Extensions
     {
-        private const string IMAGE_PATH = "ImagePath";
-
-        public static string GetImagePath(this string imageName)
+        public static string GetImagePath(this string imageName, string folder)
         {
-            return string.Concat(ConfigurationManager.AppSettings[IMAGE_PATH], @"\", imageName);
+            return string.Concat(ConfigurationManager.AppSettings[folder], @"\", imageName);
         }
     }
 }

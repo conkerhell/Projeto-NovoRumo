@@ -33,7 +33,9 @@ namespace NovoRumoProjeto.Controllers
         [HttpGet]
         public PartialViewResult Daily()
         {
-            return PartialView();
+            var model = new DailyViewModel();
+            var list = model.Get();
+            return PartialView(list);
         }
 
         [HttpGet]

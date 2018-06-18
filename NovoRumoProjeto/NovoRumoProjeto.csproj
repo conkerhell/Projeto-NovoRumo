@@ -533,14 +533,6 @@
     <Content Include="Images\Banner_v2.png" />
     <Content Include="Images\bg-top-v2.png" />
     <Content Include="Images\bg-top.png" />
-    <Content Include="Images\dia-a-dia\artesanato-em-mesa.jpg" />
-    <Content Include="Images\dia-a-dia\bazar.JPG" />
-    <Content Include="Images\dia-a-dia\exercicio-ao-ar-livre.jpg" />
-    <Content Include="Images\dia-a-dia\musica-em-roda.JPG" />
-    <Content Include="Images\dia-a-dia\mães-filhos-e-filhas.jpg" />
-    <Content Include="Images\dia-a-dia\porta-porteira-portão.JPG" />
-    <Content Include="Images\dia-a-dia\roda.jpg" />
-    <Content Include="Images\dia-a-dia\selfie-roda.jpg" />
     <Content Include="Images\event-icon.png" />
     <Content Include="Images\fb.png" />
     <Content Include="Images\idea-icon.png" />

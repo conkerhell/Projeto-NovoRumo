@@ -47,7 +47,7 @@ AS
 BEGIN
 SELECT DailyID, Filename, Status 
   FROM Daily WITH (NOLOCK)
- WHERE DailyID = DailyID
+ WHERE DailyID = @DailyID
 END
 
 SET ANSI_NULLS ON

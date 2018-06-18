@@ -1,4 +1,6 @@
-﻿<div class="pink-gradient-content stripe" id="dia-a-dia">
+﻿@model IList<NovoRumoProjeto.Models.DailyViewModel>
+
+<div class="pink-gradient-content stripe" id="dia-a-dia">
     <div class="grid-container grid-x">
         <div class="cell text-center">
             <div class="small-12 cell">
@@ -8,31 +10,29 @@
     </div>
 </div>
 <div class="pink-gradient-content">
-    <div class="grid-container grid-x">
-        <div class="cell text-center">
-            <div class="small-8 cell float-left" data-bottom-top="-webkit-transform: translate3d(0px,-200px,0px);-moz-transform: translate3d(0px,-200px,0px);transform: translate3d(0px,-200px,0px);"
-                 data-top-bottom="-webkit-transform: translate3d(0px,0px,0px);-moz-transform: translate3d(0px,0px,0px);transform: translate3d(0px,0px,0px);">
-                <img src="/images/dia-a-dia/exercicio-ao-ar-livre.jpg" alt="exercicio ao ar livre">
-            </div>
-            <div class="small-6 cell float-right" data-bottom-top="-webkit-transform: translate3d(0px,-1000px,0px);-moz-transform: translate3d(0px,-1000px,0px);transform: translate3d(0px,-100px,0px);"
-                 data-top-bottom="-webkit-transform: translate3d(0px,-200px,0px);-moz-transform: translate3d(0px,-200px,0px);transform: translate3d(0px,-200px,0px);">
-                <img src="/images/dia-a-dia/artesanato-em-mesa.jpg">
-            </div>
-            <div class="small-4 cell float-center" data-bottom-top="-webkit-transform: translate3d(0px,-500px,0px);-moz-transform: translate3d(0px,-500px,0px);transform: translate3d(0px,-500px,0px);"
-                 data-top-bottom="-webkit-transform: translate3d(0px,0px,0px);-moz-transform: translate3d(0px,0px,0px);transform: translate3d(0px,0px,0px);">
-                <img src="/images/dia-a-dia/bazar.jpg">
-            </div>
-            <div class="small-5 cell float-left" data-bottom-top="-webkit-transform: translate3d(0px,-200px,0px);-moz-transform: translate3d(0px,-200px,0px);transform: translate3d(0px,-200px,0px);"
-                 data-top-bottom="-webkit-transform: translate3d(0px,0px,0px);-moz-transform: translate3d(0px,0px,0px);transform: translate3d(0px,0px,0px);">
-                <img src="/images/dia-a-dia/roda.jpg">
-            </div>
-            <div class="small-7 cell float-center" data-bottom-top="-webkit-transform: translate3d(0px,-100px,0px);-moz-transform: translate3d(0px,-100px,0px);transform: translate3d(0px,-100px,0px);"
-                 data-top-bottom="-webkit-transform: translate3d(0px,-200px,0px);-moz-transform: translate3d(0px,-200px,0px);transform: translate3d(0px,-200px,0px);">
-                <img src="/images/dia-a-dia/selfie-roda.jpg">
-            </div>
-            <div class="small-5 cell float-right" data-bottom-top="-webkit-transform: translate3d(0px,-200px,0px);-moz-transform: translate3d(0px,-200px,0px);transform: translate3d(0px,-200px,0px);"
-                 data-top-bottom="-webkit-transform: translate3d(0px,0px,0px);-moz-transform: translate3d(0px,0px,0px);transform: translate3d(0px,0px,0px);">
-                <img src="/images/dia-a-dia/porta-porteira-portão.jpg">
+    <div class="grid-x">
+        <div class="small-12 medium-8 grid-container">
+            <div class="orbit" role="region" aria-label="Fotos do Novo Rumo" data-orbit>
+                <div class="orbit-wrapper">
+                    <div class="orbit-controls">
+                        <button class="orbit-previous">
+                            <span class="show-for-sr">Voltar</span>&#9664;&#xFE0E;
+                        </button>
+                        <button class="orbit-next">
+                            <span class="show-for-sr">Próximo</span>&#9654;&#xFE0E;
+                        </button>
+                    </div>
+                    <ul class="orbit-container">
+                        @foreach (var item in Model)
+                        {
+                            <li class="is-active orbit-slide">
+                                <figure class="orbit-figure">
+                                    <img class="orbit-image" src="@item.displayFileName" alt="@item.displayFileName">
+                                </figure>
+                            </li>
+                        }
+                    </ul>
+                </div>
             </div>
         </div>
     </div>

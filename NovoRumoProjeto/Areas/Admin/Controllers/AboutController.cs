@@ -13,6 +13,8 @@ namespace NovoRumoProjeto.Areas.Admin.Controllers
     [Authorize(Roles = Consts.ADMIN_ROLE)]
     public class AboutController : Controller
     {
+        private const string IMAGE_PATH = Consts.ABOUT_IMAGE_PATH;
+
         [HttpGet]
         public ActionResult Index()
         {
@@ -26,7 +28,7 @@ namespace NovoRumoProjeto.Areas.Admin.Controllers
                 model.Add(new AboutViewModel()
                 {
                     ID = item.AboutID,
-                    displayFileName = item.fileName.GetImagePath()
+                    displayFileName = item.fileName.GetImagePath(IMAGE_PATH)
                 });
             }
             return View(model);

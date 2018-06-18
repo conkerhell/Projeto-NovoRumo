@@ -13,6 +13,8 @@ namespace NovoRumoProjeto.Areas.Admin.Controllers
     [Authorize(Roles = Consts.ADMIN_ROLE)]
     public class DailyController : Controller
     {
+        private const string IMAGE_PATH = Consts.DAILY_IMAGE_PATH; 
+
         [HttpGet]
         public ActionResult Index()
         {
@@ -26,7 +28,7 @@ namespace NovoRumoProjeto.Areas.Admin.Controllers
                 model.Add(new DailyViewModel()
                 {
                     ID = item.DailyID,
-                    displayFileName = item.fileName.GetImagePath()
+                    displayFileName = item.fileName.GetImagePath(IMAGE_PATH)
                 });
             }
 
@@ -77,7 +79,7 @@ namespace NovoRumoProjeto.Areas.Admin.Controllers
 
             var model = new DailyViewModel();
             model.ID = entity.DailyID;
-            model.displayFileName = entity.fileName.GetImagePath();
+            model.displayFileName = entity.fileName.GetImagePath(IMAGE_PATH);
 
             return View(model);
         }
