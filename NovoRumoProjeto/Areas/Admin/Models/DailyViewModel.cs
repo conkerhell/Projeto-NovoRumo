@@ -1,4 +1,5 @@
 ﻿
+using NovoRumoProjeto.Utilities;
 using NovoRumoProjeto.Utilities.Validation;
 using Resources;
 using System.ComponentModel.DataAnnotations;
@@ -17,8 +18,6 @@ namespace NovoRumoProjeto.Areas.Admin.Models
 
         [Required(ErrorMessageResourceType = typeof(LocalizedMessages),
             ErrorMessageResourceName = "FileRequired")]
-        //[FileSize(10240, ErrorMessageResourceType = typeof(LocalizedMessages),
-        //    ErrorMessageResourceName = "FileSizedExceeded")]
         [FileTypes("jpg", "jpeg", "png", ErrorMessageResourceType = typeof(LocalizedMessages),
             ErrorMessageResourceName = "FileFormatInvalid")]
         public HttpPostedFileBase file { get; set; }
@@ -30,7 +29,7 @@ namespace NovoRumoProjeto.Areas.Admin.Models
         {
             var status = false;
             var fileName = Path.GetFileName(file.FileName);
-            var filePath = Path.Combine(HttpContext.Current.Server.MapPath(ConfigurationManager.AppSettings["ImagePath"]), fileName);
+            var filePath = Path.Combine(HttpContext.Current.Server.MapPath(ConfigurationManager.AppSettings[Consts.DAILY_IMAGE_PATH]), fileName);
 
             if (!string.IsNullOrWhiteSpace(filePath))
             {

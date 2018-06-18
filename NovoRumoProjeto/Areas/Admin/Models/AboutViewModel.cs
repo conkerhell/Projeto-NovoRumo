@@ -1,4 +1,5 @@
-﻿using NovoRumoProjeto.Utilities.Validation;
+﻿using NovoRumoProjeto.Utilities;
+using NovoRumoProjeto.Utilities.Validation;
 using Resources;
 using System.ComponentModel.DataAnnotations;
 using System.Configuration;
@@ -44,7 +45,7 @@ namespace NovoRumoProjeto.Areas.Admin.Models
         {
             var status = false;
             var fileName = Path.GetFileName(file.FileName);
-            var filePath = Path.Combine(HttpContext.Current.Server.MapPath(ConfigurationManager.AppSettings["ImagePath"]), fileName);
+            var filePath = Path.Combine(HttpContext.Current.Server.MapPath(ConfigurationManager.AppSettings[Consts.ABOUT_IMAGE_PATH]), fileName);
 
             if (!string.IsNullOrWhiteSpace(filePath))
             {
