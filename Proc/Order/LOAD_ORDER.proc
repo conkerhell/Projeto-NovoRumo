@@ -1,4 +1,0 @@
-CREATE PROCEDURE spInsertOrder()
-AS
-BEGIN
-END
