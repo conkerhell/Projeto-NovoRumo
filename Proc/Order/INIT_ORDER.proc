@@ -1,7 +1,7 @@
 USE [NovoRumo]
 GO
 
-/****** Object:  Table [dbo].[Event]    Script Date: 5/12/2018 1:53:18 PM ******/
+/****** Object:  Table [dbo].[Order] ******/
 SET ANSI_NULLS ON
 GO
 
@@ -9,7 +9,36 @@ SET QUOTED_IDENTIFIER ON
 GO
 
 
-/****** Object:  Table [dbo].[Event]    Script Date: 5/12/2018 1:53:18 PM ******/
+
+
+
+/****** Object:   ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE PROCEDURE spGetOrder()
+AS
+BEGIN
+END
+
+
+/****** Object:   ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE PROCEDURE spGetOrderById()
+AS
+BEGIN
+END
+
+
+/****** Object:   ******/
 SET ANSI_NULLS ON
 GO
 
@@ -20,3 +49,19 @@ CREATE PROCEDURE spInsertOrder()
 AS
 BEGIN
 END
+
+
+
+
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE PROCEDURE spUpdateOrder()
+AS
+BEGIN
+END
+
+
