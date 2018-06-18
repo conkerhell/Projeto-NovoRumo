@@ -1,10 +1,60 @@
-﻿using NovoRumoProjeto.Models;
+﻿using Microsoft.AspNet.Identity.Owin;
+using Microsoft.Owin.Security;
+using NovoRumoProjeto.Models;
+using NovoRumoProjeto.Utilities;
+using System.Threading.Tasks;
+using System.Web;
 using System.Web.Mvc;
 
 namespace NovoRumoProjeto.Controllers
 {
     public class DonationController : Controller
     {
+        private ApplicationSignInManager _signInManager;
+        private ApplicationUserManager _userManager;
+
+        public DonationController()
+        {
+        }
+
+        public DonationController(ApplicationUserManager userManager, ApplicationSignInManager signInManager)
+        {
+            UserManager = userManager;
+            SignInManager = signInManager;
+        }
+
+        public ApplicationSignInManager SignInManager
+        {
+            get
+            {
+                return _signInManager ?? HttpContext.GetOwinContext().Get<ApplicationSignInManager>();
+            }
+            private set
+            {
+                _signInManager = value;
+            }
+        }
+
+        public ApplicationUserManager UserManager
+        {
+            get
+            {
+                return _userManager ?? HttpContext.GetOwinContext().GetUserManager<ApplicationUserManager>();
+            }
+            private set
+            {
+                _userManager = value;
+            }
+        }
+
+        private IAuthenticationManager AuthenticationManager
+        {
+            get
+            {
+                return HttpContext.GetOwinContext().Authentication;
+            }
+        }
+
         [HttpGet]
         public ActionResult Index()
         {
@@ -12,14 +62,24 @@ namespace NovoRumoProjeto.Controllers
         }
 
         [HttpPost]
-        public ActionResult Index(LoginViewModel model)
+        [ValidateAntiForgeryToken]
+        public async Task<ActionResult> Index(LoginViewModel model)
         {
             if (!ModelState.IsValid)
             {
                 return View(model);
             }
 
-            return RedirectToAction("Checkout");
+            var result = await SignInManager.PasswordSignInAsync(model.Email, model.Password, false, shouldLockout: false);
+            switch (result)
+            {
+                case SignInStatus.Success:
+                    return RedirectToAction("Checkout");
+                case SignInStatus.Failure:
+                default:
+                    ModelState.AddModelError(string.Empty, "Tentativa de login inválida.");
+                    return View(model);
+            }
         }
 
         [HttpGet]
@@ -29,23 +89,36 @@ namespace NovoRumoProjeto.Controllers
         }
 
         [HttpPost]
-        public ActionResult Register(RegisterViewModel model)
+        [ValidateAntiForgeryToken]
+        public async Task<ActionResult> Register(RegisterViewModel model)
         {
             if (!ModelState.IsValid)
             {
                 return View(model);
             }
 
-            return RedirectToAction("Checkout");
+            var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
+            var result = await UserManager.CreateAsync(user, model.Password);
+            if (result.Succeeded)
+            {
+                return RedirectToAction("Checkout");
+            }
+            else
+            {
+                return View(model);
+            }
         }
 
         [HttpGet]
+        [Authorize]
         public ActionResult Checkout()
         {
             return View();
         }
 
         [HttpPost]
+        [Authorize]
+        [ValidateAntiForgeryToken]
         public ActionResult Checkout(DonationViewModel model)
         {
             if (!ModelState.IsValid)
@@ -54,6 +127,20 @@ namespace NovoRumoProjeto.Controllers
             }
 
             return View(model);
+        }
+
+        [HttpGet]
+        public ActionResult ForgotPassword()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        [AllowAnonymous]
+        [ValidateAntiForgeryToken]
+        public async Task<ActionResult> ForgotPassword(ForgotPasswordViewModel model)
+        {
+            
         }
 
         [HttpGet]

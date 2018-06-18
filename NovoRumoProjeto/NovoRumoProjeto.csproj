@@ -226,6 +226,7 @@
     <Compile Include="Models\DailyViewModel.cs" />
     <Compile Include="Models\DonationViewModel.cs" />
     <Compile Include="Models\EventViewModel.cs" />
+    <Compile Include="Models\ForgotPasswordViewModel.cs" />
     <Compile Include="Models\IdentityModel.cs" />
     <Compile Include="Models\RegisterViewModel.cs" />
     <Compile Include="Models\LoginViewModel.cs" />

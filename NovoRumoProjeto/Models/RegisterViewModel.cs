@@ -8,6 +8,7 @@ namespace NovoRumoProjeto.Models
         [Required(ErrorMessageResourceType = typeof(LocalizedMessages),
             ErrorMessageResourceName = "PropertyValueRequired")]
         [Display(Name = "Email")]
+        [EmailAddress(ErrorMessage = "email inválido")]
         [DataType(DataType.EmailAddress)]
         public string Email { get; set; }
 
