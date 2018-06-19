@@ -1,9 +1,9 @@
 ﻿
 namespace NovoRumoProjeto.Entity
 {
-    class CustomerEntity
+    public class UserEntity
     {
         public int UserID { get; set; }
-        public int CustomerID { get; set; }
+        public string Name { get; set; }
     }
 }
