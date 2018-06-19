@@ -1,0 +1,75 @@
+USE [NovoRumo]
+GO
+
+
+/****** Object:  Table [dbo].[User]    Script Date: 6/19/2018 9:05:31 AM ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[User](
+	[UserId] [int] NOT NULL,
+	[Name] [varchar](200) NOT NULL,
+ CONSTRAINT [PK_User] PRIMARY KEY CLUSTERED 
+(
+	[UserId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+
+ALTER TABLE [dbo].[User]  WITH CHECK ADD  CONSTRAINT [FK_User_AspNetUsers] FOREIGN KEY([UserId])
+REFERENCES [dbo].[AspNetUsers] ([Id])
+GO
+
+ALTER TABLE [dbo].[User] CHECK CONSTRAINT [FK_User_AspNetUsers]
+GO
+
+
+
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROCEDURE spInsertUser(
+	@UserId AS INT,
+	@Name AS VARCHAR(200) 
+)
+AS
+BEGIN
+INSERT INTO [dbo].[User] (UserId, Name) VALUES (@UserId, @Name) 
+END
+
+
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROCEDURE spUpdateUser(
+	@UserId AS INT,
+	@Name AS VARCHAR(200) 
+)
+AS
+BEGIN
+UPDATE [dbo].[User] 
+   SET Name = @Name 
+ WHERE UserId = @UserId  
+END
+
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROCEDURE spGetUserById(
+	@UserId AS INT
+)
+AS
+BEGIN
+SELECT UserId, Name FROM [dbo].[User]
+ WHERE UserId = @UserId
+END
