@@ -142,11 +142,13 @@ namespace NovoRumoProjeto.Controllers
             IOrderDAL orderDAL = new OrderDAL();
             var status = orderDAL.Insert(new OrderEntity() {
                 //UserId: 
+                //TypeId: 
+                
             });
             
             if (status) 
             {
-                
+                return RedirectToAction("Success");
             }
 
             return View(model);
