@@ -94,3 +94,33 @@ AS
 BEGIN
 SELECT OrderId, Typeid, UserId, NotificationCode, PaypalGuid, RecordDate, Total FROM [dbo].[Order] WITH (NOLOCK)
 END
+
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROCEDURE spGetOrderById(
+	@OrderId AS INT
+)
+AS
+BEGIN
+SELECT OrderId, Typeid, UserId, NotificationCode, PaypalGuid, RecordDate, Total 
+  FROM [dbo].[Order] WITH (NOLOCK)
+ WHERE OrderId = @OrderId
+END
+	
+	
+
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROCEDURE spInsertOrder(
+
+)
+AS
+BEGIN
+
+END
