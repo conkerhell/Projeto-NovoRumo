@@ -123,9 +123,53 @@ SET QUOTED_IDENTIFIER ON
 GO
 CREATE PROCEDURE spInsertOrder(
 	@UserId AS INT,
-	@TypeId AS INT
+	@TypeId AS INT,
+	@UserId AS INT,
+	@NotificationCode AS VARCHAR(50)
+	@PaypalGuid AS VARCHAR(50),
+	@Total AS DECIMAL(18, 2),
+	@RecordDate AS DATE
 )
 AS
 BEGIN
+INSERT INTO [dbo].[Order] (
+	UserId,
+	TypeId,
+	UserId,
+	NotificationCode,
+	PaypalGuid,
+	Total,
+	RecordDate
+) VALUES (
+	@UserId,
+	@TypeId,
+	@UserId,
+	@NotificationCode,
+	@PaypalGuid,
+	@Total,
+	@RecordDate
+)
+END
 
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROCEDURE spUpdateOrder(
+	@OrderId AS INT,
+	@UserId AS INT,
+	@TypeId AS INT,
+	@UserId AS INT,
+	@NotificationCode AS VARCHAR(50)
+	@PaypalGuid AS VARCHAR(50),
+	@Total AS DECIMAL(18, 2),
+	@RecordDate AS DATE
+)
+AS
+BEGIN
+UPDATE [dbo].[Order]
+   SET UserId = @UserId AND
+       TypeId = @TypeId
+ WHERE OrderId = @OrderId
 END
