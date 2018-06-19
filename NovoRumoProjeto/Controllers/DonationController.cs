@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using NovoRumoProjeto.DAL.User;
+using NovoRumoProjeto.Entity;
 using NovoRumoProjeto.Models;
 using NovoRumoProjeto.Utilities;
 using System.Threading.Tasks;
@@ -105,7 +106,7 @@ namespace NovoRumoProjeto.Controllers
             if (result.Succeeded)
             {
                 IUserDAL userDAL = new UserDAL();
-                userDAL.Insert(new Entity.UserEntity()
+                userDAL.Insert(new UserEntity()
                 {
                     UserID = user.Id,
                     Name = model.Name
@@ -136,6 +137,16 @@ namespace NovoRumoProjeto.Controllers
             {
                 ModelState.AddModelError(Consts.VALIDATION_SUMMARY, "Dados inválidos.");
                 return View(model);
+            }
+            
+            IOrderDAL orderDAL = new OrderDAL();
+            var status = orderDAL.Insert(new OrderEntity() {
+                //UserId: 
+            });
+            
+            if (status) 
+            {
+                
             }
 
             return View(model);
