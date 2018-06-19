@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
+using NovoRumoProjeto.DAL.User;
 using NovoRumoProjeto.Models;
 using NovoRumoProjeto.Utilities;
 using System.Threading.Tasks;
@@ -103,6 +104,13 @@ namespace NovoRumoProjeto.Controllers
             var result = await UserManager.CreateAsync(user, model.Password);
             if (result.Succeeded)
             {
+                IUserDAL userDAL = new UserDAL();
+                userDAL.Insert(new Entity.UserEntity()
+                {
+                    UserID = user.Id,
+                    Name = model.Name
+                });
+
                 return RedirectToAction("Checkout");
             }
             else
