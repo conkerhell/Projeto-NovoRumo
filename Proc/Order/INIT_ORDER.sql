@@ -21,6 +21,10 @@ CREATE TABLE [dbo].[Type](
 
 GO
 
+INSERT INTO [dbo].[Type] (Name, Description) VALUES ('Monthly Donation', '')
+INSERT INTO [dbo].[Type] (Name, Description) VALUES ('Single Donation', '')
+INSERT INTO [dbo].[Type] (Name, Description) VALUES ('Purchase', '')
+
 /****** Object:  Table [dbo].[Order]    Script Date: 6/19/2018 9:24:17 AM ******/
 SET ANSI_NULLS ON
 GO
@@ -118,7 +122,8 @@ GO
 SET QUOTED_IDENTIFIER ON
 GO
 CREATE PROCEDURE spInsertOrder(
-
+	@UserId AS INT,
+	@TypeId AS INT
 )
 AS
 BEGIN
