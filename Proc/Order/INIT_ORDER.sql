@@ -173,3 +173,27 @@ UPDATE [dbo].[Order]
        TypeId = @TypeId
  WHERE OrderId = @OrderId
 END
+
+
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROCEDURE spInsertOrderStatus(
+	@OrderId AS INT,
+	@Status AS INT ,
+	@RecordDate AS DATE
+)
+AS
+BEGIN
+INSERT INTO [dbo].[OrderStatus] (
+	OrderId,
+	Status,
+	RecordDate
+) VALUES (
+	@OrderId,
+	@Status,
+	@RecordDate
+)
+END
