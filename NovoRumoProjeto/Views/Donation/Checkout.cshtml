@@ -20,33 +20,33 @@
     @Html.AntiForgeryToken()
 
     <div class="grid-x small-up-1">
-        <div class="column">
-            <div class="callout">
+        <div class="column"> 
+            <div class="callout radio-callout">
                 @Html.RadioButtonFor(model => model.Value, 15, new { @id = "value-15", @checked = true })
                 <label for="value-15">R$ 15,00</label>
             </div>
         </div>
         <div class="column">
-            <div class="callout">
+            <div class="callout radio-callout">
                 @Html.RadioButtonFor(model => model.Value, 30, new { @id = "value-30" })
                 <label for="value-30">R$ 30,00</label>
             </div>
         </div>
         <div class="column">
-            <div class="callout">
+            <div class="callout radio-callout">
                 @Html.RadioButtonFor(model => model.Value, 45, new { @id = "value-45" })
                 <label for="value-45">R$ 45,00</label>
             </div>
         </div>
         <div class="column">
-            <div class="callout">
+            <div class="callout radio-callout">
                 @Html.RadioButtonFor(model => model.Value, 60, new { @id = "value-60" })
                 <label for="value-60">R$ 60,00</label>
             </div>
         </div>
         <div class="column">
-            <div class="callout" data-last-item>
-                @Html.RadioButtonFor(model => model.Value, 0, new { @id = "specific-value" })
+            <div class="callout radio-callout" data-last-item>
+                @Html.RadioButtonFor(model => model.Value, true, new { @id = "specific-value" })
                 <div class="grid-x callout-text-field">
                     <div class="grid-x">
                         <div class="auto text-middle">

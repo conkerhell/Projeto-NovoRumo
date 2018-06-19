@@ -1,6 +1,5 @@
-﻿using NovoRumoProjeto.Utilities.Domains;
+﻿using NovoRumoProjeto.Utilities.Validation;
 using Resources;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace NovoRumoProjeto.Models
@@ -14,6 +13,7 @@ namespace NovoRumoProjeto.Models
         public string Value { get; set; }
 
         [StringLength(5)]
+        [RequiredIf("Value", true)]
         public string SpecificValue { get; set; }
 
         public bool isMonthlyDonator { get; set; }

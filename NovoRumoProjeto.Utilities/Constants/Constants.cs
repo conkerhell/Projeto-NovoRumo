@@ -17,5 +17,8 @@ namespace NovoRumoProjeto.Utilities
 
         //SQL
         public const string CONNECTION_STRING = "NovoRumoConnection";
+
+        //Validation
+        public const string VALIDATION_SUMMARY = "ValidationSummary"; 
     }
 }

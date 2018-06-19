@@ -67,6 +67,7 @@ namespace NovoRumoProjeto.Controllers
         {
             if (!ModelState.IsValid)
             {
+                ModelState.AddModelError(Consts.VALIDATION_SUMMARY, "Dados inválidos.");
                 return View(model);
             }
 
@@ -77,7 +78,7 @@ namespace NovoRumoProjeto.Controllers
                     return RedirectToAction("Checkout");
                 case SignInStatus.Failure:
                 default:
-                    ModelState.AddModelError(string.Empty, "Tentativa de login inválida.");
+                    ModelState.AddModelError(Consts.VALIDATION_SUMMARY, "Dados inválidos.");
                     return View(model);
             }
         }
@@ -94,6 +95,7 @@ namespace NovoRumoProjeto.Controllers
         {
             if (!ModelState.IsValid)
             {
+                ModelState.AddModelError(Consts.VALIDATION_SUMMARY, "Dados inválidos.");
                 return View(model);
             }
 
@@ -105,6 +107,7 @@ namespace NovoRumoProjeto.Controllers
             }
             else
             {
+                ModelState.AddModelError(Consts.VALIDATION_SUMMARY, "Falha durante o registro.");
                 return View(model);
             }
         }
@@ -123,6 +126,7 @@ namespace NovoRumoProjeto.Controllers
         {
             if (!ModelState.IsValid)
             {
+                ModelState.AddModelError(Consts.VALIDATION_SUMMARY, "Dados inválidos.");
                 return View(model);
             }
 
@@ -140,7 +144,7 @@ namespace NovoRumoProjeto.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> ForgotPassword(ForgotPasswordViewModel model)
         {
-            
+            return View(model);
         }
 
         [HttpGet]
