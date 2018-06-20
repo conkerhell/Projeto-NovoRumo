@@ -10,7 +10,7 @@ SET QUOTED_IDENTIFIER ON
 GO
 
 CREATE TABLE [dbo].[Type](
-	[TypeId] [int] NOT NULL,
+	[TypeId] [int] IDENTITY(1,1) NOT NULL,
 	[Name] [varchar](200) NOT NULL,
 	[Description] [varchar](500) NULL,
  CONSTRAINT [PK_Type] PRIMARY KEY CLUSTERED 
@@ -33,7 +33,7 @@ SET QUOTED_IDENTIFIER ON
 GO
 
 CREATE TABLE [dbo].[Order](
-	[OrderId] [int] NOT NULL,
+	[OrderId] [int] IDENTITY(1,1) NOT NULL,
 	[TypeId] [int] NOT NULL,
 	[UserId] [int] NOT NULL,
 	[NotificationCode] [varchar](50) NULL,
@@ -71,7 +71,7 @@ GO
 SET QUOTED_IDENTIFIER ON
 GO
 
-CREATE TABLE [dbo].[Status](
+CREATE TABLE [dbo].[OrderStatus](
 	[OrderId] [int] NOT NULL,
 	[Status] [int] NOT NULL,
 	[RecordDate] [date] NOT NULL
@@ -79,11 +79,11 @@ CREATE TABLE [dbo].[Status](
 
 GO
 
-ALTER TABLE [dbo].[Status]  WITH CHECK ADD  CONSTRAINT [FK_Status_Order] FOREIGN KEY([OrderId])
+ALTER TABLE [dbo].[OrderStatus]  WITH CHECK ADD  CONSTRAINT [FK_Status_Order] FOREIGN KEY([OrderId])
 REFERENCES [dbo].[Order] ([OrderId])
 GO
 
-ALTER TABLE [dbo].[Status] CHECK CONSTRAINT [FK_Status_Order]
+ALTER TABLE [dbo].[OrderStatus] CHECK CONSTRAINT [FK_Status_Order]
 GO
 
 
@@ -124,8 +124,7 @@ GO
 CREATE PROCEDURE spInsertOrder(
 	@UserId AS INT,
 	@TypeId AS INT,
-	@UserId AS INT,
-	@NotificationCode AS VARCHAR(50)
+	@NotificationCode AS VARCHAR(50),
 	@PaypalGuid AS VARCHAR(50),
 	@Total AS DECIMAL(18, 2),
 	@RecordDate AS DATE
@@ -135,7 +134,6 @@ BEGIN
 INSERT INTO [dbo].[Order] (
 	UserId,
 	TypeId,
-	UserId,
 	NotificationCode,
 	PaypalGuid,
 	Total,
@@ -143,12 +141,14 @@ INSERT INTO [dbo].[Order] (
 ) VALUES (
 	@UserId,
 	@TypeId,
-	@UserId,
 	@NotificationCode,
 	@PaypalGuid,
 	@Total,
 	@RecordDate
 )
+
+SELECT SCOPE_IDENTITY() 
+
 END
 
 SET ANSI_NULLS ON
@@ -160,8 +160,7 @@ CREATE PROCEDURE spUpdateOrder(
 	@OrderId AS INT,
 	@UserId AS INT,
 	@TypeId AS INT,
-	@UserId AS INT,
-	@NotificationCode AS VARCHAR(50)
+	@NotificationCode AS VARCHAR(50),
 	@PaypalGuid AS VARCHAR(50),
 	@Total AS DECIMAL(18, 2),
 	@RecordDate AS DATE
@@ -169,8 +168,12 @@ CREATE PROCEDURE spUpdateOrder(
 AS
 BEGIN
 UPDATE [dbo].[Order]
-   SET UserId = @UserId AND
-       TypeId = @TypeId
+   SET UserId = @UserId,
+       TypeId = @TypeId,
+	   NotificationCode = @NotificationCode,
+	   PaypalGuid = @PaypalGuid,
+	   Total = @Total,
+	   RecordDate = @RecordDate
  WHERE OrderId = @OrderId
 END
 
@@ -196,4 +199,19 @@ INSERT INTO [dbo].[OrderStatus] (
 	@Status,
 	@RecordDate
 )
+END
+
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROCEDURE spGetStatusByOrderId(
+	@OrderId AS INT
+)
+AS
+BEGIN
+SELECT OrderId, Status, RecordDate
+  FROM [dbo].[OrderStatus] WITH (NOLOCK)
+ WHERE OrderId = @OrderId
 END

@@ -4,6 +4,7 @@ using NovoRumoProjeto.DAL.User;
 using NovoRumoProjeto.Entity;
 using NovoRumoProjeto.Models;
 using NovoRumoProjeto.Utilities;
+using NovoRumoProjeto.PaymentCreator;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
@@ -138,20 +139,24 @@ namespace NovoRumoProjeto.Controllers
                 ModelState.AddModelError(Consts.VALIDATION_SUMMARY, "Dados inválidos.");
                 return View(model);
             }
-            
-            IOrderDAL orderDAL = new OrderDAL();
-            var status = orderDAL.Insert(new OrderEntity() {
-                //UserId: 
-                //TypeId: 
-                
-            });
-            
-            if (status) 
-            {
-                return RedirectToAction("Success");
-            }
 
-            return View(model);
+            var order = new OrderEntity()
+            {
+
+            };
+
+            var user = new UserEntity()
+            {
+
+            };
+
+            var paymentoStatusIndicador = Payment.CreatePaymentFor(1)
+                                                .SetOrder(order)
+                                                .SetUser(user)
+                                                .SetRequestContext(Request.RequestContext)
+                                                .Send();
+
+            return Redirect(paymentoStatusIndicador.RedirectUrl);
         }
 
         [HttpGet]

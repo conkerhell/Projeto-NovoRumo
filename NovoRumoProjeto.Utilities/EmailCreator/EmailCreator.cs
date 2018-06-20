@@ -6,8 +6,8 @@ namespace NovoRumoProjeto.Utilities.EmailCreator
 {
     public class EmailCreator : IEmailCreator
     {
-        private static string SMTPPassword = ConfigurationManager.AppSettings["SMTPPassword"];
-        private static string SMTPMail = ConfigurationManager.AppSettings["SMTPMail"];
+        private static string SMTPPassword = ConfigurationManager.AppSettings[Consts.SMTP_Password];
+        private static string SMTPMail = ConfigurationManager.AppSettings[Consts.SMTP_Mail];
         private MailMessage mailMessage = new MailMessage();
 
         private EmailCreator(string fromAddress)

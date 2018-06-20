@@ -5,11 +5,18 @@ namespace NovoRumoProjeto.Entity
 {
     public class OrderEntity
     {
+        public OrderEntity()
+        {
+            User = new UserEntity();
+            Type = new TypeEntity();
+            orderDetail = new List<OrderDetailEntity>();
+            orderStatus = new List<OrderStatusEntity>();
+        }
+
         public int OrderID { get; set; }
-        public TypeEntity Type { get; set; }
         public UserEntity User { get; set; }
+        public TypeEntity Type { get; set; }
         public string NotificationCode { get; set; }
-        public int PaymentGateway { get; set; }
         public string PaypalGuid { get; set; }
         public decimal Total { get; set; }
         public DateTime RecordDate { get; set; }

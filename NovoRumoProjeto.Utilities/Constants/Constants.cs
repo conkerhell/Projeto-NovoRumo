@@ -11,6 +11,8 @@ namespace NovoRumoProjeto.Utilities
         public const string ADMIN_EMAIL = "AdminEmail";
         public const string ADMIN_PASSWORD = "AdminPassword";
         public const string ROLE_NAME = "RoleName";
+        public const string SMTP_Mail = "SMTPMail";
+        public const string SMTP_Password = "SMTPPassword";
 
         //Roles
         public const string ADMIN_ROLE = "Admin";

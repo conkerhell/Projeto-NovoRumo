@@ -77,9 +77,6 @@
     <Compile Include="HtmlHelpers\ButtonHtmlHelpers.cs" />
     <Compile Include="HtmlHelpers\FlashMessageHtmlHelper.cs" />
     <Compile Include="HtmlHelpers\ValidationHtmlHelpers.cs" />
-    <Compile Include="Payment\IPaymentCreator.cs" />
-    <Compile Include="Payment\Model\PaymentStatusIndicator.cs" />
-    <Compile Include="Payment\PaymentCreator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Validation\FileSizeAttribute.cs" />
     <Compile Include="Validation\FileTypesAttribute.cs" />

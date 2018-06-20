@@ -1,5 +1,5 @@
 ﻿
-namespace NovoRumoProjeto.Utilities.Payment.Model
+namespace NovoRumoProjeto.PaymentCreator
 {
     public class PaymentStatusIndicator
     {
