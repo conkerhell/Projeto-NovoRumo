@@ -10,7 +10,7 @@ SET QUOTED_IDENTIFIER ON
 GO
 
 CREATE TABLE [dbo].[Type](
-	[TypeId] [int] IDENTITY(1,1) NOT NULL,
+	[TypeId] [int] NOT NULL,
 	[Name] [varchar](200) NOT NULL,
 	[Description] [varchar](500) NULL,
  CONSTRAINT [PK_Type] PRIMARY KEY CLUSTERED 
@@ -21,9 +21,10 @@ CREATE TABLE [dbo].[Type](
 
 GO
 
-INSERT INTO [dbo].[Type] (Name, Description) VALUES ('Monthly Donation', '')
-INSERT INTO [dbo].[Type] (Name, Description) VALUES ('Single Donation', '')
-INSERT INTO [dbo].[Type] (Name, Description) VALUES ('Purchase', '')
+INSERT INTO [dbo].[Type] (TypeId, Name, Description) VALUES (1, 'Monthly Donation', '')
+INSERT INTO [dbo].[Type] (TypeId, Name, Description) VALUES (2, 'Single Donation', '')
+INSERT INTO [dbo].[Type] (TypeId, Name, Description) VALUES (3, 'Bank Transfer', '')
+INSERT INTO [dbo].[Type] (TypeId, Name, Description) VALUES (4, 'Purchase', '')
 
 /****** Object:  Table [dbo].[Order]    Script Date: 6/19/2018 9:24:17 AM ******/
 SET ANSI_NULLS ON
