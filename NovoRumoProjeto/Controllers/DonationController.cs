@@ -8,6 +8,7 @@ using NovoRumoProjeto.PaymentCreator;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
+using NovoRumoProjeto.Utilities.Domains;
 
 namespace NovoRumoProjeto.Controllers
 {
@@ -150,7 +151,7 @@ namespace NovoRumoProjeto.Controllers
 
             };
 
-            var paymentoStatusIndicador = Payment.CreatePaymentFor(1)
+            var paymentoStatusIndicador = Payment.CreatePaymentFor(Enums.Type.MonthlyDonation)
                                                 .SetOrder(order)
                                                 .SetUser(user)
                                                 .SetRequestContext(Request.RequestContext)

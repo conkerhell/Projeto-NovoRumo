@@ -3,6 +3,7 @@ using System.Configuration;
 using System.Web.Routing;
 using NovoRumoProjeto.DAL.Order;
 using NovoRumoProjeto.Entity;
+using NovoRumoProjeto.Utilities.Domains;
 
 namespace NovoRumoProjeto.PaymentCreator
 {
@@ -17,9 +18,9 @@ namespace NovoRumoProjeto.PaymentCreator
             this.type = type;
         }
 
-        public static IPayment CreatePaymentFor(int type)
+        public static IPayment CreatePaymentFor(Enums.Type type)
         {
-            return new Payment(type);
+            return new Payment((int)type);
         }
 
         private bool isSandbox

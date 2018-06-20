@@ -70,6 +70,7 @@
   <ItemGroup>
     <Compile Include="Constants\Constants.cs" />
     <Compile Include="Domains\Domain.cs" />
+    <Compile Include="Domains\Enums.cs" />
     <Compile Include="EmailCreator\EmailCreator.cs" />
     <Compile Include="EmailCreator\IEmailCreator.cs" />
     <Compile Include="Extensions\Extensions.cs" />
