@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 using NovoRumoProjeto.Utilities.Domains;
+using Microsoft.AspNet.Identity;
 
 namespace NovoRumoProjeto.Controllers
 {
@@ -143,15 +144,17 @@ namespace NovoRumoProjeto.Controllers
 
             var order = new OrderEntity()
             {
-
+                Total = model.GetTotal
             };
 
+            var userEntity = new UserDAL().GetById(User.Identity.GetUserId<int>());
             var user = new UserEntity()
             {
-
+                UserID = userEntity.UserID,
+                Name = userEntity.Name
             };
 
-            var paymentoStatusIndicador = Payment.CreatePaymentFor(Enums.Type.MonthlyDonation)
+            var paymentoStatusIndicador = Payment.CreatePaymentFor(model.Type)
                                                 .SetOrder(order)
                                                 .SetUser(user)
                                                 .SetRequestContext(Request.RequestContext)

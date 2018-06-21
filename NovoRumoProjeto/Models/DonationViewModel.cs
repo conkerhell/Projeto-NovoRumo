@@ -1,5 +1,7 @@
-﻿using NovoRumoProjeto.Utilities.Validation;
+﻿using NovoRumoProjeto.Utilities.Domains;
+using NovoRumoProjeto.Utilities.Validation;
 using Resources;
+using System;
 using System.ComponentModel.DataAnnotations;
 
 namespace NovoRumoProjeto.Models
@@ -16,6 +18,11 @@ namespace NovoRumoProjeto.Models
         [RequiredIf("Value", true)]
         public string SpecificValue { get; set; }
 
-        public bool isMonthlyDonator { get; set; }
+        public Enums.Type Type { get; set; }
+
+        public decimal GetTotal
+        {
+            get { return (Value.Equals("0")) ? Convert.ToDecimal(SpecificValue) : Convert.ToDecimal(Value); }
+        }
     }
 }
