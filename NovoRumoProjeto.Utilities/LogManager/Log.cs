@@ -1,7 +1,10 @@
  
  namespace NovoRumoProjeto.Utilities.LogManager {
   
-  public sealed class Log
+  ///
+  /// Singletons aren't great but that's what we have it for now
+  ///
+  public sealed class Log : Logger
   {
     private static Log instance = null;
     private static readonly object padlock = new object();
@@ -23,6 +26,18 @@
                 return instance;
             }
         }
+    }
+   
+    public void Info()
+    {
+        Save();
+        return;
+    }
+   
+    public void Error()
+    {
+        Save();
+        return;
     }
   }
 }
