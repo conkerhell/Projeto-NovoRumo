@@ -1,7 +1,7 @@
  
  namespace NovoRumoProjeto.Utilities.LogManager {
-    class Log
-   {
+  public class Log : ILogInterface
+  {
  
-    }
+  }
  }
