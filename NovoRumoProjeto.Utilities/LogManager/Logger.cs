@@ -3,7 +3,7 @@ namespace NovoRumoProjeto.Utilities.LogManager {
 
     public class Logger
     {
-        public sealed void Save()
+        public void Save()
         {
                
         }

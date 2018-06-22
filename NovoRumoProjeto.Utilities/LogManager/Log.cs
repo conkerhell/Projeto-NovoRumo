@@ -2,7 +2,7 @@
  namespace NovoRumoProjeto.Utilities.LogManager {
   
   ///
-  /// Singletons aren't great but that's what we have it for now
+  /// Singletons aren't great but that's what we have for now
   ///
   public sealed class Log : Logger
   {
