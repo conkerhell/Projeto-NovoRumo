@@ -41,6 +41,7 @@ namespace NovoRumoProjeto.DAL.User
         public bool Insert(UserEntity entity)
         {
             return dataAccess.ExecuteNonQuery(INSERT_USER_PROC,
+                dataAccess.ParameterFactory.Create(USER_ID_COLUMN, DbType.Int32, entity.UserID, ParameterDirection.Input),
                 dataAccess.ParameterFactory.Create(NAME_COLUMN, DbType.String, entity.Name, ParameterDirection.Input)) == 1;
         }
 

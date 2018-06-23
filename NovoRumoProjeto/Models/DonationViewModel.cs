@@ -20,9 +20,9 @@ namespace NovoRumoProjeto.Models
 
         public Enums.Type Type { get; set; }
 
-        public decimal GetTotal
+        public decimal GetTotal()
         {
-            get { return (Value.Equals("0")) ? Convert.ToDecimal(SpecificValue) : Convert.ToDecimal(Value); }
+            return (Value.Equals("0")) ? Convert.ToDecimal(SpecificValue) : Convert.ToDecimal(Value);
         }
     }
 }

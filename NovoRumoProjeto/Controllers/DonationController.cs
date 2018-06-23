@@ -144,7 +144,7 @@ namespace NovoRumoProjeto.Controllers
 
             var order = new OrderEntity()
             {
-                Total = model.GetTotal
+                Total = model.GetTotal()
             };
 
             var userEntity = new UserDAL().GetById(User.Identity.GetUserId<int>());
