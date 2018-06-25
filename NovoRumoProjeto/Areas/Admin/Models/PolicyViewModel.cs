@@ -7,7 +7,7 @@ using System.Web;
 
 namespace NovoRumoProjeto.Areas.Admin.Models
 {
-    public class PoliticsViewModel
+    public class PolicyViewModel
     {
         [Required(ErrorMessageResourceType = typeof(LocalizedMessages),
             ErrorMessageResourceName = "PropertyValueRequired")]

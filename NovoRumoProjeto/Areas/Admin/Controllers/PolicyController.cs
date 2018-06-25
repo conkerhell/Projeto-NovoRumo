@@ -6,14 +6,14 @@ using System.Web.Mvc;
 
 namespace NovoRumoProjeto.Areas.Admin.Controllers
 {
-    public class PoliticsController : Controller
+    public class PolicyController : Controller
     {
         [HttpGet]
         public ActionResult Index()
         {
-            IPoliticsDAL politicsDAL = new PoliticsDAL();
+            IPolicyDAL politicsDAL = new PolicyDAL();
             var entity = politicsDAL.GetPolitics();
-            return View(new PoliticsViewModel()
+            return View(new PolicyViewModel()
             {
                 Title = entity.Title,
                 Description = entity.Description
@@ -22,9 +22,9 @@ namespace NovoRumoProjeto.Areas.Admin.Controllers
         [HttpGet]
         public ActionResult Edit()
         {
-            IPoliticsDAL politicsDAL = new PoliticsDAL();
+            IPolicyDAL politicsDAL = new PolicyDAL();
             var entity = politicsDAL.GetPolitics();
-            return View(new PoliticsViewModel()
+            return View(new PolicyViewModel()
             {
                 Title = entity.Title,
                 Description = entity.Description
@@ -32,15 +32,15 @@ namespace NovoRumoProjeto.Areas.Admin.Controllers
         }
 
         [HttpPost]
-        public ActionResult Edit(PoliticsViewModel model)
+        public ActionResult Edit(PolicyViewModel model)
         {
             if (!ModelState.IsValid)
             {
                 return View(model);
             }
 
-            IPoliticsDAL politicsDAL = new PoliticsDAL();
-            politicsDAL.Update(new PoliticsEntity()
+            IPolicyDAL politicsDAL = new PolicyDAL();
+            politicsDAL.Update(new PolicyEntity()
             {
                 Title = model.Title,
                 Description = model.Description

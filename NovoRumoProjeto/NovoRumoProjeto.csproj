@@ -210,7 +210,7 @@
     <Compile Include="Areas\Admin\Controllers\DailyController.cs" />
     <Compile Include="Areas\Admin\Controllers\DashboardController.cs" />
     <Compile Include="Areas\Admin\Controllers\EventsController.cs" />
-    <Compile Include="Areas\Admin\Controllers\PoliticsController.cs" />
+    <Compile Include="Areas\Admin\Controllers\PolicyController.cs" />
     <Compile Include="Areas\Admin\Controllers\ProductsController.cs" />
     <Compile Include="Areas\Admin\Models\AboutViewModel.cs" />
     <Compile Include="Areas\Admin\Models\ContactViewModel.cs" />
@@ -218,7 +218,7 @@
     <Compile Include="Areas\Admin\Models\EventViewModel.cs" />
     <Compile Include="Areas\Admin\Models\ForgotPasswordViewModel.cs" />
     <Compile Include="Areas\Admin\Models\LoginViewModel.cs" />
-    <Compile Include="Areas\Admin\Models\PoliticsViewModel.cs" />
+    <Compile Include="Areas\Admin\Models\PolicyViewModel.cs" />
     <Compile Include="Controllers\DonationController.cs" />
     <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -712,8 +712,8 @@
     <Content Include="Views\Donation\Success.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Areas\Admin\Views\Politics\Index.cshtml" />
-    <Content Include="Areas\Admin\Views\Politics\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Policy\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Policy\Edit.cshtml" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <Content Include="Views\Home\NoNextEvent.cshtml" />
   </ItemGroup>

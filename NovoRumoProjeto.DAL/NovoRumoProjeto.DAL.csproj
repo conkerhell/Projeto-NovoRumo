@@ -53,8 +53,8 @@
     <Compile Include="IDAL.cs" />
     <Compile Include="Order\IOrderDAL.cs" />
     <Compile Include="Order\OrderDAL.cs" />
-    <Compile Include="Politics\IPoliticsDAL.cs" />
-    <Compile Include="Politics\PoliticsDAL.cs" />
+    <Compile Include="Policy\IPolicyDAL.cs" />
+    <Compile Include="Policy\PolicyDAL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="User\IUserDAL.cs" />
   </ItemGroup>

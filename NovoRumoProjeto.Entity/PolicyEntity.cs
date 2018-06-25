@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace NovoRumoProjeto.Entity
 {
-    public class PoliticsEntity
+    public class PolicyEntity
     {
-        public int PoliticsID { get; set; }
+        public int PolicyID { get; set; }
         public string Title { get; set; }
         public string Description { get; set; }
     }

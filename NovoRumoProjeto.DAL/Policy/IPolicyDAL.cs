@@ -7,8 +7,8 @@ using System.Threading.Tasks;
 
 namespace NovoRumoProjeto.DAL.Politics
 {
-    public interface IPoliticsDAL : IDAL<PoliticsEntity>
+    public interface IPolicyDAL : IDAL<PolicyEntity>
     {
-        PoliticsEntity GetPolitics();
+        PolicyEntity GetPolitics();
     }
 }
