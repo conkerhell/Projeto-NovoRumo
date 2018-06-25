@@ -154,13 +154,13 @@ namespace NovoRumoProjeto.Controllers
                 Name = userEntity.Name
             };
 
-            var paymentoStatusIndicador = Payment.CreatePaymentFor(model.Type)
-                                                .SetOrder(order)
-                                                .SetUser(user)
-                                                .SetRequestContext(Request.RequestContext)
-                                                .Send();
+            //var paymentoStatusIndicador = Payment.CreatePaymentFor(model.Type)
+            //                                    .SetOrder(order)
+            //                                    .SetUser(user)
+            //                                    .SetRequestContext(Request.RequestContext)
+            //                                    .Send();
 
-            return Redirect(paymentoStatusIndicador.RedirectUrl);
+            return Redirect("Success");
         }
 
         [HttpGet]

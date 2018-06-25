@@ -22,7 +22,7 @@ namespace NovoRumoProjeto.Models
 
         public decimal GetTotal()
         {
-            return (Value.Equals("0")) ? Convert.ToDecimal(SpecificValue) : Convert.ToDecimal(Value);
+            return (Value.Equals(true.ToString())) ? Convert.ToDecimal(SpecificValue) : Convert.ToDecimal(Value);
         }
     }
 }
