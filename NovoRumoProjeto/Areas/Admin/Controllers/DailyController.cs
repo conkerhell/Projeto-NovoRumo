@@ -13,7 +13,7 @@ namespace NovoRumoProjeto.Areas.Admin.Controllers
     [Authorize(Roles = Consts.ADMIN_ROLE)]
     public class DailyController : Controller
     {
-        private const string IMAGE_PATH = Consts.DAILY_IMAGE_PATH; 
+        private const string IMAGE_PATH = Consts.DAILY_IMAGE_PATH;
 
         [HttpGet]
         public ActionResult Index()
@@ -50,11 +50,13 @@ namespace NovoRumoProjeto.Areas.Admin.Controllers
             }
 
             IDailyDAL dailyDAL = new DailyDAL();
-            var status = dailyDAL.Insert(new DailyEntity()
-            {
-                Status = 1,
-                fileName = model.displayFileName
-            });
+
+            var status = model.SaveFile() &&
+                dailyDAL.Insert(new DailyEntity()
+                {
+                    Status = 1,
+                    fileName = model.displayFileName
+                });
 
             if (!status)
             {
