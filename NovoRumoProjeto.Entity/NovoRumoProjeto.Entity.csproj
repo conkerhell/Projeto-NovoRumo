@@ -42,6 +42,7 @@
   <ItemGroup>
     <Compile Include="AboutEntity.cs" />
     <Compile Include="ContactEntity.cs" />
+    <Compile Include="PoliticsEntity.cs" />
     <Compile Include="UserEntity.cs" />
     <Compile Include="DailyEntity.cs" />
     <Compile Include="DonationEntity.cs" />

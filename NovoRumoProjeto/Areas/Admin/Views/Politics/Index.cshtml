@@ -1,0 +1,36 @@
+﻿@model NovoRumoProjeto.Areas.Admin.Models.PoliticsViewModel
+
+<div class="cell">
+    <div class="grid-x title-bar-admin">
+        <div class="small-6">
+            <h1>Politica</h1>
+        </div>
+        <div class="small-6">
+            <div class="float-right">
+                @Html.EditButton("Politics", 1)
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="grid-x  cell">
+    <div class="cell small-2">
+        @Html.LabelFor(model => model.Title)
+
+        <div class="small-10">
+
+            <div class="small-12">
+                @Html.DisplayFor(model => model.Title)
+            </div>
+
+            @Html.LabelFor(model => model.Description)
+
+            <div class="grid-x cell" >
+                @Html.DisplayFor(model => model.Description)
+            </div>
+
+        </div>
+        @Html.RenderFlashMessages()
+    </div>
+</div>
+
