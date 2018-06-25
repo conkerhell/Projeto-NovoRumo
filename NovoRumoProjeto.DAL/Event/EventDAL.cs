@@ -78,9 +78,10 @@ namespace NovoRumoProjeto.DAL.Event
         {
             using (var result = dataAccess.ExecuteReader(GET_NEXT_EVENT))
             {
-                EventEntity item = new EventEntity();
+                EventEntity item = null;
                 if (result.HasRows)
                 {
+                    item = new EventEntity();
                     if (result.Read())
                     {
                         item = new EventEntity();

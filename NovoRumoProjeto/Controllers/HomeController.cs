@@ -42,8 +42,12 @@ namespace NovoRumoProjeto.Controllers
         public PartialViewResult Event()
         {
             var model = new EventViewModel();
-            model.GetNextEvent();
-            return PartialView(model);
+            var hasNextEvent = model.CheckAndGetNextEvent();
+            
+            if (hasNextEvent)
+            {
+                return PartialView(model);
+            } return PartialView("NoNextEvent");
         }
 
         [HttpGet]

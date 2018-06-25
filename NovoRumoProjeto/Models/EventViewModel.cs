@@ -14,14 +14,19 @@ namespace NovoRumoProjeto.Models
 
         public string Address { get; set; }
 
-        public void GetNextEvent()
+        public bool CheckAndGetNextEvent()
         {
             IEventDAL eventDAL = new EventDAL();
             var entity = eventDAL.GetNextEvent();
-            Title = entity.Title;
-            Description = entity.Description;
-            Data = entity.Data;
-            Address = entity.Address;
+            if (entity != null)
+            {
+                Title = entity.Title;
+                Description = entity.Description;
+                Data = entity.Data;
+                Address = entity.Address;
+                return true;
+            }
+            return false;
         }
     }
 }
