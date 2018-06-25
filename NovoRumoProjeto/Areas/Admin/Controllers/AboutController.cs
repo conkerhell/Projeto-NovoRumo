@@ -88,7 +88,7 @@ namespace NovoRumoProjeto.Areas.Admin.Controllers
         [HttpPost]
         public ActionResult Add(AboutViewModel model)
         {
-            if (ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
                 return View(model);
             }
