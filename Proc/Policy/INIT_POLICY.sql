@@ -21,9 +21,11 @@ CREATE TABLE [dbo].[Policy](
 GO
 
 INSERT INTO Policy  (
-Title,
-Description) VALUES (1,'Política de Privacidade',
-'Nosso Compromisso com Você
+	Title,
+	Description
+) VALUES (
+	'Política de Privacidade',
+	'Nosso Compromisso com Você
     MÉDICOS SEM FRONTEIRAS BRASIL (MSF Brasil) está fortemente empenhada em proteger a privacidade dos seus doadores.
     Queremos ajudá-lo a entender melhor as informações que recolhemos, como lidamos com ela, e as opções que você tem em relação a como as utilizamos.
     Essa Política de Privacidade é aplicada quando recebemos um cadastro para doação para Médicos Sem Fronteiras (online ou não).
@@ -69,11 +71,8 @@ Description) VALUES (1,'Política de Privacidade',
     Médicos Sem Fronteiras não coleta qualquer informação de identificação pessoal quando você visita nossos sites a menos que você opte por fornecer essas informações para nós.As informações que coletamos durante a navegação, vem de duas fontes: os logs do servidor poderão coletar informações como o endereço IP (Internet Protocol), nome de domínio, tipo de navegador, sistema operacional, e informações como o site de origem da sua visita, os arquivos que você baixou, as páginas que você visitou, e as datas e horários dessas visitas. Essas informações não serão associadas a você, mas simplesmente utilizadas para fins de análise estatística e realização de melhorias nos nossos esforços de comunicação on-line.
     
     Cookies
-    MSF pode coletar e analisar informações sobre o uso geral e individual do(s) nosso(s)site (s), tais como domínio, hits, páginas visitadas, o site pelo qual o visitante chegou ao nosso site, e a duração da sua visita.Nós usamos cookies, pequenos arquivos de armazenamento de dados, para saber a freqüência de uso e número de usuários em nosso site. Os cookies não armazenam informações pessoais sem que você as tenha fornecido e não coletam informações registradas em seu computador. O uso de nosso website é possível sem cookies. A maioria dos navegadores são inicialmente configurados para aceitar cookies.Você pode desativar o armazenamento de cookies ou ajustar seu navegador para notificá-lo quando os cookies estão sendo enviados.
-')
-
-USE [NovoRumo]
-GO
+    MSF pode coletar e analisar informações sobre o uso geral e individual do(s) nosso(s)site (s), tais como domínio, hits, páginas visitadas, o site pelo qual o visitante chegou ao nosso site, e a duração da sua visita.Nós usamos cookies, pequenos arquivos de armazenamento de dados, para saber a freqüência de uso e número de usuários em nosso site. Os cookies não armazenam informações pessoais sem que você as tenha fornecido e não coletam informações registradas em seu computador. O uso de nosso website é possível sem cookies. A maioria dos navegadores são inicialmente configurados para aceitar cookies.Você pode desativar o armazenamento de cookies ou ajustar seu navegador para notificá-lo quando os cookies estão sendo enviados.'
+)
 
 /****** Object:  StoredProcedure [dbo].[spGetPolitics]    Script Date: 25/06/2018 11:05:42 ******/
 SET ANSI_NULLS ON
