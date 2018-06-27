@@ -5,22 +5,59 @@
 }
 
 <div class="text-center">
-    <h2>Doação Mensal</h2>
+    <h2>Doação</h2>
 </div>
-
-@*<div class="grid-x small-up-1 show-for-large-only">
-        <div class="column">
-            @Html.RadioButtonFor(model => model.isMonthlyDonator, true)
-            <label>Sim! Quero ser um doador do Novo Rumo, contribuindo mensalmente com:</label>
-        </div>
-    </div>*@
 
 @using (Html.BeginForm(FormMethod.Post))
 {
     @Html.AntiForgeryToken()
 
+    <div class="grid-x">
+        <ul class="tabs-payment-options active no-bullet hide-for-small-only">
+            <li class="payment-option-item columns small-4" data-payment-option="">
+                <a>
+                    <div class="columns small-12">
+
+                    </div>
+                    <div class="columns small-12">
+                        <span class="payment-option-title">Única</span>
+                    </div>
+                    <div class="columns small-12">
+                        <span href="#" class="button tertiary">selecione</span>
+                    </div>
+                </a>
+            </li>
+            <li class="payment-option-item columns small-4 selected" data-payment-option="">
+                <a>
+                    <div class="columns small-12">
+
+                    </div>
+                    <div class="columns small-12">
+                        <span class="payment-option-title">Mensal</span>
+                    </div>
+                    <div class="columns small-12">
+                        <span href="#" class="button tertiary">selecione</span>
+                    </div>
+                </a>
+            </li>
+            <li class="payment-option-item columns small-4" data-payment-option="">
+                <a>
+                    <div class="columns small-12">
+
+                    </div>
+                    <div class="columns small-12">
+                        <span class="payment-option-title">Transferência</span>
+                    </div>
+                    <div class="columns small-12">
+                        <span href="#" class="button tertiary">selecione</span>
+                    </div>
+                </a>
+            </li>
+        </ul>
+    </div>
+
     <div class="grid-x small-up-1">
-        <div class="column"> 
+        <div class="column">
             <div class="callout radio-callout">
                 @Html.RadioButtonFor(model => model.Value, 15, new { @id = "value-15", @checked = true })
                 <label for="value-15">R$ 15,00</label>
@@ -76,6 +113,69 @@
         <input type="submit" class="button expanded primary" value="Doar" />
     </div>
 }
+
+<style>
+
+    .payment-option-item {
+        border-left: 1px solid #ddd;
+        padding: 30px 15px;
+        position: relative;
+        text-align: center;
+    }
+
+        .payment-option-item:first-child {
+            border-left: none;
+        }
+
+        ul.payment-options-menu li .icon-option,
+        .payment-option-item .icon-option {
+            fill: #828282;
+            height: auto;
+            margin-bottom: 1em;
+            max-height: 2.5em;
+            width: 100%;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .payment-option-item:hover .payment-option-title,
+        .payment-option-item.selected .payment-option-title {
+            color: #a62e3c;
+        }
+
+        ul.payment-options-menu li.selected .icon-option,
+        ul.payment-options-menu li:hover .icon-option,
+        .payment-option-item:hover .icon-option,
+        .payment-option-item.selected .icon-option {
+            fill: #45beff;
+        }
+
+    .payment-option-title {
+        text-transform: initial;
+        color: #828282;
+        transition: all 0.3s ease-in-out;
+    }
+
+    ul.payment-options-menu {
+        list-style: none;
+        margin: 0;
+    }
+
+        ul.payment-options-menu li {
+            border-bottom: 1px solid #ddd;
+            cursor: pointer;
+            padding: 0.75em 0;
+        }
+
+            ul.payment-options-menu li:first-child {
+                border-top: 1px solid #ddd;
+            }
+
+            ul.payment-options-menu li .icon-option {
+                margin: 0;
+                width: 124px;
+            }
+</style>
+
 
 @section Scripts {
     <script>
