@@ -13,8 +13,8 @@ namespace NovoRumoProjeto.DAL.Politics
         public const string TITLE_COLUMN = "Title";
         public const string DESCRIPTION_COLUMN = "Description";
 
-        public const string GET_POLITICS_PROC = "spGETPolitics";
-        public const string UPDATE_POLITICS_PROC = "spUpdatePolitics";
+        public const string GET_POLICY_PROC = "spGETPolicy";
+        public const string UPDATE_POLICY_PROC = "spUpdatePolicy";
 
         public List<PolicyEntity> Get()
         {
@@ -33,14 +33,14 @@ namespace NovoRumoProjeto.DAL.Politics
 
         public bool Update(PolicyEntity entity)
         {
-            return dataAccess.ExecuteNonQuery(UPDATE_POLITICS_PROC,
+            return dataAccess.ExecuteNonQuery(UPDATE_POLICY_PROC,
                 dataAccess.ParameterFactory.Create(TITLE_COLUMN, DbType.String, entity.Title, ParameterDirection.Input),
                 dataAccess.ParameterFactory.Create(DESCRIPTION_COLUMN, DbType.String, entity.Description, ParameterDirection.Input)) == 1;
         }
 
-        public PolicyEntity GetPolitics()
+        public PolicyEntity GetPolicy()
         {
-            using (var result = dataAccess.ExecuteReader(GET_POLITICS_PROC))
+            using (var result = dataAccess.ExecuteReader(GET_POLICY_PROC))
             {
                 PolicyEntity politics = new PolicyEntity();
 

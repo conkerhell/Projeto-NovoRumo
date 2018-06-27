@@ -1,13 +1,13 @@
-﻿@model NovoRumoProjeto.Areas.Admin.Models.PolicyViewModel
+﻿@model NovoRumoProjeto.Areas.Admin.Models.TermsViewModel
 
 <div class="cell">
     <div class="grid-x title-bar-admin">
         <div class="small-6">
-            <h1>Politica</h1>
+            <h1>Termos de uso</h1>
         </div>
         <div class="small-6">
             <div class="float-right">
-                @Html.EditButton("Policy", 1)
+                @Html.EditButton("Terms", 1)
             </div>
         </div>
     </div>
@@ -19,13 +19,12 @@
 
         @Html.DisplayFor(model => model.Title)
 
+
         @Html.LabelFor(model => model.Description)
 
     </div>
-
     @Html.DisplayFor(model => model.Description)
 
     @Html.RenderFlashMessages()
+
 </div>
-
-

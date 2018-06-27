@@ -1,19 +1,22 @@
 ﻿using NovoRumoProjeto.Areas.Admin.Models;
-using NovoRumoProjeto.DAL.Politics;
+using NovoRumoProjeto.DAL.Terms;
 using NovoRumoProjeto.Entity;
-using NovoRumoProjeto.Utilities;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
 using System.Web.Mvc;
 
 namespace NovoRumoProjeto.Areas.Admin.Controllers
 {
-    public class PolicyController : Controller
+    public class TermsController: Controller
     {
         [HttpGet]
         public ActionResult Index()
         {
-            IPolicyDAL politicsDAL = new PolicyDAL();
-            var entity = politicsDAL.GetPolicy();
-            return View(new PolicyViewModel()
+            ITermsDAL termsDAL = new TermsDAL();
+            var entity = termsDAL.GetTerms();
+            return View(new TermsViewModel()
             {
                 Title = entity.Title,
                 Description = entity.Description
@@ -22,9 +25,9 @@ namespace NovoRumoProjeto.Areas.Admin.Controllers
         [HttpGet]
         public ActionResult Edit()
         {
-            IPolicyDAL politicsDAL = new PolicyDAL();
-            var entity = politicsDAL.GetPolicy();
-            return View(new PolicyViewModel()
+            ITermsDAL termsDAL = new TermsDAL();
+            var entity = termsDAL.GetTerms();
+            return View(new TermsViewModel()
             {
                 Title = entity.Title,
                 Description = entity.Description
@@ -32,15 +35,15 @@ namespace NovoRumoProjeto.Areas.Admin.Controllers
         }
 
         [HttpPost]
-        public ActionResult Edit(PolicyViewModel model)
+        public ActionResult Edit(TermsViewModel model)
         {
             if (!ModelState.IsValid)
             {
                 return View(model);
             }
 
-            IPolicyDAL politicsDAL = new PolicyDAL();
-            politicsDAL.Update(new PolicyEntity()
+            ITermsDAL termsDAL = new TermsDAL();
+            termsDAL.Update(new TermsEntity()
             {
                 Title = model.Title,
                 Description = model.Description

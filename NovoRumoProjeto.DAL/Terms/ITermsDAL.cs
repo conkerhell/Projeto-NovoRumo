@@ -5,10 +5,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace NovoRumoProjeto.DAL.Politics
+namespace NovoRumoProjeto.DAL.Terms
 {
-    public interface IPolicyDAL : IDAL<PolicyEntity>
+    public interface ITermsDAL: IDAL<TermsEntity>
     {
-        PolicyEntity GetPolicy();
+        TermsEntity GetTerms();
     }
 }
