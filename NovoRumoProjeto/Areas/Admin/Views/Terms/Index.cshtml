@@ -13,18 +13,17 @@
     </div>
 </div>
 
-<div class="grid-x  cell">
-    <div class="cell small-2">
+<div class="grid-x cell">
+    
+    <div class="small-12 cell">
         @Html.LabelFor(model => model.Title)
-
         @Html.DisplayFor(model => model.Title)
-
-
-        @Html.LabelFor(model => model.Description)
-
     </div>
-    @Html.DisplayFor(model => model.Description)
+
+    <div class="small-12 cell">
+        @Html.LabelFor(model => model.Description)
+        @Html.Raw(Model.Description)
+    </div>
 
     @Html.RenderFlashMessages()
-
 </div>

@@ -12,8 +12,9 @@ namespace NovoRumoProjeto.DAL.Terms
     {
         public const string TITLE_COLUMN = "Title";
         public const string DESCRIPTION_COLUMN = "Description";
+        public const string TERM_ID_COLUMN = "TermID";
 
-        public const string GET_TERMS_PROC = "spGETTerms";
+        public const string GET_TERMS_PROC = "spGetTerms";
         public const string UPDATE_TERMS_PROC = "spUpdateTerms";
 
         public List<TermsEntity> Get()
@@ -36,6 +37,7 @@ namespace NovoRumoProjeto.DAL.Terms
                 {
                     if (result.Read())
                     {
+                        terms.TermID = Convert.ToInt32(result[TERM_ID_COLUMN]);
                         terms.Title = result[TITLE_COLUMN].ToString();
                         terms.Description = result[DESCRIPTION_COLUMN].ToString();
                     }
@@ -53,6 +55,7 @@ namespace NovoRumoProjeto.DAL.Terms
         public bool Update(TermsEntity entity)
         {
             return dataAccess.ExecuteNonQuery(UPDATE_TERMS_PROC,
+                dataAccess.ParameterFactory.Create(TERM_ID_COLUMN, DbType.Int32, entity.TermID, ParameterDirection.Input),
                  dataAccess.ParameterFactory.Create(TITLE_COLUMN, DbType.String, entity.Title, ParameterDirection.Input),
                  dataAccess.ParameterFactory.Create(DESCRIPTION_COLUMN, DbType.String, entity.Description, ParameterDirection.Input)) == 1;
         }
