@@ -56,7 +56,7 @@
         </ul>
     </div>
 
-    <div class="grid-x small-up-1">
+    <div class="grid-x small-up-1 payment-option">
         <div class="column">
             <div class="callout radio-callout">
                 @Html.RadioButtonFor(model => model.Value, 15, new { @id = "value-15", @checked = true })
@@ -115,6 +115,22 @@
 }
 
 <style>
+
+    .tabs-payment-options {
+        margin-bottom: 0;
+    }
+
+    /*.payment-option-item:not(.selected) {
+        border: 0px 1px 1px 1px;
+        border-color: #ddd;
+    }*/
+
+    .payment-option {
+        padding-top: 1rem;
+        border-width: 0px 1px 1px 1px;
+        border-style: solid;
+        border-color: #ddd;
+    }
 
     .payment-option-item {
         border-left: 1px solid #ddd;
