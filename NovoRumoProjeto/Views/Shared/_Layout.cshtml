@@ -6,7 +6,7 @@
     <title>Associação Novo Rumo Atibaia</title>
     <link href="~/Content/app.min.css" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css?family=Raleway:400,900" rel="stylesheet" async>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/motion-ui/1.1.1/motion-ui.min.css" async />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/motion-ui/1.1.1/motion-ui.min.css" async/>
 </head>
 <body>
     @Html.Partial("_header")
@@ -15,26 +15,22 @@
 
     <script type="text/javascript" src="/Scripts/jquery.min.js"></script>
     <script type="text/javascript" src="/Scripts/foundation.min.js"></script>
-    <script type="text/javascript" src="/Scripts/skrollr.min.js" async></script>
-    <script type="text/javascript" src="/Scripts/skrollr.stylesheets.min.js" async></script>
+    <script type="text/javascript" src="/Scripts/skrollr.min.js"></script>
+    <script type="text/javascript" src="/Scripts/skrollr.stylesheets.min.js"></script>
     <script>
         $(document).foundation();
 
         $(window).on('load', function () {
-            if (Foundation.MediaQuery.atLeast('medium')) {
+            if (Foundation.MediaQuery.atLeast('large')) {
                 initSkroll();
             }
         });
         $(window).on('changed.zf.mediaquery', function (event, newSize, oldSize) {
-            if (newSize !== "small") {
+            if (newSize !== "small" || newSize !== "medium") {
                 initSkroll();
             } else {
                 destroySkroll();
             }
-        });
-
-        $("[data-botaoDoador]").on("click", function () {
-            $('#docao-modal').foundation('open');
         });
 
         var prev = 0;
@@ -89,7 +85,6 @@
 
         });
     </script>
-    @Scripts.Render("~/bundles/jqueryval")
     @RenderSection("scripts", required: false)
 </body>
 </html>

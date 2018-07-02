@@ -720,6 +720,7 @@
     <Content Include="Areas\Admin\Views\Terms\Edit.cshtml" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <Content Include="Views\Home\NoNextEvent.cshtml" />
+    <Content Include="Views\Donation\ForgotPassword.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />

@@ -1,4 +1,3 @@
-
 USE [NovoRumo]
 GO
 
@@ -15,7 +14,7 @@ CREATE TABLE [dbo].[Policy](
 	[Description] [varchar](8000) NOT NULL,
  CONSTRAINT [PK_Policy] PRIMARY KEY CLUSTERED 
 (
-	[PoliticsID] ASC
+	[PolicyID] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
@@ -91,7 +90,7 @@ CREATE PROCEDURE [dbo].[spGetPolicy]
 AS
 BEGIN
 	--
-	SELECT TOP 1 Title,Description from dbo.Policy WITH (NOLOCK)
+	SELECT TOP 1 PolicyID, Title,Description from dbo.Policy WITH (NOLOCK)
 END
 GO
 
@@ -113,15 +112,15 @@ GO
 -- =============================================
 CREATE PROCEDURE [dbo].[spUpdatePolicy]
 	-- Add the parameters for the stored procedure here
-	@PoliticsID as int,
-	@Title as varchar(20),
+	@PolicyID as int,
+	@Title as varchar(100),
 	@Description as varchar(3000)
 AS
 BEGIN
 	UPDATE Policy 
    SET Title = @Title,
 	   Description = @Description	   
- WHERE PoliticsID = @PoliticsID
+ WHERE PolicyID = @PolicyID
 END
 GO
 

@@ -56,18 +56,7 @@
         </ul>
     </div>
 
-    <div class="callout text-center">
-        <div data-payment-info="">
-            <div class="row column fade-in-container">
-                <p>
-                    <b>Atenção: </b>
-                    O prazo de entrega começa a partir da aprovação do pagamento.
-                </p>
-            </div>
-        </div>
-    </div>
-
-    <div class="grid-x small-up-1">
+    <div class="grid-x small-up-1 payment-option">
         <div class="column">
             <div class="callout radio-callout">
                 @Html.RadioButtonFor(model => model.Value, 15, new { @id = "value-15", @checked = true })
@@ -109,6 +98,10 @@
         </div>
     </div>
 
+    <div class="column">
+        &nbsp;
+    </div>
+
     <div class="column field">
         <fieldset>
             <legend>Termos de uso e políticas de privacidade</legend>
@@ -126,8 +119,19 @@
 }
 
 <style>
-    .tabs-payment-options.active .payment-option-item:not(.selected) {
-        border-bottom: 1px solid #ddd;
+    .tabs-payment-options {
+        margin-bottom: 0;
+    }
+
+    .payment-option-item:not(.selected) {
+        border-bottom:1px solid #ddd;
+    }
+
+    .payment-option {
+        padding-top: 1rem;
+        border-width: 0px 1px 1px 1px;
+        border-style: solid;
+        border-color: #ddd;
     }
 
     .payment-option-item {

@@ -26,6 +26,7 @@ namespace NovoRumoProjeto.Areas.Admin.Controllers
             var entity = politicsDAL.GetPolicy();
             return View(new PolicyViewModel()
             {
+                PolicyId = entity.PolicyID,
                 Title = entity.Title,
                 Description = entity.Description
             });
@@ -40,13 +41,18 @@ namespace NovoRumoProjeto.Areas.Admin.Controllers
             }
 
             IPolicyDAL politicsDAL = new PolicyDAL();
-            politicsDAL.Update(new PolicyEntity()
+            var status = politicsDAL.Update(new PolicyEntity()
             {
+                PolicyID = model.PolicyId,
                 Title = model.Title,
                 Description = model.Description
             });
 
-            return RedirectToAction("index");
+            if (status)
+            {
+                return RedirectToAction("index");
+            }
+            return View();
         }
     }
 }

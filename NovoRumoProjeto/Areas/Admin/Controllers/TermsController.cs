@@ -29,6 +29,7 @@ namespace NovoRumoProjeto.Areas.Admin.Controllers
             var entity = termsDAL.GetTerms();
             return View(new TermsViewModel()
             {
+                TermId = entity.TermID,
                 Title = entity.Title,
                 Description = entity.Description
             });
@@ -43,13 +44,18 @@ namespace NovoRumoProjeto.Areas.Admin.Controllers
             }
 
             ITermsDAL termsDAL = new TermsDAL();
-            termsDAL.Update(new TermsEntity()
+            var status = termsDAL.Update(new TermsEntity()
             {
+                TermID = model.TermId,
                 Title = model.Title,
                 Description = model.Description
             });
 
-            return RedirectToAction("index");
+            if (status)
+            {
+                return RedirectToAction("index");
+            }
+            return View();
         }
     }
 }
