@@ -187,13 +187,17 @@ namespace NovoRumoProjeto.Controllers
         [ActionName("politica-de-privacidade")]
         public ActionResult PoliticaDePrivacidade()
         {
-            return View();
+            var model = new PageViewModel();
+            model.GetPolicies();
+            return View(model);
         }
 
         [HttpGet]
         [ActionName("termos-de-uso")]
         public ActionResult TermosDeUso()
         {
+            var model = new PageViewModel();
+            model.GetTerms();
             return View();
         }
     }

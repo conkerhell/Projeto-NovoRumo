@@ -1,34 +1,13 @@
-﻿
+﻿@model NovoRumoProjeto.Models.PageViewModel
+
 @{
     Layout = "~/Views/Shared/_SubLayout.cshtml";
 }
 
 <div class="text-center">
-    <h2>
-        Termos de uso
-    </h2>
+    <h2>Termos de uso</h2>
 </div>
 
-<p>
-    Todo o conteúdo nas páginas com domínio msf.org.br é propriedade de Médicos Sem Fronteiras Brasil.
-    Este conteúdo está protegido com direitos reservados e outras leis de propriedade intelectual.
-    Informações publicadas nesse site podem ser dispostas, reformuladas e impressas somente para uso pessoal e não-comercial.
-    É vetada a reprodução deste conteúdo, integral ou parcial, de qualquer forma, sem aprovação por escrito de MSF, salvo quando:
-    <br><br>
-    - Podem ser feitas cópias únicas do conteúdo disponível no site, somente para uso pessoal e não-comercial, preservando os direitos reservados e outras leis associadas. É vetada a distribuição destas cópias a terceiros, sob suporte eletrônico ou não, sem o consentimento dos proprietários do material.
-    <br><br>
-    Você pode requerer permissão para reproduzir e distribuir o conteúdo deste website entrando em contato com
-    <a href="mailto:comunicacao@rio.msf.org">comunicacao@rio.msf.org</a>.
-    <br><br>
-    <strong>EXCLUSÃO DE GARANTIAS E RESPONSABILIDADE</strong>
-    <br><br>
-    Devido a grande quantidade de informação disponível no site, e às falhas inerentes a alguns tipos de distribuição eletrônica, pode ser que ocorram atrasos e inexatidão na disposição de alguns destes dados.
-    &nbsp;
-    <br><br>
-    <strong>LINKS PARA ESTE SITE</strong>
-    <br><br>
-    Você pode estabelecer um hiperlink para este site de sua página, desde que o link esteja atribuído ao site de MSF e não indique apoio ou patrocínio da organização ao seu site. Sem autorização por escrito de MSF, você não pode utilizar, por completo ou em parte, o conteúdo deste site no link, ou incorporar material protegido por direitos autorais ou de propriedade intelectual de MSF.
-    <br><br>
-    A logomarca de MSF faz parte deste material, e não pode ser alterada. Para utilizar a logo de MSF em seu site, entre em contato com&nbsp;
-    <a href="mailto:comunicacao@rio.msf.org" style="font-size: 14.7679996490479px; line-height: 22.1520004272461px;">comunicacao@rio.msf.org</a>.
-</p>
+<div class="grid-x">
+    @Html.Raw(Model.Description)
+</div>
