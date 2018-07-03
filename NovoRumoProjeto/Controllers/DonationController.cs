@@ -198,7 +198,7 @@ namespace NovoRumoProjeto.Controllers
         {
             var model = new PageViewModel();
             model.GetTerms();
-            return View();
+            return View(model);
         }
     }
 }
