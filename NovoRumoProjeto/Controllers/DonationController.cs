@@ -10,6 +10,7 @@ using System.Web;
 using System.Web.Mvc;
 using NovoRumoProjeto.Utilities.Domains;
 using Microsoft.AspNet.Identity;
+using System;
 
 namespace NovoRumoProjeto.Controllers
 {
@@ -125,6 +126,40 @@ namespace NovoRumoProjeto.Controllers
         }
 
         [HttpGet]
+        public ActionResult ForgotPassword()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        [AllowAnonymous]
+        [ValidateAntiForgeryToken]
+        public async Task<ActionResult> ForgotPassword(ForgotPasswordViewModel model)
+        {
+            return View(model);
+        }
+
+        [HttpGet]
+        public ActionResult Success()
+        {
+            return View();
+        }
+
+        [HttpGet]
+        [ActionName("politica-de-privacidade")]
+        public ActionResult PoliticaDePrivacidade()
+        {
+            return View();
+        }
+
+        [HttpGet]
+        [ActionName("termos-de-uso")]
+        public ActionResult TermosDeUso()
+        {
+            return View();
+        }
+
+        [HttpGet]
         [Authorize]
         public ActionResult Checkout()
         {
@@ -163,38 +198,20 @@ namespace NovoRumoProjeto.Controllers
             return Redirect("Success");
         }
 
-        [HttpGet]
-        public ActionResult ForgotPassword()
-        {
-            return View();
-        }
-
-        [HttpPost]
         [AllowAnonymous]
-        [ValidateAntiForgeryToken]
-        public async Task<ActionResult> ForgotPassword(ForgotPasswordViewModel model)
+        public void Notification(string notificationCode, string notificationType)
         {
-            return View(model);
-        }
+            //LogManager.Log.Payment(string.Format("Codigo de notificacao: {0}", notificationCode));
 
-        [HttpGet]
-        public ActionResult Success()
-        {
-            return View();
-        }
-
-        [HttpGet]
-        [ActionName("politica-de-privacidade")]
-        public ActionResult PoliticaDePrivacidade()
-        {
-            return View();
-        }
-
-        [HttpGet]
-        [ActionName("termos-de-uso")]
-        public ActionResult TermosDeUso()
-        {
-            return View();
+            if (!string.IsNullOrWhiteSpace(notificationCode))
+            {
+                //IPaymentManager paymentManager = new PagseguroPaymentManager(Request.RequestContext);
+                //paymentManager.CheckTransaction(notificationCode, notificationType);
+            }
+            else
+            {
+                throw new Exception("Codigo da transacao não foi informado");
+            }
         }
     }
 }
