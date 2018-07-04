@@ -12,6 +12,7 @@ namespace NovoRumoProjeto.Models
             ErrorMessageResourceName = "PropertyValueRequired")]
         public bool Terms { get; set; }
 
+        public string DonationOption { get; set; }
         public string Value { get; set; }
 
         [StringLength(5)]
