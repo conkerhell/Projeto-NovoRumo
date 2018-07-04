@@ -1,9 +1,9 @@
 ﻿
 namespace NovoRumoProjeto.PaymentCreator
 {
-    public class PaymentStatusIndicator
+    public class PaymentStatus
     {
-        public PaymentStatusIndicator()
+        public PaymentStatus()
         {
             RedirectUrl = "Falha";
         }

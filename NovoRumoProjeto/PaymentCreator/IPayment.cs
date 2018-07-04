@@ -1,14 +1,17 @@
-﻿using NovoRumoProjeto.Entity;
-using System.Web.Routing;
+﻿using System;
 
 namespace NovoRumoProjeto.PaymentCreator
 {
-    public interface IPayment
+    public interface IPaymentModel { }
+
+    public interface IPaymentService
     {
-        IPayment SetOrder(OrderEntity order);        
-        IPayment SetUser(UserEntity user);
-        IPayment SetRequestContext(RequestContext requestContext);
-        PaymentStatusIndicator Send();
-        bool CheckTransaction(string code, string id);
+        PaymentStatus MakePayment<T>(T model) where T : IPaymentModel;
+        bool AppliesTo(Type provider);
+    }
+
+    public interface IPaymentStrategy
+    {
+        PaymentStatus MakePayment<T>(T model) where T : IPaymentModel;
     }
 }

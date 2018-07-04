@@ -238,8 +238,11 @@
     <Compile Include="Models\RegisterViewModel.cs" />
     <Compile Include="Models\LoginViewModel.cs" />
     <Compile Include="PaymentCreator\IPayment.cs" />
-    <Compile Include="PaymentCreator\PaymentStatusIndicator.cs" />
     <Compile Include="PaymentCreator\Payment.cs" />
+    <Compile Include="PaymentCreator\PaymentService.cs" />
+    <Compile Include="PaymentCreator\PaymentStatus.cs" />
+    <Compile Include="PaymentCreator\PaymentModels.cs" />
+    <Compile Include="PaymentCreator\PaymentStrategy.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
