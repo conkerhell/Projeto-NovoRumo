@@ -234,6 +234,7 @@
     <Compile Include="Models\EventViewModel.cs" />
     <Compile Include="Models\ForgotPasswordViewModel.cs" />
     <Compile Include="Models\IdentityModel.cs" />
+    <Compile Include="Models\PageViewModel.cs" />
     <Compile Include="Models\RegisterViewModel.cs" />
     <Compile Include="Models\LoginViewModel.cs" />
     <Compile Include="PaymentCreator\IPayment.cs" />
