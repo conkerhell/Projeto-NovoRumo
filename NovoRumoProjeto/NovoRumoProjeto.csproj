@@ -645,6 +645,10 @@
       <Project>{bd633a0f-ecb5-4e74-9fe8-5293edf9a1f4}</Project>
       <Name>NovoRumoProjeto.Utilities</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Uol.PagSeguro\Uol.PagSeguro.csproj">
+      <Project>{afc0a945-da54-4668-bcd0-010bc720b3e7}</Project>
+      <Name>Uol.PagSeguro</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Areas\Admin\Views\web.config">

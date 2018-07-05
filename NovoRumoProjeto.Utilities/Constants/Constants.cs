@@ -21,6 +21,10 @@ namespace NovoRumoProjeto.Utilities
         public const string CONNECTION_STRING = "NovoRumoConnection";
 
         //Validation
-        public const string VALIDATION_SUMMARY = "ValidationSummary"; 
+        public const string VALIDATION_SUMMARY = "ValidationSummary";
+
+        //Pagseguro
+        public const string REDIRECT_URI = "http://novorumoatibaia.com.br/donation/success";
+        public const string IS_SANDBOX = "isSandbox";
     }
 }
