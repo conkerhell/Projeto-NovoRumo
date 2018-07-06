@@ -12,14 +12,14 @@ namespace NovoRumoProjeto.Models
             ErrorMessageResourceName = "PropertyValueRequired")]
         public bool Terms { get; set; }
 
+        [Required]
         public string DonationOption { get; set; }
+
         public string Value { get; set; }
 
         [StringLength(5)]
         [RequiredIf("Value", true)]
         public string SpecificValue { get; set; }
-
-        public Enums.Type Type { get; set; }
 
         public decimal GetTotal()
         {

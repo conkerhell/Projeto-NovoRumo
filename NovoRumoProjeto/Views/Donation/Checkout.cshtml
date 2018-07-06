@@ -14,9 +14,9 @@
 
     <div class="grid-x">
         <ul class="tabs-payment-options active no-bullet hide-for-small-only">
-            <li class="payment-option-item columns small-4" data-payment-option="">
+            <li class="payment-option-item columns small-4">
                 <label for="single">
-                    <input type="radio" id="single" name="DonationOption" />
+                    <input type="radio" id="single" value="single" name="DonationOption" />
                     <div class="columns small-12">
                         <span class="payment-option-title">Única</span>
                     </div>
@@ -25,9 +25,9 @@
                     </div>
                 </label>
             </li>
-            <li class="payment-option-item columns small-4 selected" data-payment-option="">
+            <li class="payment-option-item columns small-4 selected">
                 <label for="monthly">
-                    <input type="radio" id="monthly" name="DonationOption" />
+                    <input type="radio" id="monthly" value="monthly" name="DonationOption" checked="checked" />
                     <div class="columns small-12">
                         <span class="payment-option-title">Mensal</span>
                     </div>
@@ -36,9 +36,9 @@
                     </div>
                 </label>
             </li>
-            <li class="payment-option-item columns small-4" data-payment-option="">
+            <li class="payment-option-item columns small-4">
                 <label for="transfer">
-                    <input type="radio" id="transfer" name="DonationOption" />
+                    <input type="radio" id="transfer" value="transfer" name="DonationOption" />
                     <div class="columns small-12">
                         <span class="payment-option-title">Transferência</span>
                     </div>
@@ -135,6 +135,11 @@
             $('[data-last-item]').on('click', function () {
                 $('#specific-value').prop("checked", true);
             });
+        });
+
+        $('[name=DonationOption]').on('click', function (item) {
+            $('.payment-option-item').removeClass('selected');
+            $(this).closest('.payment-option-item').addClass('selected');
         });
     </script>
 }
