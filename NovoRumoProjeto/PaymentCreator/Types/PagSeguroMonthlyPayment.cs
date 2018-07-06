@@ -1,24 +1,26 @@
 ﻿using NovoRumoProjeto.DAL.Order;
 using NovoRumoProjeto.Entity;
 using NovoRumoProjeto.Utilities;
+using NovoRumoProjeto.Utilities.LogManager;
 using System;
 using System.Configuration;
 using Uol.PagSeguro.Domain;
+using Uol.PagSeguro.Exception;
 using Uol.PagSeguro.Resources;
 
 namespace NovoRumoProjeto.PaymentCreator
 {
-    public class PagSeguroPayment : PaymentService<PagSeguroModel>
+    public class PagSeguroMonthlyPayment : PaymentService<PagSeguroMonthlyModel>
     {
         private bool isSandbox
         {
             get { return Convert.ToBoolean(ConfigurationManager.AppSettings[Consts.IS_SANDBOX]); }
         }
 
-        protected override PaymentStatus MakePayment(PagSeguroModel model)
+        protected override PaymentStatus MakePayment(PagSeguroMonthlyModel model)
         {
             var paymentStatus = new PaymentStatus();
-            var orderId = InitOrder(new OrderEntity() { });
+            var orderId = InitOrder(model);
             if (!orderId.HasValue)
             {
                 return paymentStatus;
@@ -28,48 +30,45 @@ namespace NovoRumoProjeto.PaymentCreator
             PaymentRequest payment = new PaymentRequest();
             payment.Reference = orderId.Value.ToString();
 
-            //var name = $"{model.User.Name} {model.User.Lastname.FormatLastName()}"; 
-            //var email = model.User.Email;
-            var name = "John Doe";
-            var email = "teste@teste.com.br";
+            payment.PreApproval = new PreApproval()
+            {
+                AmountPerPayment = model.amountPerPayment,
+                Charge = model.Charge,
+                Name = model.Name,
+                Period = model.Period
+            };
+
+            var name = model.User.Name;
+            var email = model.User.Email;
             payment.Sender = new Sender(name, email, null);
 
             payment.RedirectUri = new Uri(Consts.REDIRECT_URI);
             AccountCredentials credentials = PagSeguroConfiguration.Credentials(isSandbox);
-            //try
-            //{
+
+            try
+            {
                 Uri paymentRedirectUri = payment.Register(credentials);
                 paymentStatus.RedirectUrl = paymentRedirectUri.ToString();
                 paymentStatus.Status = true;
-            //}
-            //catch (PagSeguroServiceException ex)
-            //{
-            //    LogException(ex);
-            //}
+            }
+            catch (PagSeguroServiceException ex)
+            {
+                Log.Instance.Error(ex);
+            }
 
             return paymentStatus;
         }
 
-        private int? InitOrder(OrderEntity entity)
+        private int? InitOrder(PagSeguroMonthlyModel model)
         {
             IOrderDAL orderBusiness = new OrderDAL();
-            var orderId = orderBusiness.InsertOrder(entity);
+
+            var orderId = orderBusiness.InsertOrder(new OrderEntity()
+            {
+                User = model.User
+            });
+
             return orderId;
         }
     }
-
-    //{
-    //"preApproval": {
-    //    "name": "Assinatura da Revista Fictícia",
-    //    "charge": "AUTO",
-    //    "period": "MONTHLY",
-    //    "amountPerPayment": 100.00,
-    //    "expiration": {
-    //        "value": 1,
-    //        "unit": "YEARS"
-    //    }
-    //},
-    //"receiver": {
-    //    "email": "seu@email.com.br"
-    //}
 }
