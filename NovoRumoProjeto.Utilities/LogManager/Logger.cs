@@ -1,6 +1,5 @@
 using System;
 using System.IO;
-using System.Text;
 using System.Web;
 
 namespace NovoRumoProjeto.Utilities.LogManager {
@@ -9,10 +8,10 @@ namespace NovoRumoProjeto.Utilities.LogManager {
     {
         //******* LOGS *******//
         public const string LOGS_FILE_PATH = "Logs";
-        public const string LOG_FILE = "log.txt";
-        public const string LOG_FILE_SEPARATED = "log_{0}.txt";
+        public const string LOG_FILE = "log.json";
+        public const string LOG_FILE_SEPARATED = "log_{0}.json";
 
-        private bool ValidateFile()
+        private bool validateFile()
         {
             string fileName = LOG_FILE;
             string serverPath = Path.Combine(HttpRuntime.AppDomainAppPath, LOGS_FILE_PATH, fileName);
@@ -31,11 +30,30 @@ namespace NovoRumoProjeto.Utilities.LogManager {
             return exists;
         }
 
-        protected void Save(string logContent)
+        private void createFolder()
         {
-               //Validar
-               //Criar
-               //Gravar
+            string serverPath = Path.Combine(HttpRuntime.AppDomainAppPath, LOGS_FILE_PATH);
+            Directory.CreateDirectory(serverPath);
+        }
+
+        private void addContent(string content)
+        {
+            string fileName = LOG_FILE;
+            string filePath = Path.Combine(HttpRuntime.AppDomainAppPath, LOGS_FILE_PATH, fileName);
+
+            using (StreamWriter writer = new StreamWriter(filePath, true))
+            {
+                writer.WriteLine(content);
+            }
+        }
+
+        protected void Save(string content)
+        {
+            if (!validateFile())
+            {
+                createFolder();
+            }
+            addContent(content);
         }
     }
 }

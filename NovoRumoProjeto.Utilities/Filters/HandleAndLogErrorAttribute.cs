@@ -1,4 +1,5 @@
-﻿using System.Web;
+﻿using NovoRumoProjeto.Utilities.LogManager;
+using System.Web;
 using System.Web.Mvc;
 
 namespace NovoRumoProjeto.Utilities.Filters
@@ -17,7 +18,7 @@ namespace NovoRumoProjeto.Utilities.Filters
 
             var httpException = filterContext.Exception as HttpException;
 
-            //LogManager.Log.Error(filterContext.Exception);
+            Log.Instance.Error(filterContext.Exception);
 
             if (IsAjax(filterContext))
             {
