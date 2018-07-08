@@ -144,4 +144,7 @@
   <data name="SuccessTitle" xml:space="preserve">
     <value>Sucesso</value>
   </data>
+  <data name="UnexpectedErrorDuringPayment" xml:space="preserve">
+    <value>Ocorreu um erro inesperado durante a doação, por favor tente novamente.</value>
+  </data>
 </root>

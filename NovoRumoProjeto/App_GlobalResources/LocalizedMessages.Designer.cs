@@ -140,5 +140,14 @@ namespace Resources {
                 return ResourceManager.GetString("UnexpectedError", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ocorreu um erro inesperado durante a doação, por favor tente novamente..
+        /// </summary>
+        internal static string UnexpectedErrorDuringPayment {
+            get {
+                return ResourceManager.GetString("UnexpectedErrorDuringPayment", resourceCulture);
+            }
+        }
     }
 }

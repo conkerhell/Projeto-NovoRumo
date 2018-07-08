@@ -39,6 +39,17 @@ namespace NovoRumoProjeto.Utilities.LogManager
             Save(model);
         }
 
+        public void Error(string title, string message)
+        {
+            LogModel model = new LogModel();
+
+            model.Category = Category.Error;
+            model.Title = title;
+            model.Message = message;
+
+            Save(model);
+        }
+
         public void Error(Exception exception)
         {
             var indent = " ";

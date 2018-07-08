@@ -5,6 +5,7 @@ using NovoRumoProjeto.Utilities.Domains;
 using NovoRumoProjeto.Utilities.LogManager;
 using System;
 using System.Configuration;
+using System.Text;
 using Uol.PagSeguro.Domain;
 using Uol.PagSeguro.Exception;
 using Uol.PagSeguro.Resources;
@@ -36,8 +37,10 @@ namespace NovoRumoProjeto.PaymentCreator
                 AmountPerPayment = model.amountPerPayment,
                 Charge = model.Charge,
                 Name = model.Name,
-                Period = model.Period
+                Period = model.Period,
+                Details = model.PreApprovalDetails
             };
+            payment.ReviewUri = model.ReviewUrl;
 
             var name = model.User.Name;
             var email = model.User.Email;
@@ -54,7 +57,7 @@ namespace NovoRumoProjeto.PaymentCreator
             }
             catch (PagSeguroServiceException ex)
             {
-                Log.Instance.Error(ex);
+                LogException(ex);
             }
 
             return paymentStatus;
@@ -88,6 +91,21 @@ namespace NovoRumoProjeto.PaymentCreator
             }
 
             return null;
+        }
+        private void LogException(PagSeguroServiceException ex)
+        {
+            StringBuilder sb = new StringBuilder();
+            sb.AppendLine(ex.ToString());
+
+            if (ex.Errors != null)
+            {
+                foreach (var error in ex.Errors)
+                {
+                    sb.AppendLine(error.Message);
+                }
+            }
+
+            Log.Instance.Error("Pagseguro: Erro durante a compra", sb.ToString());
         }
     }
 }

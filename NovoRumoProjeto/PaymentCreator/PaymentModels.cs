@@ -1,5 +1,7 @@
 ﻿
 using NovoRumoProjeto.Entity;
+using System;
+using System.Web.Http.Routing;
 using System.Web.Routing;
 
 namespace NovoRumoProjeto.PaymentCreator
@@ -35,7 +37,23 @@ namespace NovoRumoProjeto.PaymentCreator
         {
             get
             {
-                return "Doação Mensal para Novo Rumo Atibaia";
+                return "Doação Mensal";
+            }
+        }
+
+        public string PreApprovalDetails
+        {
+            get
+            {
+                return "Cobrança de valor mensal para doação do Novo Rumo";
+            }
+        }
+
+        public Uri ReviewUrl
+        {
+            get
+            {
+                return new Uri(RequestContext.HttpContext.Request.Url.AbsoluteUri.ToString());
             }
         }
 

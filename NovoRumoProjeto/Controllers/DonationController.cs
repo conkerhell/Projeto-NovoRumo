@@ -11,6 +11,7 @@ using System.Web.Mvc;
 using NovoRumoProjeto.Utilities.Domains;
 using Microsoft.AspNet.Identity;
 using System;
+using Resources;
 
 namespace NovoRumoProjeto.Controllers
 {
@@ -203,6 +204,7 @@ namespace NovoRumoProjeto.Controllers
                     var monthlyModel = new PagSeguroMonthlyModel();
                     monthlyModel.amountPerPayment = model.GetTotal();
                     monthlyModel.User = user;
+                    monthlyModel.RequestContext = Request.RequestContext;
                     paymentStatus = paymentStrategy.MakePayment(monthlyModel);
                     break;
                 case Enums.Type.SingleDonation:
@@ -222,6 +224,8 @@ namespace NovoRumoProjeto.Controllers
             {
                 return Redirect(paymentStatus.RedirectUrl);
             }
+
+            ModelState.AddModelError(Consts.VALIDATION_SUMMARY, LocalizedMessages.UnexpectedErrorDuringPayment);
             return View();
         }
 

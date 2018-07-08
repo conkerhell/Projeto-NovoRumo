@@ -108,6 +108,10 @@
         @Html.ValidationMessageFor(model => model.Terms)
     </div>
 
+    <div class="column">
+        @Html.FoundationValidationSummary()
+    </div>
+
     <div class="grid-container small-4">
         <input type="submit" class="button expanded primary" value="Doar" />
     </div>
