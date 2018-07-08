@@ -53,6 +53,11 @@ namespace NovoRumoProjeto.DAL.Order
             return Convert.ToInt32(orderId);
         }
 
+        public bool InsertStatus(OrderStatusEntity entity)
+        {
+            throw new NotImplementedException();
+        }
+
         public bool Update(OrderEntity entity)
         {
             throw new NotImplementedException();

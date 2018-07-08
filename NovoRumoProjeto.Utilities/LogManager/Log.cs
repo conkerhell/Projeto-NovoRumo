@@ -1,5 +1,6 @@
 
 using System;
+using System.Text;
 
 namespace NovoRumoProjeto.Utilities.LogManager
 {
@@ -29,14 +30,40 @@ namespace NovoRumoProjeto.Utilities.LogManager
 
         public void Info(string title, string message)
         {
-            //Formatar log
-            Save(string.Empty);
+            LogModel model = new LogModel();
+
+            model.Category = Category.Info;
+            model.Title = title;
+            model.Message = message;
+
+            Save(model);
         }
 
         public void Error(Exception exception)
         {
-            //Formatar log
-            Save(string.Empty);
+            var indent = " ";
+
+            StringBuilder sb = new StringBuilder();
+            sb.AppendFormat("Exception Found:\n{0}Type: {1}", indent, exception.GetType().FullName);
+            sb.AppendFormat("\n{0}Message: {1}", indent, exception.Message);
+            sb.AppendFormat("\n{0}Source: {1}", indent, exception.Source);
+            sb.AppendFormat("\n{0}Stacktrace: {1}", indent, exception.StackTrace);
+
+            if (exception.InnerException != null)
+            {
+                sb.Append("\n");
+                sb.AppendFormat("Exception Found:\n{0}Type: {1}", indent, exception.InnerException.GetType().FullName);
+                sb.AppendFormat("\n{0}Message: {1}", indent, exception.InnerException.Message);
+                sb.AppendFormat("\n{0}Source: {1}", indent, exception.InnerException.Source);
+                sb.AppendFormat("\n{0}Stacktrace: {1}", indent, exception.InnerException.StackTrace);
+            }
+
+            LogModel model = new LogModel();
+            model.Category = Category.Error;
+            model.Message = sb.ToString();
+            model.Title = exception.GetType().Name;
+
+            Save(model);
         }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using NovoRumoProjeto.DAL.Order;
 using NovoRumoProjeto.Entity;
 using NovoRumoProjeto.Utilities;
+using NovoRumoProjeto.Utilities.Domains;
 using NovoRumoProjeto.Utilities.LogManager;
 using System;
 using System.Configuration;
@@ -65,8 +66,20 @@ namespace NovoRumoProjeto.PaymentCreator
 
             var orderId = orderBusiness.InsertOrder(new OrderEntity()
             {
-                User = model.User
+                User = model.User,
+                RecordDate = DateTime.Now,
+                Type = new TypeEntity() { TypeId = (int)Enums.Type.MonthlyDonation },
+                Total = model.amountPerPayment
             });
+
+            if (orderId.HasValue)
+            {
+                orderBusiness.InsertStatus(new OrderStatusEntity()
+                {
+                    OrderId = orderId.Value,
+                    RecordDate = DateTime.Now
+                });
+            }
 
             return orderId;
         }

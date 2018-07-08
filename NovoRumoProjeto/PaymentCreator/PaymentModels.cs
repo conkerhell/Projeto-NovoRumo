@@ -7,6 +7,8 @@ namespace NovoRumoProjeto.PaymentCreator
     public class PagSeguroSingleModel : IPaymentModel
     {
         public RequestContext RequestContext { get; set; }
+
+        public UserEntity User { get; set; }
     }
 
     public class PagSeguroMonthlyModel : IPaymentModel

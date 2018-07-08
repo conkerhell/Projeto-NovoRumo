@@ -13,7 +13,7 @@ namespace NovoRumoProjeto.Models
         public bool Terms { get; set; }
 
         [Required]
-        public string DonationOption { get; set; }
+        public int DonationOption { get; set; }
 
         public string Value { get; set; }
 

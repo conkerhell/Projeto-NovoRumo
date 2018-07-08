@@ -180,25 +180,49 @@ namespace NovoRumoProjeto.Controllers
                 return View(model);
             }
 
-            var order = new OrderEntity()
-            {
-                Total = model.GetTotal()
-            };
-
-            var userEntity = new UserDAL().GetById(User.Identity.GetUserId<int>());
+            var userId = User.Identity.GetUserId<int>();
+            var userEntity = new UserDAL().GetById(userId);
             var user = new UserEntity()
             {
                 UserID = userEntity.UserID,
                 Name = userEntity.Name
             };
 
-            //var paymentoStatusIndicador = Payment.CreatePaymentFor(model.Type)
-            //                                    .SetOrder(order)
-            //                                    .SetUser(user)
-            //                                    .SetRequestContext(Request.RequestContext)
-            //                                    .Send();
+            var paymentStrategy = new PaymentStrategy(
+                new IPaymentService[] 
+                {
+                    new PagSeguroMonthlyPayment(),
+                    new PagSeguroSinglePayment()
+                });
 
-            return Redirect("Success");
+            var paymentStatus = new PaymentStatus();
+
+            switch ((Enums.Type)model.DonationOption)
+            {
+                case Enums.Type.MonthlyDonation:
+                    var monthlyModel = new PagSeguroMonthlyModel();
+                    monthlyModel.amountPerPayment = model.GetTotal();
+                    monthlyModel.User = user;
+                    paymentStatus = paymentStrategy.MakePayment(monthlyModel);
+                    break;
+                case Enums.Type.SingleDonation:
+                    var singleModel = new PagSeguroSingleModel();
+                    paymentStatus = paymentStrategy.MakePayment(singleModel);
+                    break;
+                case Enums.Type.BankTransfer:
+                    //TODO: Adicionar
+                    break;
+                case Enums.Type.Purchase:
+                default:
+                    //TODO: Erro
+                    break;
+            }
+
+            if (paymentStatus.Status)
+            {
+                return Redirect(paymentStatus.RedirectUrl);
+            }
+            return View();
         }
 
         [AllowAnonymous]

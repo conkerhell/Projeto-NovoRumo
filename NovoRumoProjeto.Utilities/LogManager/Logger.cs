@@ -1,3 +1,4 @@
+using Newtonsoft.Json;
 using System;
 using System.IO;
 using System.Web;
@@ -36,24 +37,24 @@ namespace NovoRumoProjeto.Utilities.LogManager {
             Directory.CreateDirectory(serverPath);
         }
 
-        private void addContent(string content)
+        private void addContent(LogModel model)
         {
             string fileName = LOG_FILE;
             string filePath = Path.Combine(HttpRuntime.AppDomainAppPath, LOGS_FILE_PATH, fileName);
 
-            using (StreamWriter writer = new StreamWriter(filePath, true))
+            using (StreamWriter file = new StreamWriter(filePath, true))
             {
-                writer.WriteLine(content);
+                JsonSerializer serializer = new JsonSerializer();
+                serializer.Serialize(file, model);
             }
         }
 
-        protected void Save(string content)
+        protected void Save(LogModel model)
         {
             if (!validateFile())
-            {
                 createFolder();
-            }
-            addContent(content);
+            
+            addContent(model);
         }
     }
 }

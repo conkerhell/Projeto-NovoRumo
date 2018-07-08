@@ -159,22 +159,14 @@ SET QUOTED_IDENTIFIER ON
 GO
 CREATE PROCEDURE spUpdateOrder(
 	@OrderId AS INT,
-	@UserId AS INT,
-	@TypeId AS INT,
 	@NotificationCode AS VARCHAR(50),
-	@PaypalGuid AS VARCHAR(50),
-	@Total AS DECIMAL(18, 2),
-	@RecordDate AS DATE
+	@PaypalGuid AS VARCHAR(50)
 )
 AS
 BEGIN
 UPDATE [dbo].[Order]
-   SET UserId = @UserId,
-       TypeId = @TypeId,
-	   NotificationCode = @NotificationCode,
-	   PaypalGuid = @PaypalGuid,
-	   Total = @Total,
-	   RecordDate = @RecordDate
+   SET NotificationCode = @NotificationCode,
+	   PaypalGuid = @PaypalGuid
  WHERE OrderId = @OrderId
 END
 

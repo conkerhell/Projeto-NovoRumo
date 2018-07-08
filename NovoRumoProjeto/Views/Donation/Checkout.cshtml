@@ -1,4 +1,5 @@
 ﻿@model NovoRumoProjeto.Models.DonationViewModel
+@using NovoRumoProjeto.Utilities.Domains
 
 @{
     Layout = "~/Views/Shared/_SubLayout.cshtml";
@@ -16,7 +17,7 @@
         <ul class="tabs-payment-options active no-bullet hide-for-small-only">
             <li class="payment-option-item columns small-4">
                 <label for="single">
-                    <input type="radio" id="single" value="single" name="DonationOption" />
+                    <input type="radio" id="single" value="@((int)Enums.Type.SingleDonation)" name="DonationOption" />
                     <div class="columns small-12">
                         <span class="payment-option-title">Única</span>
                     </div>
@@ -27,7 +28,7 @@
             </li>
             <li class="payment-option-item columns small-4 selected">
                 <label for="monthly">
-                    <input type="radio" id="monthly" value="monthly" name="DonationOption" checked="checked" />
+                    <input type="radio" id="monthly" value="@((int)Enums.Type.MonthlyDonation)" name="DonationOption" checked="checked" />
                     <div class="columns small-12">
                         <span class="payment-option-title">Mensal</span>
                     </div>
@@ -38,7 +39,7 @@
             </li>
             <li class="payment-option-item columns small-4">
                 <label for="transfer">
-                    <input type="radio" id="transfer" value="transfer" name="DonationOption" />
+                    <input type="radio" id="transfer" value="@((int)Enums.Type.BankTransfer)" name="DonationOption" />
                     <div class="columns small-12">
                         <span class="payment-option-title">Transferência</span>
                     </div>
