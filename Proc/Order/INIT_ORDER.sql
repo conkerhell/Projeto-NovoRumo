@@ -1,6 +1,5 @@
-USE [NovoRumo]
-GO
-
+use NovoRumo
+go
 
 /****** Object:  Table [dbo].[Type]    Script Date: 6/19/2018 9:25:11 AM ******/
 SET ANSI_NULLS ON
@@ -26,6 +25,31 @@ INSERT INTO [dbo].[Type] (TypeId, Name, Description) VALUES (2, 'Single Donation
 INSERT INTO [dbo].[Type] (TypeId, Name, Description) VALUES (3, 'Bank Transfer', '')
 INSERT INTO [dbo].[Type] (TypeId, Name, Description) VALUES (4, 'Purchase', '')
 
+/****** Object:  Table [dbo].[StatusDomain]    Script Date: 7/8/2018 12:17:22 PM ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[StatusDomain](
+	[StatusId] [int] NOT NULL,
+	[Name] [varchar](50) NOT NULL,
+ CONSTRAINT [PK_StatusDomain] PRIMARY KEY CLUSTERED 
+(
+	[StatusId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+
+INSERT INTO [dbo].[StatusDomain] (StatusId, Name) VALUES (1, 'Awaiting for payment')
+INSERT INTO [dbo].[StatusDomain] (StatusId, Name) VALUES (2, 'In Analysis')
+INSERT INTO [dbo].[StatusDomain] (StatusId, Name) VALUES (3, 'Payed')
+INSERT INTO [dbo].[StatusDomain] (StatusId, Name) VALUES (4, 'Available')
+INSERT INTO [dbo].[StatusDomain] (StatusId, Name) VALUES (5, 'In Dispute')
+INSERT INTO [dbo].[StatusDomain] (StatusId, Name) VALUES (6, 'Returned')
+INSERT INTO [dbo].[StatusDomain] (StatusId, Name) VALUES (7, 'Cancelled')
+
 /****** Object:  Table [dbo].[Order]    Script Date: 6/19/2018 9:24:17 AM ******/
 SET ANSI_NULLS ON
 GO
@@ -40,7 +64,7 @@ CREATE TABLE [dbo].[Order](
 	[NotificationCode] [varchar](50) NULL,
 	[PaypalGuid] [varchar](50) NULL,
 	[Total] [decimal](18, 2) NOT NULL,
-	[RecordDate] [date] NOT NULL,
+	[RecordDate] [datetime] NOT NULL,
  CONSTRAINT [PK_Order] PRIMARY KEY CLUSTERED 
 (
 	[OrderId] ASC
@@ -74,10 +98,17 @@ GO
 
 CREATE TABLE [dbo].[OrderStatus](
 	[OrderId] [int] NOT NULL,
-	[Status] [int] NOT NULL,
-	[RecordDate] [date] NOT NULL
+	[StatusId] [int] NOT NULL,
+	[RecordDate] [datetime] NOT NULL
 ) ON [PRIMARY]
 
+GO
+
+ALTER TABLE [dbo].[OrderStatus]  WITH CHECK ADD  CONSTRAINT [FK_OrderStatus_StatusDomain] FOREIGN KEY([StatusId])
+REFERENCES [dbo].[StatusDomain] ([StatusId])
+GO
+
+ALTER TABLE [dbo].[OrderStatus] CHECK CONSTRAINT [FK_OrderStatus_StatusDomain]
 GO
 
 ALTER TABLE [dbo].[OrderStatus]  WITH CHECK ADD  CONSTRAINT [FK_Status_Order] FOREIGN KEY([OrderId])
@@ -86,7 +117,6 @@ GO
 
 ALTER TABLE [dbo].[OrderStatus] CHECK CONSTRAINT [FK_Status_Order]
 GO
-
 
 
 SET ANSI_NULLS ON
@@ -178,18 +208,18 @@ SET QUOTED_IDENTIFIER ON
 GO
 CREATE PROCEDURE spInsertOrderStatus(
 	@OrderId AS INT,
-	@Status AS INT ,
+	@StatusId AS INT ,
 	@RecordDate AS DATE
 )
 AS
 BEGIN
 INSERT INTO [dbo].[OrderStatus] (
 	OrderId,
-	Status,
+	StatusId,
 	RecordDate
 ) VALUES (
 	@OrderId,
-	@Status,
+	@StatusId,
 	@RecordDate
 )
 END
@@ -204,7 +234,7 @@ CREATE PROCEDURE spGetStatusByOrderId(
 )
 AS
 BEGIN
-SELECT OrderId, Status, RecordDate
+SELECT OrderId, StatusId, RecordDate
   FROM [dbo].[OrderStatus] WITH (NOLOCK)
  WHERE OrderId = @OrderId
 END

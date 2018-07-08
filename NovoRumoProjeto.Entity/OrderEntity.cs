@@ -13,7 +13,7 @@ namespace NovoRumoProjeto.Entity
             orderStatus = new List<OrderStatusEntity>();
         }
 
-        public int OrderID { get; set; }
+        public int OrderId { get; set; }
         public UserEntity User { get; set; }
         public TypeEntity Type { get; set; }
         public string NotificationCode { get; set; }

@@ -10,11 +10,14 @@ namespace NovoRumoProjeto.DAL.Order
         //Order
         private const string COLUMN_ORDER_ID = "OrderId";
         private const string COLUMN_USER_ID = "UserId";
-        private const string COLUMN_TYPE_ID = "TypeId"; 
+        private const string COLUMN_TYPE_ID = "TypeId";
         private const string COLUMN_NOTIFICATION_CODE = "NotificationCode";
         private const string COLUMN_PAYPAL_GUID = "PaypalGuid";
         private const string COLUMN_TOTAL = "Total";
-        private const string COLUMN_RECORD_DATE = "RecordDate"; 
+        private const string COLUMN_RECORD_DATE = "RecordDate";
+
+        //OrderStatus
+        private const string COLUMN_STATUS_ID = "StatusId";
 
         //Procedures
         private const string PROC_GET_ORDERS = "spGetOrders";
@@ -24,6 +27,7 @@ namespace NovoRumoProjeto.DAL.Order
         private const string PROC_GET_ORDER_STATUS_BY_ID = "spGetStatusByOrderId";
         private const string PROC_INSERT_ORDER = "spInsertOrder";
         private const string PROC_INSERT_ORDER_STATUS = "spInsertOrderStatus";
+        private const string PROC_UPDATE_ORDER = "spUpdateOrder";
 
         public List<OrderEntity> Get()
         {
@@ -32,7 +36,25 @@ namespace NovoRumoProjeto.DAL.Order
 
         public OrderEntity GetById(int id)
         {
-            throw new NotImplementedException();
+            using (var result = dataAccess.ExecuteReader(PROC_GET_ORDER_BY_ID,
+                dataAccess.ParameterFactory.Create(COLUMN_ORDER_ID, DbType.Int32, id, ParameterDirection.Input)))
+            {
+                var order = new OrderEntity();
+
+                if (result.HasRows)
+                {
+                    if (result.Read())
+                    {
+                        order.OrderId = Convert.ToInt32(result[COLUMN_ORDER_ID]);
+                        order.RecordDate = Convert.ToDateTime(result[COLUMN_RECORD_DATE]);
+                        order.Total = Convert.ToDecimal(result[COLUMN_TOTAL]);
+                        order.PaypalGuid = result[COLUMN_PAYPAL_GUID].ToString();
+                        order.NotificationCode = result[COLUMN_NOTIFICATION_CODE].ToString();
+                    }
+                }
+
+                return order;
+            }
         }
 
         public bool Insert(OrderEntity entity)
@@ -55,12 +77,18 @@ namespace NovoRumoProjeto.DAL.Order
 
         public bool InsertStatus(OrderStatusEntity entity)
         {
-            throw new NotImplementedException();
+            return dataAccess.ExecuteNonQuery(PROC_INSERT_ORDER_STATUS,
+                dataAccess.ParameterFactory.Create(COLUMN_ORDER_ID, DbType.Int32, entity.OrderId, ParameterDirection.Input),
+                dataAccess.ParameterFactory.Create(COLUMN_STATUS_ID, DbType.Int32, entity.Status, ParameterDirection.Input),
+                dataAccess.ParameterFactory.Create(COLUMN_RECORD_DATE, DbType.DateTime, entity.RecordDate, ParameterDirection.Input)) == 1;
         }
 
         public bool Update(OrderEntity entity)
         {
-            throw new NotImplementedException();
+            return dataAccess.ExecuteNonQuery(PROC_UPDATE_ORDER,
+                dataAccess.ParameterFactory.Create(COLUMN_ORDER_ID, DbType.Int32, entity.OrderId, ParameterDirection.Input),
+                dataAccess.ParameterFactory.Create(COLUMN_PAYPAL_GUID, DbType.String, entity.PaypalGuid, ParameterDirection.Input),
+                dataAccess.ParameterFactory.Create(COLUMN_NOTIFICATION_CODE, DbType.String, entity.NotificationCode, ParameterDirection.Input)) == 1;
         }
     }
 }

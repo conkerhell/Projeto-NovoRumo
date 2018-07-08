@@ -74,14 +74,20 @@ namespace NovoRumoProjeto.PaymentCreator
 
             if (orderId.HasValue)
             {
-                orderBusiness.InsertStatus(new OrderStatusEntity()
+                var status = orderBusiness.InsertStatus(new OrderStatusEntity()
                 {
                     OrderId = orderId.Value,
-                    RecordDate = DateTime.Now
+                    RecordDate = DateTime.Now,
+                    Status = (int)Enums.PaymentStatus.AguardandoPagamento
                 });
+
+                if (status)
+                {
+                    return orderId;
+                }
             }
 
-            return orderId;
+            return null;
         }
     }
 }

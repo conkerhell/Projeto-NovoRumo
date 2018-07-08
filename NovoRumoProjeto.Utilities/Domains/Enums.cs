@@ -15,5 +15,16 @@ namespace NovoRumoProjeto.Utilities.Domains
             BankTransfer = 3,
             Purchase = 4
         }
+
+        public enum PaymentStatus
+        {
+            AguardandoPagamento = 1,
+            EmAnalise = 2,
+            Pago = 3,
+            Disponivel = 4,
+            EmDisputa = 5,
+            Retornado = 6,
+            Cancelado = 7,
+        }
     }
 }
