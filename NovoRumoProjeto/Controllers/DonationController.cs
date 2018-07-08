@@ -119,6 +119,7 @@ namespace NovoRumoProjeto.Controllers
                     Lastname = model.Lastname
                 });
 
+                await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
                 return RedirectToAction("Checkout");
             }
             else
