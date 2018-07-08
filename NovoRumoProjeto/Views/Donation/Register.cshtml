@@ -30,6 +30,12 @@
             @Html.ValidationMessageFor(model => model.Name)
         </div>
 
+        <div class="field">
+            @Html.LabelFor(model => model.Lastname)
+            @Html.TextBoxFor(model => model.Lastname, htmlAttributes: new { placeholder = "Ex. Kruger" })
+            @Html.ValidationMessageFor(model => model.Lastname)
+        </div>
+
         <input type="submit" class="button expanded primary" value="Criar seu cadastro" />
 
         @Html.FoundationValidationSummary()

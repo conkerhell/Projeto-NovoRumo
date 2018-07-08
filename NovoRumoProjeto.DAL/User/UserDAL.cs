@@ -12,6 +12,7 @@ namespace NovoRumoProjeto.DAL.User
         private const string GET_USER_BY_ID_PROC = "spGetUserById";
 
         private const string NAME_COLUMN = "Name";
+        private const string LASTNAME_COLUMN = "Lastname";
         private const string USER_ID_COLUMN = "UserId";
 
         public List<UserEntity> Get()
@@ -31,6 +32,7 @@ namespace NovoRumoProjeto.DAL.User
                     {
                         item.UserID = Convert.ToInt32(result[USER_ID_COLUMN]);
                         item.Name = result[NAME_COLUMN].ToString();
+                        item.Lastname = result[LASTNAME_COLUMN].ToString();
                     }
                 }
 
@@ -42,14 +44,16 @@ namespace NovoRumoProjeto.DAL.User
         {
             return dataAccess.ExecuteNonQuery(INSERT_USER_PROC,
                 dataAccess.ParameterFactory.Create(USER_ID_COLUMN, DbType.Int32, entity.UserID, ParameterDirection.Input),
-                dataAccess.ParameterFactory.Create(NAME_COLUMN, DbType.String, entity.Name, ParameterDirection.Input)) == 1;
+                dataAccess.ParameterFactory.Create(NAME_COLUMN, DbType.String, entity.Name, ParameterDirection.Input),
+                dataAccess.ParameterFactory.Create(LASTNAME_COLUMN, DbType.String, entity.Lastname, ParameterDirection.Input)) == 1;
         }
 
         public bool Update(UserEntity entity)
         {
             return dataAccess.ExecuteNonQuery(UPDATE_USER_PROC,
                 dataAccess.ParameterFactory.Create(USER_ID_COLUMN, DbType.Int32, entity.UserID, ParameterDirection.Input),
-                dataAccess.ParameterFactory.Create(NAME_COLUMN, DbType.String, entity.Name, ParameterDirection.Input)) == 1;
+                dataAccess.ParameterFactory.Create(NAME_COLUMN, DbType.String, entity.Name, ParameterDirection.Input),
+                dataAccess.ParameterFactory.Create(LASTNAME_COLUMN, DbType.String, entity.Lastname, ParameterDirection.Input)) == 1;
         }
     }
 }

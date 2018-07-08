@@ -12,6 +12,7 @@ using NovoRumoProjeto.Utilities.Domains;
 using Microsoft.AspNet.Identity;
 using System;
 using Resources;
+using NovoRumoProjeto.Utilities.Extensions;
 
 namespace NovoRumoProjeto.Controllers
 {
@@ -114,7 +115,8 @@ namespace NovoRumoProjeto.Controllers
                 userDAL.Insert(new UserEntity()
                 {
                     UserID = user.Id,
-                    Name = model.Name
+                    Name = model.Name,
+                    Lastname = model.Lastname
                 });
 
                 return RedirectToAction("Checkout");
@@ -186,7 +188,8 @@ namespace NovoRumoProjeto.Controllers
             var user = new UserEntity()
             {
                 UserID = userEntity.UserID,
-                Name = userEntity.Name
+                Name = userEntity.Name,
+                Lastname = userEntity.Lastname.FormatLastName()
             };
 
             var paymentStrategy = new PaymentStrategy(

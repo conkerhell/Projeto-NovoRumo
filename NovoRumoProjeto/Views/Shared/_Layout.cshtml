@@ -26,7 +26,7 @@
             }
         });
         $(window).on('changed.zf.mediaquery', function (event, newSize, oldSize) {
-            if (newSize !== "small" || newSize !== "medium") {
+            if (newSize !== "small" && newSize !== "medium") {
                 initSkroll();
             } else {
                 destroySkroll();

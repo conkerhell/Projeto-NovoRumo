@@ -8,5 +8,21 @@ namespace NovoRumoProjeto.Utilities.Extensions
         {
             return string.Concat(ConfigurationManager.AppSettings[folder], @"\", imageName);
         }
+
+        public static string FormatLastName(this string lastName)
+        {
+            string resolvedLastName = lastName;
+
+            if (!string.IsNullOrWhiteSpace(lastName))
+            {
+                string[] names = lastName.Split(' ');
+
+                if (names.Length > 2)
+                {
+                    resolvedLastName = names[0];
+                }
+            }
+            return resolvedLastName;
+        }
     }
 }

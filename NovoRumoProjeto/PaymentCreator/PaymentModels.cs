@@ -21,7 +21,7 @@ namespace NovoRumoProjeto.PaymentCreator
         {
             get
             {
-                return "AUTO";
+                return "auto";
             }
         }
 
@@ -41,7 +41,15 @@ namespace NovoRumoProjeto.PaymentCreator
             }
         }
 
-        public string PreApprovalDetails
+        public DateTime FinalDate
+        {
+            get
+            {
+                return DateTime.Now.AddYears(1);
+            }
+        }
+
+        public string Details
         {
             get
             {
@@ -56,6 +64,7 @@ namespace NovoRumoProjeto.PaymentCreator
                 return new Uri(RequestContext.HttpContext.Request.Url.AbsoluteUri.ToString());
             }
         }
+
 
         public decimal amountPerPayment { get; set; }
 

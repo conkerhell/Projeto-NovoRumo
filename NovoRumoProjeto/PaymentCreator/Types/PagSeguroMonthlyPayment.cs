@@ -34,15 +34,18 @@ namespace NovoRumoProjeto.PaymentCreator
 
             payment.PreApproval = new PreApproval()
             {
-                AmountPerPayment = model.amountPerPayment,
                 Charge = model.Charge,
                 Name = model.Name,
+                Details = model.Details,
+                DayOfMonth = 15,
                 Period = model.Period,
-                Details = model.PreApprovalDetails
+                FinalDate = model.FinalDate,
+                AmountPerPayment = model.amountPerPayment,
+                MaxTotalAmount = model.amountPerPayment * 12
             };
             payment.ReviewUri = model.ReviewUrl;
 
-            var name = model.User.Name;
+            var name = $"{model.User.Name} {model.User.Lastname}";
             var email = model.User.Email;
             payment.Sender = new Sender(name, email, null);
 
@@ -109,3 +112,6 @@ namespace NovoRumoProjeto.PaymentCreator
         }
     }
 }
+
+//11113=preApproval auto charged can not be informed in a checkout.
+//11024=Items invalid quantity.\n11012= senderName invalid value: 

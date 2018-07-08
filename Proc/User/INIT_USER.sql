@@ -12,6 +12,7 @@ GO
 CREATE TABLE [dbo].[User](
 	[UserId] [int] NOT NULL,
 	[Name] [varchar](200) NOT NULL,
+	[Lastname] [varchar](200) NOT NULL,
  CONSTRAINT [PK_User] PRIMARY KEY CLUSTERED 
 (
 	[UserId] ASC
@@ -36,11 +37,12 @@ SET QUOTED_IDENTIFIER ON
 GO
 CREATE PROCEDURE spInsertUser(
 	@UserId AS INT,
-	@Name AS VARCHAR(200) 
+	@Name AS VARCHAR(200),
+	@Lastname AS VARCHAR(200) 
 )
 AS
 BEGIN
-INSERT INTO [dbo].[User] (UserId, Name) VALUES (@UserId, @Name) 
+INSERT INTO [dbo].[User] (UserId, Name, Lastname) VALUES (@UserId, @Name, @Lastname) 
 END
 
 
@@ -51,7 +53,8 @@ SET QUOTED_IDENTIFIER ON
 GO
 CREATE PROCEDURE spUpdateUser(
 	@UserId AS INT,
-	@Name AS VARCHAR(200) 
+	@Name AS VARCHAR(200),
+	@Lastname AS VARCHAR(200) 
 )
 AS
 BEGIN
@@ -70,6 +73,6 @@ CREATE PROCEDURE spGetUserById(
 )
 AS
 BEGIN
-SELECT UserId, Name FROM [dbo].[User]
+SELECT UserId, Name, Lastname FROM [dbo].[User]
  WHERE UserId = @UserId
 END
