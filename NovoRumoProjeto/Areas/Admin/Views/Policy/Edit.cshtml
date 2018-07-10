@@ -11,17 +11,20 @@
 
         @Html.HiddenFor(model => model.PolicyId)
 
-        <div class="field">
+        <div class="field" aria-describedby="titleHelp">
             @Html.LabelFor(model => model.Title)
             @Html.TextBoxFor(model => model.Title)
             @Html.ValidationMessageFor(model => model.Title)
         </div>
+        <p class="help-text" id="titleHelp">*Campo Titulo aceita tags HTML de edição de texto como por exemplo: p, strong, i, br</p>
 
-        <div class="field">
+        <div class="field" aria-describedby="descriptionHelp">
             @Html.LabelFor(model => model.Description)
             @Html.TextAreaFor(model => model.Description, new { rows = "15" })
             @Html.ValidationMessageFor(model => model.Description)
         </div>
+        <p class="help-text" id="descriptionHelp"> *Campo Descrição aceita tags HTML de edição de texto como por exemplo: p, strong, i, br </p>
+
 
         @Html.SaveButton("Salvar")
     }

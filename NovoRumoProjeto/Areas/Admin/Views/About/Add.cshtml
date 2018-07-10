@@ -8,16 +8,19 @@
     @using (Html.BeginForm(null, null, FormMethod.Post, new { enctype = "multipart/form-data" }))
     {
         @Html.AntiForgeryToken()
-        <div class="field">
+        <div class="field" aria-describedby="titleHelp">
             @Html.LabelFor(model => model.Title)
             @Html.TextBoxFor(model => model.Title)
             @Html.ValidationMessageFor(model => model.Title)
         </div>
-        <div class="field">
+        <p class="help-text" id="titleHelp">*Campo Titulo aceita tags HTML de edição de texto como por exemplo: p, strong, i, br</p>
+
+        <div class="field" aria-describedby="descriptionHelp">
             @Html.LabelFor(model => model.Description)
             @Html.TextAreaFor(model => model.Description)
             @Html.ValidationMessageFor(model => model.Description)
         </div>
+        <p class="help-text" id="descriptionHelp"> *Campo Descrição aceita tags HTML de edição de texto como por exemplo: p, strong, i, br </p>
 
         <div class="input-group">
             @Html.TextBoxFor(model => model.displayFileName, new { @readonly = true, id = "displayFileName", @class = "input-group-field" })
