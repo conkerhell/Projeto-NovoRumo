@@ -213,6 +213,10 @@ namespace NovoRumoProjeto.Controllers
                     break;
                 case Enums.Type.SingleDonation:
                     var singleModel = new PagSeguroSingleModel();
+                    singleModel.Value = model.GetTotal();
+                    singleModel.User = user;
+                    singleModel.Id = "1";
+                    singleModel.RequestContext = Request.RequestContext;
                     paymentStatus = paymentStrategy.MakePayment(singleModel);
                     break;
                 case Enums.Type.BankTransfer:

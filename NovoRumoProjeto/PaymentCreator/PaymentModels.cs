@@ -11,6 +11,9 @@ namespace NovoRumoProjeto.PaymentCreator
         public RequestContext RequestContext { get; set; }
 
         public UserEntity User { get; set; }
+
+        public decimal Value { get; set; }
+        public string Id { get; set; }
     }
 
     public class PagSeguroMonthlyModel : IPaymentModel
@@ -29,7 +32,7 @@ namespace NovoRumoProjeto.PaymentCreator
         {
             get
             {
-                return "MONTHLY";
+                return "Monthly";
             }
         }
 
@@ -37,7 +40,7 @@ namespace NovoRumoProjeto.PaymentCreator
         {
             get
             {
-                return "Doação Mensal";
+                return "Doacao Mensal";
             }
         }
 
@@ -53,7 +56,7 @@ namespace NovoRumoProjeto.PaymentCreator
         {
             get
             {
-                return "Cobrança de valor mensal para doação do Novo Rumo";
+                return "Pagamento da doacao mensal da Associacao Novo Rumo";
             }
         }
 

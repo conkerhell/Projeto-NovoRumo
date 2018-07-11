@@ -6,6 +6,7 @@ using NovoRumoProjeto.Utilities.LogManager;
 using System;
 using System.Configuration;
 using System.Text;
+using Uol.PagSeguro.Constants;
 using Uol.PagSeguro.Domain;
 using Uol.PagSeguro.Exception;
 using Uol.PagSeguro.Resources;
@@ -29,10 +30,10 @@ namespace NovoRumoProjeto.PaymentCreator
             }
 
             EnvironmentConfiguration.ChangeEnvironment(isSandbox);
-            PaymentRequest payment = new PaymentRequest();
-            payment.Reference = orderId.Value.ToString();
-
-            payment.PreApproval = new PreApproval()
+            PreApprovalRequest preApproval = new PreApprovalRequest();
+            preApproval.Reference = orderId.Value.ToString();
+            preApproval.Currency = Currency.Brl;
+            preApproval.PreApproval = new PreApproval()
             {
                 Charge = model.Charge,
                 Name = model.Name,
@@ -43,18 +44,18 @@ namespace NovoRumoProjeto.PaymentCreator
                 AmountPerPayment = model.amountPerPayment,
                 MaxTotalAmount = model.amountPerPayment * 12
             };
-            payment.ReviewUri = model.ReviewUrl;
+            preApproval.ReviewUri = model.ReviewUrl;
 
-            var name = $"{model.User.Name} {model.User.Lastname}";
+            var fullname = $"{model.User.Name} {model.User.Lastname}";
             var email = model.User.Email;
-            payment.Sender = new Sender(name, email, null);
+            preApproval.Sender = new Sender(fullname, email, null);
 
-            payment.RedirectUri = new Uri(Consts.REDIRECT_URI);
+            preApproval.RedirectUri = new Uri(Consts.REDIRECT_URI);
             AccountCredentials credentials = PagSeguroConfiguration.Credentials(isSandbox);
 
             try
             {
-                Uri paymentRedirectUri = payment.Register(credentials);
+                Uri paymentRedirectUri = preApproval.Register(credentials);
                 paymentStatus.RedirectUrl = paymentRedirectUri.ToString();
                 paymentStatus.Status = true;
             }
