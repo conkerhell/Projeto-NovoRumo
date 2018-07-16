@@ -23,7 +23,7 @@ namespace NovoRumoProjeto.Areas.Admin.Models
         [Display(Name = "Descrição")]
         public string Description { get; set; }
 
-        [Required(ErrorMessageResourceType = typeof(LocalizedMessages),
+        [Required( ErrorMessageResourceType =  typeof(LocalizedMessages),
             ErrorMessageResourceName = "PropertyValueRequired")]
         [Display(Name = "Nome")]
         public string displayFileName { get; set; }

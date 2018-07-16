@@ -147,4 +147,7 @@
   <data name="UnexpectedErrorDuringPayment" xml:space="preserve">
     <value>Ocorreu um erro inesperado durante a doação, por favor tente novamente.</value>
   </data>
+  <data name="AllowHtml" xml:space="preserve">
+    <value>Este campo aceita tags HTML de edição de texto como por exemplo: p, strong, i, br</value>
+  </data>
 </root>
