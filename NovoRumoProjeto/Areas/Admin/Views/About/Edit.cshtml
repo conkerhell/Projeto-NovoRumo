@@ -19,7 +19,7 @@
             @Html.TextAreaFor(model => model.Description)
             @Html.ValidationMessageFor(model => model.Description)
         </div>
-        <p class="help-text" id="descriptionHelp"> *Este campo aceita tags HTML de edição de texto como por exemplo: p, strong, i, br </p>
+        <p class="help-text" id="descriptionHelp">@Resources.LocalizedMessages.AllowHtml</p>
 
         <div class="input-group">
             @Html.TextBoxFor(model => model.displayFileName, new { @readonly = true, id = "displayFileName", @class = "input-group-field" })
