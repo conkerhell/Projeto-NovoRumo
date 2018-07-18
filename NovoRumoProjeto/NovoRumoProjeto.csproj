@@ -209,6 +209,7 @@
     <Compile Include="Areas\Admin\Controllers\ContactController.cs" />
     <Compile Include="Areas\Admin\Controllers\DailyController.cs" />
     <Compile Include="Areas\Admin\Controllers\DashboardController.cs" />
+    <Compile Include="Areas\Admin\Controllers\DonationController.cs" />
     <Compile Include="Areas\Admin\Controllers\EventsController.cs" />
     <Compile Include="Areas\Admin\Controllers\PolicyController.cs" />
     <Compile Include="Areas\Admin\Controllers\ProductsController.cs" />
@@ -216,6 +217,7 @@
     <Compile Include="Areas\Admin\Models\AboutViewModel.cs" />
     <Compile Include="Areas\Admin\Models\ContactViewModel.cs" />
     <Compile Include="Areas\Admin\Models\DailyViewModel.cs" />
+    <Compile Include="Areas\Admin\Models\Donation.cs" />
     <Compile Include="Areas\Admin\Models\EventViewModel.cs" />
     <Compile Include="Areas\Admin\Models\ForgotPasswordViewModel.cs" />
     <Compile Include="Areas\Admin\Models\LoginViewModel.cs" />
@@ -601,6 +603,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Areas\Admin\Views\Donation\" />
     <Folder Include="Content\images\" />
   </ItemGroup>
   <ItemGroup>
