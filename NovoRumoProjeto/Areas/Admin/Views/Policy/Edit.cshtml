@@ -16,14 +16,14 @@
             @Html.TextBoxFor(model => model.Title)
             @Html.ValidationMessageFor(model => model.Title)
         </div>
-          <p class="help-text" id="titleHelp"> *Este campo aceita tags HTML de edição de texto como por exemplo: p, strong, i, br </p>
+        <p class="help-text" id="titleHelp"> @Resources.LocalizedMessages.AllowHtml </p>
 
         <div class="field" aria-describedby="descriptionHelp">
             @Html.LabelFor(model => model.Description)
             @Html.TextAreaFor(model => model.Description, new { rows = "15" })
             @Html.ValidationMessageFor(model => model.Description)
         </div>
-        <p class="help-text" id="descriptionHelp"> *Este campo aceita tags HTML de edição de texto como por exemplo: p, strong, i, br </p>
+        <p class="help-text" id="descriptionHelp">@Resources.LocalizedMessages.AllowHtml </p>
 
 
         @Html.SaveButton("Salvar")

@@ -44,7 +44,7 @@
             @Html.TextAreaFor(model => model.Address)
             @Html.ValidationMessageFor(model => model.Address)
         </div>
-        <p class="help-text" id="addressHelp">*Este campo aceita tags HTML de edição de texto como por exemplo: p, strong, i, br</p>
+        <p class="help-text" id="addressHelp">@Resources.LocalizedMessages.AllowHtml</p>
 
         @Html.SaveButton("Salvar")
     }

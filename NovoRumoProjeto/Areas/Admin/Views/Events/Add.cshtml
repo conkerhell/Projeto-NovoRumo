@@ -14,22 +14,21 @@
             @Html.TextBoxFor(model => model.Title)
             @Html.ValidationMessageFor(model => model.Title)
         </div>
-        <p class="help-text" id="titleHelp">*Campo Titulo aceita tags HTML de edição de texto como por exemplo: p, strong, i, br</p>
+        <p class="help-text" id="titleHelp">@Resources.LocalizedMessages.AllowHtml</p>
 
         <div class="field" aria-describedby="descriptionHelp">
             @Html.LabelFor(model => model.Description)
             @Html.TextAreaFor(model => model.Description)
             @Html.ValidationMessageFor(model => model.Description)
         </div>
-        <p class="help-text" id="descriptionHelp"> *Campo Descrição aceita tags HTML de edição de texto como por exemplo: p, strong, i, br </p>
+        <p class="help-text" id="descriptionHelp">@Resources.LocalizedMessages.AllowHtml </p>
 
-        <div class="field" aria-describedby="addressHelp">
+        <div class="field">
             
             @Html.LabelFor(model => model.Address)
             @Html.TextBoxFor(model => model.Address)
             @Html.ValidationMessageFor(model => model.Address)
         </div>
-        <p class="help-text" id="addressHelp">*Campo Endereço aceita tags HTML de edição de texto como por exemplo: p, strong, i, br</p>
 
         <div class="field">
             @Html.LabelFor(model => model.Data)
