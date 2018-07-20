@@ -10,7 +10,7 @@ using System.Web.Mvc;
 
 namespace NovoRumoProjeto.Areas.Admin.Models
 {
-    public class Donation
+    public class DonationViewModel
     {
         public int OrderId { get; set; }
         public int TypeId { get; set; }

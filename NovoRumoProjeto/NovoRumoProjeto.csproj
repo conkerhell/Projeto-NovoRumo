@@ -217,7 +217,7 @@
     <Compile Include="Areas\Admin\Models\AboutViewModel.cs" />
     <Compile Include="Areas\Admin\Models\ContactViewModel.cs" />
     <Compile Include="Areas\Admin\Models\DailyViewModel.cs" />
-    <Compile Include="Areas\Admin\Models\Donation.cs" />
+    <Compile Include="Areas\Admin\Models\DonationViewModel.cs" />
     <Compile Include="Areas\Admin\Models\EventViewModel.cs" />
     <Compile Include="Areas\Admin\Models\ForgotPasswordViewModel.cs" />
     <Compile Include="Areas\Admin\Models\LoginViewModel.cs" />
