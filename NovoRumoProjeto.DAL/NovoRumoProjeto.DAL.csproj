@@ -48,7 +48,8 @@
     <Compile Include="Daily\DailyDAL.cs" />
     <Compile Include="Daily\IDailyDAL.cs" />
     <Compile Include="DAL.cs" />
-    <Compile Include="Donation\IDonation.cs" />
+    <Compile Include="Donation\DonationDAL.cs" />
+    <Compile Include="Donation\IDonationDAL.cs" />
     <Compile Include="Event\EventDAL.cs" />
     <Compile Include="Event\IEventDAL.cs" />
     <Compile Include="IDAL.cs" />

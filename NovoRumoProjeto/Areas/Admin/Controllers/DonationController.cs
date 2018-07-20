@@ -1,16 +1,21 @@
-﻿using System;
+﻿using NovoRumoProjeto.Utilities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using NovoRumoProjeto.Areas.Admin.Models;
+using NovoRumoProjeto.DAL.Donation;
 
 namespace NovoRumoProjeto.Areas.Admin.Controllers
 {
+    [Authorize(Roles = Consts.ADMIN_ROLE)]
     public class DonationController : Controller
     {
-        // GET: Admin/Donation
+        [HttpGet]
         public ActionResult Index()
         {
+          
             return View();
         }
 

@@ -1,4 +1,4 @@
-﻿using NovoRumoProjeto.Utilities;
+﻿        using NovoRumoProjeto.Utilities;
 using NovoRumoProjeto.Utilities.Validation;
 using Resources;
 using System.ComponentModel.DataAnnotations;

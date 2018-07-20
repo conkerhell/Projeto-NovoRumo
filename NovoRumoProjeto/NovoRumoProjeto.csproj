@@ -603,7 +603,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Areas\Admin\Views\Donation\" />
     <Folder Include="Content\images\" />
   </ItemGroup>
   <ItemGroup>
@@ -730,6 +729,7 @@
     <Content Include="Areas\Admin\Views\Policy\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\Terms\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Terms\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Donation\Index.cshtml" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <Content Include="Views\Home\NoNextEvent.cshtml" />
     <Content Include="Views\Donation\ForgotPassword.cshtml" />

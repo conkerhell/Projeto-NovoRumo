@@ -7,7 +7,7 @@ using NovoRumoProjeto.Entity;
 
 namespace NovoRumoProjeto.DAL.Donation
 {
-    public interface IDonation: IDAL<DonationEntity>
+    public interface IDonationDAL: IDAL<DonationEntity>
     {
         bool Delete(int id);
         List<DonationEntity> GetOrders();
