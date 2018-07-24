@@ -21,14 +21,12 @@
 
         <div class="field">
             <div class="grid-x">
-                <div class="small-6">
-                    @Html.LabelFor(model => model.Password)
-                </div>
-                <div class="small-6 text-right">
-                    @Html.ActionLink("Esqueceu?", "ForgotPassword")
-                </div>
+                @Html.LabelFor(model => model.Password)
             </div>
             @Html.PasswordFor(model => model.Password)
+            <div class="text-right">
+                @Html.ActionLink("Esqueceu?", "ForgotPassword")
+            </div>
             @Html.ValidationMessageFor(model => model.Password)
         </div>
 

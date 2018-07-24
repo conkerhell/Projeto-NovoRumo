@@ -15,9 +15,10 @@ namespace NovoRumoProjeto.Areas.Admin
         public override void RegisterArea(AreaRegistrationContext context) 
         {
             context.MapRoute(
-                name: "Admin",
-                url: "Admin/{controller}/{action}/{id}",
-                defaults: new { controller = "Admin", action = "Index", id = UrlParameter.Optional }
+                "Admin",
+                "Admin/{controller}/{action}/{id}",
+                new { controller = "Admin", action = "Index", id = UrlParameter.Optional },
+                new[] { "NovoRumoProjeto.Areas.Admin.Controllers" }
             );
         }
     }
