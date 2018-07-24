@@ -7,6 +7,7 @@ namespace NovoRumoProjeto.Entity
     {
         public int OrderID { get; set; }
         public byte Status { get; set; }
+        public int TypeId { get; set; }
         public int UserId { get; set; }
         public string NotificationCode { get; set; }
         public string PaypalGuid { get; set; }

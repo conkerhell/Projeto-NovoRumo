@@ -15,8 +15,26 @@ namespace NovoRumoProjeto.Areas.Admin.Controllers
         [HttpGet]
         public ActionResult Index()
         {
-          
-            return View();
+            var model = new List<DonationViewModel>();
+            IDonationDAL donationDAL = new DonationDAL();
+            var entity = donationDAL.Get();
+
+            foreach (var item in entity)
+            {
+                model.Add(new DonationViewModel()
+                {
+                    OrderId = item.OrderID,
+                    TypeId = item.TypeId,
+                    UserId = item.UserId,
+                    NotificationCode = item.NotificationCode,
+                    PaypalGuid = item.PaypalGuid,
+                    Total = item.Total,
+                    RecordDate = item.RecordDate
+                    
+                    
+                });
+            }
+            return View(model);
         }
 
         // GET: Admin/Donation/Details/5
