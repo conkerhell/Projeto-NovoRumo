@@ -13,6 +13,8 @@ using Microsoft.AspNet.Identity;
 using System;
 using Resources;
 using NovoRumoProjeto.Utilities.Extensions;
+using NovoRumoProjeto.Utilities.LogManager;
+using NovoRumoProjeto.PaymentCreator.Types;
 
 namespace NovoRumoProjeto.Controllers
 {
@@ -220,12 +222,8 @@ namespace NovoRumoProjeto.Controllers
                     paymentStatus = paymentStrategy.MakePayment(singleModel);
                     break;
                 case Enums.Type.BankTransfer:
-                    //TODO: Adicionar
-                    break;
-                case Enums.Type.Purchase:
                 default:
-                    //TODO: Erro
-                    break;
+                    throw new NotImplementedException($"Processo de pagamento do tipo {model.DonationOption} não implementado.");
             }
 
             if (paymentStatus.Status)
@@ -240,16 +238,16 @@ namespace NovoRumoProjeto.Controllers
         [AllowAnonymous]
         public void Notification(string notificationCode, string notificationType)
         {
-            //LogManager.Log.Payment(string.Format("Codigo de notificacao: {0}", notificationCode));
+            Log.Instance.Info("PagSeguro", $"Codigo de notificação: {notificationCode}");
 
             if (!string.IsNullOrWhiteSpace(notificationCode))
             {
-                //IPaymentManager paymentManager = new PagseguroPaymentManager(Request.RequestContext);
-                //paymentManager.CheckTransaction(notificationCode, notificationType);
+                var paymentChecker = new PagSeguroTransactionChecker(Request.RequestContext);
+                paymentChecker.CheckTransaction(notificationCode, notificationType);
             }
             else
             {
-                throw new Exception("Codigo da transacao não foi informado");
+                throw new Exception("Codigo da transação não foi informado.");
             }
         }
     }
