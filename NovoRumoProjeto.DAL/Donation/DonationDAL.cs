@@ -27,7 +27,7 @@ namespace NovoRumoProjeto.DAL.Donation
             throw new NotImplementedException();
         }
 
-        public List<DonationEntity> Get()
+        public List<DonationEntity> GetDonations()
         {
             using (var result = dataAccess.ExecuteReader(GET_ORDER_PROC))
             {
@@ -39,6 +39,12 @@ namespace NovoRumoProjeto.DAL.Donation
                     {
                         donation = new DonationEntity();
                         donation.OrderID = Convert.ToInt32(result[ORDER_ID_COLUMN]);
+                        donation.TypeId = Convert.ToInt32(result[TYPE_ID_COLUMN]);
+                        donation.UserId = Convert.ToInt32(result[USER_ID_COLUMN]);
+                        donation.NotificationCode = Convert.ToString(result[NOTIFICATION_CODE_COLUMN]);
+                        donation.PaypalGuid = Convert.ToString(result[PAYPAL_GUID_COLUMN]);
+                        donation.Total = Convert.ToInt32(result[TOTAL_COLUMN]);
+                        donation.RecordDate = Convert.ToDateTime(result[RECORD_DATE_COLUMN]);
                     }
                 }
                 return donations;
@@ -61,6 +67,11 @@ namespace NovoRumoProjeto.DAL.Donation
         }
 
         public bool Update(DonationEntity entity)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<DonationEntity> Get()
         {
             throw new NotImplementedException();
         }

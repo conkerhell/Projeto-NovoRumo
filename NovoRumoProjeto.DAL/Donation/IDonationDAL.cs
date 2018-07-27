@@ -10,6 +10,6 @@ namespace NovoRumoProjeto.DAL.Donation
     public interface IDonationDAL: IDAL<DonationEntity>
     {
         bool Delete(int id);
-        List<DonationEntity> GetOrders();
+        List<DonationEntity> GetDonations();
     }
 }

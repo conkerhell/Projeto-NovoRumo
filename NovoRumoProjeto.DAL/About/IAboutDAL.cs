@@ -7,5 +7,6 @@ namespace NovoRumoProjeto.DAL.About
     {
         bool Delete(int id);
         List<AboutEntity> GetNewestAbout();
+       
     }
 }
