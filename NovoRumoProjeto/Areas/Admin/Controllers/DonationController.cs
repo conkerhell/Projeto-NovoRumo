@@ -42,7 +42,7 @@ namespace NovoRumoProjeto.Areas.Admin.Controllers
         {
             if (!id.HasValue)
             {
-                return RedirectToAction("Index")
+                return RedirectToAction("Index");
             }
             IDonationDAL donationDAL = new DonationDAL();
             var entity = donationDAL.GetById(id.Value);
