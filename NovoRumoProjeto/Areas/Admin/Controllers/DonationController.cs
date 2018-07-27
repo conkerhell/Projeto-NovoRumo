@@ -38,8 +38,17 @@ namespace NovoRumoProjeto.Areas.Admin.Controllers
         }
 
         // GET: Admin/Donation/Details/5
-        public ActionResult Details(int id)
+        public ActionResult Edit(int? id)
         {
+            if (!id.HasValue)
+            {
+                return RedirectToAction("Index")
+            }
+            IDonationDAL donationDAL = new DonationDAL();
+            var entity = donationDAL.GetById(id.Value);
+
+            var model = new DonationViewModel();
+            model.OrderId = entity.OrderID;
             return View();
         }
 
