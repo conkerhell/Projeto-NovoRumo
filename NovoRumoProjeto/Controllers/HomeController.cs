@@ -57,5 +57,13 @@ namespace NovoRumoProjeto.Controllers
             model.Get();
             return PartialView(model);
         }
+
+        [HttpGet]
+        public PartialViewResult Donation()
+        {
+            var model = new DonationViewModel();
+            var list = model.GetDonations();
+            return PartialView(list);
+        }
     }
 }

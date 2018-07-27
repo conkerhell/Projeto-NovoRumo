@@ -56,10 +56,6 @@ namespace NovoRumoProjeto.DAL.Donation
             throw new NotImplementedException();
         }
 
-        public List<DonationEntity> GetOrders()
-        {
-            throw new NotImplementedException();
-        }
 
         public bool Insert(DonationEntity entity)
         {

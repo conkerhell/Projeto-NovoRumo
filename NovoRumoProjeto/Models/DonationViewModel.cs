@@ -50,7 +50,7 @@ namespace NovoRumoProjeto.Models
             return (Value.Equals(true.ToString())) ? Convert.ToDecimal(SpecificValue) : Convert.ToDecimal(Value);
         }
 
-        public void Get()
+        public List<DonationViewModel> GetDonations()
         {
             IDonationDAL donationDAL = new DonationDAL();
             var model = new List<DonationViewModel>();
@@ -67,7 +67,7 @@ namespace NovoRumoProjeto.Models
                 donation.Total = item.Total;
                 donation.RecordDate = item.RecordDate;
             }
-            
+            return (model);
         }
     }
 }

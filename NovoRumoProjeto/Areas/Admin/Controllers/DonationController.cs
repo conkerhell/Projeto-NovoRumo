@@ -17,7 +17,7 @@ namespace NovoRumoProjeto.Areas.Admin.Controllers
         {
             var model = new List<DonationViewModel>();
             IDonationDAL donationDAL = new DonationDAL();
-            var entity = donationDAL.Get();
+            var entity = donationDAL.GetDonations();
 
             foreach (var item in entity)
             {

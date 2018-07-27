@@ -154,7 +154,7 @@ namespace NovoRumoProjeto.Controllers
         [ActionName("politica-de-privacidade")]
         public ActionResult PoliticaDePrivacidade()
         {
-            var model = new PageViewModel();
+            var model = new PartialView();
             model.GetPolicies();
             return View(model);
         }
@@ -163,7 +163,7 @@ namespace NovoRumoProjeto.Controllers
         [ActionName("termos-de-uso")]
         public ActionResult TermosDeUso()
         {
-            var model = new PageViewModel();
+            var model = new PartialView();
             model.GetTerms();
             return View(model);
         }
