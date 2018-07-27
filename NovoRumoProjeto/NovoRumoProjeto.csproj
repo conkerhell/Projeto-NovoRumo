@@ -246,6 +246,7 @@
     <Compile Include="PaymentCreator\PaymentModels.cs" />
     <Compile Include="PaymentCreator\PaymentStrategy.cs" />
     <Compile Include="PaymentCreator\Types\PagSeguroSinglePayment.cs" />
+    <Compile Include="PaymentCreator\Types\PagSeguroTransactionChecker.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>

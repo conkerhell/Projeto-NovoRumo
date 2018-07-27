@@ -2,8 +2,7 @@
 
 namespace NovoRumoProjeto.PaymentCreator
 {
-    public abstract class PaymentService<TModel> : IPaymentService
-    where TModel : IPaymentModel
+    public abstract class PaymentService<TModel> : IPaymentService where TModel : IPaymentModel
     {
         public virtual bool AppliesTo(Type provider)
         {
