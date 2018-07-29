@@ -45,6 +45,7 @@ namespace NovoRumoProjeto.DAL.Donation
                         donation.PaypalGuid = Convert.ToString(result[PAYPAL_GUID_COLUMN]);
                         donation.Total = Convert.ToInt32(result[TOTAL_COLUMN]);
                         donation.RecordDate = Convert.ToDateTime(result[RECORD_DATE_COLUMN]);
+                        donations.Add(donation);
                     }
                 }
                 return donations;

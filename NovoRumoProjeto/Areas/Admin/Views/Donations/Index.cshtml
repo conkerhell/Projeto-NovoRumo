@@ -7,7 +7,7 @@
         </div>
         <div class="small-6">
             <div class="float-right">
-                
+
             </div>
         </div>
     </div>
@@ -15,12 +15,13 @@
 
 <div class="grid-x cell">
     <table class="unstriped">
+        <caption><p>Lista	de doações cadastradas na Novo Rumo.</p></caption>
         <thead>
             <tr>
                 <th>
                     @Html.DisplayNameFor(model => model.OrderId)
                 </th>
-                <th class="hide-for-small-only">
+                <th>
                     @Html.DisplayNameFor(model => model.TypeId)
                 </th>
                 <th>
@@ -40,17 +41,26 @@
                 </th>
             </tr>
         </thead>
-   
-            @foreach (var item in Model)
-            {
-                <tr>
-                    <td>
-                        @Html.EditButton("Donation", item.OrderId)
-                        @Html.ActionLink("Deletar", "Delete", new { id = item.OrderId })
-                    </td>
-                </tr>
-            }
-        
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td> @item.OrderId</td>
+
+                <td> @item.TypeId</td>
+
+                <td>@item.UserId</td>
+
+                <td>@item.NotificationCode</td>
+
+                <td>@item.PaypalGuid</td>
+
+                <td>@item.Total</td>
+
+                <td>@item.RecordDate</td>
+            </tr>
+        }
+
     </table>
     @Html.RenderFlashMessages()
 </div>
