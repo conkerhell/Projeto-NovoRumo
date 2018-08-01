@@ -238,3 +238,22 @@ SELECT OrderId, StatusId, RecordDate
   FROM [dbo].[OrderStatus] WITH (NOLOCK)
  WHERE OrderId = @OrderId
 END
+
+
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROCEDURE spGetDonations
+AS
+BEGIN
+SELECT OrderId, RecordDate, 
+		TypeId, UserId, 
+		NotificationCode, 
+		PaypalGuid, Total
+  FROM [dbo].[Order] WITH (NOLOCK)
+ WHERE TypeId IN (1, 2, 3)
+END
+
+
