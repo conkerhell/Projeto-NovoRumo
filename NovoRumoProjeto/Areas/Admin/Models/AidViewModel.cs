@@ -1,4 +1,5 @@
-﻿using NovoRumoProjeto.Utilities;
+﻿using NovoRumoProjeto.DAL.Donation;
+using NovoRumoProjeto.Utilities;
 using NovoRumoProjeto.Utilities.Validation;
 using Resources;
 using System;
@@ -33,6 +34,18 @@ namespace NovoRumoProjeto.Areas.Admin.Models
         [Display(Name = "Data de gravação")]
         public DateTime? RecordDate { get; set; }
 
+        public AidViewModel Detail()
+        {
+            IDonationDAL donationDAL = new DonationDAL();
+            var entity = donationDAL.GetById(UserId);
 
+            //UserId = entity.UserId //TODO: Deve retornar o nome e outros dados do cliente
+            NotificationCode = entity.NotificationCode;
+            PaypalGuid = entity.PaypalGuid;
+            Total = entity.Total;
+            RecordDate = entity.RecordDate;
+
+            return this;
+        }
     }
 }
