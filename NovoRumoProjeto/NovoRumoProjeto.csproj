@@ -209,7 +209,7 @@
     <Compile Include="Areas\Admin\Controllers\ContactController.cs" />
     <Compile Include="Areas\Admin\Controllers\DailyController.cs" />
     <Compile Include="Areas\Admin\Controllers\DashboardController.cs" />
-    <Compile Include="Areas\Admin\Controllers\DonationController.cs" />
+    <Compile Include="Areas\Admin\Controllers\AidController.cs" />
     <Compile Include="Areas\Admin\Controllers\EventsController.cs" />
     <Compile Include="Areas\Admin\Controllers\PolicyController.cs" />
     <Compile Include="Areas\Admin\Controllers\ProductsController.cs" />
@@ -730,7 +730,7 @@
     <Content Include="Areas\Admin\Views\Policy\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\Terms\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Terms\Edit.cshtml" />
-    <Content Include="Areas\Admin\Views\Donations\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Aid\Index.cshtml" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <Content Include="Views\Home\NoNextEvent.cshtml" />
     <Content Include="Views\Donation\ForgotPassword.cshtml" />

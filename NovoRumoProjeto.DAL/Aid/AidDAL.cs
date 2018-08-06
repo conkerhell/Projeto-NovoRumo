@@ -21,33 +21,33 @@ namespace NovoRumoProjeto.DAL.Donation
         private const string TOTAL_COLUMN = "Total";
         private const string RECORD_DATE_COLUMN = "RecordDate";
 
-        public DonationEntity GetById(int id)
+        public AidEntity GetById(int id)
         {
             throw new NotImplementedException();
         }
 
 
-        public bool Insert(DonationEntity entity)
+        public bool Insert(AidEntity entity)
         {
             throw new NotImplementedException();
         }
 
-        public bool Update(DonationEntity entity)
+        public bool Update(AidEntity entity)
         {
             throw new NotImplementedException();
         }
 
-        public List<DonationEntity> Get()
+        public List<AidEntity> Get()
         {
             using (var result = dataAccess.ExecuteReader(GET_ORDER_PROC))
             {
-                var donations = new List<DonationEntity>();
+                var donations = new List<AidEntity>();
                 if (result.HasRows)
                 {
-                    DonationEntity donation;
+                    AidEntity donation;
                     while (result.Read())
                     {
-                        donation = new DonationEntity();
+                        donation = new AidEntity();
                         donation.OrderID = Convert.ToInt32(result[ORDER_ID_COLUMN]);
                         donation.TypeId = Convert.ToInt32(result[TYPE_ID_COLUMN]);
                         donation.UserId = Convert.ToInt32(result[USER_ID_COLUMN]);

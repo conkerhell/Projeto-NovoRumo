@@ -54,7 +54,7 @@ namespace NovoRumoProjeto.Models
         {
             IDonationDAL donationDAL = new DonationDAL();
             var model = new List<DonationViewModel>();
-            var entity = donationDAL.GetDonations();
+            var entity = donationDAL.Get();
 
             foreach (var item in entity)
             {

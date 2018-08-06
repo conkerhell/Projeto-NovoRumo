@@ -46,7 +46,7 @@
     <Compile Include="TermsEntity.cs" />
     <Compile Include="UserEntity.cs" />
     <Compile Include="DailyEntity.cs" />
-    <Compile Include="DonationEntity.cs" />
+    <Compile Include="AidEntity.cs" />
     <Compile Include="EventEntity.cs" />
     <Compile Include="OrderEntity.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

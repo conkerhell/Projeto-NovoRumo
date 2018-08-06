@@ -3,7 +3,7 @@ using System;
 
 namespace NovoRumoProjeto.Entity
 {
-    public class DonationEntity
+    public class AidEntity
     {
         public int OrderID { get; set; }
         public byte Status { get; set; }

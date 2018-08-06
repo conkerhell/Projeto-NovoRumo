@@ -10,7 +10,7 @@ using NovoRumoProjeto.DAL.Donation;
 namespace NovoRumoProjeto.Areas.Admin.Controllers
 {
     [Authorize(Roles = Consts.ADMIN_ROLE)]
-    public class DonationController : Controller
+    public class AidController : Controller
     {
         [HttpGet]
         public ActionResult Index()

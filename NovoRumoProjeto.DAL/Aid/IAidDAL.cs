@@ -7,5 +7,5 @@ using NovoRumoProjeto.Entity;
 
 namespace NovoRumoProjeto.DAL.Donation
 {
-    public interface IDonationDAL: IDAL<DonationEntity> { }
+    public interface IDonationDAL: IDAL<AidEntity> { }
 }
