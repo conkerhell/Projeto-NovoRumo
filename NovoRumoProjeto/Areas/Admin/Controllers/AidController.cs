@@ -27,24 +27,9 @@ namespace NovoRumoProjeto.Areas.Admin.Controllers
                     PaypalGuid = item.PaypalGuid,
                     Total = item.Total,
                     RecordDate = item.RecordDate
-
-
                 });
             }
             return View(model);
-        }
-
-        [HttpGet]
-        public ActionResult Edit(int? id)
-        {
-            if (!id.HasValue)
-            {
-                return RedirectToAction("Index");
-            }
-
-            var model = new AidViewModel();
-            model.OrderId = id.Value;
-            return View(model.Detail());
         }
 
         [HttpGet]

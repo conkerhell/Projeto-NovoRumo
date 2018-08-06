@@ -14,24 +14,14 @@
 </div>
 
 <div class="grid-x cell">
-    <table class="unstriped">
-        <caption><p>Lista de doações cadastradas na Novo Rumo.</p></caption>
+    <table>
         <thead>
             <tr>
                 <th>
                     @Html.DisplayNameFor(model => model.OrderId)
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.TypeId)
-                </th>
-                <th>
                     @Html.DisplayNameFor(model => model.UserId)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.NotificationCode)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.PaypalGuid)
                 </th>
                 <th>
                     @Html.DisplayNameFor(model => model.Total)
@@ -46,18 +36,10 @@
         {
             <tr>
                 <td> @item.OrderId</td>
-
-                <td> @item.TypeId</td>
-
-                <td>@item.UserId</td>
-
-                <td>@item.NotificationCode</td>
-
-                <td>@item.PaypalGuid</td>
-
+                <td>TODO: Exibir email e nome do usuario</td>
                 <td>@item.Total</td>
-
                 <td>@item.RecordDate</td>
+                <td>@Html.ActionLink("Detalhar", "Detail")</td>
             </tr>
         }
 

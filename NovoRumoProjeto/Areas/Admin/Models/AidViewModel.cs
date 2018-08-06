@@ -34,6 +34,8 @@ namespace NovoRumoProjeto.Areas.Admin.Models
         [Display(Name = "Data de gravação")]
         public DateTime? RecordDate { get; set; }
 
+        public string Status { get; set; }
+
         public AidViewModel Detail()
         {
             IDonationDAL donationDAL = new DonationDAL();
