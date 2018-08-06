@@ -15,13 +15,13 @@ namespace NovoRumoProjeto.Areas.Admin.Controllers
         [HttpGet]
         public ActionResult Index()
         {
-            var model = new List<DonationViewModel>();
+            var model = new List<AidViewModel>();
             IDonationDAL donationDAL = new DonationDAL();
             var entity = donationDAL.Get();
 
             foreach (var item in entity)
             {
-                model.Add(new DonationViewModel()
+                model.Add(new AidViewModel()
                 {
                     OrderId = item.OrderID,
                     TypeId = item.TypeId,
@@ -47,7 +47,7 @@ namespace NovoRumoProjeto.Areas.Admin.Controllers
             IDonationDAL donationDAL = new DonationDAL();
             var entity = donationDAL.GetById(id.Value);
 
-            var model = new DonationViewModel();
+            var model = new AidViewModel();
             model.OrderId = entity.OrderID;
             return View();
         }
