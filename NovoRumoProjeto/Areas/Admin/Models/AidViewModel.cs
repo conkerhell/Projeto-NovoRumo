@@ -1,13 +1,6 @@
-﻿using NovoRumoProjeto.DAL.Donation;
-using NovoRumoProjeto.Utilities;
-using NovoRumoProjeto.Utilities.Validation;
-using Resources;
+﻿using NovoRumoProjeto.DAL.Order;
 using System;
 using System.ComponentModel.DataAnnotations;
-using System.Configuration;
-using System.IO;
-using System.Web;
-using System.Web.Mvc;
 
 namespace NovoRumoProjeto.Areas.Admin.Models
 {
@@ -38,7 +31,7 @@ namespace NovoRumoProjeto.Areas.Admin.Models
 
         public AidViewModel Detail()
         {
-            IDonationDAL donationDAL = new DonationDAL();
+            IOrderDAL donationDAL = new OrderDAL();
             var entity = donationDAL.GetById(UserId);
 
             //UserId = entity.UserId //TODO: Deve retornar o nome e outros dados do cliente

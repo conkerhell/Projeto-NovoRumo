@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Web.Mvc;
 using NovoRumoProjeto.Areas.Admin.Models;
-using NovoRumoProjeto.DAL.Donation;
+using NovoRumoProjeto.DAL.Order;
 
 namespace NovoRumoProjeto.Areas.Admin.Controllers
 {
@@ -13,16 +13,14 @@ namespace NovoRumoProjeto.Areas.Admin.Controllers
         public ActionResult Index()
         {
             var model = new List<AidViewModel>();
-            IDonationDAL donationDAL = new DonationDAL();
-            var entity = donationDAL.Get();
+            IOrderDAL orderDAL = new OrderDAL();
+            var entity = orderDAL.Get();
 
             foreach (var item in entity)
             {
                 model.Add(new AidViewModel()
                 {
-                    OrderId = item.OrderID,
-                    TypeId = item.TypeId,
-                    UserId = item.UserId,
+                    OrderId = item.OrderId,
                     NotificationCode = item.NotificationCode,
                     PaypalGuid = item.PaypalGuid,
                     Total = item.Total,

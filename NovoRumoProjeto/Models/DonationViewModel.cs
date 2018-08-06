@@ -1,10 +1,7 @@
-﻿using NovoRumoProjeto.Utilities.Domains;
-using NovoRumoProjeto.Utilities.Validation;
+﻿using NovoRumoProjeto.Utilities.Validation;
 using Resources;
 using System;
 using System.ComponentModel.DataAnnotations;
-
-using NovoRumoProjeto.DAL.Donation;
 using System.Collections.Generic;
 
 namespace NovoRumoProjeto.Models
@@ -48,26 +45,6 @@ namespace NovoRumoProjeto.Models
         public decimal GetTotal()
         {
             return (Value.Equals(true.ToString())) ? Convert.ToDecimal(SpecificValue) : Convert.ToDecimal(Value);
-        }
-
-        public List<DonationViewModel> GetDonations()
-        {
-            IDonationDAL donationDAL = new DonationDAL();
-            var model = new List<DonationViewModel>();
-            var entity = donationDAL.Get();
-
-            foreach (var item in entity)
-            {
-                var donation = new DonationViewModel();
-                donation.OrderId = item.OrderID;
-                donation.TypeId = item.TypeId;
-                donation.UserId = item.UserId;
-                donation.NotificationCode = item.NotificationCode;
-                donation.PaypalGuid = item.PaypalGuid;
-                donation.Total = item.Total;
-                donation.RecordDate = item.RecordDate;
-            }
-            return (model);
         }
     }
 }

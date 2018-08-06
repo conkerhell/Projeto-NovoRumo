@@ -48,8 +48,6 @@
     <Compile Include="Daily\DailyDAL.cs" />
     <Compile Include="Daily\IDailyDAL.cs" />
     <Compile Include="DAL.cs" />
-    <Compile Include="Aid\AidDAL.cs" />
-    <Compile Include="Aid\IAidDAL.cs" />
     <Compile Include="Event\EventDAL.cs" />
     <Compile Include="Event\IEventDAL.cs" />
     <Compile Include="IDAL.cs" />

@@ -26,8 +26,7 @@ namespace NovoRumoProjeto.Controllers
         [HttpGet]
         public PartialViewResult Donate()
         {
-            var model = new LoginViewModel();
-            return PartialView(model);
+            return PartialView();
         }
 
         [HttpGet]
@@ -56,14 +55,6 @@ namespace NovoRumoProjeto.Controllers
             var model = new ContactViewModel();
             model.Get();
             return PartialView(model);
-        }
-
-        [HttpGet]
-        public PartialViewResult Donation()
-        {
-            var model = new DonationViewModel();
-            var list = model.GetDonations();
-            return PartialView(list);
         }
     }
 }
