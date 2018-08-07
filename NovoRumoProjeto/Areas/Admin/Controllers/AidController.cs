@@ -14,7 +14,7 @@ namespace NovoRumoProjeto.Areas.Admin.Controllers
         {
             var model = new List<AidViewModel>();
             IOrderDAL orderDAL = new OrderDAL();
-            var entity = orderDAL.Get();
+            var entity = orderDAL.GetDonations();
 
             foreach (var item in entity)
             {

@@ -1,4 +1,5 @@
 ﻿using NovoRumoProjeto.Entity;
+using System.Collections.Generic;
 
 namespace NovoRumoProjeto.DAL.Order
 {
@@ -6,5 +7,6 @@ namespace NovoRumoProjeto.DAL.Order
     {
         int? InsertOrder(OrderEntity entity);
         bool InsertStatus(OrderStatusEntity entity);
+        List<OrderEntity> GetDonations();
     }
 }

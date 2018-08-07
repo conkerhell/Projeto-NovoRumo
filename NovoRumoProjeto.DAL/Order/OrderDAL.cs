@@ -57,6 +57,11 @@ namespace NovoRumoProjeto.DAL.Order
             }
         }
 
+        public List<OrderEntity> GetDonations()
+        {
+            throw new NotImplementedException();
+        }
+
         public bool Insert(OrderEntity entity)
         {
             throw new NotImplementedException();
