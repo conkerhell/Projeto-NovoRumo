@@ -28,6 +28,7 @@ namespace NovoRumoProjeto.DAL.Order
         private const string PROC_INSERT_ORDER = "spInsertOrder";
         private const string PROC_INSERT_ORDER_STATUS = "spInsertOrderStatus";
         private const string PROC_UPDATE_ORDER = "spUpdateOrder";
+        private const string PROC_GET_DONATIONS = "spGetDonations";
 
         public List<OrderEntity> Get()
         {
@@ -59,7 +60,27 @@ namespace NovoRumoProjeto.DAL.Order
 
         public List<OrderEntity> GetDonations()
         {
-            throw new NotImplementedException();
+            using (var result = dataAccess.ExecuteReader(PROC_GET_DONATIONS))
+            {
+                var orders = new List<OrderEntity>();
+
+                if (result.HasRows)
+                {
+                    OrderEntity order;
+                    while (result.Read())
+                    {
+                        order = new OrderEntity();
+                        order.OrderId = Convert.ToInt32(result[COLUMN_ORDER_ID]);
+                        order.RecordDate = Convert.ToDateTime(result[COLUMN_RECORD_DATE]);
+                        order.Total = Convert.ToDecimal(result[COLUMN_TOTAL]);
+                        order.PaypalGuid = result[COLUMN_PAYPAL_GUID].ToString();
+                        order.NotificationCode = result[COLUMN_NOTIFICATION_CODE].ToString();
+                        orders.Add(order);
+                    }
+                }
+
+                return orders;
+            }
         }
 
         public bool Insert(OrderEntity entity)
