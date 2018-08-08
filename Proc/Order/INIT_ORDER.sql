@@ -140,8 +140,11 @@ CREATE PROCEDURE spGetOrderById(
 )
 AS
 BEGIN
-SELECT OrderId, Typeid, UserId, NotificationCode, PaypalGuid, RecordDate, Total 
-  FROM [dbo].[Order] WITH (NOLOCK)
+SELECT OrderId, RecordDate, TypeId, NotificationCode, PaypalGuid, Total,
+	   U.UserId, U.Name, U.Lastname, A.Email
+  FROM [dbo].[Order] O WITH (NOLOCK)
+  INNER JOIN [dbo].[User] U ON U.UserId = O.UserId
+  INNER JOIN [dbo].[AspNetUsers] A ON A.Id = O.UserId
  WHERE OrderId = @OrderId
 END
 	
@@ -251,7 +254,6 @@ BEGIN
 SELECT OrderId, RecordDate, TypeId, NotificationCode, PaypalGuid, Total,
 	   U.UserId, U.Name, U.Lastname, A.Email
   FROM [dbo].[Order] O WITH (NOLOCK)
-  INNER JOIN [dbo].[User] U ON U.UserId = O.UserId
   INNER JOIN [dbo].[AspNetUsers] A ON A.Id = O.UserId
  WHERE TypeId IN (1, 2, 3)
 END

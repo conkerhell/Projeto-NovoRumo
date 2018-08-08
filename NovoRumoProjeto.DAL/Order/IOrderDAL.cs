@@ -8,5 +8,6 @@ namespace NovoRumoProjeto.DAL.Order
         int? InsertOrder(OrderEntity entity);
         bool InsertStatus(OrderStatusEntity entity);
         List<OrderEntity> GetDonations();
+        List<OrderStatusEntity> GetOrderStatusById(int id);
     }
 }

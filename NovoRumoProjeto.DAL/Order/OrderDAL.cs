@@ -54,9 +54,12 @@ namespace NovoRumoProjeto.DAL.Order
                         order.Total = Convert.ToDecimal(result[COLUMN_TOTAL]);
                         order.PaypalGuid = result[COLUMN_PAYPAL_GUID].ToString();
                         order.NotificationCode = result[COLUMN_NOTIFICATION_CODE].ToString();
+
+                        order.User.Name = result[COLUMN_NAME].ToString();
+                        order.User.Lastname = result[COLUMN_LASTNAME].ToString();
+                        order.User.Email = result[COLUMN_EMAIL].ToString();
                     }
                 }
-
                 return order;
             }
         }
@@ -79,7 +82,6 @@ namespace NovoRumoProjeto.DAL.Order
                         order.PaypalGuid = result[COLUMN_PAYPAL_GUID].ToString();
                         order.NotificationCode = result[COLUMN_NOTIFICATION_CODE].ToString();
 
-                        order.User = new UserEntity();
                         order.User.Name = result[COLUMN_NAME].ToString();
                         order.User.Lastname = result[COLUMN_LASTNAME].ToString();
                         order.User.Email = result[COLUMN_EMAIL].ToString();
@@ -124,6 +126,30 @@ namespace NovoRumoProjeto.DAL.Order
                 dataAccess.ParameterFactory.Create(COLUMN_ORDER_ID, DbType.Int32, entity.OrderId, ParameterDirection.Input),
                 dataAccess.ParameterFactory.Create(COLUMN_PAYPAL_GUID, DbType.String, entity.PaypalGuid, ParameterDirection.Input),
                 dataAccess.ParameterFactory.Create(COLUMN_NOTIFICATION_CODE, DbType.String, entity.NotificationCode, ParameterDirection.Input)) == 1;
+        }
+
+        public List<OrderStatusEntity> GetOrderStatusById(int id)
+        {
+            using (var result = dataAccess.ExecuteReader(PROC_GET_ORDER_STATUS_BY_ID,
+                dataAccess.ParameterFactory.Create(COLUMN_ORDER_ID, DbType.Int32, id, ParameterDirection.Input)))
+            {
+                var statusList = new List<OrderStatusEntity>();
+
+                if (result.HasRows)
+                {
+                    OrderStatusEntity status;
+                    while (result.Read())
+                    {
+                        status = new OrderStatusEntity();
+                        status.OrderId = Convert.ToInt32(result[COLUMN_ORDER_ID]);
+                        status.Status = Convert.ToInt32(result[COLUMN_STATUS_ID]);
+                        status.RecordDate = Convert.ToDateTime(result[COLUMN_RECORD_DATE]);
+
+                        statusList.Add(status);
+                    }
+                }
+                return statusList;
+            }
         }
     }
 }
