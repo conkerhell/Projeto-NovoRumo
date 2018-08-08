@@ -15,6 +15,9 @@ namespace NovoRumoProjeto.DAL.Order
         private const string COLUMN_PAYPAL_GUID = "PaypalGuid";
         private const string COLUMN_TOTAL = "Total";
         private const string COLUMN_RECORD_DATE = "RecordDate";
+        private const string COLUMN_NAME = "Name";
+        private const string COLUMN_LASTNAME = "Lastname";
+        private const string COLUMN_EMAIL = "Email";
 
         //OrderStatus
         private const string COLUMN_STATUS_ID = "StatusId";
@@ -75,6 +78,12 @@ namespace NovoRumoProjeto.DAL.Order
                         order.Total = Convert.ToDecimal(result[COLUMN_TOTAL]);
                         order.PaypalGuid = result[COLUMN_PAYPAL_GUID].ToString();
                         order.NotificationCode = result[COLUMN_NOTIFICATION_CODE].ToString();
+
+                        order.User = new UserEntity();
+                        order.User.Name = result[COLUMN_NAME].ToString();
+                        order.User.Lastname = result[COLUMN_LASTNAME].ToString();
+                        order.User.Email = result[COLUMN_EMAIL].ToString();
+
                         orders.Add(order);
                     }
                 }
@@ -96,7 +105,7 @@ namespace NovoRumoProjeto.DAL.Order
             dataAccess.ParameterFactory.Create(COLUMN_NOTIFICATION_CODE, DbType.String, entity.NotificationCode, ParameterDirection.Input),
             dataAccess.ParameterFactory.Create(COLUMN_PAYPAL_GUID, DbType.String, entity.PaypalGuid, ParameterDirection.Input),
             dataAccess.ParameterFactory.Create(COLUMN_TOTAL, DbType.Decimal, entity.Total, ParameterDirection.Input),
-            dataAccess.ParameterFactory.Create(COLUMN_RECORD_DATE, DbType.Date, entity.RecordDate, ParameterDirection.Input));
+            dataAccess.ParameterFactory.Create(COLUMN_RECORD_DATE, DbType.DateTime, entity.RecordDate, ParameterDirection.Input));
 
             return Convert.ToInt32(orderId);
         }

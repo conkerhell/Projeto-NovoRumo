@@ -731,6 +731,7 @@
     <Content Include="Areas\Admin\Views\Terms\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Terms\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\Aid\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Aid\Details.cshtml" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <Content Include="Views\Home\NoNextEvent.cshtml" />
     <Content Include="Views\Donation\ForgotPassword.cshtml" />

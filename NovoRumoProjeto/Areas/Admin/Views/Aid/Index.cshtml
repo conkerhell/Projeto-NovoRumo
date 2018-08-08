@@ -21,24 +21,25 @@
                     @Html.DisplayNameFor(model => model.OrderId)
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.UserId)
+                    @Html.DisplayNameFor(model => model.User.Name)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.User.Email)
                 </th>
                 <th>
                     @Html.DisplayNameFor(model => model.Total)
                 </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.RecordDate)
-                </th>
+                <th></th>
             </tr>
         </thead>
 
         @foreach (var item in Model)
         {
             <tr>
-                <td> @item.OrderId</td>
-                <td>TODO: Exibir email e nome do usuario</td>
+                <td>@item.OrderId</td>
+                <td>@item.User.Name @item.User.Lastname</td>
+                <td>@item.User.Email</td>
                 <td>@item.Total</td>
-                <td>@item.RecordDate</td>
                 <td>@Html.ActionLink("Detalhar", "Detail")</td>
             </tr>
         }

@@ -158,7 +158,7 @@ CREATE PROCEDURE spInsertOrder(
 	@NotificationCode AS VARCHAR(50),
 	@PaypalGuid AS VARCHAR(50),
 	@Total AS DECIMAL(18, 2),
-	@RecordDate AS DATE
+	@RecordDate AS DATETIME
 )
 AS
 BEGIN
@@ -209,7 +209,7 @@ GO
 CREATE PROCEDURE spInsertOrderStatus(
 	@OrderId AS INT,
 	@StatusId AS INT ,
-	@RecordDate AS DATE
+	@RecordDate AS DATETIME
 )
 AS
 BEGIN
@@ -248,11 +248,11 @@ GO
 CREATE PROCEDURE spGetDonations
 AS
 BEGIN
-SELECT OrderId, RecordDate, 
-		TypeId, UserId, 
-		NotificationCode, 
-		PaypalGuid, Total
-  FROM [dbo].[Order] WITH (NOLOCK)
+SELECT OrderId, RecordDate, TypeId, NotificationCode, PaypalGuid, Total,
+	   U.UserId, U.Name, U.Lastname, A.Email
+  FROM [dbo].[Order] O WITH (NOLOCK)
+  INNER JOIN [dbo].[User] U ON U.UserId = O.UserId
+  INNER JOIN [dbo].[AspNetUsers] A ON A.Id = O.UserId
  WHERE TypeId IN (1, 2, 3)
 END
 

@@ -9,11 +9,9 @@ namespace NovoRumoProjeto.Areas.Admin.Models
         [Display(Name =  "OrdemID")]
         public int OrderId { get; set; }
 
-        [Display(Name ="Tipo")]
         public int TypeId { get; set; }
 
-        [Display(Name = "UsuarioID")]
-        public int UserId { get; set; }
+        public UserViewModel User { get; set; }
 
         [Display(Name = "Codigo de Notificação")]
         public string NotificationCode { get; set; }
@@ -24,7 +22,6 @@ namespace NovoRumoProjeto.Areas.Admin.Models
         [Display(Name = "Total")]
         public decimal Total { get; set; }
 
-        [Display(Name = "Data de gravação")]
         public DateTime? RecordDate { get; set; }
 
         public string Status { get; set; }
@@ -32,9 +29,8 @@ namespace NovoRumoProjeto.Areas.Admin.Models
         public AidViewModel Detail()
         {
             IOrderDAL donationDAL = new OrderDAL();
-            var entity = donationDAL.GetById(UserId);
+            var entity = donationDAL.GetById(OrderId);
 
-            //UserId = entity.UserId //TODO: Deve retornar o nome e outros dados do cliente
             NotificationCode = entity.NotificationCode;
             PaypalGuid = entity.PaypalGuid;
             Total = entity.Total;
@@ -42,5 +38,12 @@ namespace NovoRumoProjeto.Areas.Admin.Models
 
             return this;
         }
+    }
+
+    public class UserViewModel
+    {
+        public string Name { get; set; }
+        public string Lastname { get; set; }
+        public string Email { get; set; }
     }
 }
