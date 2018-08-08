@@ -24,7 +24,13 @@ namespace NovoRumoProjeto.Areas.Admin.Controllers
                     NotificationCode = item.NotificationCode,
                     PaypalGuid = item.PaypalGuid,
                     Total = item.Total,
-                    RecordDate = item.RecordDate
+                    RecordDate = item.RecordDate,
+                    User = new UserViewModel
+                    {
+                        Name = item.User.Name,
+                        Lastname = item.User.Lastname,
+                        Email = item.User.Email,
+                    }
                 });
             }
             return View(model);
