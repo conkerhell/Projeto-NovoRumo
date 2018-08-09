@@ -1,4 +1,6 @@
-﻿using NovoRumoProjeto.Utilities;
+﻿using NovoRumoProjeto.DAL.Order;
+using NovoRumoProjeto.Entity;
+using NovoRumoProjeto.Utilities;
 using NovoRumoProjeto.Utilities.Domains;
 using System;
 using System.Configuration;
@@ -13,6 +15,13 @@ namespace NovoRumoProjeto.PaymentCreator.Types
     public class PagSeguroTransactionChecker
     {
         private RequestContext requestContext;
+        private readonly IOrderDAL orderDAL;
+
+        public PagSeguroTransactionChecker()
+        {
+            orderDAL = new OrderDAL();
+        }
+
         private bool isSandbox
         {
             get { return Convert.ToBoolean(ConfigurationManager.AppSettings[Consts.IS_SANDBOX]); }
@@ -36,34 +45,30 @@ namespace NovoRumoProjeto.PaymentCreator.Types
                     return false;
                 }
 
-                //var order = GetOrderById(Convert.ToInt32(transaction.Reference));
-                //var orderStatus = GetCurrentStatus(order.OrderId);
+                var order = orderDAL.GetById(Convert.ToInt32(transaction.Reference));
 
                 if (transaction.TransactionStatus == (int)Enums.PaymentStatus.Disponivel)
                 {
                     return true;
                 }
 
-                //order.NotificationCode = transaction.Code;
-                //order.CurrentStatus = string.IsNullOrWhiteSpace(transaction.TransactionStatus.ToString()) ?
-                //    (int)Enums.PaymentStatus.AguardandoPagamento :
-                //    transaction.TransactionStatus;
+                order.NotificationCode = transaction.Code;
 
-                //bool isOrderUpdated = UpdateOrderStatus(new OrderStatusEntity()
-                //{
-                //    OrderId = order.OrderId,
-                //    RecordDate = DateTime.Now,
-                //    Status = order.CurrentStatus
-                //});
-                //isOrderUpdated = isOrderUpdated && UpdateOrder(order);
+                bool isOrderUpdated = orderDAL.InsertStatus(new OrderStatusEntity
+                {
+                    OrderId = order.OrderId,
+                    RecordDate = DateTime.Now,
+                    Status = transaction.TransactionStatus
+            });
+                isOrderUpdated = isOrderUpdated && orderDAL.Update(order);
 
                 //if (isOrderUpdated &&
                 //    order.CurrentStatus == ((int)Enums.PaymentStatus.Disponivel) ||
                 //    order.CurrentStatus == ((int)Enums.PaymentStatus.Pago))
-                //{ 
-                //    //order.User = GetUserById(order.UserId);
-                //    //SendPurchaseEmail(order);
-                //    //SendAdminPurchaseEmail(order);
+                //{
+                //    //order.user = getuserbyid(order.userid);
+                //    //sendpurchaseemail(order);
+                //    //sendadminpurchaseemail(order);
                 //}
 
                 return true;
