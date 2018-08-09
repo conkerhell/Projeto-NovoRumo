@@ -192,7 +192,8 @@ namespace NovoRumoProjeto.Controllers
             {
                 UserID = userEntity.UserID,
                 Name = userEntity.Name,
-                Lastname = userEntity.Lastname.FormatLastName()
+                Lastname = userEntity.Lastname.FormatLastName(),
+                Email = User.Identity.GetUserName()
             };
 
             var paymentStrategy = new PaymentStrategy(

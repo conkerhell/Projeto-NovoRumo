@@ -17,11 +17,6 @@ namespace NovoRumoProjeto.PaymentCreator.Types
         private RequestContext requestContext;
         private readonly IOrderDAL orderDAL;
 
-        public PagSeguroTransactionChecker()
-        {
-            orderDAL = new OrderDAL();
-        }
-
         private bool isSandbox
         {
             get { return Convert.ToBoolean(ConfigurationManager.AppSettings[Consts.IS_SANDBOX]); }
@@ -30,6 +25,7 @@ namespace NovoRumoProjeto.PaymentCreator.Types
         public PagSeguroTransactionChecker(RequestContext requestContext)
         {
             this.requestContext = requestContext;
+            orderDAL = new OrderDAL();
         }
 
         public bool CheckTransaction(string code, string id)
