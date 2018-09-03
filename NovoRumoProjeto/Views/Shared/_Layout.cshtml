@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Associação Novo Rumo Atibaia</title>
     <link href="~/Content/app.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="/css/flickity.min.css">
     <link href="https://fonts.googleapis.com/css?family=Raleway:400,900" rel="stylesheet" async>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/motion-ui/1.1.1/motion-ui.min.css" async/>
 </head>
@@ -17,6 +18,7 @@
     <script type="text/javascript" src="/Scripts/foundation.min.js"></script>
     <script type="text/javascript" src="/Scripts/skrollr.min.js"></script>
     <script type="text/javascript" src="/Scripts/skrollr.stylesheets.min.js"></script>
+    <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js" async></script>
     <script>
         $(document).foundation();
 
@@ -33,13 +35,24 @@
             }
         });
 
-        var prev = 0;
         var $window = $(window);
         var nav = $('.scrollhide-nav');
+        var indicadorAberturaMenu = false;
         $window.on('scroll', function () {
             var scrollTop = $window.scrollTop();
-            nav.toggleClass('hidden', scrollTop > prev);
-            prev = scrollTop;
+            nav.toggleClass('hidden', (scrollTop > 0 && !indicadorAberturaMenu));
+        });
+
+        $('#nav-icon4').click(function () {
+            $(this).toggleClass('open');
+            $('body').toggleClass('nav-animation');
+            setTimeout(() => {
+                $('body').toggleClass('nav-expanded');
+                setTimeout(() => {
+                    $('body').toggleClass('nav-animation');
+                }, 200);
+            }, 200);
+            indicadorAberturaMenu = !indicadorAberturaMenu;
         });
 
         function initSkroll() {

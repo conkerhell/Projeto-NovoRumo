@@ -9,27 +9,13 @@
         </div>
 
         <div class="small-12 medium-8 grid-container">
-            <div class="orbit" role="region" aria-label="Fotos do Novo Rumo" data-orbit>
-                <div class="orbit-wrapper">
-                    <div class="orbit-controls">
-                        <button class="orbit-previous">
-                            <span class="show-for-sr">Voltar</span>&#9664;&#xFE0E;
-                        </button>
-                        <button class="orbit-next">
-                            <span class="show-for-sr">Próximo</span>&#9654;&#xFE0E;
-                        </button>
+            <div class="main-carousel" role="region" aria-label="Fotos do Novo Rumo" data-flickity='{ }'>
+                @foreach (var item in Model)
+                {
+                    <div class="carousel-cell">
+                        <img class="orbit-image" src="@Url.Content(item.displayFileName)" alt="@item.displayFileName">
                     </div>
-                    <ul class="orbit-container">
-                        @foreach (var item in Model)
-                        {
-                            <li class="is-active orbit-slide">
-                                <figure class="orbit-figure">
-                                    <img class="orbit-image" src="@Url.Content(item.displayFileName)" alt="@item.displayFileName">
-                                </figure>
-                            </li>
-                        }
-                    </ul>
-                </div>
+                }
             </div>
         </div>
     </div>
