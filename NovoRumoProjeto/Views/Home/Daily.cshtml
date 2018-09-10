@@ -1,22 +1,19 @@
 ﻿@model IList<NovoRumoProjeto.Models.DailyViewModel>
 
-<div class="pink-content" id="dia-a-dia">
-    <div class="grid-container grid-x">
-        <div class="cell text-center">
-            <div class="small-12 cell">
-                <h3>Dia-a-dia</h3>
-            </div>
-        </div>
-
-        <div class="small-12 medium-8 grid-container">
-            <div class="main-carousel" role="region" aria-label="Fotos do Novo Rumo" data-flickity='{ }'>
-                @foreach (var item in Model)
-                {
-                    <div class="carousel-cell">
-                        <img class="orbit-image" src="@Url.Content(item.displayFileName)" alt="@item.displayFileName">
-                    </div>
-                }
-            </div>
-        </div>
-    </div>
+<div class="grey-content no-bottom-padding" id="dia-a-dia">
+   <div class="cell text-center">
+       <h3>Dia-a-dia</h3>
+   </div>
+   <div class="grid-x">
+       <div class="small-12 medium-8 large-offset-2">
+           <div class="main-carousel" role="region" aria-label="Fotos do Novo Rumo" data-flickity='{ }'>
+               @foreach (var item in Model)
+               {
+                   <div class="carousel-cell">
+                       <img class="orbit-image" src="@Url.Content(item.displayFileName)" alt="@item.displayFileName">
+                   </div>
+               }
+           </div>
+       </div>
+   </div>
 </div>
