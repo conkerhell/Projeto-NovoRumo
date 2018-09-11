@@ -84,7 +84,7 @@ namespace NovoRumoProjeto.DAL.Order
 
                         order.User.Name = result[COLUMN_NAME].ToString();
                         order.User.Lastname = result[COLUMN_LASTNAME].ToString();
-                        order.User.Email = result[COLUMN_EMAIL].ToString();
+                        //order.User.Email = result[COLUMN_EMAIL].ToString();
 
                         orders.Add(order);
                     }

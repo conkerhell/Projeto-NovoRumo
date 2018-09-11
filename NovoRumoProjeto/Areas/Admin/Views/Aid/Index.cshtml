@@ -7,7 +7,7 @@
         </div>
         <div class="small-6">
             <div class="float-right">
-
+                @Html.EditButton("Aid",1)
             </div>
         </div>
     </div>
@@ -17,9 +17,6 @@
     <table>
         <thead>
             <tr>
-                <th>
-                    @Html.DisplayNameFor(model => model.OrderId)
-                </th>
                 <th>
                     @Html.DisplayNameFor(model => model.User.Name)
                 </th>
@@ -36,7 +33,6 @@
         @foreach (var item in Model)
         {
             <tr>
-                <td>@item.OrderId</td>
                 <td>@item.User.Name @item.User.Lastname</td>
                 <td>@item.User.Email</td>
                 <td>@item.Total</td>
