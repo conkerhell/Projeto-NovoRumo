@@ -7,6 +7,7 @@ using Vereyon.Web;
 using Resources;
 using System.Collections.Generic;
 using System.Web.Mvc;
+using System;
 
 namespace NovoRumoProjeto.Areas.Admin.Controllers
 {
@@ -46,6 +47,8 @@ namespace NovoRumoProjeto.Areas.Admin.Controllers
             var model = new AboutViewModel();
             model.ID = entity.AboutID;
             model.displayFileName = entity.fileName;
+            model.Title = entity.Title;
+            model.Description = entity.Description;
             return View(model);
         }
 
@@ -65,7 +68,8 @@ namespace NovoRumoProjeto.Areas.Admin.Controllers
                     AboutID = model.ID,
                     Title = model.Title,
                     Description = model.Description,
-                    fileName = model.displayFileName
+                    fileName = model.displayFileName,
+                    Data = DateTime.Now
                 });
 
 
@@ -93,9 +97,13 @@ namespace NovoRumoProjeto.Areas.Admin.Controllers
                 return View(model);
             }
             IAboutDAL aboutDAL = new AboutDAL();
-            var status = aboutDAL.Insert(new AboutEntity()
+            var status = model.SaveFile() &&
+                         aboutDAL.Insert(new AboutEntity()
             {
-                fileName = model.displayFileName
+                fileName = model.displayFileName,
+                Description = model.Description,
+                Title = model.Title,
+                Data = DateTime.Now
             });
 
             if (!status)
