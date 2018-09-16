@@ -6,11 +6,11 @@
    </div>
    <div class="grid-x">
        <div class="small-12 medium-8 large-offset-2">
-           <div class="main-carousel" role="region" aria-label="Fotos do Novo Rumo">
+           <div class="pictures-carousel" role="region" aria-label="Fotos do Novo Rumo">
                @foreach (var item in Model)
                {
                    <div class="carousel-cell">
-                       <img class="orbit-image" src="@Url.Content(item.displayFileName)" alt="@item.displayFileName">
+                       <img src="@Url.Content(item.displayFileName)" alt="@item.displayFileName">
                    </div>
                }
            </div>

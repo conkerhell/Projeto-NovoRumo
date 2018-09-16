@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using NovoRumoProjeto.DAL.About;
+using NovoRumoProjeto.Utilities.Extensions;
+using NovoRumoProjeto.Utilities;
 
 namespace NovoRumoProjeto.Models
 {
@@ -29,7 +31,7 @@ namespace NovoRumoProjeto.Models
               
                 About.Title = item.Title;
                 About.Description = item.Description;
-                About.displayFilename = item.fileName;
+                About.displayFilename = item.fileName.GetImagePath(Consts.ABOUT_IMAGE_PATH);
                 About.Data = item.Data;
 
                 model.Add(About);
