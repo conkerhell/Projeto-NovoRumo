@@ -35,6 +35,17 @@
             }
         });
 
+        function initSkroll() {
+            skrollr.init({
+                forceHeight: false,
+                smoothScrolling: false
+            });
+        }
+
+        function destroySkroll() {
+            skrollr.init().destroy();
+        }
+
         var $window = $(window);
         var nav = $('.scrollhide-nav');
         var indicadorAberturaMenu = false;
@@ -69,31 +80,12 @@
             pageDots: false,
             arrowShape: 'M92.5,42.5H25.6L37.8,30.3A7.5,7.5,0,1,0,27.2,19.7l-25,25a7.5,7.5,0,0,0,0,10.6l25,25a7.5,7.5,0,0,0,10.6,0,7.5,7.5,0,0,0,0-10.6L25.6,57.5H92.5a7.5,7.5,0,0,0,0-15Z'
         };
-        $('.main-carousel').flickity(configuracaoFlickity);
-        $('.pictures-carousel').flickity(configuracaoFlickity);
 
-        function initSkroll() {
-            skrollr.init({
-                forceHeight: false,
-                smoothScrolling: false
-            });
-        }
-
-        function destroySkroll() {
-            skrollr.init().destroy();
-        }
+        $('.main-carousel, .pictures-carousel').flickity(configuracaoFlickity);
 
         $(".accordion-menu li a").on("click", function () {
             $("#responsive-menu").css({ "display": "none" });
         });
-
-        (function (d, s, id) {
-            var js, fjs = d.getElementsByTagName(s)[0];
-            if (d.getElementById(id)) return;
-            js = d.createElement(s); js.id = id;
-            js.src = 'https://connect.facebook.net/pt_BR/sdk.js#xfbml=1&version=v2.12&appId=269841363195323&autoLogAppEvents=1';
-            fjs.parentNode.insertBefore(js, fjs);
-        }(document, 'script', 'facebook-jssdk'));
 
         $(document).ready(function () {
             $(function () {
@@ -112,7 +104,6 @@
                     }
                 });
             });
-
         });
     </script>
     @RenderSection("scripts", required: false)
