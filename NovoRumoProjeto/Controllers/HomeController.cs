@@ -1,8 +1,4 @@
 ﻿using NovoRumoProjeto.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 
 namespace NovoRumoProjeto.Controllers
@@ -19,7 +15,7 @@ namespace NovoRumoProjeto.Controllers
         public PartialViewResult About()
         {
             var model = new AboutViewModel();
-            var list = model.GetNewestAbout();
+            var list = model.Get();
             return PartialView(list);
         }
 
@@ -42,11 +38,15 @@ namespace NovoRumoProjeto.Controllers
         {
             var model = new EventViewModel();
             var hasNextEvent = model.CheckAndGetNextEvent();
-            
+
             if (hasNextEvent)
             {
                 return PartialView(model);
-            } return PartialView("NoNextEvent");
+            }
+            else
+            {
+                return PartialView("NoNextEvent");
+            }
         }
 
         [HttpGet]

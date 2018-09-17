@@ -18,27 +18,24 @@ namespace NovoRumoProjeto.Models
 
         public DateTime? Data { get; set; }
 
-        public List<AboutViewModel> GetNewestAbout()
+        public List<AboutViewModel> Get()
         {
-
-            IAboutDAL aboutDAL = new  AboutDAL();
+            IAboutDAL aboutDAL = new AboutDAL();
             var model = new List<AboutViewModel>();
-            var entity =  aboutDAL.GetNewestAbout();
+            var entity = aboutDAL.GetNewestAbout();
+
             foreach (var item in entity)
             {
-
                 var About = new AboutViewModel();
-              
+
                 About.Title = item.Title;
                 About.Description = item.Description;
                 About.displayFilename = item.fileName.GetImagePath(Consts.ABOUT_IMAGE_PATH);
                 About.Data = item.Data;
-
+                About.ID = item.AboutID;
                 model.Add(About);
             }
-
             return (model);
-           
         }
     }
 }
