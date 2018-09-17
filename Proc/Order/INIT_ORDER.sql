@@ -130,24 +130,38 @@ BEGIN
 SELECT OrderId, Typeid, UserId, NotificationCode, PaypalGuid, RecordDate, Total FROM [dbo].[Order] WITH (NOLOCK)
 END
 
+USE [NovoRumo]
+GO
+
+
 SET ANSI_NULLS ON
 GO
 
 SET QUOTED_IDENTIFIER ON
 GO
-CREATE PROCEDURE spGetOrderById(
+
+CREATE PROCEDURE [dbo].[spGetOrderById](
 	@OrderId AS INT
 )
 AS
 BEGIN
-SELECT OrderId, RecordDate, TypeId, NotificationCode, PaypalGuid, Total,
-	   U.UserId, U.Name, U.Lastname, A.Email
-  FROM [dbo].[Order] O WITH (NOLOCK)
-  INNER JOIN [dbo].[User] U ON U.UserId = O.UserId
-  INNER JOIN [dbo].[AspNetUsers] A ON A.Id = O.UserId
- WHERE OrderId = @OrderId
+SELECT O.OrderId, U.UserId, U.Name, U.Lastname,  T.TypeId, T.Name, NotificationCode, PaypalGuid, 
+OS.StatusId, SD.Name, Total,  O.RecordDate
+  FROM [dbo].[Order] O WITH (NOLOCK), [dbo].[User] U, [dbo].[OrderStatus] OS,  [dbo].[Type] T,
+  [dbo].[StatusDomain] SD 
+  where  U.UserId = O.UserId and
+  O.OrderId = OS.OrderId and
+  O.TypeId = T.TypeId and
+  OS.StatusId = SD.StatusId and
+  O.OrderId = @OrderId
 END
 	
+	
+
+SET ANSI_NULLS ON
+GO
+
+
 	
 
 SET ANSI_NULLS ON
