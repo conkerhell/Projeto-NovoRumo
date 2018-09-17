@@ -54,6 +54,7 @@ namespace NovoRumoProjeto.Controllers
         {
             var model = new ContactViewModel();
             model.Get();
+            model.Map = "https://www.google.com.br/maps/place/R.+Papa+Paulo+VI,+182+-+Vila+Thais,+Atibaia+-+SP,+12942-120/data=!4m2!3m1!1s0x94cec0e1a812ed13:0x6da17955b6c2899f?sa=X&ved=2ahUKEwiWnJyTsrjdAhXGk5AKHbNSAO0Q8gEwAHoECAQQAQ";
             return PartialView(model);
         }
     }

@@ -142,7 +142,7 @@
     <value>Falha</value>
   </data>
   <data name="SuccessTitle" xml:space="preserve">
-    <value>Sucesso</value>
+    <value>Operação realizada com sucesso. Ver alterações {0}</value>
   </data>
   <data name="UnexpectedErrorDuringPayment" xml:space="preserve">
     <value>Ocorreu um erro inesperado durante a doação, por favor tente novamente.</value>

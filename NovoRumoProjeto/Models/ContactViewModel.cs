@@ -11,6 +11,7 @@ namespace NovoRumoProjeto.Models
         public string SecondaryMobile { get; set; }
         public string Email { get; set; }
         public string CEP { get; set; }
+        public string Map { get; set; }
 
         public void Get()
         {
