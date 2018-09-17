@@ -20,7 +20,7 @@
                             <span lang="en">cep</span>
                         </td>
                         <td>
-                            <a class="link" href="https://www.google.com.br/maps/place/R.+Papa+Paulo+VI,+182+-+Vila+Thais,+Atibaia+-+SP,+12942-120/data=!4m2!3m1!1s0x94cec0e1a812ed13:0x6da17955b6c2899f?sa=X&ved=2ahUKEwiWnJyTsrjdAhXGk5AKHbNSAO0Q8gEwAHoECAQQAQ">@Model.CEP</a>
+                            <a class="link"  target="_blank" href="@Model.Map">@Model.CEP</a>
                         </td>
                     </tr>
                     <tr>
@@ -47,10 +47,7 @@
         </div>
 
         <div class="small-12 large-6 cell show-for-large">
-            <a href="#"
-               target="_blank">
-                <img src="/images/mapa.png">
-            </a>
+            <a href="@Model.Map" target="_blank"><img src="/images/mapa.png"></a>
         </div>
     </div>
 </div>
