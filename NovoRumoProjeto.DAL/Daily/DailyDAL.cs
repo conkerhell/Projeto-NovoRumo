@@ -75,7 +75,7 @@ namespace NovoRumoProjeto.DAL.Daily
             return dataAccess.ExecuteNonQuery(INSERT_DAILY_PROC,
            dataAccess.ParameterFactory.Create(FILENAME_COLUMN, DbType.String, entity.fileName, ParameterDirection.Input),
            dataAccess.ParameterFactory.Create(STATUS_COLUMN, DbType.Byte, entity.Status, ParameterDirection.Input),
-           dataAccess.ParameterFactory.Create(STATUS_COLUMN, DbType.DateTime, entity.Data, ParameterDirection.Input),
+           dataAccess.ParameterFactory.Create(DATA_COLUMN, DbType.DateTime, entity.Data, ParameterDirection.Input),
            dataAccess.ParameterFactory.Create(TITLE_COLUMN, DbType.String, entity.Title, ParameterDirection.Input),
            dataAccess.ParameterFactory.Create(DESCRIPTION_COLUMN, DbType.String, entity.Description, ParameterDirection.Input)) == 1;
         }
@@ -86,7 +86,7 @@ namespace NovoRumoProjeto.DAL.Daily
           dataAccess.ParameterFactory.Create(DAILY_ID_COLUMN, DbType.Int32, entity.DailyID, ParameterDirection.Input),
           dataAccess.ParameterFactory.Create(FILENAME_COLUMN, DbType.String, entity.fileName, ParameterDirection.Input),
           dataAccess.ParameterFactory.Create(STATUS_COLUMN, DbType.Byte, entity.Status, ParameterDirection.Input),
-          dataAccess.ParameterFactory.Create(STATUS_COLUMN, DbType.DateTime, entity.Data, ParameterDirection.Input),
+          dataAccess.ParameterFactory.Create(DATA_COLUMN, DbType.DateTime, entity.Data, ParameterDirection.Input),
           dataAccess.ParameterFactory.Create(TITLE_COLUMN, DbType.String, entity.Title, ParameterDirection.Input),
            dataAccess.ParameterFactory.Create(DESCRIPTION_COLUMN, DbType.String, entity.Description, ParameterDirection.Input)) == 1;
         }

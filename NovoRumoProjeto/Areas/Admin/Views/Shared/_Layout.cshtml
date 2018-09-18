@@ -82,6 +82,13 @@
             startDate: new Date(),
         });
 
+        $('#all-date-field').fdatepicker({
+            leftArrow: '<',
+            rightArrow: '>',
+            format: 'dd/mm/yyyy',
+            disableDblClickSelection: true
+        });
+
         function previewFile(input) {
             if (input.files && input.files[0]) {
                 var reader = new FileReader();

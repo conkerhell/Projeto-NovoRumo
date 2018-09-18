@@ -60,6 +60,7 @@ BEGIN
 SELECT DailyID, Filename, Status, Data, Title, Description
   FROM Daily WITH (NOLOCK)
  WHERE DailyID = @DailyID
+ ORDER BY Data
 END
 
 SET ANSI_NULLS ON

@@ -4,6 +4,7 @@ using NovoRumoProjeto.Entity;
 using NovoRumoProjeto.Utilities;
 using NovoRumoProjeto.Utilities.Extensions;
 using Resources;
+using System;
 using System.Collections.Generic;
 using System.Web.Mvc;
 using Vereyon.Web;
@@ -28,7 +29,8 @@ namespace NovoRumoProjeto.Areas.Admin.Controllers
                 model.Add(new DailyViewModel()
                 {
                     ID = item.DailyID,
-                    displayFileName = item.fileName.GetImagePath(IMAGE_PATH)
+                    displayFileName = item.fileName.GetImagePath(IMAGE_PATH),
+                    Title = item.Title
                 });
             }
 
@@ -38,7 +40,9 @@ namespace NovoRumoProjeto.Areas.Admin.Controllers
         [HttpGet]
         public ActionResult Add()
         {
-            return View(new DailyViewModel());
+            var model = new DailyViewModel();
+            model.Data = DateTime.Now;
+            return View();
         }
 
         [HttpPost]
@@ -56,7 +60,9 @@ namespace NovoRumoProjeto.Areas.Admin.Controllers
                 {
                     Status = 1,
                     fileName = model.displayFileName,
-                    
+                    Data = model.Data,
+                    Title = model.Title,
+                    Description = model.Description,
                 });
 
             if (!status)
@@ -83,6 +89,9 @@ namespace NovoRumoProjeto.Areas.Admin.Controllers
             var model = new DailyViewModel();
             model.ID = entity.DailyID;
             model.displayFileName = entity.fileName.GetImagePath(IMAGE_PATH);
+            model.Title = entity.Title;
+            model.Description = entity.Description;
+            model.Data = entity.Data;
 
             return View(model);
         }
@@ -101,7 +110,10 @@ namespace NovoRumoProjeto.Areas.Admin.Controllers
                 dailyDAL.Update(new DailyEntity()
                 {
                     DailyID = model.ID,
-                    fileName = model.displayFileName
+                    fileName = model.displayFileName,
+                    Data = model.Data,
+                    Title = model.Title,
+                    Description = model.Description
                 });
 
             if (!status)

@@ -26,7 +26,7 @@
             @Html.LabelFor(model => model.Data)
             <div class="input-group">
                 <span class="input-group-label"><i class='fi fi-calendar' aria-hidden='true'></i></span>
-                @Html.TextBoxFor(model => model.Data, "{0:dd/MM/yyyy}", new { @class = "input-group-field", @id = "date-field" })
+                @Html.TextBoxFor(model => model.Data, "{0:dd/MM/yyyy}", new { @class = "input-group-field", @id = "all-date-field" })
             </div>
             @Html.ValidationMessageFor(model => model.Data)
         </div>

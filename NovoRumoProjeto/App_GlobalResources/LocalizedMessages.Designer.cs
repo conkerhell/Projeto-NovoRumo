@@ -106,7 +106,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Operacao concluida com sucesso.
+        ///   Looks up a localized string similar to Operacao concluida com sucesso, veja as alterações {0}.
         /// </summary>
         internal static string operationSucced {
             get {
@@ -133,7 +133,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Operação realizada com sucesso. Ver alterações {0}.
+        ///   Looks up a localized string similar to Sucesso!.
         /// </summary>
         internal static string SuccessTitle {
             get {

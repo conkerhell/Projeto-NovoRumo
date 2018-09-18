@@ -127,7 +127,7 @@
     <value>O tamanho do arquivo nao deve exceder {0}.</value>
   </data>
   <data name="operationSucced" xml:space="preserve">
-    <value>Operacao concluida com sucesso</value>
+    <value>Operacao concluida com sucesso, veja as alterações {0}</value>
   </data>
   <data name="PropertyValueInvalid" xml:space="preserve">
     <value>Campo não é válido.</value>
@@ -142,7 +142,7 @@
     <value>Falha</value>
   </data>
   <data name="SuccessTitle" xml:space="preserve">
-    <value>Operação realizada com sucesso. Ver alterações {0}</value>
+    <value>Sucesso!</value>
   </data>
   <data name="UnexpectedErrorDuringPayment" xml:space="preserve">
     <value>Ocorreu um erro inesperado durante a doação, por favor tente novamente.</value>

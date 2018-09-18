@@ -1,50 +1,49 @@
 ﻿@model IList<NovoRumoProjeto.Models.AboutViewModel>
 
 <div class="red-content text-center" id="sobre-nos">
-    <div class="grid-container">
-        <h3>Sobre Nós</h3>
+    <h3>Sobre Nós</h3>
 
-        <div class="grid-x">
-            <div class="small-12">
-                <div class="main-carousel" role="region">
-                    @foreach (var item in Model)
-                    {
-                        <div class="main-carousel-cell">
-                            <a data-toggle="modal-@item.ID">
-                                <div class="column small-12">
-                                    <p>
-                                        <img src="@Url.Content(item.displayFilename)" alt="@item.displayFilename">
-                                    </p>
-                                </div>
-                                <div class="column small-12">
-                                    <p>@item.Title</p>
-                                </div>
-                            </a>
-                        </div>
-                    }
-                </div>
+    <div class="grid-x">
+        <div class="small-12">
+            <div class="main-carousel" role="region">
+                @foreach (var item in Model)
+                {
+                    <div class="main-carousel-cell">
+                        <a data-toggle="modal-@item.ID">
+                            <div class="column small-12">
+                                <p>
+                                    <img src="@Url.Content(item.displayFilename)" alt="@item.displayFilename">
+                                </p>
+                            </div>
+                            <div class="column small-12">
+                                <p>@item.Title</p>
+                            </div>
+                        </a>
+                    </div>
+                }
             </div>
         </div>
-        @foreach (var item in Model)
-        {
-            <div class="reveal large" id="modal-@item.ID" data-reveal data-close-on-click="true" data-animation-in="fade-in" data-animation-out="fade-out">
-                <div class="grid-x">
-                    <div class="small-12 medium-3 cell">
-                        <h4>@item.Title</h4>
-                    </div>
-                    <div class="small-12 medium-9 cell">
-                        <p>
-                            @item.Description
-                        </p>
-                    </div>
-                </div>
-                <button class="close-button" data-close aria-label="Close reveal" type="button">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-        }
     </div>
 </div>
+@foreach (var item in Model)
+{
+    <div class="reveal large" id="modal-@item.ID" data-reveal data-close-on-click="true" data-animation-in="fade-in" data-animation-out="fade-out">
+        <div class="grid-x">
+            <div class="small-12 medium-3 cell">
+                <h4>@item.Title</h4>
+            </div>
+            <div class="small-12 medium-9 cell">
+                <p>
+                    @item.Description
+                </p>
+            </div>
+        </div>
+        <button class="close-button" data-close aria-label="Close reveal" type="button">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+}
+
 
 
 
