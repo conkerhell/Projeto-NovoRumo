@@ -2,6 +2,7 @@
 using NovoRumoProjeto.Utilities;
 using NovoRumoProjeto.Utilities.Validation;
 using Resources;
+using System;
 using System.ComponentModel.DataAnnotations;
 using System.Configuration;
 using System.IO;
@@ -11,6 +12,9 @@ namespace NovoRumoProjeto.Areas.Admin.Models
 {
     public class DailyViewModel
     {
+        [Display(Name = "ID")]
+        public int ID { get; set; }
+
         [Required(ErrorMessageResourceType = typeof(LocalizedMessages),
             ErrorMessageResourceName = "PropertyValueRequired")]
         [Display(Name = "Nome")]
@@ -22,8 +26,20 @@ namespace NovoRumoProjeto.Areas.Admin.Models
             ErrorMessageResourceName = "FileFormatInvalid")]
         public HttpPostedFileBase file { get; set; }
 
-        [Display(Name = "ID")]
-        public int ID { get; set; }
+        [Required(ErrorMessageResourceType = typeof(LocalizedMessages),
+            ErrorMessageResourceName = "PropertyValueRequired")]
+        [Display(Name = "Título")]
+        public string Title { get; set; }
+
+        [Required(ErrorMessageResourceType = typeof(LocalizedMessages),
+            ErrorMessageResourceName = "PropertyValueRequired")]
+        [Display(Name = "Descrição")]
+        public string Description { get; set; }
+
+        [Required(ErrorMessageResourceType = typeof(LocalizedMessages),
+            ErrorMessageResourceName = "PropertyValueRequired")]
+        [Display(Name = "Data")]
+        public DateTime Data { get; set; }
 
         public bool SaveFile()
         {

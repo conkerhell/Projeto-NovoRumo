@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Associação Novo Rumo Atibaia</title>
     <link rel="stylesheet" href="~/Content/flickity.min.css">
-    <link rel="stylesheet" href="~/Content/app.min.css"/>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/motion-ui/1.1.1/motion-ui.min.css" async/>
+    <link rel="stylesheet" href="~/Content/app.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/motion-ui/1.1.1/motion-ui.min.css" async />
     <link href="https://fonts.googleapis.com/css?family=Raleway:400,900" rel="stylesheet" async>
 </head>
 <body>
@@ -51,7 +51,9 @@
         var indicadorAberturaMenu = false;
         $window.on('scroll', function () {
             var scrollTop = $window.scrollTop();
-            nav.toggleClass('hidden', (scrollTop > 0 && !indicadorAberturaMenu));
+            if (!body.hasClass('is-reveal-open')) {
+                nav.toggleClass('hidden', (scrollTop > 0 && !indicadorAberturaMenu));
+            }
         });
 
         var body = $('body');

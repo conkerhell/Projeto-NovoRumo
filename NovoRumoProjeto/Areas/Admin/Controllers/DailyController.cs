@@ -55,7 +55,8 @@ namespace NovoRumoProjeto.Areas.Admin.Controllers
                 dailyDAL.Insert(new DailyEntity()
                 {
                     Status = 1,
-                    fileName = model.displayFileName
+                    fileName = model.displayFileName,
+                    
                 });
 
             if (!status)

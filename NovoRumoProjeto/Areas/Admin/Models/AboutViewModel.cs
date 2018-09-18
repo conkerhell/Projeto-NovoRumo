@@ -1,4 +1,4 @@
-﻿        using NovoRumoProjeto.Utilities;
+﻿using NovoRumoProjeto.Utilities;
 using NovoRumoProjeto.Utilities.Validation;
 using Resources;
 using System.ComponentModel.DataAnnotations;
@@ -11,7 +11,6 @@ namespace NovoRumoProjeto.Areas.Admin.Models
 {
     public class AboutViewModel
     {
-
         [Required(ErrorMessageResourceType = typeof(LocalizedMessages),
             ErrorMessageResourceName = "PropertyValueRequired")]
         [Display(Name = "Titulo")]
