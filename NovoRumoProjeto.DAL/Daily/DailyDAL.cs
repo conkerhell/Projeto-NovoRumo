@@ -16,6 +16,9 @@ namespace NovoRumoProjeto.DAL.Daily
         private const string DAILY_ID_COLUMN = "DailyID";
         private const string FILENAME_COLUMN = "Filename";
         private const string STATUS_COLUMN = "Status";
+        private const string DATA_COLUMN = "Data";
+        private const string TITLE_COLUMN = "Title";
+        private const string DESCRIPTION_COLUMN = "Description";
 
         public List<DailyEntity> Get()
         {
@@ -32,6 +35,10 @@ namespace NovoRumoProjeto.DAL.Daily
                         daily.DailyID = Convert.ToInt32(result[DAILY_ID_COLUMN]);
                         daily.fileName = result[FILENAME_COLUMN].ToString();
                         daily.Status = Convert.ToByte(result[STATUS_COLUMN]);
+                        daily.Data = Convert.ToDateTime(result[DATA_COLUMN]);
+                        daily.Title = result[TITLE_COLUMN].ToString();
+                        daily.Description = result[DESCRIPTION_COLUMN].ToString();
+
                         dailies.Add(daily);
                     }
                 }
@@ -54,18 +61,23 @@ namespace NovoRumoProjeto.DAL.Daily
                         daily.DailyID = Convert.ToInt32(result[DAILY_ID_COLUMN]);
                         daily.fileName = result[FILENAME_COLUMN].ToString();
                         daily.Status = Convert.ToByte(result[STATUS_COLUMN]);
+                        daily.Data = Convert.ToDateTime(result[DATA_COLUMN]);
+                        daily.Title = result[TITLE_COLUMN].ToString();
+                        daily.Description = result[DESCRIPTION_COLUMN].ToString();
                     }
                 }
-
                 return daily;
             }
         }
 
         public bool Insert(DailyEntity entity)
         {
-            return dataAccess.ExecuteNonQuery(INSERT_DAILY_PROC,           
+            return dataAccess.ExecuteNonQuery(INSERT_DAILY_PROC,
            dataAccess.ParameterFactory.Create(FILENAME_COLUMN, DbType.String, entity.fileName, ParameterDirection.Input),
-           dataAccess.ParameterFactory.Create(STATUS_COLUMN, DbType.Byte, entity.Status, ParameterDirection.Input)) == 1;
+           dataAccess.ParameterFactory.Create(STATUS_COLUMN, DbType.Byte, entity.Status, ParameterDirection.Input),
+           dataAccess.ParameterFactory.Create(STATUS_COLUMN, DbType.DateTime, entity.Data, ParameterDirection.Input),
+           dataAccess.ParameterFactory.Create(TITLE_COLUMN, DbType.String, entity.Title, ParameterDirection.Input),
+           dataAccess.ParameterFactory.Create(DESCRIPTION_COLUMN, DbType.String, entity.Description, ParameterDirection.Input)) == 1;
         }
 
         public bool Update(DailyEntity entity)
@@ -73,7 +85,10 @@ namespace NovoRumoProjeto.DAL.Daily
             return dataAccess.ExecuteNonQuery(UPDATE_DAILY_PROC,
           dataAccess.ParameterFactory.Create(DAILY_ID_COLUMN, DbType.Int32, entity.DailyID, ParameterDirection.Input),
           dataAccess.ParameterFactory.Create(FILENAME_COLUMN, DbType.String, entity.fileName, ParameterDirection.Input),
-          dataAccess.ParameterFactory.Create(STATUS_COLUMN, DbType.Byte, entity.Status, ParameterDirection.Input)) == 1;
+          dataAccess.ParameterFactory.Create(STATUS_COLUMN, DbType.Byte, entity.Status, ParameterDirection.Input),
+          dataAccess.ParameterFactory.Create(STATUS_COLUMN, DbType.DateTime, entity.Data, ParameterDirection.Input),
+          dataAccess.ParameterFactory.Create(TITLE_COLUMN, DbType.String, entity.Title, ParameterDirection.Input),
+           dataAccess.ParameterFactory.Create(DESCRIPTION_COLUMN, DbType.String, entity.Description, ParameterDirection.Input)) == 1;
         }
 
         public bool Delete(int id)
