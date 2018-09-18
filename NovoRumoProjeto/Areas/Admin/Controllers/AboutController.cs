@@ -99,12 +99,12 @@ namespace NovoRumoProjeto.Areas.Admin.Controllers
             IAboutDAL aboutDAL = new AboutDAL();
             var status = model.SaveFile() &&
                          aboutDAL.Insert(new AboutEntity()
-            {
-                fileName = model.displayFileName,
-                Description = model.Description,
-                Title = model.Title,
-                Data = DateTime.Now
-            });
+                         {
+                             fileName = model.displayFileName,
+                             Description = model.Description,
+                             Title = model.Title,
+                             Data = DateTime.Now
+                         });
 
             if (!status)
             {
@@ -113,6 +113,41 @@ namespace NovoRumoProjeto.Areas.Admin.Controllers
             }
             FlashMessage.Confirmation("sucesso!");
             return RedirectToAction("Index");
+        }
+
+        [HttpGet]
+        public ActionResult Delete(int? id)
+        {
+            if (!id.HasValue)
+            {
+                return RedirectToAction("Index");
+            }
+
+            IAboutDAL aboutDAL = new AboutDAL();
+            var entity = aboutDAL.GetById(id.Value);
+
+            var model = new AboutViewModel();
+
+            model.ID = entity.AboutID;
+            model.Title = entity.Title;
+            model.Description = entity.Description;
+            model.displayFileName = entity.fileName;
+            return View(model);
+        }
+
+        [HttpPost]
+        public ActionResult Delete(int id)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View();
+            }
+
+            IAboutDAL aboutDAL = new AboutDAL();
+
+            aboutDAL.Delete(id);
+            return RedirectToAction("Index");
+
         }
     }
 }
