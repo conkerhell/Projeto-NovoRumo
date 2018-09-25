@@ -260,18 +260,24 @@ END
 SET ANSI_NULLS ON
 GO
 
+SET ANSI_NULLS ON
+GO
+
 SET QUOTED_IDENTIFIER ON
 GO
-CREATE PROCEDURE spGetDonations
+
+CREATE PROCEDURE [dbo].[spGetDonations]
 AS
 BEGIN
 SELECT OrderId, RecordDate, TypeId, NotificationCode, PaypalGuid, Total,
-	   U.UserId, U.Name, U.Lastname, A.Email
+	   U.UserId, U.Name, U.Lastname
   FROM [dbo].[Order] O WITH (NOLOCK)
    INNER JOIN [dbo].[User] U ON U.UserId = O.UserId
-  INNER JOIN [dbo].[AspNetUsers] A ON A.Id = O.UserId
  WHERE TypeId IN (1, 2, 3)
 END
+
+GO
+
 
 
 
